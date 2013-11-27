@@ -19,7 +19,7 @@ namespace Dash
             FormBorderStyle = FormBorderStyle.None;
             TopMost = true;
 
-            //KeyDown += OnKeyDown;
+            KeyDown += OnKeyDown;
 
         }
 
