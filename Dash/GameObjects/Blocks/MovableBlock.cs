@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Dash
+{
+    class MovableBlock:SolidBlock
+    {
+        protected int speed;
+
+        public MovableBlock(int speed, PointF position, string imagePath) : base(position, imagePath)
+        {
+            this.speed = speed;
+        }
+    }
+}
