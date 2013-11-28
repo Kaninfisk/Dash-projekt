@@ -6,29 +6,32 @@ using System.Threading.Tasks;
 
 namespace Dash
 {
-    class Audio
+    static class Audio
     {
-        protected int masterVolume;
-        protected int soundVolume;
-        protected int musicVolume;
+        static private int masterVolume;
+        static private int soundVolume;
+        static private int musicVolume;
 
-        public int MasterVolume
+        static public int MasterVolume
         {
             set { masterVolume = value; }
+            get { return masterVolume; }
         }
 
-        public int SoundVolume
+        static public int SoundVolume
         {
             set { soundVolume = value; }
+            get { return soundVolume; }
         }
 
-        public int MusicVolume
+        static public int MusicVolume
         {
             set { musicVolume = value; }
+            get { return musicVolume; }
         }
-        
 
-        public Audio()
+
+        static Audio()
         {
             masterVolume = Config.Master;
             soundVolume = Config.Sound;

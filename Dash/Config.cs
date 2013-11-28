@@ -16,13 +16,13 @@ namespace Dash
         static private Keys rightKey;
         static private Keys upKey;
         static private Keys downKey;
-        static private Keys dashKey;
+        static private Keys shootKey;
 
 
-        static public Keys DashKey
+        static public Keys ShootKey
         {
-            get { return dashKey; }
-            set { dashKey = value; }
+            get { return shootKey; }
+            set { shootKey = value; }
         }
 
         static public Keys DownKey
@@ -80,7 +80,7 @@ namespace Dash
             rightKey = Keys.D;
             upKey = Keys.W;
             downKey = Keys.S;
-            dashKey = Keys.Space;
+            shootKey = Keys.Space;
 
             if (!File.Exists("config.xml"))
             {
@@ -111,7 +111,7 @@ namespace Dash
             subNode = doc.CreateElement("Music");
             subNode.InnerText = "100";
             node.AppendChild(subNode);
-            subNode = doc.CreateElement("Sound");
+            subNode = doc.CreateElement("Soundfx");
             subNode.InnerText = "100";
             node.AppendChild(subNode);
             subNode = doc.CreateElement("Master");
@@ -132,7 +132,7 @@ namespace Dash
             subNode.InnerText = ((int)downKey).ToString();
             node.AppendChild(subNode);
             subNode = doc.CreateElement("Dash");
-            subNode.InnerText = ((int)dashKey).ToString();
+            subNode.InnerText = ((int)shootKey).ToString();
             node.AppendChild(subNode);
             doc.DocumentElement.AppendChild(node);
             doc.Save("config.xml");
@@ -149,14 +149,16 @@ namespace Dash
             {
                 switch (element.Name)
                 {
-                    case "Sound":
-                        sound = int.Parse(element.InnerText);
-                        break;
-
                     case "Music":
                         music = int.Parse(element.InnerText);
                         break;
 
+
+                    case "Soundfx":
+                        sound = int.Parse(element.InnerText);
+                        break;
+
+                   
                     case "Master":
                         master = int.Parse(element.InnerText);
                         break;
@@ -183,7 +185,7 @@ namespace Dash
                                     break;
 
                                 case "Dash":
-                                    dashKey = (Keys)int.Parse(e.InnerText);
+                                    shootKey = (Keys)int.Parse(e.InnerText);
                                     break;
                             }
                         }

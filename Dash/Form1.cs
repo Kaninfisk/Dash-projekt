@@ -12,6 +12,8 @@ namespace Dash
 {
     public partial class Form1 : Form
     {
+        private GameWorld g;
+
         public Form1()
         {
             InitializeComponent();
@@ -19,7 +21,13 @@ namespace Dash
             FormBorderStyle = FormBorderStyle.None;
             TopMost = true;
 
-            KeyDown += OnKeyDown;
+            Timer timer1 = new Timer();
+            timer1.Interval = 40;
+            timer1.Tick += Timer1_Tick;
+            timer1.Start();
+
+            KeyPreview = true;
+            PreviewKeyDown += Input;
 
         }
 
@@ -28,13 +36,19 @@ namespace Dash
             
         }
 
-        private void OnKeyDown(object sender, KeyEventArgs e)
+        public void Timer1_Tick(object sender, EventArgs e)
         {
-            Label lbl = new Label();
-            lbl.Text += e.KeyCode;
-            Controls.Clear();
-            Controls.Add(lbl);
-            KeyDown -= OnKeyDown;
+            if (g == null)
+            {
+                g = new GameWorld(CreateGraphics(), DisplayRectangle);
+            }
+            g.GameLoop();
         }
+
+        public void Input(object sender, PreviewKeyDownEventArgs e)
+        {
+            g.Input = e.KeyCode;
+        }
+
     }
 }
