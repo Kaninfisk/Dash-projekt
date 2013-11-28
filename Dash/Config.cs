@@ -109,13 +109,13 @@ namespace Dash
             doc.AppendChild(node);
             node = doc.CreateElement("Sound");
             subNode = doc.CreateElement("Music");
-            subNode.InnerText = "100";
+            subNode.InnerText = Audio.MusicVolume.ToString();
             node.AppendChild(subNode);
             subNode = doc.CreateElement("Soundfx");
-            subNode.InnerText = "100";
+            subNode.InnerText = Audio.SoundVolume.ToString();
             node.AppendChild(subNode);
             subNode = doc.CreateElement("Master");
-            subNode.InnerText = "100";
+            subNode.InnerText = Audio.MasterVolume.ToString();
             node.AppendChild(subNode);
             doc.DocumentElement.AppendChild(node);
             node = doc.CreateElement("Keys");
@@ -149,18 +149,30 @@ namespace Dash
             {
                 switch (element.Name)
                 {
-                    case "Music":
-                        music = int.Parse(element.InnerText);
-                        break;
+                    case "Sound":
+
+                        foreach (XmlElement e in element)
+                        {
+                            switch (e.Name)
+                            {
+                                case "Music":
+                                    music = int.Parse(e.InnerText);
+                                    Audio.MusicVolume = music;
+                                    break;
 
 
-                    case "Soundfx":
-                        sound = int.Parse(element.InnerText);
-                        break;
+                                case "Soundfx":
+                                    sound = int.Parse(e.InnerText);
+                                    Audio.SoundVolume = sound;
+                                    break;
 
-                   
-                    case "Master":
-                        master = int.Parse(element.InnerText);
+
+                                case "Master":
+                                    master = int.Parse(e.InnerText);
+                                    Audio.MasterVolume = master;
+                                    break;
+                            }
+                        }
                         break;
 
                     case "Keys":

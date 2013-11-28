@@ -13,7 +13,6 @@ namespace Dash
         private int selectedMenu;
         private int highlightedMenuItem;
         private int selectedMenuItem;
-
         private Graphics dc;
         private DateTime lastClick;
         public DateTime LastClick
@@ -141,7 +140,15 @@ namespace Dash
             dc.DrawString("Movement keys", headLine2, b, 500, 200);
             if (highlightedMenuItem == 1)
             {
-                dc.DrawString("Up: " + Config.UpKey, f, b2, 600, 300);
+                if (selectedMenuItem == 1)
+                {
+                    dc.DrawString("Up: Enter new key", f, b2, 600, 300);
+                }
+                else
+                {
+                    dc.DrawString("Up: " + Config.UpKey, f, b2, 600, 300);
+                }
+                
             }
             else
             {
@@ -149,7 +156,15 @@ namespace Dash
             }
             if (highlightedMenuItem == 2)
             {
-                dc.DrawString("Down: " + Config.DownKey, f, b2, 600, 400);
+                if (selectedMenuItem == 2)
+                {
+                    dc.DrawString("Down: Enter new key", f, b2, 600, 400);
+                }
+                else
+                {
+                    dc.DrawString("Down: " + Config.DownKey, f, b2, 600, 400);    
+                }
+                
             }
             else
             {
@@ -158,7 +173,14 @@ namespace Dash
 
             if (highlightedMenuItem == 3)
             {
-                dc.DrawString("Left: " + Config.LeftKey, f, b2, 600, 500);
+                if (selectedMenuItem == 3)
+                {
+                    dc.DrawString("Left: Enter new key", f, b2, 600, 500);
+                }
+                else
+                {
+                    dc.DrawString("Left: " + Config.LeftKey, f, b2, 600, 500);
+                }
             }
             else
             {
@@ -167,7 +189,14 @@ namespace Dash
 
             if (highlightedMenuItem == 4)
             {
-                dc.DrawString("Right: " + Config.RightKey, f, b2, 600, 600);
+                if (selectedMenuItem == 4)
+                {
+                    dc.DrawString("Right: Enter new key", f, b2, 600, 600);
+                }
+                else
+                {
+                    dc.DrawString("Right: " + Config.RightKey, f, b2, 600, 600);
+                }
             }
             else
             {
@@ -179,7 +208,14 @@ namespace Dash
 
             if (highlightedMenuItem == 5)
             {
-                dc.DrawString("Shoot: " + Config.ShootKey, f, b2, 600, 800);
+                if (selectedMenuItem == 4)
+                {
+                    dc.DrawString("Shoot: Enter new key", f, b2, 600, 800);
+                }
+                else
+                {
+                    dc.DrawString("Shoot: " + Config.ShootKey, f, b2, 600, 800);
+                }
             }
             else
             {
@@ -195,7 +231,7 @@ namespace Dash
             }
         }
 
-        public void Update()
+        public void Update(ref Keys key)
         {
             int max;
             if (selectedMenu == 1)
@@ -213,13 +249,20 @@ namespace Dash
 
             if (Keyboard.IsKeyDown(Keys.Up) && highlightedMenuItem >= 2)
             {
-                highlightedMenuItem--;
-                lastClick = DateTime.Now;
+                if (selectedMenuItem == 0)
+                {
+                    highlightedMenuItem--;
+                    lastClick = DateTime.Now;    
+                }
             }
             else if (Keyboard.IsKeyDown(Keys.Down) && highlightedMenuItem <= max)
             {
-                highlightedMenuItem++;
-                lastClick = DateTime.Now;
+                if (selectedMenuItem == 0)
+                {
+                    highlightedMenuItem++;
+                    lastClick = DateTime.Now;
+                }
+                
             }
             else if (Keyboard.IsKeyDown(Keys.Enter))
             {
@@ -233,6 +276,7 @@ namespace Dash
                             case 2:
                                 selectedMenu = 2;
                                 highlightedMenuItem = 1;
+                                lastClick = DateTime.Now;
                                 break;
                             case 3:
                                 break;
@@ -245,20 +289,19 @@ namespace Dash
                         switch (highlightedMenuItem)
                         {
                             case 1:
-                                break;
                             case 2:
-                                selectedMenu = 2;
-                                highlightedMenuItem = 1;
-                                break;
                             case 3:
                                 break;
                             case 4:
                                 selectedMenu = 3;
                                 highlightedMenuItem = 1;
+                                lastClick = DateTime.Now;
                                 break;
                             case 5:
                                 selectedMenu = 1;
                                 highlightedMenuItem = 1;
+                                lastClick = DateTime.Now;
+                                Config.UpdateConfig();
                                 break;
                         }
                         break;
@@ -266,24 +309,30 @@ namespace Dash
                         switch (highlightedMenuItem)
                         {
                             case 1:
+                                selectedMenuItem = 1;
                                 break;
                             case 2:
+                                selectedMenuItem = 2;
                                 break;
                             case 3:
+                                selectedMenuItem = 3;
                                 break;
                             case 4:
+                                selectedMenuItem = 4;
                                 break;
                             case 5:
+                                selectedMenuItem = 5;
                                 break;
                             case 6:
                                 selectedMenu = 2;
                                 highlightedMenuItem = 1;
+                                selectedMenuItem = 0;
+                                Config.UpdateConfig();
+                                lastClick = DateTime.Now;
                                 break;
                         }
                         break;
                 }
-
-
             }
             else if (Keyboard.IsKeyDown(Keys.Left) && selectedMenu == 2 && highlightedMenuItem < 4)
             {
@@ -334,6 +383,44 @@ namespace Dash
                 }
             }
 
+            switch (selectedMenuItem)
+            {
+                case 1:
+                    if (key != Keys.Enter)
+                    {
+                        Config.UpKey = key;
+                        selectedMenuItem = 0;
+                    }
+                    break;
+                case 2:
+                    if (key != Keys.Enter)
+                    {
+                        Config.DownKey = key;
+                        selectedMenuItem = 0;
+                    }
+                    break;
+                case 3:
+                    if (key != Keys.Enter)
+                    {
+                        Config.LeftKey = key;
+                        selectedMenuItem = 0;
+                    }
+                    break;
+                case 4:
+                    if (key != Keys.Enter)
+                    {
+                        Config.RightKey = key;
+                        selectedMenuItem = 0;
+                    }
+                    break;
+                case 5:
+                    if (key != Keys.Enter)
+                    {
+                        Config.ShootKey = key;
+                        selectedMenuItem = 0;
+                    }
+                    break;
+            }
         }
     }
 }

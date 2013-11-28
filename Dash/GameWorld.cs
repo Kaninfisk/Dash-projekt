@@ -45,7 +45,7 @@ namespace Dash
                 TimeSpan deltaTime = DateTime.Now - m.LastClick;
                 if (deltaTime.TotalMilliseconds > 200)
                 {
-                    m.Update();
+                    m.Update(ref input);
                 }
                 m.DrawMenu();
             }
