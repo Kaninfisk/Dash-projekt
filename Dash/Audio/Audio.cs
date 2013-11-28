@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IrrKlang;
 
 namespace Dash
 {
@@ -11,6 +12,10 @@ namespace Dash
         static private int masterVolume;
         static private int soundVolume;
         static private int musicVolume;
+
+        private static ISoundEngine musicEngine = new ISoundEngine();
+        private static ISoundEngine soundFXEngine = new ISoundEngine();
+
 
         static public int MasterVolume
         {
@@ -26,7 +31,9 @@ namespace Dash
                 }
                 else
                 {
-                    masterVolume = value;    
+                    masterVolume = value;
+                    musicEngine.SoundVolume = (((float)(musicVolume) / (float)100) / 100) * masterVolume;
+                    soundFXEngine.SoundVolume = (((float)(soundVolume) / (float)100) / 100) * masterVolume;
                 }
             }
             get { return masterVolume; }
@@ -47,6 +54,7 @@ namespace Dash
                 else
                 {
                     soundVolume = value;
+                    soundFXEngine.SoundVolume = (((float)(value) / (float)100)/100)*masterVolume;
                 }
             }
             get { return soundVolume; }
@@ -67,6 +75,7 @@ namespace Dash
                 else
                 {
                     musicVolume = value;
+                    musicEngine.SoundVolume =  (((float)(value) /(float)100)/100)*masterVolume;
                 }
             }
             get { return musicVolume; }
@@ -78,6 +87,19 @@ namespace Dash
             masterVolume = Config.Master;
             soundVolume = Config.Sound;
             musicVolume = Config.Music;
+            musicEngine.SoundVolume = musicVolume;
+        }
+
+        static public void PlayMusic(string filePath)
+        {
+            musicEngine.SoundVolume = (((float) musicVolume/100)/100)*masterVolume;
+            musicEngine.Play2D(filePath, true);
+        }
+
+        static public void PlaySoundFX(string FilePath)
+        {
+            soundFXEngine.SoundVolume = (((float)soundVolume / 100)/100)*masterVolume;
+            soundFXEngine.Play2D(FilePath, false);
         }
     }
 }

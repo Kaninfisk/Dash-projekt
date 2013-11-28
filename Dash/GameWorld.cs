@@ -54,7 +54,7 @@ namespace Dash
 
         public void SetupGameWorld()
         {
-
+            Audio.PlayMusic("audio/music.mp3");
         }
     }
 }

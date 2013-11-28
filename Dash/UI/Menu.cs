@@ -359,6 +359,7 @@ namespace Dash
                         if (Audio.SoundVolume > 0)
                         {
                             Audio.SoundVolume--;
+                            Audio.PlaySoundFX("audio/laser.wav");
                         }
                         break;
                     case 3:
@@ -376,13 +377,14 @@ namespace Dash
                     case 1:
                         if (Audio.MasterVolume < 100)
                         {
-                            Audio.MasterVolume++;    
+                            Audio.MasterVolume++;
                         }
                         break;
                     case 2:
                         if (Audio.SoundVolume < 100)
                         {
                             Audio.SoundVolume++;
+                            Audio.PlaySoundFX("audio/laser.wav");
                         }
                         break;
                     case 3:
