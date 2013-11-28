@@ -14,19 +14,61 @@ namespace Dash
 
         static public int MasterVolume
         {
-            set { masterVolume = value; }
+            set
+            {
+                if (value > 100)
+                {
+                    masterVolume = 100;
+                }
+                else if (value < 0)
+                {
+                    masterVolume = 0;
+                }
+                else
+                {
+                    masterVolume = value;    
+                }
+            }
             get { return masterVolume; }
         }
 
         static public int SoundVolume
         {
-            set { soundVolume = value; }
+            set
+            {
+                if (value > 100)
+                {
+                    soundVolume = 100;
+                }
+                else if (value < 0)
+                {
+                    soundVolume = 0;
+                }
+                else
+                {
+                    soundVolume = value;
+                }
+            }
             get { return soundVolume; }
         }
 
         static public int MusicVolume
         {
-            set { musicVolume = value; }
+            set
+            {
+                if (value > 100)
+                {
+                    musicVolume = 100;
+                }
+                else if (value < 0)
+                {
+                    musicVolume = 0;
+                }
+                else
+                {
+                    musicVolume = value;
+                }
+            }
             get { return musicVolume; }
         }
 

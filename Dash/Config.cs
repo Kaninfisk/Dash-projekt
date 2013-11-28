@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Data.Odbc;
+using System.IO;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -156,19 +157,19 @@ namespace Dash
                             switch (e.Name)
                             {
                                 case "Music":
-                                    music = int.Parse(e.InnerText);
+                                    int.TryParse(e.InnerText, out music);
                                     Audio.MusicVolume = music;
                                     break;
 
 
                                 case "Soundfx":
-                                    sound = int.Parse(e.InnerText);
+                                    int.TryParse(e.InnerText, out sound);
                                     Audio.SoundVolume = sound;
                                     break;
 
 
                                 case "Master":
-                                    master = int.Parse(e.InnerText);
+                                    int.TryParse(e.InnerText, out master);
                                     Audio.MasterVolume = master;
                                     break;
                             }
