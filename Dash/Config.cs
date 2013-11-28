@@ -85,6 +85,9 @@ namespace Dash
 
             if (!File.Exists("config.xml"))
             {
+                Audio.MasterVolume = 100;
+                Audio.SoundVolume = 100;
+                Audio.MusicVolume = 100;
                 UpdateConfig();
             }
             else
@@ -93,6 +96,9 @@ namespace Dash
                 doc.Load("config.xml");
                 if (doc.DocumentElement == null)
                 {
+                    Audio.MasterVolume = 100;
+                    Audio.SoundVolume = 100;
+                    Audio.MusicVolume = 100;
                     UpdateConfig();
                 }
                 ReadConfig();

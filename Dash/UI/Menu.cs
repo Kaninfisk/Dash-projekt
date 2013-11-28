@@ -334,6 +334,17 @@ namespace Dash
                         break;
                 }
             }
+            else if (Keyboard.IsKeyDown(Keys.Escape))
+            {
+                if (selectedMenu > 1)
+                {
+                    selectedMenu--;
+                    selectedMenuItem = 0;
+                    highlightedMenuItem = 1;
+                    lastClick = DateTime.Now;
+                }
+            }
+
             else if (Keyboard.IsKeyDown(Keys.Left) && selectedMenu == 2 && highlightedMenuItem < 4)
             {
                 switch (highlightedMenuItem)
@@ -386,35 +397,35 @@ namespace Dash
             switch (selectedMenuItem)
             {
                 case 1:
-                    if (key != Keys.Enter)
+                    if (key != Keys.Enter && key != Config.DownKey && key != Config.LeftKey && key != Config.RightKey && key != Config.ShootKey && key != Keys.Menu && key != Keys.Escape)
                     {
                         Config.UpKey = key;
                         selectedMenuItem = 0;
                     }
                     break;
                 case 2:
-                    if (key != Keys.Enter)
+                    if (key != Keys.Enter && key != Config.UpKey && key != Config.LeftKey && key != Config.RightKey && key != Config.ShootKey && key != Keys.Menu && key != Keys.Escape)
                     {
                         Config.DownKey = key;
                         selectedMenuItem = 0;
                     }
                     break;
                 case 3:
-                    if (key != Keys.Enter)
+                    if (key != Keys.Enter && key != Config.DownKey && key != Config.UpKey && key != Config.RightKey && key != Config.ShootKey && key != Keys.Menu && key != Keys.Escape)
                     {
                         Config.LeftKey = key;
                         selectedMenuItem = 0;
                     }
                     break;
                 case 4:
-                    if (key != Keys.Enter)
+                    if (key != Keys.Enter && key != Config.DownKey && key != Config.LeftKey && key != Config.UpKey && key != Config.ShootKey && key != Keys.Menu && key != Keys.Escape)
                     {
                         Config.RightKey = key;
                         selectedMenuItem = 0;
                     }
                     break;
                 case 5:
-                    if (key != Keys.Enter)
+                    if (key != Keys.Enter && key != Config.DownKey && key != Config.LeftKey && key != Config.RightKey && key != Config.UpKey && key != Keys.Menu && key != Keys.Escape)
                     {
                         Config.ShootKey = key;
                         selectedMenuItem = 0;
