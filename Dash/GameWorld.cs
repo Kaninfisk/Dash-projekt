@@ -17,6 +17,7 @@ namespace Dash
         private BufferedGraphics buffer;
         private bool menu = true;
         private Menu m;
+        private DateTime lastFrameStarted;
 
 
         
@@ -39,6 +40,11 @@ namespace Dash
 
         public void GameLoop()
         {
+            TimeSpan deltaTime2 = DateTime.Now - lastFrameStarted;
+            int milliSeconds = deltaTime2.Milliseconds > 0 ? deltaTime2.Milliseconds : 1;
+            currentFPS = 1000 / milliSeconds;
+            lastFrameStarted = DateTime.Now;
+
             dc.Clear(Color.White);
             if (menu)
             {
@@ -52,9 +58,21 @@ namespace Dash
             buffer.Render();
         }
 
+        public void Draw()
+        {
+            foreach (GameObject g in currentLevel.BackgroundMap)
+            {
+                g.Draw(dc);
+            }
+            foreach (GameObject g in currentLevel.LevelMap)
+            {
+                g.Draw(dc);
+            }
+        }
+
         public void SetupGameWorld()
         {
-            Audio.PlayMusic("audio/music.mp3");
+            //Audio.PlayMusic("audio/music.mp3");
         }
     }
 }

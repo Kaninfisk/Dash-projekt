@@ -13,6 +13,7 @@ namespace Dash
         protected List<Image> animationFrames;
         protected float currentAnimationIndex;
         protected Image sprite;
+        private float currentFPS;
 
         public RectangleF CollisionBox
         {
@@ -30,6 +31,11 @@ namespace Dash
                 animationFrames.Add(Image.FromFile(p));
             }
             sprite = animationFrames[0];
+        }
+
+        public void Draw(Graphics dc)
+        {
+            dc.DrawImage(sprite, position.X, position.Y, sprite.Width, sprite.Height);
         }
 
     }
