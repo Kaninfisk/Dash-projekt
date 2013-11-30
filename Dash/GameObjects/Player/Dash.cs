@@ -15,5 +15,15 @@ namespace Dash
         {
             this.dash = dash;
         }
+
+        public override void Draw(Graphics dc)
+        {
+            base.Draw(dc);
+        }
+
+        public override void Update(float fps)
+        {
+            base.Update(fps);
+        }
     }
 }

@@ -15,13 +15,11 @@ namespace Dash
         private Graphics dc;
         private float currentFPS;
         private BufferedGraphics buffer;
-        private bool menu = true;
+        private bool menu;
         private Menu m;
         private DateTime lastFrameStarted;
-
-
+        private bool gameRunning;
         
-
         private Keys input;
 
         public Keys Input
@@ -46,15 +44,28 @@ namespace Dash
             lastFrameStarted = DateTime.Now;
 
             dc.Clear(Color.White);
-            if (menu)
+            if (!menu && gameRunning)
             {
-                TimeSpan deltaTime = DateTime.Now - m.LastClick;
-                if (deltaTime.TotalMilliseconds > 200)
+                Update();
+                Draw();
+
+                if (Keyboard.IsKeyDown(Keys.Escape))
                 {
-                    m.Update(ref input);
+                    TimeSpan deltaTime = DateTime.Now - m.LastClick;
+                    if (deltaTime.TotalMilliseconds > 200)
+                    {
+                        menu = true;
+                        m.LastClick = DateTime.Now;
+                    }
                 }
+            }
+            else if (menu)
+            {
+
+                m.Update(ref input, ref gameRunning, ref menu);
                 m.DrawMenu();
             }
+            
             buffer.Render();
         }
 
@@ -62,16 +73,37 @@ namespace Dash
         {
             foreach (GameObject g in currentLevel.BackgroundMap)
             {
-                g.Draw(dc);
+                if (g != null)
+                {
+                    g.Draw(dc);
+                }
             }
             foreach (GameObject g in currentLevel.LevelMap)
             {
-                g.Draw(dc);
+                if (g != null)
+                {
+                    g.Draw(dc);
+                }
+            }
+        }
+
+        public void Update()
+        {
+            foreach (GameObject g in currentLevel.LevelMap)
+            {
+                if (g != null)
+                {
+                    g.Update(currentFPS);    
+                }
+                
             }
         }
 
         public void SetupGameWorld()
         {
+            gameRunning = false;
+            menu = true;
+            currentLevel = new Level();
             //Audio.PlayMusic("audio/music.mp3");
         }
     }

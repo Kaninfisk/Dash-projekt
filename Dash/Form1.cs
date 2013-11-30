@@ -17,8 +17,10 @@ namespace Dash
         public Form1()
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
-            FormBorderStyle = FormBorderStyle.None;
+            Width = 864;
+            Height = 672;
+            
+
             //TopMost = true;
             
             Timer timer1 = new Timer();

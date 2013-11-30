@@ -15,6 +15,7 @@ namespace Dash
         private int selectedMenuItem;
         private Graphics dc;
         private DateTime lastClick;
+        private bool gameRunning;
         public DateTime LastClick
         {
             set { lastClick = value; }
@@ -22,9 +23,9 @@ namespace Dash
         }
 
 
-        Font f = new Font("Arial", 36);
-        Font headLine = new Font("Arial", 72);
-        Font headLine2 = new Font("Arial", 48);
+        Font f = new Font("Arial", 30);
+        Font headLine = new Font("Arial", 48);
+        Font headLine2 = new Font("Arial", 40);
         Brush b = new SolidBrush(Color.Black);
         Brush b2 = new SolidBrush(Color.Red);
 
@@ -52,187 +53,305 @@ namespace Dash
 
         public void DrawMainMenu()
         {
+            string tekst = "Captain Dash";
+            int screenwidth = 864;
+            Rectangle rect1 = new Rectangle(0, 0, screenwidth, 90);
+            StringFormat stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
+            dc.DrawString(tekst, headLine, b, rect1, stringFormat);
+            //dc.DrawRectangle(Pens.Black, rect1);
+
             if (highlightedMenuItem == 1)
             {
-                dc.DrawString("New Game", f, b2, 0, 0);
+                if (gameRunning)
+                {
+                    tekst = "Resume Game";
+                    rect1 = new Rectangle(0, 90, screenwidth, 60);
+                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                }
+                else
+                {
+                    tekst = "New Game";
+                    rect1 = new Rectangle(0, 90, screenwidth, 60);
+                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                }
             }
             else
             {
-                dc.DrawString("New Game", f, b, 0, 0);
+                if (gameRunning)
+                {
+                    tekst = "Resume Game";
+                    rect1 = new Rectangle(0, 90, screenwidth, 60);
+                    dc.DrawString(tekst, f, b, rect1, stringFormat);
+                }
+                else
+                {
+                    tekst = "New Game";
+                    rect1 = new Rectangle(0, 90, screenwidth, 60);
+                    dc.DrawString(tekst, f, b, rect1, stringFormat);
+                }
+
             }
             if (highlightedMenuItem == 2)
             {
-                dc.DrawString("Options", f, b2, 0, 50);
+                tekst = "Options";
+                rect1 = new Rectangle(0, 150, screenwidth, 60);
+                dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
-                dc.DrawString("Options", f, b, 0, 50);
+                tekst = "Options";
+                rect1 = new Rectangle(0, 150, screenwidth, 60);
+                dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
             if (highlightedMenuItem == 3)
             {
-                dc.DrawString("How to Play", f, b2, 0, 100);
+                tekst = "How to Play";
+                rect1 = new Rectangle(0, 210, screenwidth, 60);
+                dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
-                dc.DrawString("How to Play", f, b, 0, 100);
+                tekst = "How to Play";
+                rect1 = new Rectangle(0, 210, screenwidth, 60);
+                dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
             if (highlightedMenuItem == 4)
             {
-                dc.DrawString("Quit", f, b2, 0, 150);
+                tekst = "Quit";
+                rect1 = new Rectangle(0, 270, screenwidth, 60);
+                dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
-                dc.DrawString("Quit", f, b, 0, 150);
+                tekst = "Quit";
+                rect1 = new Rectangle(0, 270, screenwidth, 60);
+                dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
         }
 
         public void DrawOptionsMenu()
         {
-            dc.DrawString("Options", headLine, b, 400, 0);
-            dc.DrawString("Sound", headLine2, b, 500, 200);
+            string tekst = "Options";
+            int screenwidth = 864;
+            Rectangle rect1 = new Rectangle(0, 0, screenwidth, 90);
+            StringFormat stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
+            dc.DrawString(tekst, headLine, b, rect1, stringFormat);
+            rect1 = new Rectangle(0,90,screenwidth, 60);
+            tekst = "Sound";
+            dc.DrawString(tekst, headLine2, b, rect1, stringFormat);
+
             if (highlightedMenuItem == 1)
             {
-                dc.DrawString("Master Volume: " + Audio.MasterVolume, f, b2, 600, 300);
+                tekst = "Master Volume: " + Audio.MasterVolume;
+                rect1 = new Rectangle(0, 150, screenwidth, 60);
+                dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
-                dc.DrawString("Master Volume: " + Audio.MasterVolume, f, b, 600, 300);
+                tekst = "Master Volume: " + Audio.MasterVolume;
+                rect1 = new Rectangle(0, 150, screenwidth, 60);
+                dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
 
             if (highlightedMenuItem == 2)
             {
-                dc.DrawString("Sound-FX Volume: " + Audio.SoundVolume, f, b2, 600, 400);
+                tekst = "Sound-FX Volume: " + Audio.SoundVolume;
+                rect1 = new Rectangle(0, 210, screenwidth, 60);
+                dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
-                dc.DrawString("Sound-FX Volume: " + Audio.SoundVolume, f, b, 600, 400);
+                tekst = "Sound-FX Volume: " + Audio.SoundVolume;
+                rect1 = new Rectangle(0, 210, screenwidth, 60);
+                dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
 
             if (highlightedMenuItem == 3)
             {
-                dc.DrawString("Music Volume: " + Audio.MusicVolume, f, b2, 600, 500);
+                tekst = "Music Volume: " + Audio.MusicVolume;
+                rect1 = new Rectangle(0, 270, screenwidth, 60);
+                dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
-                dc.DrawString("Music Volume: " + Audio.MusicVolume, f, b, 600, 500);
+                tekst = "Music Volume: " + Audio.MusicVolume;
+                rect1 = new Rectangle(0, 270, screenwidth, 60);
+                dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
             if (highlightedMenuItem == 4)
             {
-                dc.DrawString("Controls", f, b2, 600, 600);
+                tekst = "Controls";
+                rect1 = new Rectangle(0, 320, screenwidth, 60);
+                dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
-                dc.DrawString("Controls", f, b, 600, 600);
+                tekst = "Controls";
+                rect1 = new Rectangle(0, 320, screenwidth, 60);
+                dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
             if (highlightedMenuItem == 5)
             {
-                dc.DrawString("Back", f, b2, 600, 700);
+                tekst = "Back";
+                rect1 = new Rectangle(0, 380, screenwidth, 60);
+                dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
-                dc.DrawString("Back", f, b, 600, 700);
+                tekst = "Back";
+                rect1 = new Rectangle(0, 380, screenwidth, 60);
+                dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
         }
 
         public void DrawControlMenu()
         {
-            dc.DrawString("Controls", headLine, b, 400, 0);
-            dc.DrawString("Movement keys", headLine2, b, 500, 200);
+            string tekst = "Controls";
+            int screenwidth = 864;
+            Rectangle rect1 = new Rectangle(0, 0, screenwidth, 90);
+            StringFormat stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
+            dc.DrawString(tekst, headLine, b, rect1, stringFormat);
+            rect1 = new Rectangle(0,90,screenwidth,60);
+            tekst = "Movement keys";
+            dc.DrawString(tekst, headLine2, b, rect1, stringFormat);
+            
             if (highlightedMenuItem == 1)
             {
                 if (selectedMenuItem == 1)
                 {
-                    dc.DrawString("Up: Enter new key", f, b2, 600, 300);
+                    tekst = "Up: Enter new key";
+                    rect1 = new Rectangle(0, 160, screenwidth, 60);
+                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
                 else
                 {
-                    dc.DrawString("Up: " + Config.UpKey, f, b2, 600, 300);
+                    tekst = "Up: " + Config.UpKey;
+                    rect1 = new Rectangle(0, 160, screenwidth, 60);
+                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
-                
+
             }
             else
             {
-                dc.DrawString("Up: " + Config.UpKey, f, b, 600, 300);
+                tekst = "Up: " + Config.UpKey;
+                rect1 = new Rectangle(0, 160, screenwidth, 60);
+                dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
             if (highlightedMenuItem == 2)
             {
                 if (selectedMenuItem == 2)
                 {
-                    dc.DrawString("Down: Enter new key", f, b2, 600, 400);
+                    tekst = "Down: Enter new key";
+                    rect1 = new Rectangle(0, 220, screenwidth, 60);
+                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
                 else
                 {
-                    dc.DrawString("Down: " + Config.DownKey, f, b2, 600, 400);    
+                    tekst = "Down: " + Config.DownKey;
+                    rect1 = new Rectangle(0, 220, screenwidth, 60);
+                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
-                
+
             }
             else
             {
-                dc.DrawString("Down: " + Config.DownKey, f, b, 600, 400);
+                tekst = "Down: " + Config.DownKey;
+                rect1 = new Rectangle(0, 220, screenwidth, 60);
+                dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
 
             if (highlightedMenuItem == 3)
             {
                 if (selectedMenuItem == 3)
                 {
-                    dc.DrawString("Left: Enter new key", f, b2, 600, 500);
+                    tekst = "Left: Enter new key";
+                    rect1 = new Rectangle(0, 280, screenwidth, 60);
+                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
                 else
                 {
-                    dc.DrawString("Left: " + Config.LeftKey, f, b2, 600, 500);
+                    tekst = "Left: " + Config.LeftKey;
+                    rect1 = new Rectangle(0, 280, screenwidth, 60);
+                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
             }
             else
             {
-                dc.DrawString("Left: " + Config.LeftKey, f, b, 600, 500);
+                tekst = "Left: " + Config.LeftKey;
+                rect1 = new Rectangle(0, 280, screenwidth, 60);
+                dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
 
             if (highlightedMenuItem == 4)
             {
                 if (selectedMenuItem == 4)
                 {
-                    dc.DrawString("Right: Enter new key", f, b2, 600, 600);
+                    tekst = "Right: Enter new key";
+                    rect1 = new Rectangle(0, 340, screenwidth, 60);
+                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
                 else
                 {
-                    dc.DrawString("Right: " + Config.RightKey, f, b2, 600, 600);
+                    tekst = "Right: " + Config.RightKey;
+                    rect1 = new Rectangle(0, 340, screenwidth, 60);
+                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
             }
             else
             {
-                dc.DrawString("Right: " + Config.RightKey, f, b, 600, 600);
+                tekst = "Right: " + Config.RightKey;
+                rect1 = new Rectangle(0, 340, screenwidth, 60);
+                dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
 
-
-            dc.DrawString("Ship Controls", headLine2, b, 500, 700);
-
+            tekst = "Ship Controls";
+            rect1 = new Rectangle(0, 400, screenwidth, 60);
+            dc.DrawString(tekst, headLine2, b, rect1, stringFormat);
+            
             if (highlightedMenuItem == 5)
             {
                 if (selectedMenuItem == 4)
                 {
-                    dc.DrawString("Shoot: Enter new key", f, b2, 600, 800);
+                    tekst = "Shoot: Enter new key";
+                    rect1 = new Rectangle(0, 460, screenwidth, 60);
+                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
                 else
                 {
-                    dc.DrawString("Shoot: " + Config.ShootKey, f, b2, 600, 800);
+                    tekst = "Shoot: " + Config.ShootKey;
+                    rect1 = new Rectangle(0, 460, screenwidth, 60);
+                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
             }
             else
             {
-                dc.DrawString("Shoot: " + Config.ShootKey, f, b, 600, 800);
+                tekst = "Shoot: " + Config.ShootKey;
+                rect1 = new Rectangle(0, 460, screenwidth, 60);
+                dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
             if (highlightedMenuItem == 6)
             {
-                dc.DrawString("Back", f, b2, 600, 900);
+                tekst = "Back";
+                rect1 = new Rectangle(0, 520, screenwidth, 60);
+                dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
-                dc.DrawString("Back", f, b, 600, 900);
+                tekst = "Back";
+                rect1 = new Rectangle(0, 520, screenwidth, 60);
+                dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
         }
 
-        public void Update(ref Keys key)
+        public void Update(ref Keys key, ref bool gameRunning, ref bool menu)
         {
+            this.gameRunning = gameRunning;
             int max;
             if (selectedMenu == 1)
             {
@@ -249,99 +368,131 @@ namespace Dash
 
             if (Keyboard.IsKeyDown(Keys.Up) && highlightedMenuItem >= 2)
             {
-                if (selectedMenuItem == 0)
+                TimeSpan deltaTime = DateTime.Now - LastClick;
+                if (deltaTime.TotalMilliseconds > 200)
                 {
-                    highlightedMenuItem--;
-                    lastClick = DateTime.Now;    
+                    if (selectedMenuItem == 0)
+                    {
+                        highlightedMenuItem--;
+                        lastClick = DateTime.Now;
+                    }
                 }
             }
             else if (Keyboard.IsKeyDown(Keys.Down) && highlightedMenuItem <= max)
             {
-                if (selectedMenuItem == 0)
+                TimeSpan deltaTime = DateTime.Now - LastClick;
+                if (deltaTime.TotalMilliseconds > 200)
                 {
-                    highlightedMenuItem++;
-                    lastClick = DateTime.Now;
+
+                    if (selectedMenuItem == 0)
+                    {
+                        highlightedMenuItem++;
+                        lastClick = DateTime.Now;
+                    }
                 }
-                
+
             }
             else if (Keyboard.IsKeyDown(Keys.Enter))
             {
-                switch (selectedMenu)
+                TimeSpan deltaTime = DateTime.Now - LastClick;
+                if (deltaTime.TotalMilliseconds > 200)
                 {
-                    case 1:
-                        switch (highlightedMenuItem)
-                        {
-                            case 1:
-                                break;
-                            case 2:
-                                selectedMenu = 2;
-                                highlightedMenuItem = 1;
-                                lastClick = DateTime.Now;
-                                break;
-                            case 3:
-                                break;
-                            case 4:
-                                Application.Exit();
-                                break;
-                        }
-                        break;
-                    case 2:
-                        switch (highlightedMenuItem)
-                        {
-                            case 1:
-                            case 2:
-                            case 3:
-                                break;
-                            case 4:
-                                selectedMenu = 3;
-                                highlightedMenuItem = 1;
-                                lastClick = DateTime.Now;
-                                break;
-                            case 5:
-                                selectedMenu = 1;
-                                highlightedMenuItem = 1;
-                                lastClick = DateTime.Now;
-                                Config.UpdateConfig();
-                                break;
-                        }
-                        break;
-                    case 3:
-                        switch (highlightedMenuItem)
-                        {
-                            case 1:
-                                selectedMenuItem = 1;
-                                break;
-                            case 2:
-                                selectedMenuItem = 2;
-                                break;
-                            case 3:
-                                selectedMenuItem = 3;
-                                break;
-                            case 4:
-                                selectedMenuItem = 4;
-                                break;
-                            case 5:
-                                selectedMenuItem = 5;
-                                break;
-                            case 6:
-                                selectedMenu = 2;
-                                highlightedMenuItem = 1;
-                                selectedMenuItem = 0;
-                                Config.UpdateConfig();
-                                lastClick = DateTime.Now;
-                                break;
-                        }
-                        break;
+                    switch (selectedMenu)
+                    {
+                        case 1:
+                            switch (highlightedMenuItem)
+                            {
+                                case 1:
+                                    gameRunning = true;
+                                    menu = false;
+                                    lastClick = DateTime.Now;
+                                    break;
+                                case 2:
+                                    selectedMenu = 2;
+                                    highlightedMenuItem = 1;
+                                    lastClick = DateTime.Now;
+                                    break;
+                                case 3:
+                                    break;
+                                case 4:
+                                    Application.Exit();
+                                    break;
+                            }
+                            break;
+                        case 2:
+                            switch (highlightedMenuItem)
+                            {
+                                case 1:
+                                case 2:
+                                case 3:
+                                    break;
+                                case 4:
+                                    selectedMenu = 3;
+                                    highlightedMenuItem = 1;
+                                    lastClick = DateTime.Now;
+                                    break;
+                                case 5:
+                                    selectedMenu = 1;
+                                    highlightedMenuItem = 1;
+                                    lastClick = DateTime.Now;
+                                    Config.UpdateConfig();
+                                    break;
+                            }
+                            break;
+                        case 3:
+                            switch (highlightedMenuItem)
+                            {
+                                case 1:
+                                    selectedMenuItem = 1;
+                                    break;
+                                case 2:
+                                    selectedMenuItem = 2;
+                                    break;
+                                case 3:
+                                    selectedMenuItem = 3;
+                                    break;
+                                case 4:
+                                    selectedMenuItem = 4;
+                                    break;
+                                case 5:
+                                    selectedMenuItem = 5;
+                                    break;
+                                case 6:
+                                    selectedMenu = 2;
+                                    highlightedMenuItem = 1;
+                                    selectedMenuItem = 0;
+                                    Config.UpdateConfig();
+                                    lastClick = DateTime.Now;
+                                    break;
+                            }
+                            break;
+                    }
                 }
             }
             else if (Keyboard.IsKeyDown(Keys.Escape))
             {
-                if (selectedMenu > 1)
+                TimeSpan deltaTime = DateTime.Now - LastClick;
+                if (deltaTime.TotalMilliseconds > 200)
                 {
-                    selectedMenu--;
-                    selectedMenuItem = 0;
-                    highlightedMenuItem = 1;
-                    lastClick = DateTime.Now;
+
+                    if (selectedMenuItem > 0)
+                    {
+                        selectedMenuItem = 0;
+                        lastClick = DateTime.Now;
+                    }
+                    else if (gameRunning && selectedMenu == 1)
+                    {
+                        menu = false;
+                        lastClick = DateTime.Now;
+                    }
+                    else if (selectedMenu > 1 && selectedMenuItem == 0)
+                    {
+                        selectedMenu--;
+                        selectedMenuItem = 0;
+                        highlightedMenuItem = 1;
+                        Config.UpdateConfig();
+                        lastClick = DateTime.Now;
+                    }
                 }
             }
 

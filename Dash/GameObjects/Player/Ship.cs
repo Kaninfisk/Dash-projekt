@@ -15,5 +15,10 @@ namespace Dash
         {
             this.armor = armor;
         }
+
+        public override void Update(float fps)
+        {
+            base.Update(fps);
+        }
     }
 }

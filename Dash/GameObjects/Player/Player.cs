@@ -23,5 +23,10 @@ namespace Dash
             this.speed = speed;
             this.name = name;
         }
+
+        public override void Update(float fps)
+        {
+            base.Update(fps);
+        }
     }
 }
