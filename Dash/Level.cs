@@ -19,20 +19,13 @@ namespace Dash
         private GameObject[,] bla = new GameObject[14, 18]
                                     
         {
-                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
-                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
-                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
-                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
-                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
-                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
-                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
-                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
-                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
-                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
-                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
-                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
-                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
-                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
+                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
+                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
+                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
+                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
+                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
+                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
+                                        {null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},
                                     };
 
 
@@ -61,10 +54,11 @@ namespace Dash
             get { return gravity; }
         }
 
-        public Level()
+        public Level(GameObject[,] levelMap, GameObject[,]backgroundMap, int time)
         {
-            levelMap = bla;
-            backgroundMap = bla;
+            this.levelMap = levelMap;
+            this.backgroundMap = backgroundMap;
+            this.time = time;
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Dash
             //TopMost = true;
             
             Timer timer1 = new Timer();
-            timer1.Interval = 40;
+            timer1.Interval = 20;
             timer1.Tick += Timer1_Tick;
             timer1.Start();
 

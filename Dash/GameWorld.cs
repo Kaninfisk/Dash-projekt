@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,7 +44,12 @@ namespace Dash
             currentFPS = 1000 / milliSeconds;
             lastFrameStarted = DateTime.Now;
 
+            
+
             dc.Clear(Color.White);
+            //Font f = new Font("Arial", 12);
+            //Brush b = new SolidBrush(Color.Black);
+            //dc.DrawString(currentFPS.ToString(), f, b, 600, 0);
             if (!menu && gameRunning)
             {
                 Update();
@@ -103,7 +109,10 @@ namespace Dash
         {
             gameRunning = false;
             menu = true;
-            currentLevel = new Level();
+            GameObject[,] levelMap = new GameObject[14, 18]{{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},};
+            GameObject[,] backgroundMap = new GameObject[14, 18] { { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, };
+            
+            currentLevel = new Level(levelMap, backgroundMap, 10);
             //Audio.PlayMusic("audio/music.mp3");
         }
     }
