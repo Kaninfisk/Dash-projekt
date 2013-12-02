@@ -75,10 +75,10 @@ namespace Dash
                 {
                     switch (s2)
                     {
-                        case "NN":
+                        case "BB":
                             this.levelMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.png");
                             break;
-                        case "BB":
+                        default:
                             this.levelMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.png");
                             break;
                     }
@@ -98,10 +98,10 @@ namespace Dash
                 {
                     switch (s2)
                     {
-                        case "NN":
+                        case "BB":
                             this.backgroundMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.png");
                             break;
-                        case "BB":
+                        default:
                             this.backgroundMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.png");
                             break;
                     }
