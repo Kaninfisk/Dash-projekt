@@ -11,32 +11,49 @@ namespace Dash
 {
     class GameWorld
     {
-        private List<Level> levels;
-        private Level currentLevel;
-        private Graphics dc;
-        private float currentFPS;
-        private BufferedGraphics buffer;
-        private bool menu;
-        private Menu m;
-        private DateTime lastFrameStarted;
-        private bool gameRunning;
-        
-        private Keys input;
+        private List<Level> levels;  //Liste til de forskellige baner
+        private Level currentLevel; // field til nuværende bane
+        private Graphics dc;  
+        private float currentFPS;  //field til at indeholde nuværende frames per second
+        private BufferedGraphics buffer;  //Grafik buffer
+        private bool menu;  //field som bruges til om menu skal vises eller ej
+        private Menu m;  //menu objektet
+        private DateTime lastFrameStarted;  //Datetime field som bruges til at beregne currentFPS
+        private bool gameRunning;  //field som bruges til at indikere om spiller er startet eller ej
+        private double t; //field som bruges til timer funktion i spillet
+        public int cLevel; //field som indeholder nuværende bane som int
 
+        
+        private Keys input;  //field som bruges til at gemme hvilke keys der bliver trykket på
+
+        /// <summary>
+        /// Property til keyinput
+        /// </summary>
         public Keys Input
         {
             set { input = value; }
         }
 
+        /// <summary>
+        ///  Constructor som indstiller skærm buffer og kører metoderne SetupLevels og SetupGameWorld
+        /// </summary>
+        /// <param name="dc">Grafik objektet fra formen</param>
+        /// <param name="displayRectangle">Rektangel som er på størrelse med tegne arealet på formen</param>
         public GameWorld(Graphics dc, Rectangle displayRectangle)
         {
             buffer = BufferedGraphicsManager.Current.Allocate(dc, displayRectangle);
             this.dc = buffer.Graphics;
+            cLevel = 0;
             m = new Menu(this.dc);
+            SetupLevels();
             SetupGameWorld();
+            
 
         }
 
+        /// <summary>
+        /// Viser menu eller kører gameloop metoderne draw,update
+        /// </summary>
         public void GameLoop()
         {
             TimeSpan deltaTime2 = DateTime.Now - lastFrameStarted;
@@ -47,21 +64,47 @@ namespace Dash
             
 
             dc.Clear(Color.White);
-            //Font f = new Font("Arial", 12);
-            //Brush b = new SolidBrush(Color.Black);
-            //dc.DrawString(currentFPS.ToString(), f, b, 600, 0);
+            Font f = new Font("Arial", 12);
+            Brush b = new SolidBrush(Color.Black);
+            dc.DrawString(currentFPS.ToString(), f, b, 800, 0);
             if (!menu && gameRunning)
             {
-                Update();
-                Draw();
-
-                if (Keyboard.IsKeyDown(Keys.Escape))
+                if (t > 0)
                 {
-                    TimeSpan deltaTime = DateTime.Now - m.LastClick;
-                    if (deltaTime.TotalMilliseconds > 200)
+                    t -= deltaTime2.TotalSeconds;
+                    Update();
+                    Draw();
+
+                    if (Keyboard.IsKeyDown(Keys.Escape))
                     {
+                        TimeSpan deltaTime = DateTime.Now - m.LastClick;
+                        if (deltaTime.TotalMilliseconds > 200)
+                        {
+                            menu = true;
+                            m.LastClick = DateTime.Now;
+                        }
+                    }    
+                }
+                else
+                {
+                    f = new Font("Arial", 36);
+                    b = new SolidBrush(Color.Black);
+                    string tekst = "Time ran out press enter to retry or escape to exit";
+                    int screenwidth = 864;
+                    Rectangle rect1 = new Rectangle(0, 0, screenwidth, 150);
+                    StringFormat stringFormat = new StringFormat();
+                    stringFormat.Alignment = StringAlignment.Center;
+                    stringFormat.LineAlignment = StringAlignment.Center;
+                    dc.DrawString(tekst, f, b, rect1, stringFormat);
+                    if (Keyboard.IsKeyDown(Keys.Enter))
+                    {
+                        RestartLevel();
+                    }
+                    else if(Keyboard.IsKeyDown(Keys.Escape))
+                    {
+                        RestartLevel();
                         menu = true;
-                        m.LastClick = DateTime.Now;
+                        gameRunning = false;
                     }
                 }
             }
@@ -75,8 +118,16 @@ namespace Dash
             buffer.Render();
         }
 
+        /// <summary>
+        /// Tegner alle gameobjecterne i currentlevel ud til skærmen
+        /// </summary>
         public void Draw()
         {
+
+            Font f = new Font("Arial", 12);
+            Brush b = new SolidBrush(Color.Black);
+            dc.DrawString(Math.Round(t,2).ToString(), f, b, 600, 0);
+
             foreach (GameObject g in currentLevel.BackgroundMap)
             {
                 if (g != null)
@@ -93,6 +144,9 @@ namespace Dash
             }
         }
 
+        /// <summary>
+        /// Kører alle gameobjecterne i currentlevel update funktion
+        /// </summary>
         public void Update()
         {
             foreach (GameObject g in currentLevel.LevelMap)
@@ -101,19 +155,41 @@ namespace Dash
                 {
                     g.Update(currentFPS);    
                 }
-                
             }
         }
 
+        /// <summary>
+        /// opretter banerne
+        /// </summary>
+        public void SetupLevels()
+        {
+            levels = new List<Level>();
+            GameObject[,] levelMap = new GameObject[14, 18] { { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, };
+            GameObject[,] backgroundMap = new GameObject[14, 18] { { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, };
+            var level = new Level(levelMap, backgroundMap, 10);
+            levels.Add(level);
+        }
+
+        /// <summary>
+        /// Indstiller startvariablerne for gameworld
+        /// </summary>
         public void SetupGameWorld()
         {
             gameRunning = false;
             menu = true;
-            GameObject[,] levelMap = new GameObject[14, 18]{{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},{null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null},};
-            GameObject[,] backgroundMap = new GameObject[14, 18] { { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, };
-            
-            currentLevel = new Level(levelMap, backgroundMap, 10);
+            currentLevel = levels[cLevel];
+            t = currentLevel.Time;
+
             //Audio.PlayMusic("audio/music.mp3");
+        }
+
+        /// <summary>
+        /// Nulstiller nuværende bane
+        /// </summary>
+        public void RestartLevel()
+        {
+            currentLevel = levels[cLevel];
+            t = currentLevel.Time;
         }
     }
 }

@@ -8,14 +8,21 @@ using System.Windows.Forms;
 
 namespace Dash
 {
+    /// <summary>
+    /// Klasse som håndterer menu og bruger indput hertil
+    /// </summary>
     class Menu : UI
     {
-        private int selectedMenu;
-        private int highlightedMenuItem;
-        private int selectedMenuItem;
-        private Graphics dc;
-        private DateTime lastClick;
-        private bool gameRunning;
+        private int selectedMenu; //field som indeholder nuværende valgte menu
+        private int highlightedMenuItem;  //field som indeholder nuværende highligtede menu punkt
+        private int selectedMenuItem; //field som indeholder nuværende valgte menu punkt
+        private Graphics dc;  //field som indeholder bufferen fra gameworld
+        private DateTime lastClick; //field som indeholder tidspunkt for sidste tryk på en tast
+        private bool gameRunning; //field som indeholder om spillet er startet eller ej
+
+        /// <summary>
+        /// Property til at sætte og hente tidspunkt for sidste tryk på en tast
+        /// </summary>
         public DateTime LastClick
         {
             set { lastClick = value; }
@@ -23,18 +30,26 @@ namespace Dash
         }
 
 
-        Font f = new Font("Arial", 30);
-        Font headLine = new Font("Arial", 48);
-        Font headLine2 = new Font("Arial", 40);
-        Brush b = new SolidBrush(Color.Black);
-        Brush b2 = new SolidBrush(Color.Red);
+        Font f = new Font("Arial", 30);  //Font til menupunkter
+        Font headLine = new Font("Arial", 48); //Font til overskrifter
+        Font headLine2 = new Font("Arial", 40); //Font til under overskrifter
+        Brush b = new SolidBrush(Color.Black); //brush til ikke valgte menupunkter og overskrifter
+        Brush b2 = new SolidBrush(Color.Red); //brush til valgte menupunkter
 
+        /// <summary>
+        /// Konstruktor hvor menu bliver sat op og  grafik objektet bliver initialiseret.
+        /// </summary>
+        /// <param name="dc">Grafik objekt som skal tegnes ud til</param>
         public Menu(Graphics dc)
         {
             this.dc = dc;
             selectedMenu = 1;
             highlightedMenuItem = 1;
         }
+
+        /// <summary>
+        /// Metode som tegner den valgte menu ud til skærmen
+        /// </summary>
         public void DrawMenu()
         {
             switch (selectedMenu)
@@ -51,6 +66,9 @@ namespace Dash
             }
         }
 
+        /// <summary>
+        /// Metode som tegner hoved menuen ud til skærmen
+        /// </summary>
         public void DrawMainMenu()
         {
             string tekst = "Captain Dash";
@@ -131,6 +149,9 @@ namespace Dash
             }
         }
 
+        /// <summary>
+        /// Metode som tegner Options menuen ud til skærmen
+        /// </summary>
         public void DrawOptionsMenu()
         {
             string tekst = "Options";
@@ -208,6 +229,9 @@ namespace Dash
             }
         }
 
+        /// <summary>
+        /// Metode som tegner Controls menuen ud til skærmen
+        /// </summary>
         public void DrawControlMenu()
         {
             string tekst = "Controls";
@@ -349,6 +373,12 @@ namespace Dash
             }
         }
 
+        /// <summary>
+        /// Metode som håndterer bruger input og navigation i menuen
+        /// </summary>
+        /// <param name="key">Reference variabel som indeholder keyboard input</param>
+        /// <param name="gameRunning">reference variabel som bestemmer om spillet er startet eller ej</param>
+        /// <param name="menu">reference variabel som bestemmer om menuen bliver vist eller ej</param>
         public void Update(ref Keys key, ref bool gameRunning, ref bool menu)
         {
             this.gameRunning = gameRunning;

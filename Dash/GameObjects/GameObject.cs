@@ -18,6 +18,13 @@ namespace Dash
         {
             get { return new RectangleF(position, sprite.Size); }
         }
+
+        public PointF Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
+        
         
 
         public GameObject(PointF position, string imagePath)

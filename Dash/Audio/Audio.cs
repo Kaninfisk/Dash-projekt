@@ -7,16 +7,21 @@ using IrrKlang;
 
 namespace Dash
 {
+    /// <summary>
+    /// Klasse som håndterer afspilning af lydfiler og volume
+    /// </summary>
     static class Audio
     {
-        static private int masterVolume;
-        static private int soundVolume;
-        static private int musicVolume;
+        static private int masterVolume;  //field som indeholder master volume
+        static private int soundVolume;  //field som indeholder sound-fx volume
+        static private int musicVolume;  //field som indeholder musik volume
 
-        private static ISoundEngine musicEngine = new ISoundEngine();
-        private static ISoundEngine soundFXEngine = new ISoundEngine();
+        private static ISoundEngine musicEngine = new ISoundEngine();  //irrKlang lydengine til at afspille baggrundsmusik
+        private static ISoundEngine soundFXEngine = new ISoundEngine(); //irrKlang lydengine til at afspille sound-fx
 
-
+        /// <summary>
+        /// property til at indstille mastervolume denne ændrer også volume på baggrundsmusik og sound-fx lydengines
+        /// </summary>
         static public int MasterVolume
         {
             set
@@ -39,6 +44,9 @@ namespace Dash
             get { return masterVolume; }
         }
 
+        /// <summary>
+        /// Property til at indstille sound-fx volume denne ændrer også volume på sound-fx lydenginen
+        /// </summary>
         static public int SoundVolume
         {
             set
@@ -54,12 +62,15 @@ namespace Dash
                 else
                 {
                     soundVolume = value;
-                    soundFXEngine.SoundVolume = (((float)(value) / (float)100)/100)*masterVolume;
+                    soundFXEngine.SoundVolume = (((float)(value) / (float)100) / 100) * masterVolume;
                 }
             }
             get { return soundVolume; }
         }
 
+        /// <summary>
+        /// Property til at indstille musik volume denne ændrer også volume på musik lydenginen
+        /// </summary>
         static public int MusicVolume
         {
             set
@@ -75,30 +86,38 @@ namespace Dash
                 else
                 {
                     musicVolume = value;
-                    musicEngine.SoundVolume =  (((float)(value) /(float)100)/100)*masterVolume;
+                    musicEngine.SoundVolume = (((float)(value) / (float)100) / 100) * masterVolume;
                 }
             }
             get { return musicVolume; }
         }
 
 
+        /// <summary>
+        /// Konstruktorern henter volume fra Config klassen og indsætter disse i properties 
+        /// </summary>
         static Audio()
         {
-            masterVolume = Config.Master;
-            soundVolume = Config.Sound;
-            musicVolume = Config.Music;
-            musicEngine.SoundVolume = musicVolume;
+            SoundVolume = Config.Sound;
+            MusicVolume = Config.Music;
+            MasterVolume = Config.Master;
         }
 
+        /// <summary>
+        /// Metode som afspiller den angivne lydfil på musik enginen
+        /// </summary>
+        /// <param name="filePath">Sti til fil som skal loopes</param>
         static public void PlayMusic(string filePath)
         {
-            musicEngine.SoundVolume = (((float) musicVolume/100)/100)*masterVolume;
             musicEngine.Play2D(filePath, true);
         }
 
+        /// <summary>
+        /// Metode som afspiller den angivne lydfil på sound-fx enginen
+        /// </summary>
+        /// <param name="FilePath">Sti til fil som skal afspilles en enkelt gang</param>
         static public void PlaySoundFX(string FilePath)
         {
-            soundFXEngine.SoundVolume = (((float)soundVolume / 100)/100)*masterVolume;
             soundFXEngine.Play2D(FilePath, false);
         }
     }

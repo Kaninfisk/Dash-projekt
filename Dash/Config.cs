@@ -6,63 +6,86 @@ using System.Xml;
 namespace Dash
 {
     /// <summary>
-    /// Config
+    /// Klasse som håndterer konfigurations xml filen
     /// </summary>
     static class Config
     {
-        static private int sound;
-        static private int music;
-        static private int master;
-        static private Keys leftKey;
-        static private Keys rightKey;
-        static private Keys upKey;
-        static private Keys downKey;
-        static private Keys shootKey;
+        static private int sound; //bruges til at indeholde Sound-FX volume
+        static private int music; //bruges til at indeholde musik volume
+        static private int master; //bruges til at indeholde master volume
+        static private Keys leftKey; //bruges til at indeholde tasten som bruges til at gå til venstre
+        static private Keys rightKey; //bruges til at indeholde tasten som bruges til at gå til højre
+        static private Keys upKey; //bruges til at indeholde tasten som bruges til at gå op
+        static private Keys downKey; //bruges til at indeholde tasten som bruges til at gå ned
+        static private Keys shootKey; //bruges til at indeholde tasten som bruges til at skyde
 
 
+        /// <summary>
+        /// Property til at hente eller sætte input key til at skyde
+        /// </summary>
         static public Keys ShootKey
         {
             get { return shootKey; }
             set { shootKey = value; }
         }
 
+        /// <summary>
+        /// Property til at hente eller sætte input key til at gå nedaf
+        /// </summary>
         static public Keys DownKey
         {
             get { return downKey; }
             set { downKey = value; }
         }
 
+        /// <summary>
+        /// Property til at hente eller sætte input key til at gå opaf
+        /// </summary>
         static public Keys UpKey
         {
             get { return upKey; }
             set { upKey = value; }
         }
 
+        /// <summary>
+        /// Property til at hente eller sætte input key til at gå til højre
+        /// </summary>
         static public Keys RightKey
         {
             get { return rightKey; }
             set { rightKey = value; }
         }
 
-
+        /// <summary>
+        /// Property til at hente eller sætte input key til at gå til venstre
+        /// </summary>
         static public Keys LeftKey
         {
             get { return leftKey; }
             set { leftKey = value; }
         }
 
+        /// <summary>
+        /// Property til at hente eller sætte master volume
+        /// </summary>
         static public int Master
         {
             get { return master; }
             set { master = value; }
         }
 
+        /// <summary>
+        /// Property til at hente eller sætte musik volume
+        /// </summary>
         static public int Music
         {
             get { return music; }
             set { music = value; }
         }
 
+        /// <summary>
+        /// Property til at hente eller sætte sound-fx volume
+        /// </summary>
         static public int Sound
         {
             get { return sound; }
@@ -146,7 +169,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// funktion som henter config data og indsætter i fields
+        /// funktion som henter config data fra xml fil og indsætter i fields
         /// </summary>
         static void ReadConfig()
         {

@@ -38,6 +38,11 @@ namespace Dash
             
         }
 
+        /// <summary>
+        /// Metode som kører gameloopet når timeren ticker og opretter gameworlden hvis den ikke er oprettet endnu
+        /// </summary>
+        /// <param name="sender">Objektet som kørte metoden(timeren)</param>
+        /// <param name="e">event informationer</param>
         public void Timer1_Tick(object sender, EventArgs e)
         {
             if (g == null)
@@ -47,6 +52,11 @@ namespace Dash
             g.GameLoop();
         }
 
+        /// <summary>
+        /// Metode som bliver kørt når der trykkes på en tast denne sender inputtet ind i gameworld
+        /// </summary>
+        /// <param name="sender">objektet som kørte metoden(formen)</param>
+        /// <param name="e">Event informationer</param>
         public void Input(object sender, PreviewKeyDownEventArgs e)
         {
             g.Input = e.KeyCode;
