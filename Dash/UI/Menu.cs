@@ -19,6 +19,7 @@ namespace Dash
         private Graphics dc;  //field som indeholder bufferen fra gameworld
         private DateTime lastClick; //field som indeholder tidspunkt for sidste tryk på en tast
         private bool gameRunning; //field som indeholder om spillet er startet eller ej
+        int screenwidth = 864;
 
         /// <summary>
         /// Property til at sætte og hente tidspunkt for sidste tryk på en tast
@@ -72,7 +73,6 @@ namespace Dash
         public void DrawMainMenu()
         {
             string tekst = "Captain Dash";
-            int screenwidth = 864;
             Rectangle rect1 = new Rectangle(0, 0, screenwidth, 90);
             StringFormat stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
@@ -155,7 +155,6 @@ namespace Dash
         public void DrawOptionsMenu()
         {
             string tekst = "Options";
-            int screenwidth = 864;
             Rectangle rect1 = new Rectangle(0, 0, screenwidth, 90);
             StringFormat stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
@@ -235,7 +234,6 @@ namespace Dash
         public void DrawControlMenu()
         {
             string tekst = "Controls";
-            int screenwidth = 864;
             Rectangle rect1 = new Rectangle(0, 0, screenwidth, 90);
             StringFormat stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;

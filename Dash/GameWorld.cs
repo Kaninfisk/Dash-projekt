@@ -66,7 +66,7 @@ namespace Dash
             dc.Clear(Color.White);
             Font f = new Font("Arial", 12);
             Brush b = new SolidBrush(Color.Black);
-            dc.DrawString(currentFPS.ToString(), f, b, 800, 0);
+            
             if (!menu && gameRunning)
             {
                 if (t > 0)
@@ -74,6 +74,7 @@ namespace Dash
                     t -= deltaTime2.TotalSeconds;
                     Update();
                     Draw();
+                    DrawUI();
 
                     if (Keyboard.IsKeyDown(Keys.Escape))
                     {
@@ -124,10 +125,6 @@ namespace Dash
         public void Draw()
         {
 
-            Font f = new Font("Arial", 12);
-            Brush b = new SolidBrush(Color.Black);
-            dc.DrawString(Math.Round(t, 2).ToString().Replace(',', '.'), f, b, 600, 0);
-
             foreach (GameObject g in currentLevel.BackgroundMap)
             {
                 if (g != null)
@@ -142,6 +139,14 @@ namespace Dash
                     g.Draw(dc);
                 }
             }
+        }
+
+        public void DrawUI()
+        {
+            Font f = new Font("Arial", 12);
+            Brush b = new SolidBrush(Color.Black);
+            dc.DrawString(Math.Round(t, 2).ToString().Replace(',', '.'), f, b, 600, 0);
+            dc.DrawString(currentFPS.ToString(), f, b, 800, 0);
         }
 
         /// <summary>
