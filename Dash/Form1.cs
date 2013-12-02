@@ -17,25 +17,20 @@ namespace Dash
         public Form1()
         {
             InitializeComponent();
-            Width = 864;
-            Height = 672;
-            
+            //this.FormBorderStyle = FormBorderStyle.None;
+            Width = 880;
+            Height = 710;
 
             //TopMost = true;
             
             Timer timer1 = new Timer();
-            timer1.Interval = 20;
+            timer1.Interval = 40;
             timer1.Tick += Timer1_Tick;
             timer1.Start();
 
             KeyPreview = true;
             PreviewKeyDown += Input;
 
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
         }
 
         /// <summary>

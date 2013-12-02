@@ -16,20 +16,20 @@ namespace Dash
         private int time;
         private int gravity;
 
-        private string s = "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN";
+        private string s = "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" + 
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN";
 
         public int Type
         {
@@ -61,42 +61,54 @@ namespace Dash
             this.time = time;
 
             string[] temp = levelMap.Split('_');
-            this.levelMap = new GameObject[temp.Length,temp[0].Length];
-            for (int y = 0; y < this.levelMap.GetLength(0); y++)
+            
+            this.levelMap = new GameObject[temp.Length,temp[0].Split(';').Length];
+
+
+
+            
+            int y = 0;
+            foreach (string s1 in temp)
             {
-                for (int x = 0; x < this.levelMap.GetLength(1); x++)
+                int x = 0;
+                foreach (string s2 in s1.Split(';'))
                 {
-                    switch (temp[y][x])
+                    switch (s2)
                     {
-                        case 'N':
-                            this.levelMap[y, x] = null;
+                        case "NN":
+                            this.levelMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.png");
                             break;
-                        case 'B':
+                        case "BB":
                             this.levelMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.png");
                             break;
                     }
+                    x++;
                 }
+                y++;
             }
 
 
             temp = backgroundMap.Split('_');
-            this.backgroundMap = new GameObject[temp.Length, temp[0].Length];
-            for (int y = 0; y < this.backgroundMap.GetLength(0); y++)
+            this.backgroundMap = new GameObject[temp.Length, temp[0].Split(';').Length];
+            y = 0;
+            foreach (string s1 in temp)
             {
-                for (int x = 0; x < this.backgroundMap.GetLength(1); x++)
+                int x = 0;
+                foreach (string s2 in s1.Split(';'))
                 {
-                    switch (temp[y][x])
+                    switch (s2)
                     {
-                        case 'N':
-                            this.backgroundMap[y, x] = null;
+                        case "NN":
+                            this.backgroundMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.png");
                             break;
-                        case 'B':
-                            this.backgroundMap[y, x] = new SolidBlock(new PointF(x*48, y*48),"img2.png" );
+                        case "BB":
+                            this.backgroundMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.png");
                             break;
                     }
+                    x++;
                 }
+                y++;
             }
-
         }
     }
 }

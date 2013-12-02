@@ -165,39 +165,39 @@ namespace Dash
         {
             levels = new List<Level>();
 
-            string levelMap = "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNBNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNBNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN";
+            string levelMap = "BB;NN;NN;NN;NN;NN;NN;NN;BB;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN";
 
-            string backgroundMap = "BNNNNNNNNNNNNNNNNN" + "_" +
-                           "BNNNNNNNNNNNNNNNNB" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNBNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN" + "_" +
-                           "NNNNNNNNNNNNNNNNNN";
+            string backgroundMap = "NN;NN;NN;NN;BB;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BB" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                           "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN";
 
 
             
-            var level = new Level(levelMap, backgroundMap, 10);
+            var level = new Level(levelMap, backgroundMap, 1000);
             levels.Add(level);
         }
 
