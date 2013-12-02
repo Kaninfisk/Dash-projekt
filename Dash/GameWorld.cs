@@ -11,15 +11,15 @@ namespace Dash
 {
     class GameWorld
     {
-        private List<Level> levels;  //Liste til de forskellige baner
+        private List<Level> levels; //Liste til de forskellige baner
         private Level currentLevel; // field til nuværende bane
         private Graphics dc;  
-        private float currentFPS;  //field til at indeholde nuværende frames per second
-        private BufferedGraphics buffer;  //Grafik buffer
-        private bool menu;  //field som bruges til om menu skal vises eller ej
-        private Menu m;  //menu objektet
-        private DateTime lastFrameStarted;  //Datetime field som bruges til at beregne currentFPS
-        private bool gameRunning;  //field som bruges til at indikere om spiller er startet eller ej
+        private float currentFPS; //field til at indeholde nuværende frames per second
+        private BufferedGraphics buffer; //Grafik buffer
+        private bool menu; //field som bruges til om menu skal vises eller ej
+        private Menu m; //menu objektet
+        private DateTime lastFrameStarted; //Datetime field som bruges til at beregne currentFPS
+        private bool gameRunning; //field som bruges til at indikere om spiller er startet eller ej
         private double t; //field som bruges til timer funktion i spillet
         public int cLevel; //field som indeholder nuværende bane som int
 
@@ -126,7 +126,7 @@ namespace Dash
 
             Font f = new Font("Arial", 12);
             Brush b = new SolidBrush(Color.Black);
-            dc.DrawString(Math.Round(t,2).ToString(), f, b, 600, 0);
+            dc.DrawString(Math.Round(t,2).ToString().Replace(',','.'), f, b, 600, 0);
 
             foreach (GameObject g in currentLevel.BackgroundMap)
             {
@@ -164,8 +164,39 @@ namespace Dash
         public void SetupLevels()
         {
             levels = new List<Level>();
-            GameObject[,] levelMap = new GameObject[14, 18] { { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, };
-            GameObject[,] backgroundMap = new GameObject[14, 18] { { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null }, };
+
+            string levelMap = "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNBNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNBNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN";
+
+            string backgroundMap = "BNNNNNNNNNNNNNNNNN" + "_" +
+                           "BNNNNNNNNNNNNNNNNB" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNBNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN" + "_" +
+                           "NNNNNNNNNNNNNNNNNN";
+
+
+            
             var level = new Level(levelMap, backgroundMap, 10);
             levels.Add(level);
         }
