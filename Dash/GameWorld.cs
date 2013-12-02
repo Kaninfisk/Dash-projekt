@@ -186,7 +186,7 @@ namespace Dash
                                     "NN;NN;NN;NN;NN;NN;SF;SF;SF;NN;NN;NN;NN;SF;SF;SF;SF;SF" + "_" +
                                     "SB;SB;SB;SB;SB;SB;SF;SF;SF;NN;NN;NN;NN;SF;SF;SF;SF;SF";
 
-            string backgroundMap =  "NN;NN;NN;NN;BB;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BB" + "_" +
+            string backgroundMap =  "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
                                     "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
                                     "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
                                     "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
@@ -245,13 +245,13 @@ namespace Dash
                             "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SF;SF;SF;SF;SF;SF" + "_" +
                             "SL;NN;NN;NN;SP;SP;SP;SP;SP;NN;NN;NN;SF;SF;SF;SF;SF;SF" + "_" +
                             "SL;NN;NN;NN;SF;SF;SF;SF;SF;NN;NN;NN;SF;SF;SF;SF;SF;SF" + "_" +
-                            "SL;NN;NN;NN;SF;SF;SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "SL;NN;NN;NN;SF;SF;SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "SL;NN;NN;NN;SF;SF;SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "SL;NN;NN;NN;SF;SF;SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                            "SL;NN;NN;NN;SF;SF;SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
+                            "SL;NN;NN;NN;SF;SF;SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
+                            "SL;NN;NN;NN;SF;SF;SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
+                            "SL;NN;NN;NN;SF;SF;SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
+                            "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
+                            "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
+                            "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;4L;PM;4R;NN;NN;NN;SL" + "_" +
                             "SP;SP;SP;SP;SP;SP;SP;SP;SP;NN;NN;NN;SP;SP;SP;SP;SP;SP";
 
             backgroundMap = "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
@@ -273,20 +273,20 @@ namespace Dash
             levels.Add(level);
             #endregion
             #region Level4
-            levelMap =      "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                            "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN";
+            levelMap =      "S5;ST;ST;SP;SP;SP;SF;SF;SP;NN;NN;ST;ST;ST;ST;ST;ST;S6" + "_" +
+                            "SL;NN;NN;NN;NN;NN;SF;SF;SP;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                            "SL;NN;NN;NN;NN;NN;SF;SF;SP;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                            "SL;NN;NN;NN;NN;NN;SF;SF;SF;SF;SF;SF;SF;SF;SF;NN;NN;SR" + "_" +
+                            "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SF;NN;NN;SR" + "_" +
+                            "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SF;NN;NN;SR" + "_" +
+                            "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                            "SL;NN;NN;SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                            "SL;NN;NN;SP;SP;SP;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                            "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SF;SF;SF" + "_" +
+                            "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;SF;SF;NN;NN;NN;NN;NN;NN" + "_" +
+                            "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;SF;SF;NN;NN;NN;NN;NN;NN" + "_" +
+                            "SF;SF;SF;SF;SF;SF;NN;NN;NN;NN;SF;SF;NN;NN;NN;NN;NN;NN" + "_" +
+                            "SF;SF;SF;SF;SF;SF;SP;SP;SP;SP;SF;SF;SF;SF;SF;SF;SF;SF";
 
             backgroundMap = "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
                             "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
