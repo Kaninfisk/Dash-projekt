@@ -11,7 +11,7 @@ namespace Dash
     class Level
     {
         private int type;
-        private GameObject[,] levelMap;
+        public GameObject[,] levelMap;
         private GameObject[,] backgroundMap;
         private int time;
         private int gravity;
@@ -42,7 +42,7 @@ namespace Dash
                          "SF;SF;SF;NN;NN;NN;SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SF;SF;SF;NN;NN;NN;SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "NN;NN;NN;NN;NN;NN;SF;SF;SF;NN;NN;NN;NN;SF;SF;SF;SF;SF" + "_" +
-                         "NN;NN;NN;NN;NN;NN;SF;SF;SF;NN;NN;NN;NN;SF;SF;SF;SF;SF" + "_" +
+                         "NN;PL;NN;NN;NN;NN;SF;SF;SF;NN;NN;NN;NN;SF;SF;SF;SF;SF" + "_" +
                          "SB;SB;SB;SB;SB;SB;SF;SF;SF;NN;NN;NN;NN;SF;SF;SF;SF;SF";
 
                     bm = "NN;NN;NN;NN;BB;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BB" + "_" +
@@ -702,11 +702,14 @@ namespace Dash
                 {
                     switch (s2)
                     {
-                        case "BB":
-                            this.levelMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.png");
+                        case "SF":
+                            this.levelMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.jpg");
+                            break;
+                        case "PL":
+                            this.levelMap[y, x] = new Dash(200, 100, 200, "Captain Dash", new PointF(x * 48, y * 48), "soldier.png");
                             break;
                         default:
-                            this.levelMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.png");
+                            this.levelMap[y, x] = null;
                             break;
                     }
                     x++;
@@ -725,11 +728,14 @@ namespace Dash
                 {
                     switch (s2)
                     {
-                        case "BB":
-                            this.backgroundMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.png");
+                        case "SF":
+                            this.backgroundMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.jpg");
+                            break;
+                        case "PL":
+                            this.backgroundMap[y, x] = new Dash(200,100,200,"Captain Dash",new PointF(x*48,y*48),"soldier.png" );
                             break;
                         default:
-                            this.backgroundMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.png");
+                            this.backgroundMap[y, x] = null;
                             break;
                     }
                     x++;
@@ -741,6 +747,7 @@ namespace Dash
         public GameObject[,] LevelMap
         {
             get { return levelMap; }
+            set { levelMap = value; }
         }
 
         public GameObject[,] BackgroundMap
