@@ -19,7 +19,7 @@ namespace Dash
         public Dash(int dash, int health, int speed, string name, PointF position, string imagePath)
             : base(health, speed, name, position, imagePath)
         {
-            this.dash = 500;
+            this.dash = dash;
             falling = true;
         }
 
@@ -37,40 +37,45 @@ namespace Dash
                     if (dashright)
                     {
                         RectangleF rect = CollisionBox;
-                        rect.Offset(new PointF((dash * (1 / fps)), 0));
+                        rect.X += dash * (1 / fps);
                         if (rect.IntersectsWith(g.CollisionBox))
                         {
                             dashright = false;
                             falling = true;
+                            position.X = g.Position.X - 48;
                         }
                     }
                     else if (dashleft)
                     {
                         RectangleF rect = CollisionBox;
-                        rect.Offset(new PointF(-(dash * (1 / fps)), 0));
+                        rect.X -= dash * (1 / fps);
                         if (rect.IntersectsWith(g.CollisionBox))
                         {
                             dashleft = false;
                             falling = true;
+                            position.X = g.Position.X + 48;
                         }
                     }
                     else if (dashup)
                     {
                         RectangleF rect = CollisionBox;
-                        rect.Offset(0, -(dash * (1 / fps)));
+                        rect.Y -= dash*(1/fps);
                         if (rect.IntersectsWith(g.CollisionBox))
                         {
                             dashup = false;
                             falling = true;
+                            position.Y = g.Position.Y + 48;
                         }
+                        
                     }
                     else if (falling)
                     {
                         RectangleF rect = CollisionBox;
-                        rect.Offset(0, +(dash * (1 / fps)));
+                        rect.Y += (dash / 3 * 2) * (1 / fps);
                         if (rect.IntersectsWith(g.CollisionBox))
                         {
                             falling = false;
+                            position.Y = g.Position.Y - 96;
                         }
                     }
                 }
@@ -82,21 +87,21 @@ namespace Dash
             base.Update(fps, ref levelMap);
             if (Keyboard.IsKeyDown(Config.RightKey))
             {
-                if (dashup != true && dashright != true)
+                if (!dashup && !dashright)
                 {
                     dashright = true;
                 }
             }
             else if (Keyboard.IsKeyDown(Config.LeftKey))
             {
-                if (dashup != true && dashright != true)
+                if (!dashup && !dashright)
                 {
                     dashleft = true;
                 }
             }
             else if (Keyboard.IsKeyDown(Config.UpKey))
             {
-                if (dashleft != true && dashright != true)
+                if (!dashleft && !dashright && !falling)
                 {
                     dashup = true;
                 }
@@ -118,7 +123,7 @@ namespace Dash
             }
             else if (falling)
             {
-                position.Y += dash*(1/fps);
+                position.Y += dash/3*2  *(1/fps);
             }
         }
     }

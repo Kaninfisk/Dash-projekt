@@ -121,6 +121,9 @@
     <Content Include="img2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="player.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="soldier.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

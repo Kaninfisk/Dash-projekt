@@ -741,7 +741,7 @@ namespace Dash
                             lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.jpg");
                             break;
                         case "PL":
-                            lvlMap[y, x] = new Dash(200, 100, 200, "Captain Dash", new PointF(x * 48, y * 48), "soldier.png");
+                            lvlMap[y, x] = new Dash(400, 100, 200, "Captain Dash", new PointF(x * 48, y * 48), "player.jpg");
                             break;
                         default:
                             lvlMap[y, x] = null;
