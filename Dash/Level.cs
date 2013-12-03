@@ -31,7 +31,7 @@ namespace Dash
                 case 1:
                     #region Level1
                     lm = "R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5" + "_" +
-                         "R5;R5;N7;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;SF" + "_" +
+                         "R5;R5;N7;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2" + "_" +
                          "R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;NN;NN;PL;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -63,20 +63,20 @@ namespace Dash
                     break;
                 case 2:
                     #region Level2
-                    lm = "ST;ST;ST;ST;ST;ST;R5;R5;R5;NN;NN;NN;NN;R5;R5;R5;R5;R5" + "_" +
-                         "NN;NN;NN;NN;NN;NN;R5;R5;R5;NN;NN;NN;NN;R5;R5;R5;R5;R5" + "_" +
-                         "NN;NN;NN;NN;NN;NN;R5;R5;R5;NN;NN;NN;NN;R5;R5;R5;R5;R5" + "_" +
-                         "R5;R5;R5;NN;NN;NN;R5;R5;R5;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "R5;R5;R5;NN;NN;NN;R5;R5;R5;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "R5;R5;R5;NN;NN;NN;R5;R5;R5;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;R5;R5;R5;R5;R5;R5;R5;R5;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;R5;R5;R5;R5;R5;R5;R5;R5;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;R5;R5;R5;R5;R5;R5;R5;R5;NN;NN;NN;SR" + "_" +
+                    lm = "ST;ST;ST;ST;ST;ST;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
+                         "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
+                         "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;E1;E2;E2;E2;E2" + "_" +
+                         "W7;W8;W9;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "E2;E2;E3;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "SL;NN;NN;NN;NN;NN;E4;R5;E6;W8;W8;W8;W8;W9;NN;NN;NN;SR" + "_" +
+                         "SL;NN;NN;NN;NN;NN;E4;R5;R5;R5;R5;R5;R5;E6;NN;NN;NN;SR" + "_" +
+                         "SL;NN;NN;NN;NN;NN;E1;E2;E2;E2;E2;E2;E2;E3;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;6L;PM;6R;NN;NN;NN;NN;NN;R5;R5;R5;R5" + "_" +
-                         "SL;HB;HB;HB;HB;HB;HB;HB;HB;HB;HB;HB;HB;HB;R5;R5;R5;R5";
+                         "SL;H12;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E7;E8;E8;E8" + "_" +
+                         "SL;F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9;E4;R5;R5;R5";
 
                     bm = "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
@@ -96,20 +96,20 @@ namespace Dash
                     break;
                 case 3:
                     #region Level3
-                    lm = "S5;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST" + "_" +
+                    lm = "S7;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;R5;R5;R5;R5;R5;R5" + "_" +
-                         "SL;NN;NN;NN;HB;HB;HB;HB;HB;NN;NN;NN;R5;R5;R5;R5;R5;R5" + "_" +
-                         "SL;NN;NN;NN;R5;R5;R5;R5;R5;NN;NN;NN;R5;R5;R5;R5;R5;R5" + "_" +
-                         "SL;NN;NN;NN;R5;R5;R5;R5;R5;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
-                         "SL;NN;NN;NN;R5;R5;R5;R5;R5;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
-                         "SL;NN;NN;NN;R5;R5;R5;R5;R5;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
-                         "SL;NN;NN;NN;R5;R5;R5;R5;R5;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;W7;W8;W8;W8;W8;W9" + "_" +
+                         "SL;NN;NN;NN;F7;F8;F8;F8;F9;NN;NN;NN;E4;R5;R5;R5;R5;E6" + "_" +
+                         "SL;NN;NN;NN;E4;R5;R5;R5;E6;NN;NN;NN;E1;E2;E2;E2;E2;E3" + "_" +
+                         "SL;NN;NN;NN;E4;R5;R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
+                         "SL;NN;NN;NN;E4;R5;R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
+                         "SL;NN;NN;NN;E4;R5;R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
+                         "SL;NN;NN;NN;E1;E2;E2;E2;E3;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;4L;PM;4R;NN;NN;NN;SL" + "_" +
-                         "HB;HB;HB;HB;HB;HB;HB;HB;HB;NN;NN;NN;HB;HB;HB;HB;HB;HB";
+                         "SL;NN;NN;NN;NN;NN;NN;NN;H9;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
+                         "F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9";
 
                     bm = "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
@@ -129,20 +129,20 @@ namespace Dash
                     break;
                 case 4:
                     #region Level4
-                    lm = "S5;ST;ST;HT;HT;HT;R5;R5;HL;NN;NN;ST;ST;ST;ST;ST;ST;S6" + "_" +
-                         "SL;NN;NN;NN;NN;NN;R5;R5;HL;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;R5;R5;HL;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                    lm = "S7;ST;ST;F1;F2;F3;R5;R5;M9;NN;NN;ST;ST;ST;ST;ST;ST;S9" + "_" +
+                         "SL;NN;NN;NN;NN;NN;R5;R5;M6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "SL;NN;NN;NN;NN;NN;R5;R5;M3;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;R5;R5;R5;R5;R5;R5;R5;R5;R5;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;R5;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;R5;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;R5;R5;R5;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;HT;HT;HT;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;R5;R5;R5" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;R5;R5;NN;NN;NN;NN;NN;NN" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;R5;R5;NN;NN;NN;NN;NN;NN" + "_" +
-                         "R5;R5;R5;R5;R5;R5;NN;NN;NN;NN;R5;R5;NN;NN;NN;NN;NN;NN" + "_" +
-                         "R5;R5;R5;R5;R5;R5;HB;HB;HB;HB;R5;R5;R5;R5;R5;R5;R5;R5";
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;WT;WT;SF" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;E7;E9;NN;NN;NN;NN;NN;NN" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;NN;NN;NN;NN" + "_" +
+                         "W7;W8;W8;W8;W8;W9;NN;NN;NN;NN;E4;E6;NN;NN;NN;NN;NN;NN" + "_" +
+                         "E1;E2;E2;E2;E2;E3;F7;F8;F8;F9;E1;E3;R5;R5;R5;R5;R5;R5";
 
                     bm = "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
