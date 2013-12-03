@@ -35,13 +35,13 @@ namespace Dash
                          "R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;NN;NN;PL;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "R5;R5;E6;NN;NN;NN;E7;E8;E8;E8;E8;E8;E8;E9;NN;NN;NN;SR" + "_" +
+                         "R5;R5;E6;NN;NN;NN;W7;W8;W8;W8;W8;W8;W8;W9;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;R5;R5;R5;R5;R5;E6;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;N7;E2;E2;E2;E2;E3;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "E2;E2;E3;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;W7;W8;W8;W9;R5" + "_" +
+                         "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;W7;W8;W8;W8;W8" + "_" +
                          "NN;NN;NN;R5;NN;NN;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
                          "WB;WB;WB;WB;WB;WB;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5";
 
@@ -737,11 +737,86 @@ namespace Dash
                 {
                     switch (s2)
                     {
+                        case "B1":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\B1.gif");
+                            break;
+                        case "B2":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\B2.gif");
+                            break;
+                        case "B3":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\B3.gif");
+                            break;
+                        case "B4":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\B4.gif");
+                            break;
+                        case "BB":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\BB.gif");
+                            break;
+                        case "BL":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\BL.gif");
+                            break;
+                        case "BR":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\BR.gif");
+                            break;
+                        case "BT":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\BT.gif");
+                            break;
+                        case "E1":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E1.gif");
+                            break;
+                        case "E2":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E2.gif");
+                            break;
+                        case "E3":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E3.gif");
+                            break;
+                        case "E4":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E4.gif");
+                            break;
+                        case "E6":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E6.gif");
+                            break;
+                        case "E7":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E7.gif");
+                            break;
+                        case "E8":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E8.gif");
+                            break;
+                        case "E9":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E9.gif");
+                            break;
                         case "R5":
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.jpg");
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\R5.gif");
                             break;
                         case "PL":
-                            lvlMap[y, x] = new Dash(400, 100, 200, "Captain Dash", new PointF(x * 48, y * 48), "player.jpg");
+                            lvlMap[y, x] = new Dash(400, 100, 200, "Captain Dash", new PointF(x * 48, y * 48), "Graphics\\PL.gif");
+                            break;
+                        case "ST":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\ST.gif");
+                            break;
+                        case "SF":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.jpg");
+                            break;
+                        case "SB":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\SB.gif");
+                            break;
+                        case "SL":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\SL.gif");
+                            break;
+                        case "SR":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\SR.gif");
+                            break;
+                        case "W7":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\W7.gif");
+                            break;
+                        case "W8":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\W8.gif");
+                            break;
+                        case "W9":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\W9.gif");
+                            break;
+                        case "WB":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\WB.gif");
                             break;
                         default:
                             lvlMap[y, x] = null;
