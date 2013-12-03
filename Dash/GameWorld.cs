@@ -23,7 +23,6 @@ namespace Dash
         private double t; //field som bruges til timer funktion i spillet
         public int cLevel; //field som indeholder nuværende bane som int
 
-
         private Keys input;  //field som bruges til at gemme hvilke keys der bliver trykket på
 
         /// <summary>
@@ -166,14 +165,6 @@ namespace Dash
         }
 
         /// <summary>
-        /// opretter banerne
-        /// </summary>
-        public void SetupLevels()
-        {
-            
-        }
-
-        /// <summary>
         /// Indstiller startvariablerne for gameworld
         /// </summary>
         public void SetupGameWorld()
@@ -189,7 +180,7 @@ namespace Dash
         /// </summary>
         public void RestartLevel()
         {
-            currentLevel = new Level(cLevel,1000);
+            currentLevel = new Level(cLevel);
             t = currentLevel.Time;
         }
     }
