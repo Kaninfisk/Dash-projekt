@@ -1041,7 +1041,7 @@ namespace Dash
                         #region Player
                         case "PL":
                             collisionBoxes = new List<RectangleF>();
-                            collisionBoxes.Add(new RectangleF(x * 48, y * 48, 48, 48));
+                            collisionBoxes.Add(new RectangleF(x * 48, y * 48, 96, 96));
                             lvlMap[y, x] = new Dash(400, 100, 200, "Captain Dash", new PointF(x * 48, y * 48), "Graphics\\PL.gif", collisionBoxes);
                             break;
                         #endregion
