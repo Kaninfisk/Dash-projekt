@@ -112,111 +112,6 @@
     <Content Include="Audio\music.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="B1.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="B2.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="B3.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="B4.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="BB.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="BL.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="BR.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="BT.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="C1.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="C3.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="C7.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="C9.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="D1.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="D2.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DH.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DV.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="E1.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="E2.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="E3.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="E4.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="E6.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="E7.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="E8.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="E9.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="F1.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="F2.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="F3.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="F7.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="F8.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="F9.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="G1.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="G2.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="G3.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="G4.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="G5.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Graphics\B1.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -490,15 +385,6 @@
     <Content Include="Graphics\X9.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="H1.gif" />
-    <Content Include="H3.gif" />
-    <Content Include="H7.gif" />
-    <Content Include="H9.gif" />
-    <Content Include="I1.gif" />
-    <Content Include="I3.gif" />
-    <Content Include="I7.gif" />
-    <Content Include="I9.gif" />
-    <Content Include="IH.gif" />
     <Content Include="img2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -508,59 +394,6 @@
     <Content Include="img2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="IV.gif" />
-    <Content Include="M1.gif" />
-    <Content Include="M3.gif" />
-    <Content Include="M4.gif" />
-    <Content Include="M6.gif" />
-    <Content Include="M7.gif" />
-    <Content Include="M9.gif" />
-    <Content Include="N1.gif" />
-    <Content Include="N3.gif" />
-    <Content Include="N7.gif" />
-    <Content Include="N9.gif" />
-    <Content Include="PL.gif" />
-    <Content Include="player.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="R1.gif" />
-    <Content Include="R2.gif" />
-    <Content Include="R3.gif" />
-    <Content Include="R4.gif" />
-    <Content Include="R5.gif" />
-    <Content Include="R6.gif" />
-    <Content Include="R7.gif" />
-    <Content Include="R8.gif" />
-    <Content Include="R9.gif" />
-    <Content Include="S1.gif" />
-    <Content Include="S3.gif" />
-    <Content Include="S7.gif" />
-    <Content Include="S9.gif" />
-    <Content Include="SB.gif" />
-    <Content Include="SG.gif" />
-    <Content Include="SH.gif" />
-    <Content Include="SL.gif" />
-    <Content Include="soldier.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SP.gif" />
-    <Content Include="SR.gif" />
-    <Content Include="ST.gif" />
-    <Content Include="SV.gif" />
-    <Content Include="U2.gif" />
-    <Content Include="U4.gif" />
-    <Content Include="U6.gif" />
-    <Content Include="U8.gif" />
-    <Content Include="W2.gif" />
-    <Content Include="W7.gif" />
-    <Content Include="W8.gif" />
-    <Content Include="W9.gif" />
-    <Content Include="WB.gif" />
-    <Content Include="WT.gif" />
-    <Content Include="X1.gif" />
-    <Content Include="X3.gif" />
-    <Content Include="X7.gif" />
-    <Content Include="X9.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

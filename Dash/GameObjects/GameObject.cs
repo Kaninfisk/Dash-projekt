@@ -15,9 +15,9 @@ namespace Dash
         protected Image sprite;
         protected List<RectangleF> collisionBoxes;
 
-        public RectangleF CollisionBox
+        public List<RectangleF> CollisionBoxes
         {
-            get { return new RectangleF(position, sprite.Size); }
+            get { return collisionBoxes; }
         }
 
         public PointF Position

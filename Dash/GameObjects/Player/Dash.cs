@@ -17,7 +17,7 @@ namespace Dash
         private bool falling;
 
         public Dash(int dash, int health, int speed, string name, PointF position, string imagePath, List<RectangleF> collisionBoxes)
-            : base(health, speed, name, position, imagePath,collisionBoxes)
+            : base(health, speed, name, position, imagePath, collisionBoxes)
         {
             this.dash = dash;
             falling = true;
@@ -36,58 +36,98 @@ namespace Dash
                 {
                     if (dashright)
                     {
-                        RectangleF rect = CollisionBox;
-                        rect.X += dash * (1 / fps);
                         foreach (RectangleF r in collisionBoxes)
                         {
-                            if (rect.IntersectsWith(r))
+                            RectangleF rect = r;
+                            rect.X += dash * (1 / fps);
+
+                            foreach (RectangleF r2 in g.CollisionBoxes)
                             {
-                                dashright = false;
-                                falling = true;
-                                position.X = r.X - r.Width;
+                                if (rect.IntersectsWith(r2))
+                                {
+                                    List<RectangleF> cTemp = new List<RectangleF>();
+                                    dashright = false;
+                                    falling = true;
+                                    position.X = r2.X - collisionBoxes[0].Width;
+                                    for (int i = 0; i < collisionBoxes.Count; i++)
+                                    {
+                                        cTemp.Add(new RectangleF(r2.X - collisionBoxes[i].Width, collisionBoxes[i].Y, collisionBoxes[i].Width, collisionBoxes[i].Height));
+                                    }
+                                    collisionBoxes = cTemp;
+                                }
                             }
                         }
                     }
                     else if (dashleft)
                     {
-                        RectangleF rect = CollisionBox;
-                        rect.X -= dash * (1 / fps);
+
                         foreach (RectangleF r in collisionBoxes)
                         {
-                            if (rect.IntersectsWith(r))
+                            RectangleF rect = r;
+                            rect.X -= dash  * (1 / fps);
+
+                            foreach (RectangleF r2 in g.CollisionBoxes)
                             {
-                                dashleft = false;
-                                falling = true;
-                                position.X = r.X + r.Width;
+                                if (rect.IntersectsWith(r2))
+                                {
+                                    List<RectangleF> cTemp = new List<RectangleF>();
+                                    dashleft = false;
+                                    falling = true;
+                                    position.X = r2.X + r2.Width;
+                                    for (int i = 0; i < collisionBoxes.Count; i++)
+                                    {
+                                        cTemp.Add(new RectangleF(r2.X + r2.Width, collisionBoxes[i].Y, collisionBoxes[i].Width, collisionBoxes[i].Height));
+                                    }
+                                    collisionBoxes = cTemp;
+                                }
                             }
                         }
                     }
                     else if (dashup)
                     {
-                        RectangleF rect = CollisionBox;
-                        rect.Y -= dash * (1 / fps);
                         foreach (RectangleF r in collisionBoxes)
                         {
-                            if (rect.IntersectsWith(r))
+                            RectangleF rect = r;
+                            rect.Y -= dash * (1 / fps);
+
+                            foreach (RectangleF r2 in g.CollisionBoxes)
                             {
-                                dashup = false;
-                                falling = true;
-                                position.Y = r.Y + r.Height;
+                                if (rect.IntersectsWith(r2))
+                                {
+                                    List<RectangleF> cTemp = new List<RectangleF>();
+                                    dashup = false;
+                                    falling = true;
+                                    position.Y = r2.Y +  r2.Height;
+                                    for (int i = 0; i < collisionBoxes.Count; i++)
+                                    {
+                                        cTemp.Add(new RectangleF(collisionBoxes[i].X, r2.Y + r2.Height, collisionBoxes[i].Width, collisionBoxes[i].Height));
+                                    }
+                                    collisionBoxes = cTemp;
+
+                                }
                             }
                         }
                     }
                     else if (falling)
                     {
-                        RectangleF rect = CollisionBox;
-                        rect.Y += (dash / 3 * 2) * (1 / fps);
-
                         foreach (RectangleF r in collisionBoxes)
                         {
-                            
-                            if (rect.IntersectsWith(r))
+                            RectangleF rect = r;
+                            rect.Y += (dash / 3 * 2) * (1 / fps);
+
+                            foreach (RectangleF r2 in g.CollisionBoxes)
                             {
-                                falling = false;
-                                position.Y = r.Y - 96;
+                                if (rect.IntersectsWith(r2))
+                                {
+                                    List<RectangleF> cTemp = new List<RectangleF>();
+                                    falling = false;
+                                    position.Y = r2.Y - collisionBoxes[0].Height;
+                                    for (int i = 0; i < collisionBoxes.Count; i++)
+                                    {
+                                        cTemp.Add(new RectangleF(collisionBoxes[i].X, r2.Y - collisionBoxes[i].Height, collisionBoxes[i].Width, collisionBoxes[i].Height));
+                                    }
+                                    collisionBoxes = cTemp;
+                                }
                             }
                         }
                     }
@@ -118,7 +158,7 @@ namespace Dash
                 {
                     dashup = true;
                 }
-                
+
             }
             CheckCollisions(ref levelMap, fps);
 
@@ -148,10 +188,10 @@ namespace Dash
             }
             else if (falling)
             {
-                position.Y += dash/3*2  *(1/fps);
+                position.Y += dash / 3 * 2 * (1 / fps);
                 for (int i = 0; i < collisionBoxes.Count; i++)
                 {
-                    collisionBoxes[i] = new RectangleF(collisionBoxes[i].X,collisionBoxes[i].Y + dash / 3 * 2 * (1 / fps) ,collisionBoxes[i].Width,collisionBoxes[i].Height);
+                    collisionBoxes[i] = new RectangleF(collisionBoxes[i].X, collisionBoxes[i].Y + (((dash / 3) * 2) * (1 / fps)), collisionBoxes[i].Width, collisionBoxes[i].Height);
                 }
             }
         }
