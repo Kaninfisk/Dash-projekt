@@ -13,9 +13,9 @@ namespace Dash
         protected List<Image> animationFrames;
         protected float currentAnimationIndex;
         protected Image sprite;
-        protected List<RectangleF> collisionBoxes;
+        protected List<Rect> collisionBoxes;
 
-        public List<RectangleF> CollisionBoxes
+        public List<Rect> CollisionBoxes
         {
             get { return collisionBoxes; }
         }
@@ -26,7 +26,7 @@ namespace Dash
             set { position = value; }
         }
 
-        protected GameObject(PointF position, string imagePath, List<RectangleF> collisionBoxes)
+        protected GameObject(PointF position, string imagePath, List<Rect> collisionBoxes)
         {
             this.collisionBoxes = collisionBoxes;
             this.position = position;
@@ -42,11 +42,12 @@ namespace Dash
         public virtual void Draw(Graphics dc)
         {
             dc.DrawImage(sprite, position.X, position.Y, sprite.Width, sprite.Height);
-            foreach (RectangleF collisionBox in collisionBoxes)
+            foreach (Rect collisionBox in collisionBoxes)
             {
                 SolidBrush b = new SolidBrush(Color.Black);
                 Pen p = new Pen(b);
-                dc.DrawRectangle(p, collisionBox.X, collisionBox.Y, collisionBox.Width, collisionBox.Height);
+                RectangleF r = collisionBox.HitBox(position.X,position.Y);
+                dc.DrawRectangle(p, r.X,r.Y,r.Width,r.Height);
             }
         }
 

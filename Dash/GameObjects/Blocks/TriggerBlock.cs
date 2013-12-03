@@ -9,7 +9,7 @@ namespace Dash
 {
     class TriggerBlock:GridBlock
     {
-        public TriggerBlock(PointF position, string imagePath, List<RectangleF> collisionBoxes)
+        public TriggerBlock(PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(position, imagePath,collisionBoxes)
         {
             

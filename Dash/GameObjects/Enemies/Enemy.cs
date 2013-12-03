@@ -17,7 +17,7 @@ namespace Dash
             get { return name; }
         }
 
-        public Enemy(int health, string name, PointF position, string imagePath, List<RectangleF> collisionBoxes)
+        public Enemy(int health, string name, PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(position, imagePath, collisionBoxes)
         {
             this.health = health;

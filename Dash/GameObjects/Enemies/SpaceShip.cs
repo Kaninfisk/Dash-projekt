@@ -9,7 +9,7 @@ namespace Dash
 {
     class SpaceShip:MovableEnemy
     {
-        public SpaceShip(int speed, int health, string name, PointF position, string imagePath, List<RectangleF> collisionBoxes)
+        public SpaceShip(int speed, int health, string name, PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(speed, health, name, position, imagePath,collisionBoxes)
         {
             

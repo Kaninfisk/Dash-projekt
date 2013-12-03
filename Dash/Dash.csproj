@@ -50,6 +50,7 @@
     <Compile Include="Audio\Audio.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="GameObjects\Player\Dash.cs" />
+    <Compile Include="Rect.cs" />
     <Compile Include="UI\Dialogue.cs" />
     <Compile Include="GameObjects\Enemies\Enemy.cs" />
     <Compile Include="GameObjects\Blocks\FallingBlock.cs" />
