@@ -157,7 +157,17 @@ namespace Dash
             {
                 if (g != null)
                 {
-                    g.Update(currentFPS);
+                    if (g.GetType().ToString() == "Dash.Dash")
+                    {
+                        Dash p = (Dash)g;
+                        p.Update(currentFPS);
+                        p.CheckCollisions(ref currentLevel.levelMap, currentFPS);
+                    }
+                    else
+                    {
+                        g.Update(currentFPS);    
+                    }
+                    
                 }
             }
         }
@@ -177,9 +187,7 @@ namespace Dash
         {
             gameRunning = false;
             menu = true;
-            currentLevel = new Level(cLevel, 1000);
-            t = currentLevel.Time;
-
+            RestartLevel();
             //Audio.PlayMusic("audio/music.mp3");
         }
 

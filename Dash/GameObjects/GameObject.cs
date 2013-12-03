@@ -24,10 +24,8 @@ namespace Dash
             get { return position; }
             set { position = value; }
         }
-        
-        
 
-        public GameObject(PointF position, string imagePath)
+        protected GameObject(PointF position, string imagePath)
         {
             this.position = position;
             string[] imagePaths = imagePath.Split(';');
