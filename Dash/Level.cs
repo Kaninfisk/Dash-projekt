@@ -735,13 +735,18 @@ namespace Dash
                 int x = 0;
                 foreach (string s2 in s1.Split(';'))
                 {
+                    List<RectangleF> collisionBoxes = new List<RectangleF>();
                     switch (s2)
                     {
                         case "B1":
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\B1.gif");
+                            collisionBoxes = new List<RectangleF>();
+                            collisionBoxes.Add(new RectangleF(x * 48, y * 48, 48,48));
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\B1.gif",collisionBoxes);
                             break;
                         case "B2":
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\B2.gif");
+                            collisionBoxes = new List<RectangleF>();
+                            collisionBoxes.Add(new RectangleF(x * 48, y * 48, 48,48));
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\B2.gif",collisionBoxes);
                             break;
                         case "B3":
                             lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\B3.gif");
