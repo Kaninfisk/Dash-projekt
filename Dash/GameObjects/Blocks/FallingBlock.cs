@@ -9,7 +9,7 @@ namespace Dash
 {
     class FallingBlock:MovableBlock
     {
-        public FallingBlock(int speed, PointF position, string imagePath, List<RectangleF> collisionBoxes)
+        public FallingBlock(int speed, PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(speed, position, imagePath,collisionBoxes)
         {
             

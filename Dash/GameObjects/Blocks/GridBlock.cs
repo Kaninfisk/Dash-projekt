@@ -9,7 +9,7 @@ namespace Dash
 {
     class GridBlock:GameObject
     {
-        public GridBlock(PointF position, string imagePath, List<RectangleF> collisionBoxes)
+        public GridBlock(PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(position, imagePath, collisionBoxes)
         {
             

@@ -9,7 +9,7 @@ namespace Dash
 {
     class PatrollingBlock:MovableBlock
     {
-        public PatrollingBlock(int speed, PointF position, string imagePath, List<RectangleF> collisionBoxes)
+        public PatrollingBlock(int speed, PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(speed, position, imagePath,collisionBoxes)
         {
             

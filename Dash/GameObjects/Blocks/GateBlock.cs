@@ -9,7 +9,7 @@ namespace Dash
 {
     class GateBlock:MovableBlock
     {
-        public GateBlock(int speed, PointF position, string imagePath, List<RectangleF> collisionBoxes)
+        public GateBlock(int speed, PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(speed, position, imagePath,collisionBoxes)
         {
             

@@ -9,7 +9,7 @@ namespace Dash
 {
     class SolidBlock:GridBlock
     {
-        public SolidBlock(PointF position, string imagePath, List<RectangleF> collisionBoxes)
+        public SolidBlock(PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(position, imagePath,collisionBoxes)
         {
             
