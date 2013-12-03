@@ -13,6 +13,7 @@ namespace Dash
         protected List<Image> animationFrames;
         protected float currentAnimationIndex;
         protected Image sprite;
+        protected List<RectangleF> collisionBoxes;
 
         public RectangleF CollisionBox
         {
@@ -25,8 +26,9 @@ namespace Dash
             set { position = value; }
         }
 
-        protected GameObject(PointF position, string imagePath)
+        protected GameObject(PointF position, string imagePath, List<RectangleF> collisionBoxes)
         {
+            this.collisionBoxes = collisionBoxes;
             this.position = position;
             string[] imagePaths = imagePath.Split(';');
             animationFrames = new List<Image>();

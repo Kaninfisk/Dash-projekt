@@ -30,6 +30,7 @@ namespace Dash
             {
                 case 1:
                     #region Level1
+                    time = 10;
                     lm = "SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF" + "_" +
                          "SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF" + "_" +
                          "SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -63,6 +64,7 @@ namespace Dash
                     break;
                 case 2:
                     #region Level2
+                    time = 10;
                     lm = "ST;ST;ST;ST;ST;ST;SF;SF;SF;NN;NN;NN;NN;SF;SF;SF;SF;SF" + "_" +
                          "NN;NN;NN;NN;NN;NN;SF;SF;SF;NN;NN;NN;NN;SF;SF;SF;SF;SF" + "_" +
                          "NN;NN;NN;NN;NN;NN;SF;SF;SF;NN;NN;NN;NN;SF;SF;SF;SF;SF" + "_" +
@@ -96,6 +98,7 @@ namespace Dash
                     break;
                 case 3:
                     #region Level3
+                    time = 10;
                     lm = "S5;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
@@ -129,6 +132,7 @@ namespace Dash
                     break;
                 case 4:
                     #region Level4
+                    time = 10;
                     lm = "S5;ST;ST;HT;HT;HT;SF;SF;HL;NN;NN;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "SL;NN;NN;NN;NN;NN;SF;SF;HL;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;SF;SF;HL;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -162,6 +166,7 @@ namespace Dash
                     break;
                 case 5:
                     #region Level5
+                    time = 10;
                     lm = "S5;ST;ST;HT;HT;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;HR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;HR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;HR" + "_" +
@@ -195,6 +200,7 @@ namespace Dash
                     break;
                 case 6:
                     #region Level6
+                    time = 10;
                     lm = "ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;2U;NN;NN;NN;NN;NN;SR" + "_" +
@@ -229,6 +235,7 @@ namespace Dash
                     break;
                 case 7:
                     #region Level7
+                    time = 10;
                     lm = "ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -262,6 +269,7 @@ namespace Dash
                     break;
                 case 8:
                     #region Level8
+                    time = 10;
                     lm = "HL;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;SF;ST;ST;ST;S6" + "_" +
                          "HL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;DV;NN;NN;NN;SR" + "_" +
                          "HL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;DV;NN;NN;BR;SR" + "_" +
@@ -295,6 +303,7 @@ namespace Dash
                     break;
                 case 9:
                     #region Level9
+                    time = 10;
                     lm = "S5;ST;ST;ST;ST;ST;ST;ST;ST;ST;NN;NN;NN;SF;ST;ST;ST;ST" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SF;NN;NN;NN;NN" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SF;NN;NN;NN;NN" + "_" +
@@ -328,6 +337,7 @@ namespace Dash
                     break;
                 case 10:
                     #region Level10
+                    time = 10;
                     lm = "SF;SF;SF;SF;SF;SF;ST;ST;ST;ST;ST;SF;SF;SF;SF;SF;SF;SF" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -361,6 +371,7 @@ namespace Dash
                     break;
                 case 11:
                     #region Level11
+                    time = 10;
                     lm = "ST;ST;ST;ST;ST;ST;SF;SF;ST;ST;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "NN;NN;NN;NN;NN;NN;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "NN;NN;NN;NN;NN;NN;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -394,6 +405,7 @@ namespace Dash
                     break;
                 case 12:
                     #region Level12
+                    time = 10;
                     lm = "S5;ST;ST;ST;ST;ST;ST;ST;ST;ST;NN;NN;NN;ST;ST;ST;ST;HR" + "_" +
                          "SL;BT;NN;NN;NN;NN;NN;NN;NN;NN;DH;DH;DH;NN;NN;NN;NN;HR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;DH;DH;DH;NN;NN;NN;NN;HR" + "_" +
@@ -427,6 +439,7 @@ namespace Dash
                     break;
                 case 13:
                     #region Level13
+                    time = 10;
                     lm = "S5;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;NN;NN;NN;S6" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -460,6 +473,7 @@ namespace Dash
                     break;
                 case 14:
                     #region Level14
+                    time = 10;
                     lm = "S5;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -493,6 +507,7 @@ namespace Dash
                     break;
                 case 15:
                     #region Level15
+                    time = 10;
                     lm = "HT;HT;HT;ST;ST;ST;HT;HT;HT;HT;NN;NN;NN;ST;ST;ST;ST;S6" + "_" +
                          "HL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "HL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -526,6 +541,7 @@ namespace Dash
                     break;
                 case 16:
                     #region Level16
+                    time = 10;
                     lm = "S5;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -559,6 +575,7 @@ namespace Dash
                     break;
                 case 17:
                     #region Level17
+                    time = 10;
                     lm = "S5;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;SR" + "_" +
@@ -592,6 +609,7 @@ namespace Dash
                     break;
                 case 18:
                     #region Level18
+                    time = 10;
                     lm = "S5;ST;ST;ST;ST;SF;ST;ST;ST;ST;ST;SF;ST;ST;ST;ST;ST;S6" + "_" +
                          "SL;NN;NN;NN;NN;SR;NN;NN;NN;NN;NN;SR;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;SR;NN;NN;NN;NN;NN;SR;BL;NN;NN;NN;NN;SR" + "_" +
@@ -625,6 +643,7 @@ namespace Dash
                     break;
                 case 19:
                     #region Level19
+                    time = 10;
                     lm = "HL;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "HL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "HL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -658,6 +677,7 @@ namespace Dash
                     break;
                 case 20:
                     #region Level20
+                    time = 10;
                     lm = "S5;ST;ST;ST;ST;ST;SF;ST;ST;SF;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "SL;NN;NN;NN;NN;BT;SR;NN;NN;DV;NN;NN;SR;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;2L;PM;2R;NN;SR;NN;NN;DV;NN;NN;SR;NN;NN;NN;NN;SR" + "_" +
@@ -717,9 +737,8 @@ namespace Dash
             get { return gravity; }
         }
 
-        public Level(int level, int time)
+        public Level(int level)
         {
-            this.time = time;
             CreateLevel(level);
         }
 
@@ -735,13 +754,18 @@ namespace Dash
                 int x = 0;
                 foreach (string s2 in s1.Split(';'))
                 {
+                    List<RectangleF> collisionBoxes;
                     switch (s2)
                     {
                         case "SF":
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.jpg");
+                            collisionBoxes = new List<RectangleF>();
+                            collisionBoxes.Add(new RectangleF(new PointF(x * 48, y * 48),new SizeF(48,48)));
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.jpg", collisionBoxes);
                             break;
                         case "PL":
-                            lvlMap[y, x] = new Dash(400, 100, 200, "Captain Dash", new PointF(x * 48, y * 48), "player.jpg");
+                            collisionBoxes = new List<RectangleF>();
+                            collisionBoxes.Add(new RectangleF(new PointF(x * 48, y * 48), new SizeF(48, 96)));
+                            lvlMap[y, x] = new Dash(500, 100, 200, "Captain Dash", new PointF(x * 48, y * 48), "player.jpg",collisionBoxes);
                             break;
                         default:
                             lvlMap[y, x] = null;

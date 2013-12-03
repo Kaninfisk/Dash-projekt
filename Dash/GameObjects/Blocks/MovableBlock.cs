@@ -11,7 +11,8 @@ namespace Dash
     {
         protected int speed;
 
-        public MovableBlock(int speed, PointF position, string imagePath) : base(position, imagePath)
+        public MovableBlock(int speed, PointF position, string imagePath, List<RectangleF> collisionBoxes)
+            : base(position, imagePath,collisionBoxes)
         {
             this.speed = speed;
         }

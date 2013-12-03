@@ -11,7 +11,8 @@ namespace Dash
     {
         private int armor;
 
-        public Ship(int armor, int health, int speed, string name, PointF position, string imagePath) : base(health, speed, name, position, imagePath)
+        public Ship(int armor, int health, int speed, string name, PointF position, string imagePath, List<RectangleF> collisionBoxes)
+            : base(health, speed, name, position, imagePath,collisionBoxes)
         {
             this.armor = armor;
         }

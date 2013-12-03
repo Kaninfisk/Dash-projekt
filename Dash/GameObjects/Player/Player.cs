@@ -17,7 +17,8 @@ namespace Dash
             get { return name; }
         }
 
-        public Player(int health, int speed, string name, PointF position, string imagePath) : base(position, imagePath)
+        public Player(int health, int speed, string name, PointF position, string imagePath, List<RectangleF> collisionBoxes)
+            : base(position, imagePath,collisionBoxes)
         {
             this.health = health;
             this.speed = speed;

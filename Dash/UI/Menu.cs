@@ -31,11 +31,11 @@ namespace Dash
         }
 
 
-        Font f = new Font("Arial", 30);  //Font til menupunkter
-        Font headLine = new Font("Arial", 48); //Font til overskrifter
-        Font headLine2 = new Font("Arial", 40); //Font til under overskrifter
-        Brush b = new SolidBrush(Color.Black); //brush til ikke valgte menupunkter og overskrifter
-        Brush b2 = new SolidBrush(Color.Red); //brush til valgte menupunkter
+        private Font f = new Font("Arial", 30);  //Font til menupunkter
+        private Font headLine = new Font("Arial", 48); //Font til overskrifter
+        private Font headLine2 = new Font("Arial", 40); //Font til under overskrifter
+        private Brush b = new SolidBrush(Color.Black); //brush til ikke valgte menupunkter og overskrifter
+        private Brush b2 = new SolidBrush(Color.Red); //brush til valgte menupunkter
 
         /// <summary>
         /// Konstruktor hvor menu bliver sat op og  grafik objektet bliver initialiseret.
@@ -78,7 +78,6 @@ namespace Dash
             stringFormat.Alignment = StringAlignment.Center;
             stringFormat.LineAlignment = StringAlignment.Center;
             dc.DrawString(tekst, headLine, b, rect1, stringFormat);
-            //dc.DrawRectangle(Pens.Black, rect1);
 
             if (highlightedMenuItem == 1)
             {

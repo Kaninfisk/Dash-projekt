@@ -11,7 +11,8 @@ namespace Dash
     {
         protected int speed;
 
-        public MovableEnemy(int speed, int health, string name, PointF position, string imagePath) : base(health, name, position, imagePath)
+        public MovableEnemy(int speed, int health, string name, PointF position, string imagePath, List<RectangleF> collisionBoxes)
+            : base(health, name, position, imagePath,collisionBoxes)
         {
             this.speed = speed;
         }
