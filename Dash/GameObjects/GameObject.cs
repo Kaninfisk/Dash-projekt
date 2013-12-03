@@ -42,6 +42,12 @@ namespace Dash
         public virtual void Draw(Graphics dc)
         {
             dc.DrawImage(sprite, position.X, position.Y, sprite.Width, sprite.Height);
+            foreach (RectangleF collisionBox in collisionBoxes)
+            {
+                SolidBrush b = new SolidBrush(Color.Black);
+                Pen p = new Pen(b);
+                dc.DrawRectangle(p, collisionBox.X, collisionBox.Y, collisionBox.Width, collisionBox.Height);
+            }
         }
 
         public virtual void Update(float fps, ref GameObject[,] levelMap)

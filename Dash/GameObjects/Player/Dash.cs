@@ -36,10 +36,10 @@ namespace Dash
                 {
                     if (dashright)
                     {
+                        RectangleF rect = CollisionBox;
+                        rect.X += dash * (1 / fps);
                         foreach (RectangleF r in collisionBoxes)
                         {
-                            RectangleF rect = CollisionBox;
-                            rect.X += dash * (1 / fps);
                             if (rect.IntersectsWith(r))
                             {
                                 dashright = false;
@@ -50,10 +50,10 @@ namespace Dash
                     }
                     else if (dashleft)
                     {
+                        RectangleF rect = CollisionBox;
+                        rect.X -= dash * (1 / fps);
                         foreach (RectangleF r in collisionBoxes)
                         {
-                            RectangleF rect = CollisionBox;
-                            rect.X -= dash*(1/fps);
                             if (rect.IntersectsWith(r))
                             {
                                 dashleft = false;
@@ -64,10 +64,10 @@ namespace Dash
                     }
                     else if (dashup)
                     {
+                        RectangleF rect = CollisionBox;
+                        rect.Y -= dash * (1 / fps);
                         foreach (RectangleF r in collisionBoxes)
                         {
-                            RectangleF rect = CollisionBox;
-                            rect.Y -= dash*(1/fps);
                             if (rect.IntersectsWith(r))
                             {
                                 dashup = false;
@@ -78,10 +78,12 @@ namespace Dash
                     }
                     else if (falling)
                     {
+                        RectangleF rect = CollisionBox;
+                        rect.Y += (dash / 3 * 2) * (1 / fps);
+
                         foreach (RectangleF r in collisionBoxes)
                         {
-                            RectangleF rect = CollisionBox;
-                            rect.Y += (dash/3*2)*(1/fps);
+                            
                             if (rect.IntersectsWith(r))
                             {
                                 falling = false;
@@ -123,18 +125,34 @@ namespace Dash
             if (dashup)
             {
                 position.Y -= dash * (1 / fps);
+                for (int i = 0; i < collisionBoxes.Count; i++)
+                {
+                    collisionBoxes[i] = new RectangleF(collisionBoxes[i].X, collisionBoxes[i].Y - dash * (1 / fps), collisionBoxes[i].Width, collisionBoxes[i].Height);
+                }
             }
             else if (dashleft)
             {
                 position.X -= dash * (1 / fps);
+                for (int i = 0; i < collisionBoxes.Count; i++)
+                {
+                    collisionBoxes[i] = new RectangleF(collisionBoxes[i].X - dash * (1 / fps), collisionBoxes[i].Y, collisionBoxes[i].Width, collisionBoxes[i].Height);
+                }
             }
             else if (dashright)
             {
                 position.X += dash * (1 / fps);
+                for (int i = 0; i < collisionBoxes.Count; i++)
+                {
+                    collisionBoxes[i] = new RectangleF(collisionBoxes[i].X + dash * (1 / fps), collisionBoxes[i].Y, collisionBoxes[i].Width, collisionBoxes[i].Height);
+                }
             }
             else if (falling)
             {
                 position.Y += dash/3*2  *(1/fps);
+                for (int i = 0; i < collisionBoxes.Count; i++)
+                {
+                    collisionBoxes[i] = new RectangleF(collisionBoxes[i].X,collisionBoxes[i].Y + dash / 3 * 2 * (1 / fps) ,collisionBoxes[i].Width,collisionBoxes[i].Height);
+                }
             }
         }
     }
