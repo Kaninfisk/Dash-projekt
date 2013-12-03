@@ -180,7 +180,7 @@ namespace Dash
         /// </summary>
         public void RestartLevel()
         {
-            currentLevel = new Level(cLevel, 100);
+            currentLevel = new Level(cLevel, 999);
             t = currentLevel.Time;
         }
     }
