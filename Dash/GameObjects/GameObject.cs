@@ -42,6 +42,7 @@ namespace Dash
         public virtual void Draw(Graphics dc)
         {
             dc.DrawImage(sprite, position.X, position.Y, sprite.Width, sprite.Height);
+#if DEBUG
             foreach (Rect collisionBox in collisionBoxes)
             {
                 SolidBrush b = new SolidBrush(Color.Black);
@@ -49,6 +50,7 @@ namespace Dash
                 RectangleF r = collisionBox.HitBox(position.X,position.Y);
                 dc.DrawRectangle(p, r.X,r.Y,r.Width,r.Height);
             }
+#endif
         }
 
         public virtual void Update(float fps, ref GameObject[,] levelMap)

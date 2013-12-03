@@ -144,7 +144,9 @@ namespace Dash
             Font f = new Font("Arial", 12);
             Brush b = new SolidBrush(Color.Black);
             dc.DrawString(Math.Round(t, 2).ToString().Replace(',', '.'), f, b, 600, 0);
+#if DEBUG
             dc.DrawString(currentFPS.ToString(), f, b, 800, 0);
+#endif
         }
 
         /// <summary>
