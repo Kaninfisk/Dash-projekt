@@ -157,16 +157,9 @@ namespace Dash
             {
                 if (g != null)
                 {
-                    if (g.GetType().ToString() == "Dash.Dash")
-                    {
-                        Dash p = (Dash)g;
-                        p.Update(currentFPS);
-                        p.CheckCollisions(ref currentLevel.levelMap, currentFPS);
-                    }
-                    else
-                    {
-                        g.Update(currentFPS);    
-                    }
+                    
+                    g.Update(currentFPS, ref currentLevel.levelMap);    
+                    
                     
                 }
             }

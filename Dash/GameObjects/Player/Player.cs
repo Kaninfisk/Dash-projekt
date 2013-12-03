@@ -24,9 +24,9 @@ namespace Dash
             this.name = name;
         }
 
-        public override void Update(float fps)
+        public override void Update(float fps, ref GameObject[,] levelMap)
         {
-            base.Update(fps);
+            base.Update(fps,ref levelMap);
         }
     }
 }

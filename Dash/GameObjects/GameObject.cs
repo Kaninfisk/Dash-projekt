@@ -42,7 +42,7 @@ namespace Dash
             dc.DrawImage(sprite, position.X, position.Y, sprite.Width, sprite.Height);
         }
 
-        public virtual void Update(float fps)
+        public virtual void Update(float fps, ref GameObject[,] levelMap)
         {
             
         }

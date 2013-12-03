@@ -33,7 +33,7 @@ namespace Dash
                     lm = "SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF" + "_" +
                          "SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF;SF" + "_" +
                          "SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "SF;SF;SF;NN;NN;NN;NN;NN;PL;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SF;SF;SF;NN;NN;NN;SF;SF;SF;SF;SF;SF;SF;SF;NN;NN;NN;SR" + "_" +
                          "SF;SF;SF;NN;NN;NN;SF;SF;SF;SF;SF;SF;SF;SF;NN;NN;NN;SR" + "_" +
@@ -42,7 +42,7 @@ namespace Dash
                          "SF;SF;SF;NN;NN;NN;SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SF;SF;SF;NN;NN;NN;SF;SF;SF;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "NN;NN;NN;NN;NN;NN;SF;SF;SF;NN;NN;NN;NN;SF;SF;SF;SF;SF" + "_" +
-                         "NN;PL;NN;NN;NN;NN;SF;SF;SF;NN;NN;NN;NN;SF;SF;SF;SF;SF" + "_" +
+                         "NN;NN;NN;SF;NN;NN;SF;SF;SF;NN;NN;NN;NN;SF;SF;SF;SF;SF" + "_" +
                          "SB;SB;SB;SB;SB;SB;SF;SF;SF;NN;NN;NN;NN;SF;SF;SF;SF;SF";
 
                     bm = "NN;NN;NN;NN;BB;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BB" + "_" +
@@ -690,58 +690,10 @@ namespace Dash
                     #endregion
                     break;
             }
-            string[] temp = lm.Split('_');
 
-            this.levelMap = new GameObject[temp.Length, temp[0].Split(';').Length];
+            this.levelMap = CreateMap(lm);
+            this.backgroundMap = CreateMap(bm);
 
-            int y = 0;
-            foreach (string s1 in temp)
-            {
-                int x = 0;
-                foreach (string s2 in s1.Split(';'))
-                {
-                    switch (s2)
-                    {
-                        case "SF":
-                            this.levelMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.jpg");
-                            break;
-                        case "PL":
-                            this.levelMap[y, x] = new Dash(200, 100, 200, "Captain Dash", new PointF(x * 48, y * 48), "soldier.png");
-                            break;
-                        default:
-                            this.levelMap[y, x] = null;
-                            break;
-                    }
-                    x++;
-                }
-                y++;
-            }
-
-
-            temp = bm.Split('_');
-            this.backgroundMap = new GameObject[temp.Length, temp[0].Split(';').Length];
-            y = 0;
-            foreach (string s1 in temp)
-            {
-                int x = 0;
-                foreach (string s2 in s1.Split(';'))
-                {
-                    switch (s2)
-                    {
-                        case "SF":
-                            this.backgroundMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.jpg");
-                            break;
-                        case "PL":
-                            this.backgroundMap[y, x] = new Dash(200,100,200,"Captain Dash",new PointF(x*48,y*48),"soldier.png" );
-                            break;
-                        default:
-                            this.backgroundMap[y, x] = null;
-                            break;
-                    }
-                    x++;
-                }
-                y++;
-            }
         }
 
         public GameObject[,] LevelMap
@@ -769,6 +721,38 @@ namespace Dash
         {
             this.time = time;
             CreateLevel(level);
+        }
+
+        public GameObject[,] CreateMap(string map)
+        {
+            string[] temp = map.Split('_');
+
+            GameObject[,] lvlMap = new GameObject[temp.Length, temp[0].Split(';').Length];
+
+            int y = 0;
+            foreach (string s1 in temp)
+            {
+                int x = 0;
+                foreach (string s2 in s1.Split(';'))
+                {
+                    switch (s2)
+                    {
+                        case "SF":
+                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.jpg");
+                            break;
+                        case "PL":
+                            lvlMap[y, x] = new Dash(200, 100, 200, "Captain Dash", new PointF(x * 48, y * 48), "soldier.png");
+                            break;
+                        default:
+                            lvlMap[y, x] = null;
+                            break;
+                    }
+                    x++;
+                }
+                y++;
+            }
+
+            return lvlMap;
         }
     }
 }

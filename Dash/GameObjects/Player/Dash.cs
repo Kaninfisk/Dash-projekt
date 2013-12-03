@@ -14,11 +14,13 @@ namespace Dash
         private bool dashright;
         private bool dashleft;
         private bool dashup;
+        private bool falling;
 
         public Dash(int dash, int health, int speed, string name, PointF position, string imagePath)
             : base(health, speed, name, position, imagePath)
         {
             this.dash = 500;
+            falling = true;
         }
 
         public override void Draw(Graphics dc)
@@ -39,6 +41,7 @@ namespace Dash
                         if (rect.IntersectsWith(g.CollisionBox))
                         {
                             dashright = false;
+                            falling = true;
                         }
                     }
                     else if (dashleft)
@@ -48,6 +51,7 @@ namespace Dash
                         if (rect.IntersectsWith(g.CollisionBox))
                         {
                             dashleft = false;
+                            falling = true;
                         }
                     }
                     else if (dashup)
@@ -57,15 +61,25 @@ namespace Dash
                         if (rect.IntersectsWith(g.CollisionBox))
                         {
                             dashup = false;
+                            falling = true;
+                        }
+                    }
+                    else if (falling)
+                    {
+                        RectangleF rect = CollisionBox;
+                        rect.Offset(0, +(dash * (1 / fps)));
+                        if (rect.IntersectsWith(g.CollisionBox))
+                        {
+                            falling = false;
                         }
                     }
                 }
             }
         }
 
-        public override void Update(float fps)
+        public override void Update(float fps, ref GameObject[,] levelMap)
         {
-            base.Update(fps);
+            base.Update(fps, ref levelMap);
             if (Keyboard.IsKeyDown(Config.RightKey))
             {
                 if (dashup != true && dashright != true)
@@ -88,6 +102,8 @@ namespace Dash
                 }
                 
             }
+            CheckCollisions(ref levelMap, fps);
+
             if (dashup)
             {
                 position.Y -= dash * (1 / fps);
@@ -99,6 +115,10 @@ namespace Dash
             else if (dashright)
             {
                 position.X += dash * (1 / fps);
+            }
+            else if (falling)
+            {
+                position.Y += dash*(1/fps);
             }
         }
     }

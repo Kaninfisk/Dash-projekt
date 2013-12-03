@@ -16,9 +16,9 @@ namespace Dash
             this.armor = armor;
         }
 
-        public override void Update(float fps)
+        public override void Update(float fps, ref GameObject[,] levelMap)
         {
-            base.Update(fps);
+            base.Update(fps, ref levelMap);
         }
     }
 }
