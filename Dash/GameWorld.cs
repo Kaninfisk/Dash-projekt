@@ -64,7 +64,7 @@ namespace Dash
             dc.Clear(Color.White);
             Font f = new Font("Arial", 12);
             Brush b = new SolidBrush(Color.Black);
-            
+
             if (!menu && gameRunning)
             {
                 if (t > 0)
@@ -156,10 +156,7 @@ namespace Dash
             {
                 if (g != null)
                 {
-                    
-                    g.Update(currentFPS, ref currentLevel.levelMap);    
-                    
-                    
+                    g.Update(currentFPS, ref currentLevel.levelMap);
                 }
             }
         }
@@ -180,7 +177,7 @@ namespace Dash
         /// </summary>
         public void RestartLevel()
         {
-            currentLevel = new Level(cLevel, 999);
+            currentLevel = new Level(cLevel);
             t = currentLevel.Time;
         }
     }

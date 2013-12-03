@@ -29,6 +29,7 @@ namespace Dash
             switch (level)
             {
                 case 1:
+                    time = 999;
                     #region Level1
                     lm = "R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5" + "_" +
                          "R5;R5;N7;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2" + "_" +
@@ -42,7 +43,7 @@ namespace Dash
                          "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "E2;E2;E3;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;W7;W8;W8;W8;W8" + "_" +
-                         "NN;NN;NN;R5;NN;NN;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
+                         "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
                          "WB;WB;WB;WB;WB;WB;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5";
 
                     bm = "NN;NN;NN;NN;BB;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BB" + "_" +
@@ -62,6 +63,7 @@ namespace Dash
                     #endregion
                     break;
                 case 2:
+                    time = 999;
                     #region Level2
                     lm = "ST;ST;ST;ST;ST;ST;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
                          "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
@@ -95,6 +97,7 @@ namespace Dash
                     #endregion
                     break;
                 case 3:
+                    time = 999;
                     #region Level3
                     lm = "S7;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
@@ -128,6 +131,7 @@ namespace Dash
                     #endregion
                     break;
                 case 4:
+                    time = 999;
                     #region Level4
                     lm = "S7;ST;ST;F1;F2;F3;R5;R5;M9;NN;NN;ST;ST;ST;ST;ST;ST;S9" + "_" +
                          "SL;NN;NN;NN;NN;NN;R5;R5;M6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -161,6 +165,7 @@ namespace Dash
                     #endregion
                     break;
                 case 5:
+                    time = 999;
                     #region Level5
                     lm = "S5;ST;ST;HT;HT;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;HR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;HR" + "_" +
@@ -194,6 +199,7 @@ namespace Dash
                     #endregion
                     break;
                 case 6:
+                    time = 999;
                     #region Level6
                     lm = "ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -228,6 +234,7 @@ namespace Dash
                     #endregion
                     break;
                 case 7:
+                    time = 999;
                     #region Level7
                     lm = "ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -261,6 +268,7 @@ namespace Dash
                     #endregion
                     break;
                 case 8:
+                    time = 999;
                     #region Level8
                     lm = "HL;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;R5;ST;ST;ST;S6" + "_" +
                          "HL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;DV;NN;NN;NN;SR" + "_" +
@@ -294,6 +302,7 @@ namespace Dash
                     #endregion
                     break;
                 case 9:
+                    time = 999;
                     #region Level9
                     lm = "S5;ST;ST;ST;ST;ST;ST;ST;ST;ST;NN;NN;NN;R5;ST;ST;ST;ST" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;R5;NN;NN;NN;NN" + "_" +
@@ -327,6 +336,7 @@ namespace Dash
                     #endregion
                     break;
                 case 10:
+                    time = 999;
                     #region Level10
                     lm = "R5;R5;R5;R5;R5;R5;ST;ST;ST;ST;ST;R5;R5;R5;R5;R5;R5;R5" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -360,6 +370,7 @@ namespace Dash
                     #endregion
                     break;
                 case 11:
+                    time = 999;
                     #region Level11
                     lm = "ST;ST;ST;ST;ST;ST;R5;R5;ST;ST;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "NN;NN;NN;NN;NN;NN;R5;R5;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -393,6 +404,7 @@ namespace Dash
                     #endregion
                     break;
                 case 12:
+                    time = 999;
                     #region Level12
                     lm = "S5;ST;ST;ST;ST;ST;ST;ST;ST;ST;NN;NN;NN;ST;ST;ST;ST;HR" + "_" +
                          "SL;BT;NN;NN;NN;NN;NN;NN;NN;NN;DH;DH;DH;NN;NN;NN;NN;HR" + "_" +
@@ -426,6 +438,7 @@ namespace Dash
                     #endregion
                     break;
                 case 13:
+                    time = 999;
                     #region Level13
                     lm = "S5;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;NN;NN;NN;S6" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -459,6 +472,7 @@ namespace Dash
                     #endregion
                     break;
                 case 14:
+                    time = 999;
                     #region Level14
                     lm = "S5;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -492,6 +506,7 @@ namespace Dash
                     #endregion
                     break;
                 case 15:
+                    time = 999;
                     #region Level15
                     lm = "HT;HT;HT;ST;ST;ST;HT;HT;HT;HT;NN;NN;NN;ST;ST;ST;ST;S6" + "_" +
                          "HL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -525,6 +540,7 @@ namespace Dash
                     #endregion
                     break;
                 case 16:
+                    time = 999;
                     #region Level16
                     lm = "S5;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -558,6 +574,7 @@ namespace Dash
                     #endregion
                     break;
                 case 17:
+                    time = 999;
                     #region Level17
                     lm = "S5;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;SR" + "_" +
@@ -591,6 +608,7 @@ namespace Dash
                     #endregion
                     break;
                 case 18:
+                    time = 999;
                     #region Level18
                     lm = "S5;ST;ST;ST;ST;R5;ST;ST;ST;ST;ST;R5;ST;ST;ST;ST;ST;S6" + "_" +
                          "SL;NN;NN;NN;NN;SR;NN;NN;NN;NN;NN;SR;NN;NN;NN;NN;NN;SR" + "_" +
@@ -624,6 +642,7 @@ namespace Dash
                     #endregion
                     break;
                 case 19:
+                    time = 999;
                     #region Level19
                     lm = "HL;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "HL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -657,6 +676,7 @@ namespace Dash
                     #endregion
                     break;
                 case 20:
+                    time = 999;
                     #region Level20
                     lm = "S5;ST;ST;ST;ST;ST;R5;ST;ST;R5;ST;ST;ST;ST;ST;ST;ST;S6" + "_" +
                          "SL;NN;NN;NN;NN;BT;SR;NN;NN;DV;NN;NN;SR;NN;NN;NN;NN;SR" + "_" +
@@ -717,9 +737,8 @@ namespace Dash
             get { return gravity; }
         }
 
-        public Level(int level, int time)
+        public Level(int level)
         {
-            this.time = time;
             CreateLevel(level);
         }
 
