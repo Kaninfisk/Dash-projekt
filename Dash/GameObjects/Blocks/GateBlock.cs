@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dash
 {
-    class GateBlock:MovableBlock
+    class GateBlock:SolidBlock
     {
         private bool open;
 
@@ -18,10 +18,22 @@ namespace Dash
         }
         
 
-        public GateBlock(int speed, int direction, int distance, PointF position, string imagePath, List<Rect> collisionBoxes)
-            : base(speed, direction, distance, position, imagePath, collisionBoxes)
+        public GateBlock(PointF position, string imagePath, List<Rect> collisionBoxes)
+            : base(position, imagePath, collisionBoxes)
         {
             open = false;
+        }
+
+        public override void Draw(Graphics dc)
+        {
+            if (Open)
+            {
+                if (animationFrames.Count > 1)
+                {
+                    sprite = animationFrames[1];
+                }
+            }
+            base.Draw(dc);
         }
     }
 }

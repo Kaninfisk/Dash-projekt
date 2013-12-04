@@ -18,12 +18,19 @@ namespace Dash
         public List<Rect> CollisionBoxes
         {
             get { return collisionBoxes; }
+            set { collisionBoxes = value; }
         }
 
         public PointF Position
         {
             get { return position; }
             set { position = value; }
+        }
+
+        public Image Sprite
+        {
+            get { return sprite; }
+            set { sprite = value; }
         }
 
         protected GameObject(PointF position, string imagePath, List<Rect> collisionBoxes)

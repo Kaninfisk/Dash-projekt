@@ -11,7 +11,6 @@ namespace Dash
 {
     class GameWorld
     {
-        private List<Level> levels; //Liste til de forskellige baner
         private Level currentLevel; // field til nuværende bane
         private Graphics dc;
         public float currentFPS; //field til at indeholde nuværende frames per second

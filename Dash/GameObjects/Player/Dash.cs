@@ -79,7 +79,13 @@ namespace Dash
                                 TriggerBlock t = (TriggerBlock) g;
                                 if (t.Type == 1)
                                 {
-                                    
+                                    t.Pressed = true;
+                                    if (levelMap[t.Target.Y, t.Target.X].GetType().ToString() == "Dash.GateBlock")
+                                    {
+                                        GateBlock gate = (GateBlock) levelMap[t.Target.Y, t.Target.X];
+                                        gate.Open = true;
+                                        gate.CollisionBoxes = new List<Rect>();
+                                    }
                                 }
                                 else if (t.Type == 2)
                                 {
