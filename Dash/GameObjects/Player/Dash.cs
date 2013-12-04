@@ -11,16 +11,18 @@ namespace Dash
     class Dash : Player
     {
         private int dash;
-        private bool dashright;
-        private bool dashleft;
-        private bool dashup;
+        private bool dashRight;
+        private bool dashLeft;
+        private bool dashUp;
         private bool falling;
+        private bool direction;
 
         public Dash(int dash, int health, int speed, string name, PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(health, speed, name, position, imagePath, collisionBoxes)
         {
             this.dash = dash;
             falling = true;
+
         }
 
         public override void Draw(Graphics dc)
@@ -30,11 +32,61 @@ namespace Dash
 
         public void CheckCollisions(ref GameObject[,] levelMap, float fps)
         {
+            if (dashUp)
+            {
+                if (position.Y - dash * (1 / fps) <= 0)
+                {
+                    dashUp = false;
+                    falling = true;
+                }
+            }
+            else if (dashLeft)
+            {
+                if (position.X - dash * (1 / fps) <= 0)
+                {
+                    dashLeft = false;
+                    position.X = 0;
+                }
+            }
+            else if (dashRight)
+            {
+                if (position.X + dash * (1 / fps) >= 864 - CollisionBoxes[0].HitBox(position.X, position.Y).Width)
+                {
+                    dashRight = false;
+                }
+            }
+            else if (falling)
+            {
+                if (position.Y + dash * (1 / fps) >= 672 - CollisionBoxes[0].HitBox(position.X,position.Y).Height)
+                {
+                    falling = false;
+                    position.Y = 672 - CollisionBoxes[0].HitBox(position.X, position.Y).Height;
+                }
+            }
+
             foreach (GameObject g in levelMap)
             {
-                if (g != null && g.GetType().ToString() != "Dash.Dash")
+                if (g!= null && g.GetType().ToString() == "Dash.Enemy")
                 {
-                    if (dashright)
+                    foreach (Rect r in collisionBoxes)
+                    {
+                        RectangleF rect = r.HitBox(position.X, position.Y);
+
+                        foreach (Rect r2 in g.CollisionBoxes)
+                        {
+                            if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                            {
+                                dashRight = false;
+                                falling = false;
+                                dashLeft = false;
+                                dashUp = false;
+                            }
+                        }
+                    }
+                }
+                else if (g != null && g.GetType().ToString() != "Dash.Dash")
+                {
+                    if (dashRight)
                     {
                         foreach (Rect r in collisionBoxes)
                         {
@@ -45,14 +97,14 @@ namespace Dash
                             {
                                 if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
                                 {
-                                    dashright = false;
+                                    dashRight = false;
                                     falling = true;
                                     position.X = g.Position.X + r2.Position.X - collisionBoxes[0].HitBox(position.X,position.Y).Width;
                                 }
                             }
                         }
                     }
-                    else if (dashleft)
+                    else if (dashLeft)
                     {
 
                         foreach (Rect r in collisionBoxes)
@@ -64,14 +116,14 @@ namespace Dash
                             {
                                 if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
                                 {
-                                    dashleft = false;
+                                    dashLeft = false;
                                     falling = true;
                                     position.X = g.Position.X - r2.Position.X + r2.HitBox(g.Position.X, g.Position.Y).Width;
                                 }
                             }
                         }
                     }
-                    else if (dashup)
+                    else if (dashUp)
                     {
                         foreach (Rect r in collisionBoxes)
                         {
@@ -82,7 +134,7 @@ namespace Dash
                             {
                                 if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
                                 {
-                                    dashup = false;
+                                    dashUp = false;
                                     falling = true;
                                     position.Y = g.Position.Y + r2.Position.Y + r2.HitBox(g.Position.X, g.Position.Y).Height;
                                 }
@@ -115,38 +167,49 @@ namespace Dash
             base.Update(fps, ref levelMap);
             if (Keyboard.IsKeyDown(Config.RightKey))
             {
-                if (!dashup && !dashleft)
+                if (!dashUp && !dashLeft)
                 {
-                    dashright = true;
+                    dashRight = true;
                 }
             }
             else if (Keyboard.IsKeyDown(Config.LeftKey))
             {
-                if (!dashup && !dashright)
+                if (!dashUp && !dashRight)
                 {
-                    dashleft = true;
+                    dashLeft = true;
                 }
             }
             else if (Keyboard.IsKeyDown(Config.UpKey))
             {
-                if (!dashleft && !dashright && !falling)
+                if (!dashLeft && !dashRight && !falling)
                 {
-                    dashup = true;
+                    dashUp = true;
                 }
 
             }
             CheckCollisions(ref levelMap, fps);
 
-            if (dashup)
+            if (dashUp)
             {
                 position.Y -= dash * (1 / fps);
             }
-            else if (dashleft)
+            else if (dashLeft)
             {
+                if (!direction)
+                {
+                    sprite.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                    direction = true;
+                }
                 position.X -= dash * (1 / fps);
+                
             }
-            else if (dashright)
+            else if (dashRight)
             {
+                if (direction)
+                {
+                    sprite.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                    direction = false;
+                }
                 position.X += dash * (1 / fps);
             }
             else if (falling)
