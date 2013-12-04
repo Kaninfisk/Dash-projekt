@@ -14,7 +14,7 @@ namespace Dash
         private List<Level> levels; //Liste til de forskellige baner
         private Level currentLevel; // field til nuværende bane
         private Graphics dc;
-        private float currentFPS; //field til at indeholde nuværende frames per second
+        public float currentFPS; //field til at indeholde nuværende frames per second
         private BufferedGraphics buffer; //Grafik buffer
         private bool menu; //field som bruges til om menu skal vises eller ej
         private Menu m; //menu objektet
