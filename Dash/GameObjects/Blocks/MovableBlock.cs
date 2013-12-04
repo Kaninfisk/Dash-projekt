@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,7 +14,7 @@ namespace Dash
         protected int distance; // tælles i antal tiles
         protected PointF endPosition;
 
-        public MovableBlock(int speed, int direction, int distance, PointF position, PointF endPosition, string imagePath, List<Rect> collisionBoxes, float fps)
+        public MovableBlock(int speed, int direction, int distance, PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(position, imagePath, collisionBoxes)
         {
             endPosition = position;
@@ -25,8 +23,9 @@ namespace Dash
             this.distance = distance + 48;
         }
 
-        public void Update(float fps)
+        public override void Update(float fps, ref GameObject[,] levelMap,ref int playerState)
         {
+            base.Update(fps, ref levelMap,ref playerState);
             switch (direction)
             {
                 case 1:

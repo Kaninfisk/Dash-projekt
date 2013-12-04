@@ -53,7 +53,7 @@ namespace Dash
 #endif
         }
 
-        public virtual void Update(float fps, ref GameObject[,] levelMap)
+        public virtual void Update(float fps, ref GameObject[,] levelMap, ref int playerState)
         {
             
         }

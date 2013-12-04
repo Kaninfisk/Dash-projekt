@@ -30,7 +30,7 @@ namespace Dash
             base.Draw(dc);
         }
 
-        public void CheckCollisions(ref GameObject[,] levelMap, float fps)
+        public void CheckCollisions(ref GameObject[,] levelMap, float fps, ref int playerState)
         {
             if (dashUp)
             {
@@ -80,6 +80,7 @@ namespace Dash
                                 falling = false;
                                 dashLeft = false;
                                 dashUp = false;
+                                playerState = 2;
                             }
                         }
                     }
@@ -162,9 +163,9 @@ namespace Dash
             }
         }
 
-        public override void Update(float fps, ref GameObject[,] levelMap)
+        public override void Update(float fps, ref GameObject[,] levelMap, ref int playerState)
         {
-            base.Update(fps, ref levelMap);
+            base.Update(fps, ref levelMap, ref playerState);
             if (Keyboard.IsKeyDown(Config.RightKey))
             {
                 if (!dashUp && !dashLeft)
@@ -187,7 +188,7 @@ namespace Dash
                 }
 
             }
-            CheckCollisions(ref levelMap, fps);
+            CheckCollisions(ref levelMap, fps, ref playerState);
 
             if (dashUp)
             {

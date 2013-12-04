@@ -180,7 +180,7 @@ namespace Dash
             {
                 if (g != null)
                 {
-                    g.Update(currentFPS, ref currentLevel.levelMap);
+                    g.Update(currentFPS, ref currentLevel.levelMap,ref playerState);
                 }
             }
         }
@@ -208,7 +208,7 @@ namespace Dash
                 cLevel++;
             }
 
-            currentLevel = new Level(cLevel);
+            currentLevel = new Level(2);
             t = currentLevel.Time;
             alpha = 0;
             playerState = 0;
