@@ -22,6 +22,8 @@ namespace Dash
         private bool gameRunning; //field som bruges til at indikere om spiller er startet eller ej
         private double t; //field som bruges til timer funktion i spillet
         public int cLevel; //field som indeholder nuværende bane som int
+        public int playerState;
+        public int alpha;
 
         private Keys input;  //field som bruges til at gemme hvilke keys der bliver trykket på
 
@@ -60,20 +62,29 @@ namespace Dash
             lastFrameStarted = DateTime.Now;
 
 
-
-            dc.Clear(Color.White);
+            if (playerState < 2)
+            {
+                dc.Clear(Color.White);    
+            }
             Font f = new Font("Arial", 12);
             Brush b = new SolidBrush(Color.Black);
 
             if (!menu && gameRunning)
             {
-                if (t > 0)
+                if (playerState == 1)
+                {
+                    RestartLevel();
+                }
+                else if (playerState == 2)
+                {
+                    DrawFade();
+                }
+                else if (t > 0)
                 {
                     t -= deltaTime2.TotalSeconds;
                     Update();
                     Draw();
                     DrawUI();
-
                     if (Keyboard.IsKeyDown(Keys.Escape))
                     {
                         TimeSpan deltaTime = DateTime.Now - m.LastClick;
@@ -113,7 +124,6 @@ namespace Dash
                 m.Update(ref input, ref gameRunning, ref menu);
                 m.DrawMenu();
             }
-
             buffer.Render();
         }
 
@@ -122,7 +132,6 @@ namespace Dash
         /// </summary>
         public void Draw()
         {
-
             foreach (GameObject g in currentLevel.BackgroundMap)
             {
                 if (g != null)
@@ -139,6 +148,7 @@ namespace Dash
             }
         }
 
+
         public void DrawUI()
         {
             Font f = new Font("Arial", 12);
@@ -147,6 +157,18 @@ namespace Dash
 #if DEBUG
             dc.DrawString(currentFPS.ToString(), f, b, 800, 0);
 #endif
+        }
+
+        public void DrawFade()
+        {
+            
+            Brush brush = new SolidBrush(Color.FromArgb(alpha, 0, 0, 0));
+            dc.FillRectangle(brush,0,0,864,672);
+            alpha += 2;
+            if (alpha > 100)
+            {
+                RestartLevel();
+            }
         }
 
         /// <summary>
@@ -168,9 +190,11 @@ namespace Dash
         /// </summary>
         public void SetupGameWorld()
         {
+            dc.Clear(Color.White);
             gameRunning = false;
             menu = true;
             RestartLevel();
+            
             //Audio.PlayMusic("audio/music.mp3");
         }
 
@@ -179,8 +203,15 @@ namespace Dash
         /// </summary>
         public void RestartLevel()
         {
+            if (playerState == 1 && cLevel != 20)
+            {
+                cLevel++;
+            }
+
             currentLevel = new Level(cLevel);
             t = currentLevel.Time;
+            alpha = 0;
+            playerState = 0;
         }
     }
 }
