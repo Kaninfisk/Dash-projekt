@@ -30,18 +30,24 @@ namespace Dash
         {
             this.collisionBoxes = collisionBoxes;
             this.position = position;
-            string[] imagePaths = imagePath.Split(';');
-            animationFrames = new List<Image>();
-            foreach (string p in imagePaths)
+            if (imagePath != "")
             {
-                animationFrames.Add(Image.FromFile(p));
+                string[] imagePaths = imagePath.Split(';');
+                animationFrames = new List<Image>();
+                foreach (string p in imagePaths)
+                {
+                    animationFrames.Add(Image.FromFile(p));
+                }
+                sprite = animationFrames[0];
             }
-            sprite = animationFrames[0];
         }
 
         public virtual void Draw(Graphics dc)
         {
-            dc.DrawImage(sprite, position.X, position.Y, sprite.Width, sprite.Height);
+            if (sprite != null)
+            {
+                dc.DrawImage(sprite, position.X, position.Y, sprite.Width, sprite.Height);    
+            }
 #if DEBUG
             foreach (Rect collisionBox in collisionBoxes)
             {

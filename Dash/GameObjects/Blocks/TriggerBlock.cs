@@ -9,10 +9,19 @@ namespace Dash
 {
     class TriggerBlock:GridBlock
     {
-        public TriggerBlock(PointF position, string imagePath, List<Rect> collisionBoxes)
+        private int type;
+
+        public int Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+        
+
+        public TriggerBlock(int type, PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(position, imagePath,collisionBoxes)
         {
-            
+            this.type = type;
         }
     }
 }

@@ -66,7 +66,30 @@ namespace Dash
 
             foreach (GameObject g in levelMap)
             {
-                if (g!= null && g.GetType().ToString() == "Dash.Enemy")
+                if (g != null && g.GetType().ToString() == "Dash.TriggerBlock")
+                {
+                    foreach (Rect r in collisionBoxes)
+                    {
+                        RectangleF rect = r.HitBox(position.X, position.Y);
+
+                        foreach (Rect r2 in g.CollisionBoxes)
+                        {
+                            if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                            {
+                                TriggerBlock t = (TriggerBlock) g;
+                                if (t.Type == 1)
+                                {
+                                    
+                                }
+                                else if (t.Type == 2)
+                                {
+                                    playerState = 1;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (g!= null && g.GetType().ToString() == "Dash.Enemy")
                 {
                     foreach (Rect r in collisionBoxes)
                     {

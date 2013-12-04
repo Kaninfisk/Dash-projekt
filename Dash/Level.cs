@@ -43,7 +43,7 @@ namespace Dash
                          "E2;E2;E3;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;W7;W8;W8;W8;W8" + "_" +
                          "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
-                         "WB;WB;WB;WB;WB;WB;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5";
+                         "WB;WB;WB;WB;WB;WB;E4;R5;E6;BE;BE;BE;BE;E4;R5;R5;R5;R5";
 
                     bm = "NN;NN;NN;NN;BB;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BB" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
@@ -796,6 +796,11 @@ namespace Dash
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0,0),48,48));
                             lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\BT.gif", collisionBoxes);
+                            break;
+                        case "BE":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
+                            lvlMap[y, x] = new TriggerBlock(2,new PointF(x * 48, y * 48), "", collisionBoxes);
                             break;
                         #endregion
                         #region Corners (half-tile)
