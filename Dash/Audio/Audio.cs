@@ -8,7 +8,7 @@ using IrrKlang;
 namespace Dash
 {
     /// <summary>
-    /// Klasse som håndterer afspilning af lydfiler og volume
+    /// Class that handless playing of sounds/music
     /// </summary>
     static class Audio
     {
@@ -20,7 +20,7 @@ namespace Dash
         private static ISoundEngine soundFXEngine = new ISoundEngine(); //irrKlang lydengine til at afspille sound-fx
 
         /// <summary>
-        /// property til at indstille mastervolume denne ændrer også volume på baggrundsmusik og sound-fx lydengines
+        /// gets or sets the master volume
         /// </summary>
         static public int MasterVolume
         {
@@ -45,7 +45,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Property til at indstille sound-fx volume denne ændrer også volume på sound-fx lydenginen
+        /// gets or sets Sound-fx volume
         /// </summary>
         static public int SoundVolume
         {
@@ -69,7 +69,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Property til at indstille musik volume denne ændrer også volume på musik lydenginen
+        /// Gets or Sets Music volume
         /// </summary>
         static public int MusicVolume
         {
@@ -94,7 +94,7 @@ namespace Dash
 
 
         /// <summary>
-        /// Konstruktorern henter volume fra Config klassen og indsætter disse i properties 
+        /// Constructor that gets volumes from Config class
         /// </summary>
         static Audio()
         {
@@ -104,18 +104,18 @@ namespace Dash
         }
 
         /// <summary>
-        /// Metode som afspiller den angivne lydfil på musik enginen
+        /// Method that plays music thru the music engine with loop
         /// </summary>
-        /// <param name="filePath">Sti til fil som skal loopes</param>
+        /// <param name="filePath">Path to audio file</param>
         static public void PlayMusic(string filePath)
         {
             musicEngine.Play2D(filePath, true);
         }
 
         /// <summary>
-        /// Metode som afspiller den angivne lydfil på sound-fx enginen
+        /// Method that plays sound-fx thru the sound-fx engine
         /// </summary>
-        /// <param name="FilePath">Sti til fil som skal afspilles en enkelt gang</param>
+        /// <param name="FilePath">Path to audio file</param>
         static public void PlaySoundFX(string FilePath)
         {
             soundFXEngine.Play2D(FilePath, false);

@@ -8,18 +8,52 @@ using System.Threading.Tasks;
 
 namespace Dash
 {
+    /// <summary>
+    /// Class for levels
+    /// </summary>
     class Level
     {
-        private int type;
-        public GameObject[,] levelMap;
-        private GameObject[,] backgroundMap;
-        private int time;
+        private int type; //type of level
+        public GameObject[,] levelMap; //Foreground map of level with collidable objects
+        private GameObject[,] backgroundMap; //background map of level
+        private int time; //timer for level
 
+        /// <summary>
+        /// Gets Type
+        /// </summary>
         public int Type
         {
             get { return type; }
         }
 
+        /// <summary>
+        /// Gets LevelMap
+        /// </summary>
+        public GameObject[,] LevelMap
+        {
+            get { return levelMap; }
+        }
+
+        /// <summary>
+        /// Gets BackgroundMap
+        /// </summary>
+        public GameObject[,] BackgroundMap
+        {
+            get { return backgroundMap; }
+        }
+
+        /// <summary>
+        /// Gets Time
+        /// </summary>
+        public int Time
+        {
+            get { return time; }
+        }
+
+        /// <summary>
+        /// Method that Creates levels based on pre determined data
+        /// </summary>
+        /// <param name="level">Level to create (1-20)</param>
         public void CreateLevel(int level)
         {
             string lm = "";
@@ -712,30 +746,22 @@ namespace Dash
 
             this.levelMap = CreateMap(lm);
             this.backgroundMap = CreateMap(bm);
-
         }
-
-        public GameObject[,] LevelMap
-        {
-            get { return levelMap; }
-            set { levelMap = value; }
-        }
-
-        public GameObject[,] BackgroundMap
-        {
-            get { return backgroundMap; }
-        }
-
-        public int Time
-        {
-            get { return time; }
-        }
-
+        
+        /// <summary>
+        /// Constructor that creates a level based on input
+        /// </summary>
+        /// <param name="level"></param>
         public Level(int level)
         {
             CreateLevel(level);
         }
 
+        /// <summary>
+        /// Builds the map arrays
+        /// </summary>
+        /// <param name="map">Map field to output to</param>
+        /// <returns>Array based of the input string</returns>
         public GameObject[,] CreateMap(string map)
         {
             string[] temp = map.Split('_');

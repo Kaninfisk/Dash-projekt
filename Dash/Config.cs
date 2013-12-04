@@ -10,18 +10,18 @@ namespace Dash
     /// </summary>
     static class Config
     {
-        static private int sound; //bruges til at indeholde Sound-FX volume
-        static private int music; //bruges til at indeholde musik volume
-        static private int master; //bruges til at indeholde master volume
-        static private Keys leftKey; //bruges til at indeholde tasten som bruges til at gå til venstre
-        static private Keys rightKey; //bruges til at indeholde tasten som bruges til at gå til højre
-        static private Keys upKey; //bruges til at indeholde tasten som bruges til at gå op
-        static private Keys downKey; //bruges til at indeholde tasten som bruges til at gå ned
-        static private Keys shootKey; //bruges til at indeholde tasten som bruges til at skyde
+        static private int sound; //Sound-fx Volume
+        static private int music; //Music Volume
+        static private int master; //Master Volume
+        static private Keys leftKey; //Left input key
+        static private Keys rightKey; //Right input key
+        static private Keys upKey; //Up input key
+        static private Keys downKey; //Down input key
+        static private Keys shootKey; //shoot input key
 
 
         /// <summary>
-        /// Property til at hente eller sætte input key til at skyde
+        /// Gets or Sets ShootKey
         /// </summary>
         static public Keys ShootKey
         {
@@ -30,7 +30,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Property til at hente eller sætte input key til at gå nedaf
+        /// Gets or Sets DownKey
         /// </summary>
         static public Keys DownKey
         {
@@ -39,7 +39,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Property til at hente eller sætte input key til at gå opaf
+        /// Gets or Sets UpKey
         /// </summary>
         static public Keys UpKey
         {
@@ -48,7 +48,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Property til at hente eller sætte input key til at gå til højre
+        /// Gets or Sets RightKey
         /// </summary>
         static public Keys RightKey
         {
@@ -57,7 +57,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Property til at hente eller sætte input key til at gå til venstre
+        /// Gets or Sets LeftKey
         /// </summary>
         static public Keys LeftKey
         {
@@ -66,7 +66,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Property til at hente eller sætte master volume
+        /// Gets or Sets Master Volume
         /// </summary>
         static public int Master
         {
@@ -75,7 +75,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Property til at hente eller sætte musik volume
+        /// Gets or Sets Music Volume
         /// </summary>
         static public int Music
         {
@@ -84,7 +84,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Property til at hente eller sætte sound-fx volume
+        /// Gets or Sets Sound-fx Volume
         /// </summary>
         static public int Sound
         {
@@ -93,7 +93,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Constructor til klassen
+        /// Constructor that sets standard values for sound and input keys then either creates or reads from config.xml
         /// </summary>
         static Config()
         {
@@ -129,7 +129,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Funktion som bygger xml config fil på baggrund af data i fields
+        /// Method that builds Config.xml based on the info in volume/inputkey fields
         /// </summary>
         static public void UpdateConfig()
         {
@@ -169,7 +169,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// funktion som henter config data fra xml fil og indsætter i fields
+        /// Method that reads Config data from config.xml
         /// </summary>
         static void ReadConfig()
         {

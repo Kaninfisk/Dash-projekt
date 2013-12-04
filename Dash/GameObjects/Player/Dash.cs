@@ -8,15 +8,28 @@ using System.Windows.Forms;
 
 namespace Dash
 {
+    /// <summary>
+    /// Class for player controlled character
+    /// </summary>
     class Dash : Player
     {
-        private int dash;
-        private bool dashRight;
-        private bool dashLeft;
-        private bool dashUp;
-        private bool falling;
-        private bool direction;
+        private int dash;  //Dash speed
+        private bool dashRight; //indicates if dashing right
+        private bool dashLeft; //indicates if dashing left
+        private bool dashUp; //indicates if dashing up
+        private bool falling; //indicates if falling
+        private bool direction; //indicates direction for sprite flipping
 
+        /// <summary>
+        /// Constructor that sets dash speed and falling
+        /// </summary>
+        /// <param name="dash">Dash speed</param>
+        /// <param name="health">Health of player</param>
+        /// <param name="speed">Speed of player</param>
+        /// <param name="name">Name of player</param>
+        /// <param name="position">Position of the object on screen</param>
+        /// <param name="imagePath">images for the object split string with ; for multiple images</param>
+        /// <param name="collisionBoxes">Collisonboxes for the object of type Rect</param>
         public Dash(int dash, int health, int speed, string name, PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(health, speed, name, position, imagePath, collisionBoxes)
         {
@@ -25,11 +38,21 @@ namespace Dash
 
         }
 
+        /// <summary>
+        /// Draw override for more advanced draw method
+        /// </summary>
+        /// <param name="dc">Graphics object that you want to draw to</param>
         public override void Draw(Graphics dc)
         {
             base.Draw(dc);
         }
 
+        /// <summary>
+        /// Method that checks collisions with all other objects on levelmap
+        /// </summary>
+        /// <param name="fps">Current fps the program is running at</param>
+        /// <param name="levelMap">Reference to the levelmap for current loaded level</param>
+        /// <param name="playerState">Reference to the state of the player.</param>
         public void CheckCollisions(ref GameObject[,] levelMap, float fps, ref int playerState)
         {
             if (dashUp)
@@ -192,6 +215,12 @@ namespace Dash
             }
         }
 
+        /// <summary>
+        /// Override for update that gets user input and moves accordingly
+        /// </summary>
+        /// <param name="fps">Current fps the program is running at</param>
+        /// <param name="levelMap">Reference to the levelmap for current loaded level</param>
+        /// <param name="playerState">Reference to the state of the player.</param>
         public override void Update(float fps, ref GameObject[,] levelMap, ref int playerState)
         {
             base.Update(fps, ref levelMap, ref playerState);

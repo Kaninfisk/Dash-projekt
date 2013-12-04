@@ -9,25 +9,27 @@ using System.Windows.Forms;
 
 namespace Dash
 {
+    /// <summary>
+    /// Class for gameworld
+    /// </summary>
     class GameWorld
     {
-        private Level currentLevel; // field til nuværende bane
-        private Graphics dc;
-        public float currentFPS; //field til at indeholde nuværende frames per second
-        private BufferedGraphics buffer; //Grafik buffer
-        private bool menu; //field som bruges til om menu skal vises eller ej
-        private Menu m; //menu objektet
-        private DateTime lastFrameStarted; //Datetime field som bruges til at beregne currentFPS
-        private bool gameRunning; //field som bruges til at indikere om spiller er startet eller ej
-        private double t; //field som bruges til timer funktion i spillet
-        public int cLevel; //field som indeholder nuværende bane som int
-        public int playerState;
-        public int alpha;
-
-        private Keys input;  //field som bruges til at gemme hvilke keys der bliver trykket på
+        private Level currentLevel; // contains current level
+        private Graphics dc; // graphics object to draw to
+        public float currentFPS; //current fps
+        private BufferedGraphics buffer; //graphics buffer
+        private bool menu; // indicates if menu is to be shown
+        private Menu m; // menu object
+        private DateTime lastFrameStarted; // DateTime which is used to calculate currentFPS
+        private bool gameRunning; // indicates if game has been started or not
+        private double t; // used for the level timer
+        public int cLevel; // indicates which level to load
+        public int playerState; //indicates if player is alive or dead
+        public int alpha; //alpha value for "death animation"
+        private Keys input;  // used for key input
 
         /// <summary>
-        /// Property til keyinput
+        /// Sets input
         /// </summary>
         public Keys Input
         {
@@ -35,7 +37,7 @@ namespace Dash
         }
 
         /// <summary>
-        ///  Constructor som indstiller skærm buffer og kører metoderne SetupLevels og SetupGameWorld
+        /// Constructor that sets up graphics buffer and gameworld
         /// </summary>
         /// <param name="dc">Grafik objektet fra formen</param>
         /// <param name="displayRectangle">Rektangel som er på størrelse med tegne arealet på formen</param>
@@ -46,12 +48,10 @@ namespace Dash
             cLevel = 1;
             m = new Menu(this.dc);
             SetupGameWorld();
-
-
         }
 
         /// <summary>
-        /// Viser menu eller kører gameloop metoderne draw,update
+        /// GameLoop that runs game and menu
         /// </summary>
         public void GameLoop()
         {
@@ -127,7 +127,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Tegner alle gameobjecterne i currentlevel ud til skærmen
+        /// Method that draws all objects to screen
         /// </summary>
         public void Draw()
         {
@@ -148,6 +148,9 @@ namespace Dash
         }
 
 
+        /// <summary>
+        /// Method that draws UI to screen
+        /// </summary>
         public void DrawUI()
         {
             Font f = new Font("Arial", 12);
@@ -158,6 +161,9 @@ namespace Dash
 #endif
         }
 
+        /// <summary>
+        /// Method that draws "death animation"
+        /// </summary>
         public void DrawFade()
         {
             
@@ -171,7 +177,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Kører alle gameobjecterne i currentlevel update funktion
+        /// Method that runs update function on all objects in currentLevels levelmap
         /// </summary>
         public void Update()
         {
@@ -185,7 +191,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Indstiller startvariablerne for gameworld
+        /// Sets up start values for gameworld
         /// </summary>
         public void SetupGameWorld()
         {
@@ -198,7 +204,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Nulstiller nuværende bane
+        /// Resets current level
         /// </summary>
         public void RestartLevel()
         {

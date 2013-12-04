@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Dash
 {
+    /// <summary>
+    /// Superclass for all objects in the gameworld
+    /// </summary>
     abstract class GameObject
     {
         protected PointF position;
@@ -15,24 +18,38 @@ namespace Dash
         protected Image sprite;
         protected List<Rect> collisionBoxes;
 
+        /// <summary>
+        /// Gets or Sets CollisionBoxes of type rect
+        /// </summary>
         public List<Rect> CollisionBoxes
         {
             get { return collisionBoxes; }
             set { collisionBoxes = value; }
         }
 
+        /// <summary>
+        /// Gets or Sets the Position as PointF
+        /// </summary>
         public PointF Position
         {
             get { return position; }
             set { position = value; }
         }
 
+        /// <summary>
+        /// gets sprite; 
+        /// </summary>
         public Image Sprite
         {
             get { return sprite; }
-            set { sprite = value; }
         }
-
+        
+        /// <summary>
+        /// Constructor for gameobject that sets up standard functionality
+        /// </summary>
+        /// <param name="position">Position of the object on screen</param>
+        /// <param name="imagePath">images for the object split string with ; for multiple images</param>
+        /// <param name="collisionBoxes">Collisonboxes for the object of type Rect</param>
         protected GameObject(PointF position, string imagePath, List<Rect> collisionBoxes)
         {
             this.collisionBoxes = collisionBoxes;
@@ -49,6 +66,10 @@ namespace Dash
             }
         }
 
+        /// <summary>
+        /// Virtual method that draws the gameobjects if they have a sprite can be overrided if more complex draw method is needed for sub classes
+        /// </summary>
+        /// <param name="dc">Graphics object that you want to draw to</param>
         public virtual void Draw(Graphics dc)
         {
             if (sprite != null)
@@ -66,6 +87,12 @@ namespace Dash
 #endif
         }
 
+        /// <summary>
+        /// Virtual update method for gameobjects with no code because the default behavior for gameobjects is to do nothing.
+        /// </summary>
+        /// <param name="fps">Current fps the program is running at</param>
+        /// <param name="levelMap">Reference to the levelmap for current loaded level</param>
+        /// <param name="playerState">Reference to the state of the player.</param>
         public virtual void Update(float fps, ref GameObject[,] levelMap, ref int playerState)
         {
             
