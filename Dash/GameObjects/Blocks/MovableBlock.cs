@@ -20,8 +20,6 @@ namespace Dash
             : base(position, imagePath, collisionBoxes)
         {
             endPosition = position;
-            endPosition.X += distance;
-            endPosition.Y += distance;
             this.speed = speed;
             this.direction = direction;
             this.distance = distance + 48;
@@ -32,6 +30,7 @@ namespace Dash
             switch (direction)
             {
                 case 1:
+                    endPosition.Y += distance;
                     this.position.Y -= speed / fps;
                     if (this.position == position)
                     {
@@ -39,6 +38,7 @@ namespace Dash
                     }
                     break;
                 case 2:
+                    endPosition.Y += distance;
                     this.position.Y += speed / fps;
                     if (this.position == endPosition)
                     {
@@ -46,6 +46,7 @@ namespace Dash
                     }
                     break;
                 case 3:
+                    endPosition.X += distance;
                     this.position.X -= speed / fps;
                     if (this.position == position)
                     {
@@ -53,6 +54,7 @@ namespace Dash
                     }
                     break;
                 case 4:
+                    endPosition.X += distance;
                     this.position.X += speed / fps;
                     if (this.position == endPosition)
                     {
