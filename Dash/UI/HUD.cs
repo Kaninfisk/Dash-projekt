@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dash
 {
-    class HUD:UI
+    class HUD
     {
     }
 }

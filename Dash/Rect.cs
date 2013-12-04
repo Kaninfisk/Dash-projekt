@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Dash
 {
@@ -22,7 +17,6 @@ namespace Dash
         public PointF Position
         {
             get { return position; }
-            set { position = value; }
         }
         
         /// <summary>

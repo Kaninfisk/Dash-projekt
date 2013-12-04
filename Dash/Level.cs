@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dash
 {
@@ -54,7 +49,7 @@ namespace Dash
         /// Method that Creates levels based on pre determined data
         /// </summary>
         /// <param name="level">Level to create (1-20)</param>
-        public void CreateLevel(int level)
+        private void CreateLevel(int level)
         {
             string lm = "";
             string bm = "";
@@ -744,8 +739,8 @@ namespace Dash
                     break;
             }
 
-            this.levelMap = CreateMap(lm);
-            this.backgroundMap = CreateMap(bm);
+            levelMap = CreateMap(lm);
+            backgroundMap = CreateMap(bm);
         }
         
         /// <summary>
@@ -762,7 +757,7 @@ namespace Dash
         /// </summary>
         /// <param name="map">Map field to output to</param>
         /// <returns>Array based of the input string</returns>
-        public GameObject[,] CreateMap(string map)
+        private GameObject[,] CreateMap(string map)
         {
             string[] temp = map.Split('_');
 
@@ -774,7 +769,7 @@ namespace Dash
                 int x = 0;
                 foreach (string s2 in s1.Split(';'))
                 {
-                    List<Rect> collisionBoxes = new List<Rect>();
+                    List<Rect> collisionBoxes;
                     switch (s2)
                     {
                         case "OO":
@@ -1079,7 +1074,7 @@ namespace Dash
                         case "PL":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0,0), 96, 96));
-                            lvlMap[y, x] = new Dash(400, 100, 200, "Captain Dash", new PointF(x * 48, y * 48), "Graphics\\PL.gif", collisionBoxes);
+                            lvlMap[y, x] = new Dash(100, 400, "Captain Dash", new PointF(x * 48, y * 48), "Graphics\\PL.gif", collisionBoxes);
                             break;
                         #endregion
                         #region Rivet-blocks

@@ -1,5 +1,4 @@
-﻿using System.Data.Odbc;
-using System.IO;
+﻿using System.IO;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -71,7 +70,6 @@ namespace Dash
         static public int Master
         {
             get { return master; }
-            set { master = value; }
         }
 
         /// <summary>
@@ -80,7 +78,6 @@ namespace Dash
         static public int Music
         {
             get { return music; }
-            set { music = value; }
         }
 
         /// <summary>
@@ -89,7 +86,6 @@ namespace Dash
         static public int Sound
         {
             get { return sound; }
-            set { sound = value; }
         }
 
         /// <summary>

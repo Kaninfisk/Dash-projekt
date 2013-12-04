@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Dash
@@ -16,16 +11,16 @@ namespace Dash
     {
         private Level currentLevel; // contains current level
         private Graphics dc; // graphics object to draw to
-        public float currentFPS; //current fps
+        private float currentFPS; //current fps
         private BufferedGraphics buffer; //graphics buffer
         private bool menu; // indicates if menu is to be shown
         private Menu m; // menu object
         private DateTime lastFrameStarted; // DateTime which is used to calculate currentFPS
         private bool gameRunning; // indicates if game has been started or not
         private double t; // used for the level timer
-        public int cLevel; // indicates which level to load
-        public int playerState; //indicates if player is alive or dead
-        public int alpha; //alpha value for "death animation"
+        private int cLevel; // indicates which level to load
+        private int playerState; //indicates if player is alive or dead
+        private int alpha; //alpha value for "death animation"
         private Keys input;  // used for key input
 
         /// <summary>
@@ -39,8 +34,8 @@ namespace Dash
         /// <summary>
         /// Constructor that sets up graphics buffer and gameworld
         /// </summary>
-        /// <param name="dc">Grafik objektet fra formen</param>
-        /// <param name="displayRectangle">Rektangel som er på størrelse med tegne arealet på formen</param>
+        /// <param name="dc">Graphics object from the form</param>
+        /// <param name="displayRectangle">Rectangle that is the size of the graphics object</param>
         public GameWorld(Graphics dc, Rectangle displayRectangle)
         {
             buffer = BufferedGraphicsManager.Current.Allocate(dc, displayRectangle);
@@ -57,7 +52,7 @@ namespace Dash
         {
             TimeSpan deltaTime2 = DateTime.Now - lastFrameStarted;
             int milliSeconds = deltaTime2.Milliseconds > 0 ? deltaTime2.Milliseconds : 1;
-            currentFPS = 1000 / milliSeconds;
+            currentFPS = (float)1000 / milliSeconds;
             lastFrameStarted = DateTime.Now;
 
 
@@ -65,8 +60,6 @@ namespace Dash
             {
                 dc.Clear(Color.White);    
             }
-            Font f = new Font("Arial", 12);
-            Brush b = new SolidBrush(Color.Black);
 
             if (!menu && gameRunning)
             {
@@ -96,8 +89,8 @@ namespace Dash
                 }
                 else
                 {
-                    f = new Font("Arial", 36);
-                    b = new SolidBrush(Color.Black);
+                    Font f = new Font("Arial", 36);
+                    Brush b = new SolidBrush(Color.Black);
                     string tekst = "Time ran out press enter to retry or escape to exit";
                     int screenwidth = 864;
                     Rectangle rect1 = new Rectangle(0, 0, screenwidth, 150);
@@ -129,7 +122,7 @@ namespace Dash
         /// <summary>
         /// Method that draws all objects to screen
         /// </summary>
-        public void Draw()
+        private void Draw()
         {
             foreach (GameObject g in currentLevel.BackgroundMap)
             {
@@ -151,7 +144,7 @@ namespace Dash
         /// <summary>
         /// Method that draws UI to screen
         /// </summary>
-        public void DrawUI()
+        private void DrawUI()
         {
             Font f = new Font("Arial", 12);
             Brush b = new SolidBrush(Color.Black);
@@ -164,7 +157,7 @@ namespace Dash
         /// <summary>
         /// Method that draws "death animation"
         /// </summary>
-        public void DrawFade()
+        private void DrawFade()
         {
             
             Brush brush = new SolidBrush(Color.FromArgb(alpha, 0, 0, 0));
@@ -179,7 +172,7 @@ namespace Dash
         /// <summary>
         /// Method that runs update function on all objects in currentLevels levelmap
         /// </summary>
-        public void Update()
+        private void Update()
         {
             foreach (GameObject g in currentLevel.LevelMap)
             {
@@ -193,7 +186,7 @@ namespace Dash
         /// <summary>
         /// Sets up start values for gameworld
         /// </summary>
-        public void SetupGameWorld()
+        private void SetupGameWorld()
         {
             dc.Clear(Color.White);
             gameRunning = false;
@@ -206,7 +199,7 @@ namespace Dash
         /// <summary>
         /// Resets current level
         /// </summary>
-        public void RestartLevel()
+        private void RestartLevel()
         {
             if (playerState == 1 && cLevel != 20)
             {

@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Dash
 {
@@ -13,7 +9,6 @@ namespace Dash
     /// </summary>
     class Dash : Player
     {
-        private int dash;  //Dash speed
         private bool dashRight; //indicates if dashing right
         private bool dashLeft; //indicates if dashing left
         private bool dashUp; //indicates if dashing up
@@ -23,17 +18,15 @@ namespace Dash
         /// <summary>
         /// Constructor that sets dash speed and falling
         /// </summary>
-        /// <param name="dash">Dash speed</param>
         /// <param name="health">Health of player</param>
         /// <param name="speed">Speed of player</param>
         /// <param name="name">Name of player</param>
         /// <param name="position">Position of the object on screen</param>
         /// <param name="imagePath">images for the object split string with ; for multiple images</param>
         /// <param name="collisionBoxes">Collisonboxes for the object of type Rect</param>
-        public Dash(int dash, int health, int speed, string name, PointF position, string imagePath, List<Rect> collisionBoxes)
+        public Dash(int health, int speed, string name, PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(health, speed, name, position, imagePath, collisionBoxes)
         {
-            this.dash = dash;
             falling = true;
 
         }
@@ -53,11 +46,11 @@ namespace Dash
         /// <param name="fps">Current fps the program is running at</param>
         /// <param name="levelMap">Reference to the levelmap for current loaded level</param>
         /// <param name="playerState">Reference to the state of the player.</param>
-        public void CheckCollisions(ref GameObject[,] levelMap, float fps, ref int playerState)
+        private void CheckCollisions(ref GameObject[,] levelMap, float fps, ref int playerState)
         {
             if (dashUp)
             {
-                if (position.Y - dash * (1 / fps) <= 0)
+                if (position.Y - speed * (1 / fps) <= 0)
                 {
                     dashUp = false;
                     falling = true;
@@ -65,7 +58,7 @@ namespace Dash
             }
             else if (dashLeft)
             {
-                if (position.X - dash * (1 / fps) <= 0)
+                if (position.X - speed * (1 / fps) <= 0)
                 {
                     dashLeft = false;
                     position.X = 0;
@@ -73,14 +66,14 @@ namespace Dash
             }
             else if (dashRight)
             {
-                if (position.X + dash * (1 / fps) >= 864 - CollisionBoxes[0].HitBox(position.X, position.Y).Width)
+                if (position.X + speed * (1 / fps) >= 864 - CollisionBoxes[0].HitBox(position.X, position.Y).Width)
                 {
                     dashRight = false;
                 }
             }
             else if (falling)
             {
-                if (position.Y + dash * (1 / fps) >= 672 - CollisionBoxes[0].HitBox(position.X,position.Y).Height)
+                if (position.Y + speed * (1 / fps) >= 672 - CollisionBoxes[0].HitBox(position.X,position.Y).Height)
                 {
                     falling = false;
                     position.Y = 672 - CollisionBoxes[0].HitBox(position.X, position.Y).Height;
@@ -144,7 +137,7 @@ namespace Dash
                         foreach (Rect r in collisionBoxes)
                         {
                             RectangleF rect = r.HitBox(position.X,position.Y);
-                            rect.Offset(new PointF(dash  * (1 / fps),0));
+                            rect.Offset(new PointF(speed  * (1 / fps),0));
 
                             foreach (Rect r2 in g.CollisionBoxes)
                             {
@@ -163,7 +156,7 @@ namespace Dash
                         foreach (Rect r in collisionBoxes)
                         {
                             RectangleF rect = r.HitBox(position.X,position.Y);
-                            rect.Offset(-dash * (1 / fps),0);
+                            rect.Offset(-speed * (1 / fps),0);
 
                             foreach (Rect r2 in g.CollisionBoxes)
                             {
@@ -181,7 +174,7 @@ namespace Dash
                         foreach (Rect r in collisionBoxes)
                         {
                             RectangleF rect = r.HitBox(position.X,position.Y);
-                            rect.Offset(0,-dash * (1 / fps));
+                            rect.Offset(0,-speed * (1 / fps));
 
                             foreach (Rect r2 in g.CollisionBoxes)
                             {
@@ -199,7 +192,7 @@ namespace Dash
                         foreach (Rect r in collisionBoxes)
                         {
                             RectangleF rect = r.HitBox(position.X,position.Y);
-                            rect.Offset(0,(dash / 3 * 2) * (1 / fps));
+                            rect.Offset(0,(speed / 3 * 2) * (1 / fps));
 
                             foreach (Rect r2 in g.CollisionBoxes)
                             {
@@ -250,7 +243,7 @@ namespace Dash
 
             if (dashUp)
             {
-                position.Y -= dash * (1 / fps);
+                position.Y -= speed * (1 / fps);
             }
             else if (dashLeft)
             {
@@ -259,7 +252,7 @@ namespace Dash
                     sprite.RotateFlip(RotateFlipType.RotateNoneFlipX);
                     direction = true;
                 }
-                position.X -= dash * (1 / fps);
+                position.X -= speed * (1 / fps);
                 
             }
             else if (dashRight)
@@ -269,11 +262,11 @@ namespace Dash
                     sprite.RotateFlip(RotateFlipType.RotateNoneFlipX);
                     direction = false;
                 }
-                position.X += dash * (1 / fps);
+                position.X += speed * (1 / fps);
             }
             else if (falling)
             {
-                position.Y += dash / 3 * 2 * (1 / fps);
+                position.Y += speed / 3 * 2 * (1 / fps);
             }
         }
     }

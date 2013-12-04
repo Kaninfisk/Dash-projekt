@@ -1,28 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Dash
 {
     /// <summary>
-    /// Klasse som håndterer menu og bruger indput hertil
+    /// Class that handles the menu and user input for the menu
     /// </summary>
-    class Menu : UI
+    class Menu
     {
-        private int selectedMenu; //field som indeholder nuværende valgte menu
-        private int highlightedMenuItem;  //field som indeholder nuværende highligtede menu punkt
-        private int selectedMenuItem; //field som indeholder nuværende valgte menu punkt
-        private Graphics dc;  //field som indeholder bufferen fra gameworld
-        private DateTime lastClick; //field som indeholder tidspunkt for sidste tryk på en tast
-        private bool gameRunning; //field som indeholder om spillet er startet eller ej
-        int screenwidth = 864;
+        private int selectedMenu; //selected menu
+        private int highlightedMenuItem;  //highlighted menu item
+        private int selectedMenuItem; //selected menu item
+        private Graphics dc;  //graphics object to draw on
+        private DateTime lastClick; //Datetime that contains time of last click
+        private bool gameRunning; // indicates if game has been started or not
+        private int screenWidth = 864; //width of the screen space
 
         /// <summary>
-        /// Property til at sætte og hente tidspunkt for sidste tryk på en tast
+        /// Get and Set LastClick
         /// </summary>
         public DateTime LastClick
         {
@@ -31,16 +27,16 @@ namespace Dash
         }
 
 
-        private Font f = new Font("Arial", 30);  //Font til menupunkter
-        private Font headLine = new Font("Arial", 48); //Font til overskrifter
-        private Font headLine2 = new Font("Arial", 40); //Font til under overskrifter
-        private Brush b = new SolidBrush(Color.Black); //brush til ikke valgte menupunkter og overskrifter
-        private Brush b2 = new SolidBrush(Color.Red); //brush til valgte menupunkter
+        private Font f = new Font("Arial", 30);  //Font for menu items
+        private Font headLine = new Font("Arial", 48); //Font for main headlines
+        private Font headLine2 = new Font("Arial", 40); //For for secondary headlines
+        private Brush b = new SolidBrush(Color.Black); //Brush for headlines and non selected menu items
+        private Brush b2 = new SolidBrush(Color.Red); //Brush for selected menu items
 
         /// <summary>
-        /// Konstruktor hvor menu bliver sat op og  grafik objektet bliver initialiseret.
+        /// Constructor where menu gets setup
         /// </summary>
-        /// <param name="dc">Grafik objekt som skal tegnes ud til</param>
+        /// <param name="dc">Graphics object that you want to draw to</param>
         public Menu(Graphics dc)
         {
             this.dc = dc;
@@ -49,7 +45,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Metode som tegner den valgte menu ud til skærmen
+        /// Method that draws the selected menu to the graphics object
         /// </summary>
         public void DrawMenu()
         {
@@ -68,12 +64,12 @@ namespace Dash
         }
 
         /// <summary>
-        /// Metode som tegner hoved menuen ud til skærmen
+        /// Method that draws the main menu to the graphics object
         /// </summary>
-        public void DrawMainMenu()
+        private void DrawMainMenu()
         {
             string tekst = "Captain Dash";
-            Rectangle rect1 = new Rectangle(0, 0, screenwidth, 90);
+            Rectangle rect1 = new Rectangle(0, 0, screenWidth, 90);
             StringFormat stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
             stringFormat.LineAlignment = StringAlignment.Center;
@@ -84,13 +80,13 @@ namespace Dash
                 if (gameRunning)
                 {
                     tekst = "Resume Game";
-                    rect1 = new Rectangle(0, 90, screenwidth, 60);
+                    rect1 = new Rectangle(0, 90, screenWidth, 60);
                     dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
                 else
                 {
                     tekst = "New Game";
-                    rect1 = new Rectangle(0, 90, screenwidth, 60);
+                    rect1 = new Rectangle(0, 90, screenWidth, 60);
                     dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
             }
@@ -99,13 +95,13 @@ namespace Dash
                 if (gameRunning)
                 {
                     tekst = "Resume Game";
-                    rect1 = new Rectangle(0, 90, screenwidth, 60);
+                    rect1 = new Rectangle(0, 90, screenWidth, 60);
                     dc.DrawString(tekst, f, b, rect1, stringFormat);
                 }
                 else
                 {
                     tekst = "New Game";
-                    rect1 = new Rectangle(0, 90, screenwidth, 60);
+                    rect1 = new Rectangle(0, 90, screenWidth, 60);
                     dc.DrawString(tekst, f, b, rect1, stringFormat);
                 }
 
@@ -113,132 +109,132 @@ namespace Dash
             if (highlightedMenuItem == 2)
             {
                 tekst = "Options";
-                rect1 = new Rectangle(0, 150, screenwidth, 60);
+                rect1 = new Rectangle(0, 150, screenWidth, 60);
                 dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
                 tekst = "Options";
-                rect1 = new Rectangle(0, 150, screenwidth, 60);
+                rect1 = new Rectangle(0, 150, screenWidth, 60);
                 dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
             if (highlightedMenuItem == 3)
             {
                 tekst = "How to Play";
-                rect1 = new Rectangle(0, 210, screenwidth, 60);
+                rect1 = new Rectangle(0, 210, screenWidth, 60);
                 dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
                 tekst = "How to Play";
-                rect1 = new Rectangle(0, 210, screenwidth, 60);
+                rect1 = new Rectangle(0, 210, screenWidth, 60);
                 dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
             if (highlightedMenuItem == 4)
             {
                 tekst = "Quit";
-                rect1 = new Rectangle(0, 270, screenwidth, 60);
+                rect1 = new Rectangle(0, 270, screenWidth, 60);
                 dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
                 tekst = "Quit";
-                rect1 = new Rectangle(0, 270, screenwidth, 60);
+                rect1 = new Rectangle(0, 270, screenWidth, 60);
                 dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
         }
 
         /// <summary>
-        /// Metode som tegner Options menuen ud til skærmen
+        /// Method that draws the options menu to the graphics object
         /// </summary>
-        public void DrawOptionsMenu()
+        private void DrawOptionsMenu()
         {
             string tekst = "Options";
-            Rectangle rect1 = new Rectangle(0, 0, screenwidth, 90);
+            Rectangle rect1 = new Rectangle(0, 0, screenWidth, 90);
             StringFormat stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
             stringFormat.LineAlignment = StringAlignment.Center;
             dc.DrawString(tekst, headLine, b, rect1, stringFormat);
-            rect1 = new Rectangle(0,90,screenwidth, 60);
+            rect1 = new Rectangle(0,90,screenWidth, 60);
             tekst = "Sound";
             dc.DrawString(tekst, headLine2, b, rect1, stringFormat);
 
             if (highlightedMenuItem == 1)
             {
                 tekst = "Master Volume: " + Audio.MasterVolume;
-                rect1 = new Rectangle(0, 150, screenwidth, 60);
+                rect1 = new Rectangle(0, 150, screenWidth, 60);
                 dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
                 tekst = "Master Volume: " + Audio.MasterVolume;
-                rect1 = new Rectangle(0, 150, screenwidth, 60);
+                rect1 = new Rectangle(0, 150, screenWidth, 60);
                 dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
 
             if (highlightedMenuItem == 2)
             {
                 tekst = "Sound-FX Volume: " + Audio.SoundVolume;
-                rect1 = new Rectangle(0, 210, screenwidth, 60);
+                rect1 = new Rectangle(0, 210, screenWidth, 60);
                 dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
                 tekst = "Sound-FX Volume: " + Audio.SoundVolume;
-                rect1 = new Rectangle(0, 210, screenwidth, 60);
+                rect1 = new Rectangle(0, 210, screenWidth, 60);
                 dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
 
             if (highlightedMenuItem == 3)
             {
                 tekst = "Music Volume: " + Audio.MusicVolume;
-                rect1 = new Rectangle(0, 270, screenwidth, 60);
+                rect1 = new Rectangle(0, 270, screenWidth, 60);
                 dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
                 tekst = "Music Volume: " + Audio.MusicVolume;
-                rect1 = new Rectangle(0, 270, screenwidth, 60);
+                rect1 = new Rectangle(0, 270, screenWidth, 60);
                 dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
             if (highlightedMenuItem == 4)
             {
                 tekst = "Controls";
-                rect1 = new Rectangle(0, 320, screenwidth, 60);
+                rect1 = new Rectangle(0, 320, screenWidth, 60);
                 dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
                 tekst = "Controls";
-                rect1 = new Rectangle(0, 320, screenwidth, 60);
+                rect1 = new Rectangle(0, 320, screenWidth, 60);
                 dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
             if (highlightedMenuItem == 5)
             {
                 tekst = "Back";
-                rect1 = new Rectangle(0, 380, screenwidth, 60);
+                rect1 = new Rectangle(0, 380, screenWidth, 60);
                 dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
                 tekst = "Back";
-                rect1 = new Rectangle(0, 380, screenwidth, 60);
+                rect1 = new Rectangle(0, 380, screenWidth, 60);
                 dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
         }
 
         /// <summary>
-        /// Metode som tegner Controls menuen ud til skærmen
+        /// Method that draws the Controls menu to the graphics object
         /// </summary>
-        public void DrawControlMenu()
+        private void DrawControlMenu()
         {
             string tekst = "Controls";
-            Rectangle rect1 = new Rectangle(0, 0, screenwidth, 90);
+            Rectangle rect1 = new Rectangle(0, 0, screenWidth, 90);
             StringFormat stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
             stringFormat.LineAlignment = StringAlignment.Center;
             dc.DrawString(tekst, headLine, b, rect1, stringFormat);
-            rect1 = new Rectangle(0,90,screenwidth,60);
+            rect1 = new Rectangle(0,90,screenWidth,60);
             tekst = "Movement keys";
             dc.DrawString(tekst, headLine2, b, rect1, stringFormat);
             
@@ -247,13 +243,13 @@ namespace Dash
                 if (selectedMenuItem == 1)
                 {
                     tekst = "Up: Enter new key";
-                    rect1 = new Rectangle(0, 160, screenwidth, 60);
+                    rect1 = new Rectangle(0, 160, screenWidth, 60);
                     dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
                 else
                 {
                     tekst = "Up: " + Config.UpKey;
-                    rect1 = new Rectangle(0, 160, screenwidth, 60);
+                    rect1 = new Rectangle(0, 160, screenWidth, 60);
                     dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
 
@@ -261,7 +257,7 @@ namespace Dash
             else
             {
                 tekst = "Up: " + Config.UpKey;
-                rect1 = new Rectangle(0, 160, screenwidth, 60);
+                rect1 = new Rectangle(0, 160, screenWidth, 60);
                 dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
             if (highlightedMenuItem == 2)
@@ -269,13 +265,13 @@ namespace Dash
                 if (selectedMenuItem == 2)
                 {
                     tekst = "Down: Enter new key";
-                    rect1 = new Rectangle(0, 220, screenwidth, 60);
+                    rect1 = new Rectangle(0, 220, screenWidth, 60);
                     dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
                 else
                 {
                     tekst = "Down: " + Config.DownKey;
-                    rect1 = new Rectangle(0, 220, screenwidth, 60);
+                    rect1 = new Rectangle(0, 220, screenWidth, 60);
                     dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
 
@@ -283,7 +279,7 @@ namespace Dash
             else
             {
                 tekst = "Down: " + Config.DownKey;
-                rect1 = new Rectangle(0, 220, screenwidth, 60);
+                rect1 = new Rectangle(0, 220, screenWidth, 60);
                 dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
 
@@ -292,20 +288,20 @@ namespace Dash
                 if (selectedMenuItem == 3)
                 {
                     tekst = "Left: Enter new key";
-                    rect1 = new Rectangle(0, 280, screenwidth, 60);
+                    rect1 = new Rectangle(0, 280, screenWidth, 60);
                     dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
                 else
                 {
                     tekst = "Left: " + Config.LeftKey;
-                    rect1 = new Rectangle(0, 280, screenwidth, 60);
+                    rect1 = new Rectangle(0, 280, screenWidth, 60);
                     dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
             }
             else
             {
                 tekst = "Left: " + Config.LeftKey;
-                rect1 = new Rectangle(0, 280, screenwidth, 60);
+                rect1 = new Rectangle(0, 280, screenWidth, 60);
                 dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
 
@@ -314,25 +310,25 @@ namespace Dash
                 if (selectedMenuItem == 4)
                 {
                     tekst = "Right: Enter new key";
-                    rect1 = new Rectangle(0, 340, screenwidth, 60);
+                    rect1 = new Rectangle(0, 340, screenWidth, 60);
                     dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
                 else
                 {
                     tekst = "Right: " + Config.RightKey;
-                    rect1 = new Rectangle(0, 340, screenwidth, 60);
+                    rect1 = new Rectangle(0, 340, screenWidth, 60);
                     dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
             }
             else
             {
                 tekst = "Right: " + Config.RightKey;
-                rect1 = new Rectangle(0, 340, screenwidth, 60);
+                rect1 = new Rectangle(0, 340, screenWidth, 60);
                 dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
 
             tekst = "Ship Controls";
-            rect1 = new Rectangle(0, 400, screenwidth, 60);
+            rect1 = new Rectangle(0, 400, screenWidth, 60);
             dc.DrawString(tekst, headLine2, b, rect1, stringFormat);
             
             if (highlightedMenuItem == 5)
@@ -340,57 +336,57 @@ namespace Dash
                 if (selectedMenuItem == 4)
                 {
                     tekst = "Shoot: Enter new key";
-                    rect1 = new Rectangle(0, 460, screenwidth, 60);
+                    rect1 = new Rectangle(0, 460, screenWidth, 60);
                     dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
                 else
                 {
                     tekst = "Shoot: " + Config.ShootKey;
-                    rect1 = new Rectangle(0, 460, screenwidth, 60);
+                    rect1 = new Rectangle(0, 460, screenWidth, 60);
                     dc.DrawString(tekst, f, b2, rect1, stringFormat);
                 }
             }
             else
             {
                 tekst = "Shoot: " + Config.ShootKey;
-                rect1 = new Rectangle(0, 460, screenwidth, 60);
+                rect1 = new Rectangle(0, 460, screenWidth, 60);
                 dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
             if (highlightedMenuItem == 6)
             {
                 tekst = "Back";
-                rect1 = new Rectangle(0, 520, screenwidth, 60);
+                rect1 = new Rectangle(0, 520, screenWidth, 60);
                 dc.DrawString(tekst, f, b2, rect1, stringFormat);
             }
             else
             {
                 tekst = "Back";
-                rect1 = new Rectangle(0, 520, screenwidth, 60);
+                rect1 = new Rectangle(0, 520, screenWidth, 60);
                 dc.DrawString(tekst, f, b, rect1, stringFormat);
             }
         }
 
         /// <summary>
-        /// Metode som håndterer bruger input og navigation i menuen
+        /// Method that handles user input and navigation in the menu
         /// </summary>
-        /// <param name="key">Reference variabel som indeholder keyboard input</param>
-        /// <param name="gameRunning">reference variabel som bestemmer om spillet er startet eller ej</param>
-        /// <param name="menu">reference variabel som bestemmer om menuen bliver vist eller ej</param>
+        /// <param name="key">Reference variable for keyboard input</param>
+        /// <param name="gameRunning">reference for variable that indicates if game has been started or not</param>
+        /// <param name="menu">reference variable that indicates if menu is shown or not</param>
         public void Update(ref Keys key, ref bool gameRunning, ref bool menu)
         {
             this.gameRunning = gameRunning;
             int max;
-            if (selectedMenu == 1)
+            switch (selectedMenu)
             {
-                max = 3;
-            }
-            else if (selectedMenu == 2)
-            {
-                max = 4;
-            }
-            else
-            {
-                max = 5;
+                case 1:
+                    max = 3;
+                    break;
+                case 2:
+                    max = 4;
+                    break;
+                default:
+                    max = 5;
+                    break;
             }
 
             if (Keyboard.IsKeyDown(Keys.Up) && highlightedMenuItem >= 2)
@@ -537,7 +533,6 @@ namespace Dash
                         if (Audio.SoundVolume > 0)
                         {
                             Audio.SoundVolume--;
-                            //Audio.PlaySoundFX("audio/laser.wav");
                         }
                         break;
                     case 3:
@@ -562,7 +557,6 @@ namespace Dash
                         if (Audio.SoundVolume < 100)
                         {
                             Audio.SoundVolume++;
-                            //Audio.PlaySoundFX("audio/laser.wav");
                         }
                         break;
                     case 3:

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dash
 {
@@ -33,15 +29,6 @@ namespace Dash
         public PointF Position
         {
             get { return position; }
-            set { position = value; }
-        }
-
-        /// <summary>
-        /// gets sprite; 
-        /// </summary>
-        public Image Sprite
-        {
-            get { return sprite; }
         }
         
         /// <summary>

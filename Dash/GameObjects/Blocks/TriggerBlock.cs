@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dash
 {
@@ -21,7 +17,6 @@ namespace Dash
         /// </summary>
         public bool Pressed
         {
-            get { return pressed; }
             set { pressed = value; }
         }
 
@@ -39,7 +34,6 @@ namespace Dash
         public Point Target
         {
             get { return target; }
-            set { target = value; }
         }
 
         /// <summary>

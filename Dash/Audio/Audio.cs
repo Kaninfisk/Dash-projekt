@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IrrKlang;
+﻿using IrrKlang;
 
 namespace Dash
 {
@@ -37,8 +32,8 @@ namespace Dash
                 else
                 {
                     masterVolume = value;
-                    musicEngine.SoundVolume = (((float)(musicVolume) / (float)100) / 100) * masterVolume;
-                    soundFXEngine.SoundVolume = (((float)(soundVolume) / (float)100) / 100) * masterVolume;
+                    musicEngine.SoundVolume = (musicVolume / (float)100 / 100) * masterVolume;
+                    soundFXEngine.SoundVolume = ((soundVolume / (float)100) / 100) * masterVolume;
                 }
             }
             get { return masterVolume; }
@@ -62,7 +57,7 @@ namespace Dash
                 else
                 {
                     soundVolume = value;
-                    soundFXEngine.SoundVolume = (((float)(value) / (float)100) / 100) * masterVolume;
+                    soundFXEngine.SoundVolume = ((value / (float)100) / 100) * masterVolume;
                 }
             }
             get { return soundVolume; }
@@ -86,7 +81,7 @@ namespace Dash
                 else
                 {
                     musicVolume = value;
-                    musicEngine.SoundVolume = (((float)(value) / (float)100) / 100) * masterVolume;
+                    musicEngine.SoundVolume = ((value / (float)100) / 100) * masterVolume;
                 }
             }
             get { return musicVolume; }

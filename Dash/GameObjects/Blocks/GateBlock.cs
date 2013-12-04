@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dash
 {
@@ -19,7 +15,6 @@ namespace Dash
         /// </summary>
         public bool Open
         {
-            get { return open; }
             set { open = value; }
         }
         
@@ -42,7 +37,7 @@ namespace Dash
         /// <param name="dc">Graphics object that you want to draw to</param>
         public override void Draw(Graphics dc)
         {
-            if (Open)
+            if (open)
             {
                 if (animationFrames.Count > 1)
                 {
