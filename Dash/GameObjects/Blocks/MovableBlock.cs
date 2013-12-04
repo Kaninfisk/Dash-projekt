@@ -12,22 +12,22 @@ namespace Dash
     class MovableBlock:SolidBlock
     {
         protected int speed; // Pixels pr frame?
-        protected int direction; //1 = op, 2 = ned, 3 = venstre, 4 = højre
-        protected int distance;
+        protected int direction; // 1 = op, 2 = ned, 3 = venstre, 4 = højre
+        protected int distance; // tælles i antal tiles
+        protected PointF endPosition;
 
-        public MovableBlock(int speed, int direction, int distance, PointF position, string imagePath, List<Rect> collisionBoxes, float fps)
+        public MovableBlock(int speed, int direction, int distance, PointF position, PointF endPosition, string imagePath, List<Rect> collisionBoxes, float fps)
             : base(position, imagePath, collisionBoxes)
         {
-            PointF endPosition = position;
+            endPosition = position;
             endPosition.X += distance;
+            endPosition.Y += distance;
             this.speed = speed;
             this.direction = direction;
-            this.distance = distance;
-
-         
+            this.distance = distance + 48;
         }
 
-        public void MovePlatform(float fps, PointF endPosition)
+        public void Update(float fps)
         {
             switch (direction)
             {
@@ -47,7 +47,7 @@ namespace Dash
                     break;
                 case 3:
                     this.position.X -= speed / fps;
-                    if (this.position == endPosition)
+                    if (this.position == position)
                     {
                         direction = 4;
                     }
