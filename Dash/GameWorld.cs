@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Dash
@@ -146,9 +147,9 @@ namespace Dash
         /// </summary>
         private void DrawUI()
         {
-            Font f = new Font("Arial", 12);
+            Font f = new Font("Arial", 16);
             Brush b = new SolidBrush(Color.Black);
-            dc.DrawString(Math.Round(t, 2).ToString().Replace(',', '.'), f, b, 600, 0);
+            dc.DrawString(Math.Round(t, 2).ToString().Replace(',', '.'), f, b, 432, 0);
 #if DEBUG
             dc.DrawString(currentFPS.ToString(), f, b, 800, 0);
 #endif
@@ -203,6 +204,7 @@ namespace Dash
         {
             if (playerState == 1 && cLevel != 20)
             {
+                WriteLog("lvltimes.txt", "Level: " + cLevel + " Tid: " + Math.Round(currentLevel.Time - t,2) + Environment.NewLine);
                 cLevel++;
             }
 
@@ -210,6 +212,36 @@ namespace Dash
             t = currentLevel.Time;
             alpha = 0;
             playerState = 0;
+        }
+
+        private string WriteLog(string path, string tekstline)
+        {
+            try
+            {
+                if (File.Exists(path))
+                {
+                    StreamReader sr = new StreamReader(path);
+                    string tekst = sr.ReadToEnd();
+                    sr.Close();
+                    StreamWriter sw = new StreamWriter(path);
+                    sw.Write(tekst);
+                    sw.WriteLine(tekstline);
+                    sw.Close();
+                }
+                else
+                {
+                    StreamWriter sw = File.CreateText(path);
+                    sw.Close();
+                    sw = new StreamWriter(path);
+                    sw.WriteLine(tekstline);
+                    sw.Close();
+                }
+                return "Linie skrevet i logfilen";
+            }
+            catch (Exception ex)
+            {
+                return "Der opstod en fejl: " + ex.Message;
+            }
         }
     }
 }

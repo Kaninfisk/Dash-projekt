@@ -20,7 +20,6 @@ namespace Dash
         {
             set { falling = value; }
         }
-        
 
         /// <summary>
         /// Constructor that sets dash speed and falling
@@ -34,7 +33,6 @@ namespace Dash
         {
             falling = true;
             this.speed = speed;
-
         }
 
         /// <summary>
@@ -130,7 +128,7 @@ namespace Dash
                         if (t.Type == 1)
                         {
                             t.Pressed = true;
-                            if (levelMap[t.Target.Y, t.Target.X].GetType().ToString() == "Dash.GateBlock")
+                            if (levelMap[t.Target.Y, t.Target.X] != null && levelMap[t.Target.Y, t.Target.X].GetType().ToString() == "Dash.GateBlock")
                             {
                                 GateBlock gate = (GateBlock)levelMap[t.Target.Y, t.Target.X];
                                 gate.Open = true;

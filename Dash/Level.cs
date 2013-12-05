@@ -58,7 +58,7 @@ namespace Dash
                          "R5;R5;E6;NN;NN;NN;BB;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;W7;W8;W8;W8;W8;W8;W8;W9;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;R5;R5;R5;R5;R5;E6;NN;NN;NN;SR" + "_" +
-                         "R5;R5;E6;NN;NN;NN;E4;R5;N7;E2;E2;E2;E2;E3;CB;NN;NN;SR" + "_" +
+                         "R5;R5;E6;NN;NN;NN;E4;R5;N7;E2;E2;E2;E2;E3;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "E2;E2;E3;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -1339,11 +1339,6 @@ namespace Dash
                             lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\X9.gif", collisionBoxes);
                             break;
                         #endregion
-                        case "CB":
-                            collisionBoxes = new List<Rect>();
-                            collisionBoxes.Add(new Rect(new PointF(0, 0), 144, 48));
-                            lvlMap[y, x] = new CrumblingBlock(new PointF(x * 48, y * 48), "Graphics\\HB.gif", collisionBoxes);
-                            break;
                         default:
                             lvlMap[y, x] = null;
                             break;
