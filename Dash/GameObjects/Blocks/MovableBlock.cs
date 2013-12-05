@@ -77,17 +77,38 @@ namespace Dash
                     break;
                 case 3:
                     this.position.X -= speed * 1 / fps;
-                    if (this.position.X <= startPosition.X)
+                    if (startDirection == 4)
                     {
-                        direction = 4;
+                        if (this.position.X <= startPosition.X)
+                        {
+                            direction = 4;
+                        }   
+                    }
+                    else
+                    {
+                        if (this.position.X <= endPosition.X)
+                        {
+                            direction = 4;
+                        }
                     }
                     break;
                 case 4:
                     this.position.X += speed * 1 / fps;
-                    if (this.position.X >= endPosition.X)
+                    if (startDirection == 3)
                     {
-                        direction = 3;
+                        if (this.position.X >= startPosition.X)
+                        {
+                            direction = 3;
+                        }
                     }
+                    else
+                    {
+                        if (this.position.X >= endPosition.X)
+                        {
+                            direction = 3;
+                        }    
+                    }
+                    
                     break;
             }
             CheckCollisions(ref levelMap, fps);
