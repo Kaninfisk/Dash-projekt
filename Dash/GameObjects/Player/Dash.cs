@@ -64,6 +64,10 @@ namespace Dash
             }
         }
 
+        /// <summary>
+        /// Checks for collisions with crumbling blocks
+        /// </summary>
+        /// <param name="g"></param>
         private void CheckCrumblingCollisions(GameObject g)
         {
             foreach (Rect r in collisionBoxes)
@@ -98,10 +102,12 @@ namespace Dash
                 {
                     if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
                     {
+                        Audio.PlaySoundFX("Audio\\Game Over_1.mp3");
                         dashRight = false;
                         falling = false;
                         dashLeft = false;
                         dashUp = false;
+                        sprite = animationFrames[1];
                         playerState = 2;
                     }
                 }
@@ -339,13 +345,8 @@ namespace Dash
             }
             else if (falling)
             {
-                position.Y += speed / 3 * 2 * (1 / fps);
+                position.Y += ((speed /4) * 3) * (1 / fps);
             }
-        }
-
-        public void Move(float distance)
-        {
-            
         }
     }
 }

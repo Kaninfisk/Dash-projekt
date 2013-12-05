@@ -104,6 +104,7 @@ namespace Dash
         /// <param name="filePath">Path to audio file</param>
         public static void PlayMusic(string filePath)
         {
+            musicEngine.StopAllSounds();
             musicEngine.Play2D(filePath, true);
         }
 
@@ -114,6 +115,15 @@ namespace Dash
         public static void PlaySoundFX(string filePath)
         {
             soundFXEngine.Play2D(filePath, false);
+        }
+        
+        /// <summary>
+        /// Method that stops all sounds
+        /// </summary>
+        public static void StopAllSounds()
+        {
+            soundFXEngine.StopAllSounds();
+            musicEngine.StopAllSounds();
         }
     }
 }

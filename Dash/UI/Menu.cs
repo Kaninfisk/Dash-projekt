@@ -427,6 +427,7 @@ namespace Dash
                                     gameRunning = true;
                                     menu = false;
                                     lastClick = DateTime.Now;
+                                    Audio.PlayMusic("Audio\\soundtrack_Intronitiion_ilikescifi_0.MP3");
                                     break;
                                 case 2:
                                     selectedMenu = 2;

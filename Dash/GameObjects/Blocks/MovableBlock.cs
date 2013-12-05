@@ -170,6 +170,11 @@ namespace Dash
             CheckCollisions(ref levelMap, fps);
         }
 
+        /// <summary>
+        /// finds player object in levelMap
+        /// </summary>
+        /// <param name="levelMap"></param>
+        /// <param name="fps"></param>
         private void CheckCollisions(ref GameObject[,] levelMap, float fps)
         {
             foreach (GameObject g in levelMap)
@@ -184,13 +189,18 @@ namespace Dash
             }
         }
 
+        /// <summary>
+        /// If hitbox of block collides with player it moves the player accordingly
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="fps"></param>
         private void MovePlayer(GameObject g, float fps)
         {
             foreach (Rect r in collisionBoxes)
             {
-                RectangleF rect = r.HitBox(position.X, position.Y - 10);
-                RectangleF rectLeft = r.HitBox(position.X - 10, position.Y);
-                RectangleF rectRight = r.HitBox(position.X + 10, position.Y);
+                RectangleF rect = r.HitBox(position.X, position.Y - 2);
+                RectangleF rectLeft = r.HitBox(position.X - 2, position.Y);
+                RectangleF rectRight = r.HitBox(position.X + 2, position.Y);
 
                 foreach (Rect r2 in g.CollisionBoxes)
                 {

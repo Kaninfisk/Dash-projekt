@@ -20,7 +20,6 @@ namespace Dash
             //this.FormBorderStyle = FormBorderStyle.None;
             Width = 880;
             Height = 710;
-
             //TopMost = true;
             
             Timer timer1 = new Timer();
@@ -30,7 +29,6 @@ namespace Dash
 
             KeyPreview = true;
             PreviewKeyDown += Input;
-
         }
 
         /// <summary>

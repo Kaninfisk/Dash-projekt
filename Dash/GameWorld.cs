@@ -23,7 +23,9 @@ namespace Dash
         private int playerState; //indicates if player is alive or dead
         private int alpha; //alpha value for "death animation"
         private Keys input;  // used for key input
-
+        private float cutScene;
+        private bool cutScenePlayed;
+        
         /// <summary>
         /// Sets input
         /// </summary>
@@ -41,7 +43,6 @@ namespace Dash
         {
             buffer = BufferedGraphicsManager.Current.Allocate(dc, displayRectangle);
             this.dc = buffer.Graphics;
-            cLevel = 1;
             m = new Menu(this.dc);
             SetupGameWorld();
         }
@@ -59,7 +60,7 @@ namespace Dash
 
             if (playerState < 2)
             {
-                dc.Clear(Color.White);
+                dc.Clear(Color.Gray);
             }
 
             if (!menu && gameRunning)
@@ -71,6 +72,10 @@ namespace Dash
                 else if (playerState == 2)
                 {
                     DrawFade();
+                }
+                else if (cutScene > 0)
+                {
+                    PlayCutScene();
                 }
                 else if (t > 0)
                 {
@@ -160,10 +165,9 @@ namespace Dash
         /// </summary>
         private void DrawFade()
         {
-
             Brush brush = new SolidBrush(Color.FromArgb(alpha, 0, 0, 0));
             dc.FillRectangle(brush, 0, 0, 864, 672);
-            alpha += 2;
+            alpha += (int)(25*1/currentFPS);
             if (alpha > 100)
             {
                 RestartLevel();
@@ -189,12 +193,13 @@ namespace Dash
         /// </summary>
         private void SetupGameWorld()
         {
-            dc.Clear(Color.White);
+            
             gameRunning = false;
             menu = true;
+            cLevel = 1;
             RestartLevel();
-
-            //Audio.PlayMusic("audio/music.mp3");
+            Audio.StopAllSounds();
+            Audio.PlayMusic("audio/Intro.mp3");
         }
 
         /// <summary>
@@ -206,14 +211,48 @@ namespace Dash
             {
                 WriteLog("lvltimes.txt", "Level: " + cLevel + " Tid: " + Math.Round(currentLevel.Time - t,2) + Environment.NewLine);
                 cLevel++;
+                cutScenePlayed = false;
             }
 
+            if ((cLevel == 1 || cLevel == 2) && !cutScenePlayed)
+            {
+                cutScene = 5;
+                cutScenePlayed = true;
+            }
+
+            playerState = 0;
             currentLevel = new Level(cLevel);
             t = currentLevel.Time;
             alpha = 0;
-            playerState = 0;
         }
 
+        /// <summary>
+        /// Method to play cutscenes
+        /// </summary>
+        private void PlayCutScene()
+        {
+            if (cLevel == 1)
+            {
+                dc.DrawImage(Image.FromFile("Graphics/B1.gif"), 0, 0, 864, 672);
+
+            }
+            else if (cLevel == 2)
+            {
+                dc.DrawImage(Image.FromFile("Graphics/B2.gif"), 0, 0, 864, 672);
+            }
+            else
+            {
+                cutScene = 0;
+            }
+            cutScene -= 1 / currentFPS;
+        }
+
+        /// <summary>
+        /// Method to write to a log file
+        /// </summary>
+        /// <param name="path">File path to write to</param>
+        /// <param name="tekstline">Line of tekst to add</param>
+        /// <returns>Error if write failed</returns>
         private string WriteLog(string path, string tekstline)
         {
             try

@@ -11,8 +11,6 @@ namespace Dash
         /// <summary>
         /// Constructor that sets health and name of enemy
         /// </summary>
-        /// <param name="health">Health of enemy</param>
-        /// <param name="name">Enemy name</param>
         /// <param name="position">Position of the object on screen</param>
         /// <param name="imagePath">images for the object split string with ; for multiple images</param>
         /// <param name="collisionBoxes">Collisonboxes for the object of type Rect</param>
