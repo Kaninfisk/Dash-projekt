@@ -16,6 +16,12 @@ namespace Dash
         private bool direction; //indicates direction for sprite flipping
         private int speed; //players speed
 
+        public bool Falling
+        {
+            set { falling = value; }
+        }
+        
+
         /// <summary>
         /// Constructor that sets dash speed and falling
         /// </summary>
@@ -193,6 +199,21 @@ namespace Dash
                         {
                             falling = false;
                             position.Y = g.Position.Y + r2.Position.Y - collisionBoxes[0].HitBox(Position.X, Position.Y).Height;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (Rect r in collisionBoxes)
+                {
+                    RectangleF rect = r.HitBox(position.X, position.Y+10);
+
+                    foreach (Rect r2 in g.CollisionBoxes)
+                    {
+                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                        {
+                            falling = false;
                         }
                     }
                 }

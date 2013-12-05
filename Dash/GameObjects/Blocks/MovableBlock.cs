@@ -62,43 +62,95 @@ namespace Dash
             switch (direction)
             {
                 case 1:
-                    this.position.Y -= speed * 1 / fps;
-                    if (this.position.Y >= endPosition.Y)
+                    if (startDirection == 2)
                     {
-                        direction = 2;
+                        if (this.position.Y <= startPosition.Y)
+                        {
+                            direction = 2;
+                            this.position.Y += speed * 1 / fps;
+                        }
+                        else
+                        {
+                            this.position.Y -= speed * 1 / fps;
+                        }
+                    }
+                    else
+                    {
+                        if (this.position.Y <= endPosition.Y)
+                        {
+                            direction = 2;
+                            this.position.Y += speed * 1 / fps;
+                        }
+                        else
+                        {
+                            this.position.Y -= speed * 1 / fps;
+                        }
                     }
                     break;
                 case 2:
-                    this.position.Y += speed * 1 / fps;
-                    if (this.position.Y <= startPosition.Y)
+                    if (startDirection == 1)
                     {
-                        direction = 1;
+                        if (this.position.Y <= startPosition.Y)
+                        {
+                            direction = 1;
+                            this.position.Y -= speed * 1 / fps;
+                        }
+                        else
+                        {
+                            this.position.Y += speed * 1 / fps;
+                        }
                     }
+                    else
+                    {
+                        if (this.position.Y >= endPosition.Y)
+                        {
+                            direction = 1;
+                            this.position.Y -= speed * 1 / fps;
+                        }
+                        else
+                        {
+                            this.position.Y += speed * 1 / fps;
+                        }
+                    }
+                    
                     break;
                 case 3:
-                    this.position.X -= speed * 1 / fps;
                     if (startDirection == 4)
                     {
                         if (this.position.X <= startPosition.X)
                         {
                             direction = 4;
-                        }   
+                            this.position.X += speed * 1 / fps;
+                        }
+                        else
+                        {
+                            this.position.X -= speed * 1 / fps;
+                        }
                     }
                     else
                     {
                         if (this.position.X <= endPosition.X)
                         {
                             direction = 4;
+                            this.position.X += speed * 1 / fps;
+                        }
+                        else
+                        {
+                            this.position.X -= speed * 1 / fps;
                         }
                     }
                     break;
                 case 4:
-                    this.position.X += speed * 1 / fps;
                     if (startDirection == 3)
                     {
                         if (this.position.X >= startPosition.X)
                         {
                             direction = 3;
+                            this.position.X -= speed * 1 / fps;
+                        }
+                        else
+                        {
+                            this.position.X += speed * 1 / fps;
                         }
                     }
                     else
@@ -106,9 +158,13 @@ namespace Dash
                         if (this.position.X >= endPosition.X)
                         {
                             direction = 3;
-                        }    
+                            this.position.X -= speed * 1 / fps;
+                        }
+                        else
+                        {
+                            this.position.X += speed * 1 / fps;
+                        }
                     }
-                    
                     break;
             }
             CheckCollisions(ref levelMap, fps);
@@ -133,12 +189,15 @@ namespace Dash
             foreach (Rect r in collisionBoxes)
             {
                 RectangleF rect = r.HitBox(position.X, position.Y - 10);
+                RectangleF rectLeft = r.HitBox(position.X - 10, position.Y);
+                RectangleF rectRight = r.HitBox(position.X + 10, position.Y);
 
-                foreach (Rect r2 in g.CollisionBoxes)
+                if (g.GetType().ToString() == "Dash.Dash")
                 {
-                    if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+
+                    foreach (Rect r2 in g.CollisionBoxes)
                     {
-                        if (g.GetType().ToString() == "Dash.Dash")
+                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
                         {
                             if (direction == 1)
                             {
@@ -156,6 +215,25 @@ namespace Dash
                             {
                                 g.Position = new PointF(g.Position.X + speed * 1 / fps, g.Position.Y);
                             }
+
+                        }
+                        else if (rectLeft.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                        {
+                            if (direction == 3)
+                            {
+                                g.Position = new PointF(g.Position.X - speed * 1 / fps, g.Position.Y);
+                            }
+                            Dash d = (Dash)g;
+                            d.Falling = true;
+                        }
+                        else if (rectRight.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                        {
+                            if (direction == 4)
+                            {
+                                g.Position = new PointF(g.Position.X + speed * 1 / fps, g.Position.Y);
+                            }
+                            Dash d = (Dash)g;
+                            d.Falling = true;
                         }
                     }
                 }
