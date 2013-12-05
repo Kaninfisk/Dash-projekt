@@ -30,13 +30,13 @@ namespace Dash
             switch (direction)
             {
                 case 1:
-                    endPosition.Y += distance * 48;
+                    endPosition.Y -= distance * 48;
                     break;
                 case 2:
                     endPosition.Y += distance * 48;
                     break;
                 case 3:
-                    endPosition.X += distance * 48;
+                    endPosition.X -= distance * 48;
                     break;
                 case 4:
                     endPosition.X += distance * 48;
