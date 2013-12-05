@@ -32,15 +32,6 @@ namespace Dash
         }
 
         /// <summary>
-        /// Draw override for more advanced draw method
-        /// </summary>
-        /// <param name="dc">Graphics object that you want to draw to</param>
-        public override void Draw(Graphics dc)
-        {
-            base.Draw(dc);
-        }
-
-        /// <summary>
         /// Method that checks collisions with all other objects on levelmap
         /// </summary>
         /// <param name="levelMap">Reference to the levelmap for current loaded level</param>

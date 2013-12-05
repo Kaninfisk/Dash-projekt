@@ -113,9 +113,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Audio\Game Over_1.mp3" />
-    <Content Include="Audio\Intro.mp3" />
-    <Content Include="Audio\soundtrack_Intronitiion_ilikescifi_0.MP3" />
+    <Content Include="Audio\Game Over_1.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\Intro.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\soundtrack_Intronitiion_ilikescifi_0.MP3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Graphics\B1.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

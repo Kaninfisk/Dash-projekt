@@ -934,12 +934,12 @@ namespace Dash
                         case "KU":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
-                            lvlMap[y, x] = new Enemy(1, "spike", new PointF(x * 48, y * 48), "Graphics\\F8.gif", collisionBoxes);
+                            lvlMap[y, x] = new Enemy(new PointF(x * 48, y * 48), "Graphics\\F8.gif", collisionBoxes);
                             break;
                         case "KD":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
-                            lvlMap[y, x] = new Enemy(1, "spike", new PointF(x * 48, y * 48), "Graphics\\F9.gif", collisionBoxes);
+                            lvlMap[y, x] = new Enemy(new PointF(x * 48, y * 48), "Graphics\\F9.gif", collisionBoxes);
                             break;
                         #endregion
                         #region Background tiles
@@ -1052,12 +1052,12 @@ namespace Dash
                         case "KL":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
-                            lvlMap[y, x] = new Enemy(1, "spike", new PointF(x * 48, y * 48), "Graphics\\KL.gif", collisionBoxes);
+                            lvlMap[y, x] = new Enemy(new PointF(x * 48, y * 48), "Graphics\\KL.gif", collisionBoxes);
                             break;
                         case "KR":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
-                            lvlMap[y, x] = new Enemy(1, "spike", new PointF(x * 48, y * 48), "Graphics\\KR.gif", collisionBoxes);
+                            lvlMap[y, x] = new Enemy(new PointF(x * 48, y * 48), "Graphics\\KR.gif", collisionBoxes);
                             break;
                         #endregion
                         #region Nub-corners
