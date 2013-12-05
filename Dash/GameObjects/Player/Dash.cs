@@ -300,5 +300,10 @@ namespace Dash
                 position.Y += speed / 3 * 2 * (1 / fps);
             }
         }
+
+        public void Move(float distance)
+        {
+            
+        }
     }
 }

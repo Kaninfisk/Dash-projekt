@@ -29,6 +29,7 @@ namespace Dash
         public PointF Position
         {
             get { return position; }
+            set { position = value; }
         }
 
         /// <summary>

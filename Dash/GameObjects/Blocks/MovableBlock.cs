@@ -53,6 +53,8 @@ namespace Dash
         public override void Update(float fps, ref GameObject[,] levelMap,ref int playerState)
         {
             base.Update(fps, ref levelMap,ref playerState);
+
+
             switch (direction)
             {
                 case 1:
@@ -83,6 +85,52 @@ namespace Dash
                         direction = 3;
                     }
                     break;
+            }
+            CheckCollisions(ref levelMap, fps);
+        }
+
+        private void CheckCollisions(ref GameObject[,] levelMap, float fps)
+        {
+            foreach (GameObject g in levelMap)
+            {
+                if (g.GetType().ToString() == "Dash.Dash")
+                {
+                    MovePlayer(g,fps);
+                }
+            }
+        }
+
+        private void MovePlayer(GameObject g, float fps)
+        {
+            foreach (Rect r in collisionBoxes)
+            {
+                RectangleF rect = r.HitBox(position.X, position.Y + 1);
+
+                foreach (Rect r2 in g.CollisionBoxes)
+                {
+                    if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                    {
+                        if (g.GetType().ToString() == "Dash.Dash")
+                        {
+                            if (direction == 1)
+                            {
+                                g.Position = new PointF(g.Position.X, g.Position.Y - speed * 1 / fps);
+                            }
+                            else if (direction == 2)
+                            {
+                                g.Position = new PointF(g.Position.X, g.Position.Y + speed * 1 / fps);
+                            }
+                            else if (direction == 3)
+                            {
+                                g.Position = new PointF(g.Position.X - speed * 1 / fps, g.Position.Y);
+                            }
+                            else if (direction == 4)
+                            {
+                                g.Position = new PointF(g.Position.X + speed * 1 / fps, g.Position.Y);
+                            }
+                        }
+                    }
+                }
             }
         }
     }
