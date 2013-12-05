@@ -6,11 +6,13 @@ namespace Dash
     /// <summary>
     /// Class for movable blocks
     /// </summary>
-    class MovableBlock:GridBlock
+    class MovableBlock : GridBlock
     {
         protected int speed; // Pixels to move per second
+        protected int startDirection;
         protected int direction; // 1 = Up, 2 = down, 3 = left, 4 = right
         protected PointF endPosition; // Position to stop at
+        protected PointF startPosition;
 
         /// <summary>
         /// Constructor that sets endPosition, speed, direction and distance
@@ -21,12 +23,14 @@ namespace Dash
         /// <param name="position">Position of the object on screen</param>
         /// <param name="imagePath">images for the object split string with ; for multiple images</param>
         /// <param name="collisionBoxes">Collisonboxes for the object of type Rect</param>>
-        protected MovableBlock(int speed, int direction, int distance, PointF position, string imagePath, List<Rect> collisionBoxes)
+        public MovableBlock(int speed, int direction, int distance, PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(position, imagePath, collisionBoxes)
         {
-            endPosition = position;
+            endPosition = new PointF(position.X, position.Y);
+            startPosition = new PointF(position.X, position.Y);
             this.speed = speed;
             this.direction = direction;
+            this.startDirection = direction;
             switch (direction)
             {
                 case 1:
@@ -50,37 +54,37 @@ namespace Dash
         /// <param name="fps">Current fps the program is running at</param>
         /// <param name="levelMap">Reference to the levelmap for current loaded level</param>
         /// <param name="playerState">Reference to the state of the player.</param>
-        public override void Update(float fps, ref GameObject[,] levelMap,ref int playerState)
+        public override void Update(float fps, ref GameObject[,] levelMap, ref int playerState)
         {
-            base.Update(fps, ref levelMap,ref playerState);
+            base.Update(fps, ref levelMap, ref playerState);
 
 
             switch (direction)
             {
                 case 1:
-                    this.position.Y -= speed / fps;
-                    if (this.position == position)
+                    this.position.Y -= speed * 1 / fps;
+                    if (this.position.Y >= endPosition.Y)
                     {
                         direction = 2;
                     }
                     break;
                 case 2:
-                    this.position.Y += speed / fps;
-                    if (this.position == endPosition)
+                    this.position.Y += speed * 1 / fps;
+                    if (this.position.Y <= startPosition.Y)
                     {
                         direction = 1;
                     }
                     break;
                 case 3:
-                    this.position.X -= speed / fps;
-                    if (this.position == position)
+                    this.position.X -= speed * 1 / fps;
+                    if (this.position.X <= startPosition.X)
                     {
                         direction = 4;
                     }
                     break;
                 case 4:
-                    this.position.X += speed / fps;
-                    if (this.position == endPosition)
+                    this.position.X += speed * 1 / fps;
+                    if (this.position.X >= endPosition.X)
                     {
                         direction = 3;
                     }
@@ -93,9 +97,12 @@ namespace Dash
         {
             foreach (GameObject g in levelMap)
             {
-                if (g.GetType().ToString() == "Dash.Dash")
+                if (g != null)
                 {
-                    MovePlayer(g,fps);
+                    if (g.GetType().ToString() == "Dash.Dash")
+                    {
+                        MovePlayer(g, fps);
+                    }
                 }
             }
         }
@@ -104,7 +111,7 @@ namespace Dash
         {
             foreach (Rect r in collisionBoxes)
             {
-                RectangleF rect = r.HitBox(position.X, position.Y + 1);
+                RectangleF rect = r.HitBox(position.X, position.Y - 10);
 
                 foreach (Rect r2 in g.CollisionBoxes)
                 {
