@@ -7,27 +7,27 @@ namespace Dash
     /// <summary>
     /// Class for player controlled character
     /// </summary>
-    class Dash : Player
+    class Dash : GameObject
     {
         private bool dashRight; //indicates if dashing right
         private bool dashLeft; //indicates if dashing left
         private bool dashUp; //indicates if dashing up
         private bool falling; //indicates if falling
         private bool direction; //indicates direction for sprite flipping
+        private int speed; //players speed
 
         /// <summary>
         /// Constructor that sets dash speed and falling
         /// </summary>
-        /// <param name="health">Health of player</param>
         /// <param name="speed">Speed of player</param>
-        /// <param name="name">Name of player</param>
         /// <param name="position">Position of the object on screen</param>
         /// <param name="imagePath">images for the object split string with ; for multiple images</param>
         /// <param name="collisionBoxes">Collisonboxes for the object of type Rect</param>
-        public Dash(int health, int speed, string name, PointF position, string imagePath, List<Rect> collisionBoxes)
-            : base(health, speed, name, position, imagePath, collisionBoxes)
+        public Dash(int speed, PointF position, string imagePath, List<Rect> collisionBoxes)
+            : base(position, imagePath, collisionBoxes)
         {
             falling = true;
+            this.speed = speed;
 
         }
 
