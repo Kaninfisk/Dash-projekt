@@ -6,7 +6,7 @@ namespace Dash
     /// <summary>
     /// Class for movable blocks
     /// </summary>
-    class MovableBlock:SolidBlock
+    class MovableBlock:GridBlock
     {
         protected int speed; // Pixels to move per second
         protected int direction; // 1 = Up, 2 = down, 3 = left, 4 = right

@@ -6,7 +6,7 @@ namespace Dash
     /// <summary>
     /// GameObject for doors
     /// </summary>
-    class GateBlock:SolidBlock
+    class GateBlock:GridBlock
     {
         private bool open;
 

@@ -767,7 +767,7 @@ namespace Dash
                         case "OO":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "img2.jpg", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "img2.jpg", collisionBoxes);
                             break;
                         #region Buttons
                         //case "B1":
@@ -820,22 +820,22 @@ namespace Dash
                         case "C1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(24, 0), 24, 24));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\C1.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\C1.gif", collisionBoxes);
                             break;
                         case "C3":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 24, 24));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\C3.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\C3.gif", collisionBoxes);
                             break;
                         case "C7":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(24, 24), 24, 24));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\C7.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\C7.gif", collisionBoxes);
                             break;
                         case "C9":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 24), 24, 24));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\C9.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\C9.gif", collisionBoxes);
                             break;
                         #endregion
                         #region Doors
@@ -862,42 +862,42 @@ namespace Dash
                         case "E1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E1.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\E1.gif", collisionBoxes);
                             break;
                         case "E2":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E2.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\E2.gif", collisionBoxes);
                             break;
                         case "E3":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E3.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\E3.gif", collisionBoxes);
                             break;
                         case "E4":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E4.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\E4.gif", collisionBoxes);
                             break;
                         case "E6":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E6.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\E6.gif", collisionBoxes);
                             break;
                         case "E7":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E7.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\E7.gif", collisionBoxes);
                             break;
                         case "E8":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E8.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\E8.gif", collisionBoxes);
                             break;
                         case "E9":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\E9.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\E9.gif", collisionBoxes);
                             break;
                         #endregion
                         #region Floor/Ceiling spikes (hor. surf.)
@@ -935,77 +935,77 @@ namespace Dash
                         #region Background tiles
                         case "G1":
                             collisionBoxes = new List<Rect>();
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\G1.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\G1.gif", collisionBoxes);
                             break;
                         case "G2":
                             collisionBoxes = new List<Rect>();
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\G2.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\G2.gif", collisionBoxes);
                             break;
                         case "G3":
                             collisionBoxes = new List<Rect>();
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\G3.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\G3.gif", collisionBoxes);
                             break;
                         case "G4":
                             collisionBoxes = new List<Rect>();
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\G4.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\G4.gif", collisionBoxes);
                             break;
                         case "G5":
                             collisionBoxes = new List<Rect>();
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\G5.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\G5.gif", collisionBoxes);
                             break;
                         #endregion
                         #region Hole blocks
                         case "H1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\H1.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\H1.gif", collisionBoxes);
                             break;
                         case "H3":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\H3.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\H3.gif", collisionBoxes);
                             break;
                         case "H7":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\H7.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\H7.gif", collisionBoxes);
                             break;
                         case "H9":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\H9.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\H9.gif", collisionBoxes);
                             break;
                         #endregion
                         #region Indented blocks
                         case "I1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\I1.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\I1.gif", collisionBoxes);
                             break;
                         case "I3":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\I3.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\I3.gif", collisionBoxes);
                             break;
                         case "I7":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\I7.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\I7.gif", collisionBoxes);
                             break;
                         case "I9":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\I9.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\I9.gif", collisionBoxes);
                             break;
                         case "IH":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\IH.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\IH.gif", collisionBoxes);
                             break;
                         case "IV":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\IH.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\IH.gif", collisionBoxes);
                             break;
                         #endregion
                         #region Mounted spikes (vert. surf.)
@@ -1044,22 +1044,22 @@ namespace Dash
                         case "N1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\N1.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\N1.gif", collisionBoxes);
                             break;
                         case "N3":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\N3.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\N3.gif", collisionBoxes);
                             break;
                         case "N7":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\N7.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\N7.gif", collisionBoxes);
                             break;
                         case "N9":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\N9.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\N9.gif", collisionBoxes);
                             break;
                         #endregion
                         #region Player
@@ -1073,47 +1073,47 @@ namespace Dash
                         case "R1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\R1.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\R1.gif", collisionBoxes);
                             break;
                         case "R2":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\R2.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\R2.gif", collisionBoxes);
                             break;
                         case "R3":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\R3.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\R3.gif", collisionBoxes);
                             break;
                         case "R4":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\R4.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\R4.gif", collisionBoxes);
                             break;
                         case "R5":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\R5.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\R5.gif", collisionBoxes);
                             break;
                         case "R6":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\R6.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\R6.gif", collisionBoxes);
                             break;
                         case "R7":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\R7.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\R7.gif", collisionBoxes);
                             break;
                         case "R8":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\R8.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\R8.gif", collisionBoxes);
                             break;
                         case "R9":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\R9.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\R9.gif", collisionBoxes);
                             break;
                         #endregion
                         #region Solid half-tiles and dec. full-tiles
@@ -1121,131 +1121,131 @@ namespace Dash
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 24, 48));
                             collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\S1.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\S1.gif", collisionBoxes);
                             break;
                         case "S3":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(24, 0), 24, 48));
                             collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\S3.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\S3.gif", collisionBoxes);
                             break;
                         case "S7":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 24));
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 24, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\S7.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\S7.gif", collisionBoxes);
                             break;
                         case "S9":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 24));
                             collisionBoxes.Add(new Rect(new PointF(24, 0), 24, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\S9.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\S9.gif", collisionBoxes);
                             break;
                         case "SB":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\SB.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\SB.gif", collisionBoxes);
                             break;
                         case "SG":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\SG.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\SG.gif", collisionBoxes);
                             break;
                         case "SH":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\SH.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\SH.gif", collisionBoxes);
                             break;
                         case "SL":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 24, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\SL.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\SL.gif", collisionBoxes);
                             break;
                         case "SP":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\SP.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\SP.gif", collisionBoxes);
                             break;
                         case "SR":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(24, 0), 24, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\SR.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\SR.gif", collisionBoxes);
                             break;
                         case "ST":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 24));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\ST.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\ST.gif", collisionBoxes);
                             break;
                         case "SV":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\SV.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\SV.gif", collisionBoxes);
                             break;
                         #endregion
                         #region U-shaped blocks
                         case "U2":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\U2.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\U2.gif", collisionBoxes);
                             break;
                         case "U4":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\U4.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\U4.gif", collisionBoxes);
                             break;
                         case "U6":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\U6.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\U6.gif", collisionBoxes);
                             break;
                         case "U8":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\U8.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\U8.gif", collisionBoxes);
                             break;
                         #endregion
                         #region Walkways
                         case "W7":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\W7.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\W7.gif", collisionBoxes);
                             break;
                         case "W8":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\W8.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\W8.gif", collisionBoxes);
                             break;
                         case "W9":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\W9.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\W9.gif", collisionBoxes);
                             break;
                         case "WB":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\WB.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\WB.gif", collisionBoxes);
                             break;
                         #endregion
                         #region X-marked blocks
                         case "X1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\X1.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\X1.gif", collisionBoxes);
                             break;
                         case "X3":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\X3.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\X3.gif", collisionBoxes);
                             break;
                         case "X7":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\X7.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\X7.gif", collisionBoxes);
                             break;
                         case "X9":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new SolidBlock(new PointF(x * 48, y * 48), "Graphics\\X9.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\X9.gif", collisionBoxes);
                             break;
                         #endregion
                         default:

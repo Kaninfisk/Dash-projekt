@@ -66,7 +66,7 @@ namespace Dash
         /// </summary>
         private void DrawMainMenu()
         {
-            string tekst = "Captain Dash";
+            string tekst = "Captain Dasher";
             Rectangle rect1 = new Rectangle(0, 0, screenWidth, 90);
             StringFormat stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
