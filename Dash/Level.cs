@@ -931,6 +931,16 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
                             lvlMap[y, x] = new Enemy(1, "spike", new PointF(x * 48, y * 48), "Graphics\\F9.gif", collisionBoxes);
                             break;
+                        case "KU":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
+                            lvlMap[y, x] = new Enemy(1, "spike", new PointF(x * 48, y * 48), "Graphics\\F8.gif", collisionBoxes);
+                            break;
+                        case "KD":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
+                            lvlMap[y, x] = new Enemy(1, "spike", new PointF(x * 48, y * 48), "Graphics\\F9.gif", collisionBoxes);
+                            break;
                         #endregion
                         #region Background tiles
                         case "G1":
@@ -1038,6 +1048,16 @@ namespace Dash
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 24, 48));
                             lvlMap[y, x] = new Enemy(1, "spike", new PointF(x * 48, y * 48), "Graphics\\M9.gif", collisionBoxes);
+                            break;
+                        case "KL":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
+                            lvlMap[y, x] = new Enemy(1, "spike", new PointF(x * 48, y * 48), "Graphics\\KL.gif", collisionBoxes);
+                            break;
+                        case "KR":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
+                            lvlMap[y, x] = new Enemy(1, "spike", new PointF(x * 48, y * 48), "Graphics\\KR.gif", collisionBoxes);
                             break;
                         #endregion
                         #region Nub-corners
