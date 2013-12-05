@@ -97,7 +97,7 @@ namespace Dash
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;H12;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E7;E8;E8;E8" + "_" +
+                         "SL;HB12;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E7;E8;E8;E8" + "_" +
                          "SL;F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9;E4;R5;R5;R5";
 
                     bm = "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
@@ -1124,6 +1124,13 @@ namespace Dash
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 144));
                             lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\HB.gif", collisionBoxes);
+                            break;
+                        case "HB12":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 144));
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\HB.gif", collisionBoxes);
+                            int distance = 12;
+                            int direction = 4;
                             break;
                         case "VM":
                             collisionBoxes = new List<Rect>();
