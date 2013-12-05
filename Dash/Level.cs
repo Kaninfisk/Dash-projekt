@@ -61,8 +61,8 @@ namespace Dash
                          "R5;R5;E6;NN;NN;NN;E4;R5;N7;E2;E2;E2;E2;E3;DH;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "E2;E2;E3;NN;PL;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;W7;W8;W8;W8;W8" + "_" +
+                         "E2;E2;E3;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "NN;PL;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;W7;W8;W8;W8;W8" + "_" +
                          "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
                          "WB;WB;WB;WB;WB;WB;E4;R5;E6;BE;BE;BE;BE;E4;R5;R5;R5;R5";
 
