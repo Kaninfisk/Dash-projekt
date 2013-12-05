@@ -59,6 +59,29 @@ namespace Dash
                 {
                     CheckBlockCollisions(g, ref playerState, fps);
                 }
+                else if (g != null && g.GetType().ToString() == "Dash.CrumblingBlock" && falling)
+                {
+                    CheckCrumblingCollisions(g);
+                }
+            }
+        }
+
+        private void CheckCrumblingCollisions(GameObject g)
+        {
+            foreach (Rect r in collisionBoxes)
+            {
+                RectangleF rect = r.HitBox(position.X, position.Y + 10);
+
+                foreach (Rect r2 in g.CollisionBoxes)
+                {
+                    if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                    {
+                        CrumblingBlock c = (CrumblingBlock) g;
+                        c.Crumbling = true;
+                        falling = false;
+                        position.Y = g.Position.Y + r2.Position.Y - collisionBoxes[0].HitBox(Position.X, Position.Y).Height;
+                    }
+                }
             }
         }
 

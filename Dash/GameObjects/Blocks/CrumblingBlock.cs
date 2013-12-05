@@ -25,6 +25,7 @@ namespace Dash
         {
             if (Crumbling)
             {
+                time -= 1/fps;
                 if (time <= 0)
                 {
                     collisionBoxes = new List<Rect>();
