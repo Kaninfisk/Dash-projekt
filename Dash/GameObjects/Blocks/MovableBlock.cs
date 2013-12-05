@@ -112,7 +112,7 @@ namespace Dash
                             this.position.Y += speed * 1 / fps;
                         }
                     }
-                    
+
                     break;
                 case 3:
                     if (startDirection == 4)
@@ -192,52 +192,49 @@ namespace Dash
                 RectangleF rectLeft = r.HitBox(position.X - 10, position.Y);
                 RectangleF rectRight = r.HitBox(position.X + 10, position.Y);
 
-                if (g.GetType().ToString() == "Dash.Dash")
+                foreach (Rect r2 in g.CollisionBoxes)
                 {
-
-                    foreach (Rect r2 in g.CollisionBoxes)
+                    if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
                     {
-                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                        if (direction == 1)
                         {
-                            if (direction == 1)
-                            {
-                                g.Position = new PointF(g.Position.X, g.Position.Y - speed * 1 / fps);
-                            }
-                            else if (direction == 2)
-                            {
-                                g.Position = new PointF(g.Position.X, g.Position.Y + speed * 1 / fps);
-                            }
-                            else if (direction == 3)
-                            {
-                                g.Position = new PointF(g.Position.X - speed * 1 / fps, g.Position.Y);
-                            }
-                            else if (direction == 4)
-                            {
-                                g.Position = new PointF(g.Position.X + speed * 1 / fps, g.Position.Y);
-                            }
+                            g.Position = new PointF(g.Position.X, g.Position.Y - speed * 1 / fps);
+                        }
+                        else if (direction == 2)
+                        {
+                            g.Position = new PointF(g.Position.X, g.Position.Y + speed * 1 / fps);
+                        }
+                        else if (direction == 3)
+                        {
+                            g.Position = new PointF(g.Position.X - speed * 1 / fps, g.Position.Y);
+                        }
+                        else if (direction == 4)
+                        {
+                            g.Position = new PointF(g.Position.X + speed * 1 / fps, g.Position.Y);
+                        }
 
-                        }
-                        else if (rectLeft.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                    }
+                    else if (rectLeft.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                    {
+                        if (direction == 3)
                         {
-                            if (direction == 3)
-                            {
-                                g.Position = new PointF(g.Position.X - speed * 1 / fps, g.Position.Y);
-                            }
-                            Dash d = (Dash)g;
-                            d.Falling = true;
+                            g.Position = new PointF(g.Position.X - speed * 1 / fps, g.Position.Y);
                         }
-                        else if (rectRight.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                        Dash d = (Dash)g;
+                        d.Falling = true;
+                    }
+                    else if (rectRight.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                    {
+                        if (direction == 4)
                         {
-                            if (direction == 4)
-                            {
-                                g.Position = new PointF(g.Position.X + speed * 1 / fps, g.Position.Y);
-                            }
-                            Dash d = (Dash)g;
-                            d.Falling = true;
+                            g.Position = new PointF(g.Position.X + speed * 1 / fps, g.Position.Y);
                         }
+                        Dash d = (Dash)g;
+                        d.Falling = true;
                     }
                 }
             }
         }
     }
+
 }

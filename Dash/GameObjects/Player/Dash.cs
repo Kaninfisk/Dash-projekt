@@ -55,13 +55,13 @@ namespace Dash
                 {
                     CheckEnemyCollisions(g, ref playerState);
                 }
-                else if (g != null && g.GetType().ToString() != "Dash.Dash")
-                {
-                    CheckBlockCollisions(g, ref playerState, fps);
-                }
                 else if (g != null && g.GetType().ToString() == "Dash.CrumblingBlock" && falling)
                 {
                     CheckCrumblingCollisions(g);
+                }
+                else if (g != null && g.GetType().ToString() != "Dash.Dash")
+                {
+                    CheckBlockCollisions(g, ref playerState, fps);
                 }
             }
         }
