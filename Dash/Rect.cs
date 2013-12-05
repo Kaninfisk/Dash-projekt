@@ -22,9 +22,9 @@ namespace Dash
         /// <summary>
         /// Constructor that sets position, height and width.
         /// </summary>
-        /// <param name="position"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
+        /// <param name="position">start Position of hitbox within tile</param>
+        /// <param name="width">width of hitbox</param>
+        /// <param name="height">height of hitbox</param>
         public Rect(PointF position, int width, int height)
         {
             this.position = position;
@@ -37,7 +37,7 @@ namespace Dash
         /// </summary>
         /// <param name="x">X position</param>
         /// <param name="y">Y position</param>
-        /// <returns></returns>
+        /// <returns>one Hitbox for object</returns>
         public RectangleF HitBox(float x, float y)
         {
             return new RectangleF(x + position.X, y + position.Y, width, height);

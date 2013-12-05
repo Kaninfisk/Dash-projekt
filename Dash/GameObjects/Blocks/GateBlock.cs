@@ -11,7 +11,7 @@ namespace Dash
         private bool open;
 
         /// <summary>
-        /// Gets or Sets if the door is open
+        /// Sets if the door is open
         /// </summary>
         public bool Open
         {

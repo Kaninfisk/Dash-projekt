@@ -6,14 +6,14 @@ namespace Dash
     /// <summary>
     /// TriggerBlock is used for buttons and exits
     /// </summary>
-    class TriggerBlock:GridBlock
+    class TriggerBlock : GridBlock
     {
         private int type;  //type of trigger 
         private bool pressed;  // if it has been pressed
         private Point target;  //target of trigger
 
         /// <summary>
-        /// Gets or Sets if button has been pressed
+        /// Sets if button has been pressed
         /// </summary>
         public bool Pressed
         {
@@ -21,7 +21,7 @@ namespace Dash
         }
 
         /// <summary>
-        /// Gets type as int
+        /// Gets type
         /// </summary>
         public int Type
         {
@@ -67,7 +67,7 @@ namespace Dash
         /// <summary>
         /// /// Override for base draw method, switches image if button has been pressed
         /// </summary>
-        /// <param name="dc"></param>
+        /// <param name="dc">Graphics object that you want to draw to</param>
         public override void Draw(Graphics dc)
         {
             if (pressed)

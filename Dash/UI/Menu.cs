@@ -16,22 +16,20 @@ namespace Dash
         private DateTime lastClick; //Datetime that contains time of last click
         private bool gameRunning; // indicates if game has been started or not
         private int screenWidth = 864; //width of the screen space
+        private Font f = new Font("Arial", 30);  //Font for menu items
+        private Font headLine = new Font("Arial", 48); //Font for main headlines
+        private Font headLine2 = new Font("Arial", 40); //For for secondary headlines
+        private Brush b = new SolidBrush(Color.Black); //Brush for headlines and non selected menu items
+        private Brush b2 = new SolidBrush(Color.Red); //Brush for selected menu items
 
         /// <summary>
-        /// Get and Set LastClick
+        /// Gets or sets LastClick
         /// </summary>
         public DateTime LastClick
         {
             set { lastClick = value; }
             get { return lastClick; }
         }
-
-
-        private Font f = new Font("Arial", 30);  //Font for menu items
-        private Font headLine = new Font("Arial", 48); //Font for main headlines
-        private Font headLine2 = new Font("Arial", 40); //For for secondary headlines
-        private Brush b = new SolidBrush(Color.Black); //Brush for headlines and non selected menu items
-        private Brush b2 = new SolidBrush(Color.Red); //Brush for selected menu items
 
         /// <summary>
         /// Constructor where menu gets setup
@@ -155,7 +153,7 @@ namespace Dash
             stringFormat.Alignment = StringAlignment.Center;
             stringFormat.LineAlignment = StringAlignment.Center;
             dc.DrawString(tekst, headLine, b, rect1, stringFormat);
-            rect1 = new Rectangle(0,90,screenWidth, 60);
+            rect1 = new Rectangle(0, 90, screenWidth, 60);
             tekst = "Sound";
             dc.DrawString(tekst, headLine2, b, rect1, stringFormat);
 
@@ -234,10 +232,10 @@ namespace Dash
             stringFormat.Alignment = StringAlignment.Center;
             stringFormat.LineAlignment = StringAlignment.Center;
             dc.DrawString(tekst, headLine, b, rect1, stringFormat);
-            rect1 = new Rectangle(0,90,screenWidth,60);
+            rect1 = new Rectangle(0, 90, screenWidth, 60);
             tekst = "Movement keys";
             dc.DrawString(tekst, headLine2, b, rect1, stringFormat);
-            
+
             if (highlightedMenuItem == 1)
             {
                 if (selectedMenuItem == 1)
@@ -330,7 +328,7 @@ namespace Dash
             tekst = "Ship Controls";
             rect1 = new Rectangle(0, 400, screenWidth, 60);
             dc.DrawString(tekst, headLine2, b, rect1, stringFormat);
-            
+
             if (highlightedMenuItem == 5)
             {
                 if (selectedMenuItem == 4)

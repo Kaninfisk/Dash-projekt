@@ -58,7 +58,7 @@ namespace Dash
 
             if (playerState < 2)
             {
-                dc.Clear(Color.White);    
+                dc.Clear(Color.White);
             }
 
             if (!menu && gameRunning)
@@ -159,9 +159,9 @@ namespace Dash
         /// </summary>
         private void DrawFade()
         {
-            
+
             Brush brush = new SolidBrush(Color.FromArgb(alpha, 0, 0, 0));
-            dc.FillRectangle(brush,0,0,864,672);
+            dc.FillRectangle(brush, 0, 0, 864, 672);
             alpha += 2;
             if (alpha > 100)
             {
@@ -178,7 +178,7 @@ namespace Dash
             {
                 if (g != null)
                 {
-                    g.Update(currentFPS, ref currentLevel.levelMap,ref playerState);
+                    g.Update(currentFPS, ref currentLevel.LevelMap, ref playerState);
                 }
             }
         }
@@ -192,7 +192,7 @@ namespace Dash
             gameRunning = false;
             menu = true;
             RestartLevel();
-            
+
             //Audio.PlayMusic("audio/music.mp3");
         }
 

@@ -7,18 +7,19 @@ namespace Dash
     /// </summary>
     static class Audio
     {
-        static private int masterVolume;  //field som indeholder master volume
-        static private int soundVolume;  //field som indeholder sound-fx volume
-        static private int musicVolume;  //field som indeholder musik volume
+        private static int masterVolume;  //field som indeholder master volume
+        private static int soundVolume;  //field som indeholder sound-fx volume
+        private static int musicVolume;  //field som indeholder musik volume
 
         private static ISoundEngine musicEngine = new ISoundEngine();  //irrKlang lydengine til at afspille baggrundsmusik
         private static ISoundEngine soundFXEngine = new ISoundEngine(); //irrKlang lydengine til at afspille sound-fx
 
         /// <summary>
-        /// gets or sets the master volume
+        /// Gets or sets the master volume
         /// </summary>
-        static public int MasterVolume
+        public static int MasterVolume
         {
+            get { return masterVolume; }
             set
             {
                 if (value > 100)
@@ -36,14 +37,14 @@ namespace Dash
                     soundFXEngine.SoundVolume = ((soundVolume / (float)100) / 100) * masterVolume;
                 }
             }
-            get { return masterVolume; }
         }
 
         /// <summary>
-        /// gets or sets Sound-fx volume
+        /// Gets or sets Sound-fx volume
         /// </summary>
-        static public int SoundVolume
+        public static int SoundVolume
         {
+            get { return soundVolume; }
             set
             {
                 if (value > 100)
@@ -60,14 +61,14 @@ namespace Dash
                     soundFXEngine.SoundVolume = ((value / (float)100) / 100) * masterVolume;
                 }
             }
-            get { return soundVolume; }
         }
 
         /// <summary>
-        /// Gets or Sets Music volume
+        /// Gets or sets Music volume
         /// </summary>
-        static public int MusicVolume
+        public static int MusicVolume
         {
+            get { return musicVolume; }
             set
             {
                 if (value > 100)
@@ -84,7 +85,6 @@ namespace Dash
                     musicEngine.SoundVolume = ((value / (float)100) / 100) * masterVolume;
                 }
             }
-            get { return musicVolume; }
         }
 
 
@@ -102,7 +102,7 @@ namespace Dash
         /// Method that plays music thru the music engine with loop
         /// </summary>
         /// <param name="filePath">Path to audio file</param>
-        static public void PlayMusic(string filePath)
+        public static void PlayMusic(string filePath)
         {
             musicEngine.Play2D(filePath, true);
         }
@@ -111,9 +111,9 @@ namespace Dash
         /// Method that plays sound-fx thru the sound-fx engine
         /// </summary>
         /// <param name="FilePath">Path to audio file</param>
-        static public void PlaySoundFX(string FilePath)
+        public static void PlaySoundFX(string filePath)
         {
-            soundFXEngine.Play2D(FilePath, false);
+            soundFXEngine.Play2D(filePath, false);
         }
     }
 }

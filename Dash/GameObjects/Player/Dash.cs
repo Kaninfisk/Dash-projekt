@@ -43,10 +43,176 @@ namespace Dash
         /// <summary>
         /// Method that checks collisions with all other objects on levelmap
         /// </summary>
-        /// <param name="fps">Current fps the program is running at</param>
         /// <param name="levelMap">Reference to the levelmap for current loaded level</param>
+        /// <param name="fps">Current fps the program is running at</param>
         /// <param name="playerState">Reference to the state of the player.</param>
         private void CheckCollisions(ref GameObject[,] levelMap, float fps, ref int playerState)
+        {
+            foreach (GameObject g in levelMap)
+            {
+                if (g != null && g.GetType().ToString() == "Dash.TriggerBlock")
+                {
+                    CheckTriggerCollisions(g, ref playerState, ref levelMap);
+                }
+                else if (g != null && g.GetType().ToString() == "Dash.Enemy")
+                {
+                    CheckEnemyCollisions(g, ref playerState);
+                }
+                else if (g != null && g.GetType().ToString() != "Dash.Dash")
+                {
+                    CheckBlockCollisions(g, ref playerState, fps);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Checks for collisions with enemies
+        /// </summary>
+        /// <param name="g">Gameobject to check</param>
+        /// <param name="playerState">Reference to the state of the player.</param>
+        private void CheckEnemyCollisions(GameObject g, ref int playerState)
+        {
+            foreach (Rect r in collisionBoxes)
+            {
+                RectangleF rect = r.HitBox(position.X, position.Y);
+
+                foreach (Rect r2 in g.CollisionBoxes)
+                {
+                    if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                    {
+                        dashRight = false;
+                        falling = false;
+                        dashLeft = false;
+                        dashUp = false;
+                        playerState = 2;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Checks for collisions with triggers
+        /// </summary>
+        /// <param name="g">GameObject to check</param>
+        /// <param name="playerState">Reference to the state of the player.</param>
+        /// <param name="levelMap">Reference to the levelmap for current loaded level</param>
+        private void CheckTriggerCollisions(GameObject g, ref int playerState, ref GameObject[,] levelMap)
+        {
+            foreach (Rect r in collisionBoxes)
+            {
+                RectangleF rect = r.HitBox(position.X, position.Y);
+
+                foreach (Rect r2 in g.CollisionBoxes)
+                {
+                    if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                    {
+                        TriggerBlock t = (TriggerBlock)g;
+                        if (t.Type == 1)
+                        {
+                            t.Pressed = true;
+                            if (levelMap[t.Target.Y, t.Target.X].GetType().ToString() == "Dash.GateBlock")
+                            {
+                                GateBlock gate = (GateBlock)levelMap[t.Target.Y, t.Target.X];
+                                gate.Open = true;
+                                gate.CollisionBoxes = new List<Rect>();
+                            }
+                        }
+                        else if (t.Type == 2)
+                        {
+                            playerState = 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Checks for collisions with solid objects
+        /// </summary>
+        /// <param name="g">GameObject to check</param>
+        /// <param name="playerState">Reference to the state of the player.</param>
+        /// <param name="fps">Current fps the program is running at</param>
+        private void CheckBlockCollisions(GameObject g, ref int playerState, float fps)
+        {
+            if (dashRight)
+            {
+                foreach (Rect r in collisionBoxes)
+                {
+                    RectangleF rect = r.HitBox(position.X, position.Y);
+                    rect.Offset(new PointF(speed * (1 / fps), 0));
+
+                    foreach (Rect r2 in g.CollisionBoxes)
+                    {
+                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                        {
+                            dashRight = false;
+                            falling = true;
+                            position.X = g.Position.X + r2.Position.X - collisionBoxes[0].HitBox(position.X, position.Y).Width;
+                        }
+                    }
+                }
+            }
+            else if (dashLeft)
+            {
+
+                foreach (Rect r in collisionBoxes)
+                {
+                    RectangleF rect = r.HitBox(position.X, position.Y);
+                    rect.Offset(-speed * (1 / fps), 0);
+
+                    foreach (Rect r2 in g.CollisionBoxes)
+                    {
+                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                        {
+                            dashLeft = false;
+                            falling = true;
+                            position.X = g.Position.X - r2.Position.X + r2.HitBox(g.Position.X, g.Position.Y).Width;
+                        }
+                    }
+                }
+            }
+            else if (dashUp)
+            {
+                foreach (Rect r in collisionBoxes)
+                {
+                    RectangleF rect = r.HitBox(position.X, position.Y);
+                    rect.Offset(0, -speed * (1 / fps));
+
+                    foreach (Rect r2 in g.CollisionBoxes)
+                    {
+                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                        {
+                            dashUp = false;
+                            falling = true;
+                            position.Y = g.Position.Y + r2.Position.Y + r2.HitBox(g.Position.X, g.Position.Y).Height;
+                        }
+                    }
+                }
+            }
+            else if (falling)
+            {
+                foreach (Rect r in collisionBoxes)
+                {
+                    RectangleF rect = r.HitBox(position.X, position.Y);
+                    rect.Offset(0, (speed / 3 * 2) * (1 / fps));
+
+                    foreach (Rect r2 in g.CollisionBoxes)
+                    {
+                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                        {
+                            falling = false;
+                            position.Y = g.Position.Y + r2.Position.Y - collisionBoxes[0].HitBox(Position.X, Position.Y).Height;
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Checks if player is at edge of screen and makes sure that the player object cant go outside the screen area
+        /// </summary>
+        /// <param name="fps">Current fps the program is running at</param>
+        private void CheckEdge(float fps)
         {
             if (dashUp)
             {
@@ -73,137 +239,10 @@ namespace Dash
             }
             else if (falling)
             {
-                if (position.Y + speed * (1 / fps) >= 672 - CollisionBoxes[0].HitBox(position.X,position.Y).Height)
+                if (position.Y + speed * (1 / fps) >= 672 - CollisionBoxes[0].HitBox(position.X, position.Y).Height)
                 {
                     falling = false;
                     position.Y = 672 - CollisionBoxes[0].HitBox(position.X, position.Y).Height;
-                }
-            }
-
-            foreach (GameObject g in levelMap)
-            {
-                if (g != null && g.GetType().ToString() == "Dash.TriggerBlock")
-                {
-                    foreach (Rect r in collisionBoxes)
-                    {
-                        RectangleF rect = r.HitBox(position.X, position.Y);
-
-                        foreach (Rect r2 in g.CollisionBoxes)
-                        {
-                            if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
-                            {
-                                TriggerBlock t = (TriggerBlock) g;
-                                if (t.Type == 1)
-                                {
-                                    t.Pressed = true;
-                                    if (levelMap[t.Target.Y, t.Target.X].GetType().ToString() == "Dash.GateBlock")
-                                    {
-                                        GateBlock gate = (GateBlock) levelMap[t.Target.Y, t.Target.X];
-                                        gate.Open = true;
-                                        gate.CollisionBoxes = new List<Rect>();
-                                    }
-                                }
-                                else if (t.Type == 2)
-                                {
-                                    playerState = 1;
-                                }
-                            }
-                        }
-                    }
-                }
-                else if (g!= null && g.GetType().ToString() == "Dash.Enemy")
-                {
-                    foreach (Rect r in collisionBoxes)
-                    {
-                        RectangleF rect = r.HitBox(position.X, position.Y);
-
-                        foreach (Rect r2 in g.CollisionBoxes)
-                        {
-                            if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
-                            {
-                                dashRight = false;
-                                falling = false;
-                                dashLeft = false;
-                                dashUp = false;
-                                playerState = 2;
-                            }
-                        }
-                    }
-                }
-                else if (g != null && g.GetType().ToString() != "Dash.Dash")
-                {
-                    if (dashRight)
-                    {
-                        foreach (Rect r in collisionBoxes)
-                        {
-                            RectangleF rect = r.HitBox(position.X,position.Y);
-                            rect.Offset(new PointF(speed  * (1 / fps),0));
-
-                            foreach (Rect r2 in g.CollisionBoxes)
-                            {
-                                if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
-                                {
-                                    dashRight = false;
-                                    falling = true;
-                                    position.X = g.Position.X + r2.Position.X - collisionBoxes[0].HitBox(position.X,position.Y).Width;
-                                }
-                            }
-                        }
-                    }
-                    else if (dashLeft)
-                    {
-
-                        foreach (Rect r in collisionBoxes)
-                        {
-                            RectangleF rect = r.HitBox(position.X,position.Y);
-                            rect.Offset(-speed * (1 / fps),0);
-
-                            foreach (Rect r2 in g.CollisionBoxes)
-                            {
-                                if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
-                                {
-                                    dashLeft = false;
-                                    falling = true;
-                                    position.X = g.Position.X - r2.Position.X + r2.HitBox(g.Position.X, g.Position.Y).Width;
-                                }
-                            }
-                        }
-                    }
-                    else if (dashUp)
-                    {
-                        foreach (Rect r in collisionBoxes)
-                        {
-                            RectangleF rect = r.HitBox(position.X,position.Y);
-                            rect.Offset(0,-speed * (1 / fps));
-
-                            foreach (Rect r2 in g.CollisionBoxes)
-                            {
-                                if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
-                                {
-                                    dashUp = false;
-                                    falling = true;
-                                    position.Y = g.Position.Y + r2.Position.Y + r2.HitBox(g.Position.X, g.Position.Y).Height;
-                                }
-                            }
-                        }
-                    }
-                    else if (falling)
-                    {
-                        foreach (Rect r in collisionBoxes)
-                        {
-                            RectangleF rect = r.HitBox(position.X,position.Y);
-                            rect.Offset(0,(speed / 3 * 2) * (1 / fps));
-
-                            foreach (Rect r2 in g.CollisionBoxes)
-                            {
-                                if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
-                                {
-                                    falling = false;
-                                    position.Y = g.Position.Y + r2.Position.Y - collisionBoxes[0].HitBox(Position.X, Position.Y).Height;
-                                }
-                            }
-                        }
-                    }
                 }
             }
         }
@@ -239,6 +278,7 @@ namespace Dash
                 }
 
             }
+            CheckEdge(fps);
             CheckCollisions(ref levelMap, fps, ref playerState);
 
             if (dashUp)
@@ -253,7 +293,7 @@ namespace Dash
                     direction = true;
                 }
                 position.X -= speed * (1 / fps);
-                
+
             }
             else if (dashRight)
             {

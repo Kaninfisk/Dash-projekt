@@ -6,12 +6,12 @@ namespace Dash
     /// <summary>
     /// Class for player objects
     /// </summary>
-    abstract class Player:GameObject
+    abstract class Player : GameObject
     {
         protected int health; //health of player
         protected int speed; //speed of player
         protected string name; //name of player
-        
+
         /// <summary>
         /// Gets name of player
         /// </summary>
@@ -30,7 +30,7 @@ namespace Dash
         /// <param name="imagePath">images for the object split string with ; for multiple images</param>
         /// <param name="collisionBoxes">Collisonboxes for the object of type Rect</param>
         protected Player(int health, int speed, string name, PointF position, string imagePath, List<Rect> collisionBoxes)
-            : base(position, imagePath,collisionBoxes)
+            : base(position, imagePath, collisionBoxes)
         {
             this.health = health;
             this.speed = speed;

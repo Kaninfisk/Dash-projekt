@@ -6,7 +6,7 @@ namespace Dash
     /// <summary>
     /// Class for player spaceship
     /// </summary>
-    class Ship:Player
+    class Ship : Player
     {
         private int armor; // armor  of playership
 
@@ -21,7 +21,7 @@ namespace Dash
         /// <param name="imagePath">images for the object split string with ; for multiple images</param>
         /// <param name="collisionBoxes">Collisonboxes for the object of type Rect</param>
         public Ship(int armor, int health, int speed, string name, PointF position, string imagePath, List<Rect> collisionBoxes)
-            : base(health, speed, name, position, imagePath,collisionBoxes)
+            : base(health, speed, name, position, imagePath, collisionBoxes)
         {
             this.armor = armor;
         }

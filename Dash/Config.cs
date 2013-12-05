@@ -5,85 +5,84 @@ using System.Xml;
 namespace Dash
 {
     /// <summary>
-    /// Klasse som håndterer konfigurations xml filen
+    /// Class that handles input/output to/from config.xml file
     /// </summary>
     static class Config
     {
-        static private int sound; //Sound-fx Volume
-        static private int music; //Music Volume
-        static private int master; //Master Volume
-        static private Keys leftKey; //Left input key
-        static private Keys rightKey; //Right input key
-        static private Keys upKey; //Up input key
-        static private Keys downKey; //Down input key
-        static private Keys shootKey; //shoot input key
-
+        private static int sound; //Sound-fx Volume
+        private static int music; //Music Volume
+        private static int master; //Master Volume
+        private static Keys leftKey; //Left input key
+        private static Keys rightKey; //Right input key
+        private static Keys upKey; //Up input key
+        private static Keys downKey; //Down input key
+        private static Keys shootKey; //shoot input key
 
         /// <summary>
-        /// Gets or Sets ShootKey
+        /// Gets or sets ShootKey
         /// </summary>
-        static public Keys ShootKey
+        public static Keys ShootKey
         {
             get { return shootKey; }
             set { shootKey = value; }
         }
 
         /// <summary>
-        /// Gets or Sets DownKey
+        /// Gets or sets DownKey
         /// </summary>
-        static public Keys DownKey
+        public static Keys DownKey
         {
             get { return downKey; }
             set { downKey = value; }
         }
 
         /// <summary>
-        /// Gets or Sets UpKey
+        /// Gets or sets UpKey
         /// </summary>
-        static public Keys UpKey
+        public static Keys UpKey
         {
             get { return upKey; }
             set { upKey = value; }
         }
 
         /// <summary>
-        /// Gets or Sets RightKey
+        /// Gets or sets RightKey
         /// </summary>
-        static public Keys RightKey
+        public static Keys RightKey
         {
             get { return rightKey; }
             set { rightKey = value; }
         }
 
         /// <summary>
-        /// Gets or Sets LeftKey
+        /// Gets or sets LeftKey
         /// </summary>
-        static public Keys LeftKey
+        public static Keys LeftKey
         {
             get { return leftKey; }
             set { leftKey = value; }
         }
 
         /// <summary>
-        /// Gets or Sets Master Volume
+        /// Gets Master Volume
         /// </summary>
-        static public int Master
+        public static int Master
         {
             get { return master; }
         }
 
         /// <summary>
-        /// Gets or Sets Music Volume
+        /// Gets Music Volume
         /// </summary>
-        static public int Music
+        public static int Music
         {
             get { return music; }
         }
 
         /// <summary>
-        /// Gets or Sets Sound-fx Volume
+        /// Gets Sound-fx Volume
         /// </summary>
-        static public int Sound
+        public static int Sound
         {
             get { return sound; }
         }
@@ -119,6 +118,7 @@ namespace Dash
                     Audio.SoundVolume = 100;
                     Audio.MusicVolume = 100;
                     UpdateConfig();
+
                 }
                 ReadConfig();
             }
@@ -127,7 +127,7 @@ namespace Dash
         /// <summary>
         /// Method that builds Config.xml based on the info in volume/inputkey fields
         /// </summary>
-        static public void UpdateConfig()
+        public static void UpdateConfig()
         {
             XmlDocument doc = new XmlDocument();
             XmlNode node = doc.CreateElement("Config");
@@ -186,18 +186,17 @@ namespace Dash
                                     Audio.MusicVolume = music;
                                     break;
 
-
                                 case "Soundfx":
                                     int.TryParse(e.InnerText, out sound);
                                     Audio.SoundVolume = sound;
                                     break;
-
 
                                 case "Master":
                                     int.TryParse(e.InnerText, out master);
                                     Audio.MasterVolume = master;
                                     break;
                             }
+
                         }
                         break;
 
@@ -226,6 +225,7 @@ namespace Dash
                                     shootKey = (Keys)int.Parse(e.InnerText);
                                     break;
                             }
+
                         }
                         break;
                 }

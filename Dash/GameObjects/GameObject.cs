@@ -15,7 +15,7 @@ namespace Dash
         protected List<Rect> collisionBoxes;
 
         /// <summary>
-        /// Gets or Sets CollisionBoxes of type rect
+        /// Gets or sets CollisionBoxes of type rect
         /// </summary>
         public List<Rect> CollisionBoxes
         {
@@ -24,13 +24,13 @@ namespace Dash
         }
 
         /// <summary>
-        /// Gets or Sets the Position as PointF
+        /// Gets the Position as PointF
         /// </summary>
         public PointF Position
         {
             get { return position; }
         }
-        
+
         /// <summary>
         /// Constructor for gameobject that sets up standard functionality
         /// </summary>
@@ -61,15 +61,15 @@ namespace Dash
         {
             if (sprite != null)
             {
-                dc.DrawImage(sprite, position.X, position.Y, sprite.Width, sprite.Height);    
+                dc.DrawImage(sprite, position.X, position.Y, sprite.Width, sprite.Height);
             }
 #if DEBUG
             foreach (Rect collisionBox in collisionBoxes)
             {
                 SolidBrush b = new SolidBrush(Color.Black);
                 Pen p = new Pen(b);
-                RectangleF r = collisionBox.HitBox(position.X,position.Y);
-                dc.DrawRectangle(p, r.X,r.Y,r.Width,r.Height);
+                RectangleF r = collisionBox.HitBox(position.X, position.Y);
+                dc.DrawRectangle(p, r.X, r.Y, r.Width, r.Height);
             }
 #endif
         }
@@ -82,7 +82,7 @@ namespace Dash
         /// <param name="playerState">Reference to the state of the player.</param>
         public virtual void Update(float fps, ref GameObject[,] levelMap, ref int playerState)
         {
-            
+
         }
     }
 }

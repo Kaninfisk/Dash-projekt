@@ -6,7 +6,7 @@ namespace Dash
     /// <summary>
     /// Class for Patrolling enemies
     /// </summary>
-    class PatrollingEnemy:MovableEnemy
+    class PatrollingEnemy : MovableEnemy
     {
         /// <summary>
         /// Constructor that sets speed of enemy
@@ -18,9 +18,9 @@ namespace Dash
         /// <param name="imagePath">images for the object split string with ; for multiple images</param>
         /// <param name="collisionBoxes">Collisonboxes for the object of type Rect</param>
         public PatrollingEnemy(int speed, int health, string name, PointF position, string imagePath, List<Rect> collisionBoxes)
-            : base(speed, health, name, position, imagePath,collisionBoxes)
+            : base(speed, health, name, position, imagePath, collisionBoxes)
         {
-            
+
         }
     }
 }

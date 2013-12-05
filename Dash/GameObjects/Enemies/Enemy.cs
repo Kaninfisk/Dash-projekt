@@ -6,7 +6,7 @@ namespace Dash
     /// <summary>
     /// Class which is used for enemies that dont move ie spikes
     /// </summary>
-    class Enemy:GameObject
+    class Enemy : GameObject
     {
         protected int health; //health of enemy
         protected string name; //name of enemy
