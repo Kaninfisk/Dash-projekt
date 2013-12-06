@@ -25,7 +25,7 @@ namespace Dash
         private Keys input;  // used for key input
         private float cutScene; //used to see if cutscenes should play and for how long
         private bool cutScenePlayed; //used to see if the cutscenes have played for current level
-        
+
         /// <summary>
         /// Sets input
         /// </summary>
@@ -116,7 +116,7 @@ namespace Dash
             }
             else //show menu if game isnt running or menu = true
             {
-
+                dc.DrawImage(Image.FromFile("Graphics/mainmenu.gif"), 0, 0, 864, 672);
                 m.Update(ref input, ref gameRunning, ref menu);
                 m.DrawMenu();
             }
@@ -165,7 +165,7 @@ namespace Dash
         {
             Brush brush = new SolidBrush(Color.FromArgb(alpha, 0, 0, 0));
             dc.FillRectangle(brush, 0, 0, 864, 672);
-            alpha += (int)(25*1/currentFPS);
+            alpha += (int)(25 * 1 / currentFPS);
             if (alpha > 100) //if alpha is higher than 100 restart current level
             {
                 RestartLevel();
@@ -191,7 +191,7 @@ namespace Dash
         /// </summary>
         private void SetupGameWorld()
         {
-            
+
             gameRunning = false;
             menu = true;
             cLevel = 1;
@@ -207,12 +207,12 @@ namespace Dash
         {
             if (playerState == 1 && cLevel != 20) //if player finished current level and currentlevel is not 20 save time in log and go to next level
             {
-                WriteLog("lvltimes.txt", "Level: " + cLevel + " Tid: " + Math.Round(currentLevel.Time - t,2) + Environment.NewLine);
+                WriteLog("lvltimes.txt", "Level: " + cLevel + " Tid: " + Math.Round(currentLevel.Time - t, 2) + Environment.NewLine);
                 cLevel++;
                 cutScenePlayed = false;
             }
 
-            if ((cLevel == 1 || cLevel == 2) && !cutScenePlayed) //if thre is cutscene for the currentlevel enable cutscenes and set cutscene played to true so it only plays once per level
+            if ((cLevel == 1 || cLevel == 6 || cLevel == 11 || cLevel == 16) && !cutScenePlayed) //if thre is cutscene for the currentlevel enable cutscenes and set cutscene played to true so it only plays once per level
             {
                 cutScene = 6;
                 cutScenePlayed = true;
@@ -231,38 +231,19 @@ namespace Dash
         {
             if (cLevel == 1) //if current level == 1 play this cutscene
             {
-                if (cutScene > 4)  //if cutscene timer is over 4 show first image
-                {
-                    dc.DrawImage(Image.FromFile("Graphics/B1.gif"), 0, 0, 864, 672);   
-                }
-                else if (cutScene > 2) //if cutscene timer is over 2 show second image
-                {
-                    dc.DrawImage(Image.FromFile("Graphics/B2.gif"), 0, 0, 864, 672);
-                }
-                else //otherwise show third image
-                {
-                    dc.DrawImage(Image.FromFile("Graphics/B3.gif"), 0, 0, 864, 672);
-                }
-
+                dc.DrawImage(Image.FromFile("Graphics/scene1.gif"), 0, 0, 864, 672);
             }
-            else if (cLevel == 2) //if current level == 2 play this cutscene
+            else if (cLevel == 6) //if current level == 6 play this cutscene
             {
-                if (cutScene > 4) //if cutscene timer is over 4 show first image
-                {
-                    dc.DrawImage(Image.FromFile("Graphics/B1.gif"), 0, 0, 864, 672);
-                }
-                else if (cutScene > 2) //if cutscene timer is over 2 show second image
-                {
-                    dc.DrawImage(Image.FromFile("Graphics/B2.gif"), 0, 0, 864, 672);
-                }
-                else //otherwise show third image
-                {
-                    dc.DrawImage(Image.FromFile("Graphics/B3.gif"), 0, 0, 864, 672);
-                }
+                dc.DrawImage(Image.FromFile("Graphics/scene2.gif"), 0, 0, 864, 672);
             }
-            else //if no cutscene for the currentlevel disable cutscene
+            else if (cLevel == 11) //if current level == 11 play this cutscene
             {
-                cutScene = 0;
+                dc.DrawImage(Image.FromFile("Graphics/scene3.gif"), 0, 0, 864, 672);
+            }
+            else if (cLevel == 16) //if current level == 16 play this cutscene
+            {
+                dc.DrawImage(Image.FromFile("Graphics/scene4.gif"), 0, 0, 864, 672);
             }
             cutScene -= 1 / currentFPS;
         }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace Dash
@@ -16,11 +18,13 @@ namespace Dash
         private DateTime lastClick; //Datetime that contains time of last click
         private bool gameRunning; // indicates if game has been started or not
         private int screenWidth = 864; //width of the screen space
-        private Font f = new Font("Arial", 30);  //Font for menu items
-        private Font headLine = new Font("Arial", 48); //Font for main headlines
-        private Font headLine2 = new Font("Arial", 40); //For for secondary headlines
-        private Brush b = new SolidBrush(Color.Black); //Brush for headlines and non selected menu items
-        private Brush b2 = new SolidBrush(Color.Red); //Brush for selected menu items
+        private Font f;  //Font for menu items
+        private Font headLine; //Font for main headlines
+        private Font headLine2; //For for secondary headlines
+        private Brush b = new SolidBrush(Color.FromArgb(255, 133, 149, 161)); //Brush for headlines and non selected menu items
+        private Brush b2 = new SolidBrush(Color.FromArgb(255, 218, 212, 94)); //Brush for selected menu items
+        private Brush b3 = new SolidBrush(Color.FromArgb(255,20,12,28));
+        PrivateFontCollection pf = new PrivateFontCollection();
 
         /// <summary>
         /// Gets or sets LastClick
@@ -40,6 +44,10 @@ namespace Dash
             this.dc = dc;
             selectedMenu = 1;
             highlightedMenuItem = 1;
+            pf.AddFontFile("Graphics\\Font.ttf");
+            f = new Font(pf.Families[0], 32);
+            headLine = new Font(pf.Families[0], 48);
+            headLine2 = new Font(pf.Families[0], 48);
         }
 
         /// <summary>
@@ -66,79 +74,92 @@ namespace Dash
         /// </summary>
         private void DrawMainMenu()
         {
-            string tekst = "Captain Dasher";
-            Rectangle rect1 = new Rectangle(0, 0, screenWidth, 90);
+            string tekst = "";
             StringFormat stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
             stringFormat.LineAlignment = StringAlignment.Center;
-            dc.DrawString(tekst, headLine, b, rect1, stringFormat);
+
+            GraphicsPath p;
+
+            //dc.DrawString(tekst, headLine, b, rect1, stringFormat);
+            Point pos = new Point(432, 224);
 
             if (highlightedMenuItem == 1)
             {
                 if (gameRunning)
                 {
+                    p = new GraphicsPath();
                     tekst = "Resume Game";
-                    rect1 = new Rectangle(0, 90, screenWidth, 60);
-                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                    p.AddString(tekst, pf.Families[0] , 0, 70, pos, stringFormat);
+                    dc.DrawPath(new Pen(b3, 6), p);
+                    dc.FillPath(b2, p);
+
                 }
                 else
                 {
+                    p = new GraphicsPath();
                     tekst = "New Game";
-                    rect1 = new Rectangle(0, 90, screenWidth, 60);
-                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                    p.AddString(tekst, pf.Families[0], 0, 70, pos, stringFormat);
+                    dc.DrawPath(new Pen(b3, 6), p);
+                    dc.FillPath(b2,p);
                 }
             }
             else
             {
                 if (gameRunning)
                 {
+                    p = new GraphicsPath();
                     tekst = "Resume Game";
-                    rect1 = new Rectangle(0, 90, screenWidth, 60);
-                    dc.DrawString(tekst, f, b, rect1, stringFormat);
+                    p.AddString(tekst, pf.Families[0], 0, 70, pos, stringFormat);
+                    dc.DrawPath(new Pen(b3, 6), p);
+                    dc.FillPath(b2, p);
                 }
                 else
                 {
+                    p = new GraphicsPath();
                     tekst = "New Game";
-                    rect1 = new Rectangle(0, 90, screenWidth, 60);
-                    dc.DrawString(tekst, f, b, rect1, stringFormat);
+                    p.AddString(tekst, pf.Families[0], 0, 70, pos, stringFormat);
+                    dc.DrawPath(new Pen(b3, 6), p);
+                    dc.FillPath(b, p);
                 }
 
             }
             if (highlightedMenuItem == 2)
             {
+                p = new GraphicsPath();
                 tekst = "Options";
-                rect1 = new Rectangle(0, 150, screenWidth, 60);
-                dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                pos = new Point(432, 318);
+                p.AddString(tekst, pf.Families[0], 0, 70, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b2, p);
             }
             else
             {
+                p = new GraphicsPath();
                 tekst = "Options";
-                rect1 = new Rectangle(0, 150, screenWidth, 60);
-                dc.DrawString(tekst, f, b, rect1, stringFormat);
+                pos = new Point(432, 318);
+                p.AddString(tekst, pf.Families[0], 0, 70, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b, p);
             }
             if (highlightedMenuItem == 3)
             {
-                tekst = "How to Play";
-                rect1 = new Rectangle(0, 210, screenWidth, 60);
-                dc.DrawString(tekst, f, b2, rect1, stringFormat);
-            }
-            else
-            {
-                tekst = "How to Play";
-                rect1 = new Rectangle(0, 210, screenWidth, 60);
-                dc.DrawString(tekst, f, b, rect1, stringFormat);
-            }
-            if (highlightedMenuItem == 4)
-            {
                 tekst = "Quit";
-                rect1 = new Rectangle(0, 270, screenWidth, 60);
-                dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                p = new GraphicsPath();
+                pos = new Point(432, 417);
+                p.AddString(tekst, pf.Families[0], 0, 70, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b2, p);
+
             }
             else
             {
                 tekst = "Quit";
-                rect1 = new Rectangle(0, 270, screenWidth, 60);
-                dc.DrawString(tekst, f, b, rect1, stringFormat);
+                p = new GraphicsPath();
+                pos = new Point(432, 417);
+                p.AddString(tekst, pf.Families[0], 0, 70, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b, p);
             }
         }
 
@@ -147,77 +168,113 @@ namespace Dash
         /// </summary>
         private void DrawOptionsMenu()
         {
+
+            Point pos = new Point(432, 200);
+            GraphicsPath p = new GraphicsPath();
             string tekst = "Options";
-            Rectangle rect1 = new Rectangle(0, 0, screenWidth, 90);
             StringFormat stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
             stringFormat.LineAlignment = StringAlignment.Center;
-            dc.DrawString(tekst, headLine, b, rect1, stringFormat);
-            rect1 = new Rectangle(0, 90, screenWidth, 60);
-            tekst = "Sound";
-            dc.DrawString(tekst, headLine2, b, rect1, stringFormat);
+
+            p = new GraphicsPath();
+            p.AddString(tekst, pf.Families[0], 0, 70, pos, stringFormat);
+            dc.DrawPath(new Pen(b3, 6), p);
+            dc.FillPath(b, p);
 
             if (highlightedMenuItem == 1)
             {
+                p = new GraphicsPath();
                 tekst = "Master Volume: " + Audio.MasterVolume;
-                rect1 = new Rectangle(0, 150, screenWidth, 60);
-                dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                pos = new Point(432, 250);
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b2, p);
+
             }
             else
             {
+                p = new GraphicsPath();
                 tekst = "Master Volume: " + Audio.MasterVolume;
-                rect1 = new Rectangle(0, 150, screenWidth, 60);
-                dc.DrawString(tekst, f, b, rect1, stringFormat);
+                pos = new Point(432, 250);
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b, p);
             }
 
             if (highlightedMenuItem == 2)
             {
+                p = new GraphicsPath();
                 tekst = "Sound-FX Volume: " + Audio.SoundVolume;
-                rect1 = new Rectangle(0, 210, screenWidth, 60);
-                dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                pos = new Point(432, 300);
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b2, p);
             }
             else
             {
+                p = new GraphicsPath();
                 tekst = "Sound-FX Volume: " + Audio.SoundVolume;
-                rect1 = new Rectangle(0, 210, screenWidth, 60);
-                dc.DrawString(tekst, f, b, rect1, stringFormat);
+                pos = new Point(432, 300);
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b, p);
             }
 
             if (highlightedMenuItem == 3)
             {
                 tekst = "Music Volume: " + Audio.MusicVolume;
-                rect1 = new Rectangle(0, 270, screenWidth, 60);
-                dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                
+
+                p = new GraphicsPath();
+                pos = new Point(432, 350);
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b2, p);
             }
             else
             {
                 tekst = "Music Volume: " + Audio.MusicVolume;
-                rect1 = new Rectangle(0, 270, screenWidth, 60);
-                dc.DrawString(tekst, f, b, rect1, stringFormat);
+                p = new GraphicsPath();
+                pos = new Point(432, 350);
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b, p);
             }
             if (highlightedMenuItem == 4)
             {
                 tekst = "Controls";
-                rect1 = new Rectangle(0, 320, screenWidth, 60);
-                dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                p = new GraphicsPath();
+                pos = new Point(432, 400);
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b2, p);
             }
             else
             {
                 tekst = "Controls";
-                rect1 = new Rectangle(0, 320, screenWidth, 60);
-                dc.DrawString(tekst, f, b, rect1, stringFormat);
+                p = new GraphicsPath();
+                pos = new Point(432, 400);
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b, p);
             }
             if (highlightedMenuItem == 5)
             {
                 tekst = "Back";
-                rect1 = new Rectangle(0, 380, screenWidth, 60);
-                dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                p = new GraphicsPath();
+                pos = new Point(432, 450);
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b2, p);
             }
             else
             {
                 tekst = "Back";
-                rect1 = new Rectangle(0, 380, screenWidth, 60);
-                dc.DrawString(tekst, f, b, rect1, stringFormat);
+                p = new GraphicsPath();
+                pos = new Point(432, 450);
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b, p);
             }
         }
 
@@ -226,59 +283,78 @@ namespace Dash
         /// </summary>
         private void DrawControlMenu()
         {
+            Point pos = new Point(432, 200);
+            GraphicsPath p = new GraphicsPath();
             string tekst = "Controls";
-            Rectangle rect1 = new Rectangle(0, 0, screenWidth, 90);
             StringFormat stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
             stringFormat.LineAlignment = StringAlignment.Center;
-            dc.DrawString(tekst, headLine, b, rect1, stringFormat);
-            rect1 = new Rectangle(0, 90, screenWidth, 60);
-            tekst = "Movement keys";
-            dc.DrawString(tekst, headLine2, b, rect1, stringFormat);
 
+            p.AddString(tekst, pf.Families[0], 0, 70, pos, stringFormat);
+            dc.DrawPath(new Pen(b3, 6), p);
+            dc.FillPath(b, p);
+            
             if (highlightedMenuItem == 1)
             {
                 if (selectedMenuItem == 1)
                 {
                     tekst = "Up: Enter new key";
-                    rect1 = new Rectangle(0, 160, screenWidth, 60);
-                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                    pos = new Point(432, 250);
+                    p = new GraphicsPath();
+                    p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                    dc.DrawPath(new Pen(b3, 6), p);
+                    dc.FillPath(b2, p);
                 }
                 else
                 {
                     tekst = "Up: " + Config.UpKey;
-                    rect1 = new Rectangle(0, 160, screenWidth, 60);
-                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                    pos = new Point(432, 250);
+                    p = new GraphicsPath();
+                    p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                    dc.DrawPath(new Pen(b3, 6), p);
+                    dc.FillPath(b2, p);
                 }
 
             }
             else
             {
                 tekst = "Up: " + Config.UpKey;
-                rect1 = new Rectangle(0, 160, screenWidth, 60);
-                dc.DrawString(tekst, f, b, rect1, stringFormat);
+                pos = new Point(432, 250);
+                p = new GraphicsPath();
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b, p);
             }
             if (highlightedMenuItem == 2)
             {
                 if (selectedMenuItem == 2)
                 {
                     tekst = "Down: Enter new key";
-                    rect1 = new Rectangle(0, 220, screenWidth, 60);
-                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                    pos = new Point(432, 300);
+                    p = new GraphicsPath();
+                    p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                    dc.DrawPath(new Pen(b3, 6), p);
+                    dc.FillPath(b2, p);
                 }
                 else
                 {
                     tekst = "Down: " + Config.DownKey;
-                    rect1 = new Rectangle(0, 220, screenWidth, 60);
-                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                    pos = new Point(432, 300);
+                    p = new GraphicsPath();
+                    p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                    dc.DrawPath(new Pen(b3, 6), p);
+                    dc.FillPath(b2, p);
                 }
 
             }
             else
             {
                 tekst = "Down: " + Config.DownKey;
-                rect1 = new Rectangle(0, 220, screenWidth, 60);
-                dc.DrawString(tekst, f, b, rect1, stringFormat);
+                pos = new Point(432, 300);
+                p = new GraphicsPath();
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b, p);
             }
 
             if (highlightedMenuItem == 3)
@@ -286,21 +362,30 @@ namespace Dash
                 if (selectedMenuItem == 3)
                 {
                     tekst = "Left: Enter new key";
-                    rect1 = new Rectangle(0, 280, screenWidth, 60);
-                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                    pos = new Point(432, 350);
+                    p = new GraphicsPath();
+                    p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                    dc.DrawPath(new Pen(b3, 6), p);
+                    dc.FillPath(b2, p);
                 }
                 else
                 {
                     tekst = "Left: " + Config.LeftKey;
-                    rect1 = new Rectangle(0, 280, screenWidth, 60);
-                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                    pos = new Point(432, 350);
+                    p = new GraphicsPath();
+                    p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                    dc.DrawPath(new Pen(b3, 6), p);
+                    dc.FillPath(b2, p);
                 }
             }
             else
             {
                 tekst = "Left: " + Config.LeftKey;
-                rect1 = new Rectangle(0, 280, screenWidth, 60);
-                dc.DrawString(tekst, f, b, rect1, stringFormat);
+                pos = new Point(432, 350);
+                p = new GraphicsPath();
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b, p);
             }
 
             if (highlightedMenuItem == 4)
@@ -308,59 +393,49 @@ namespace Dash
                 if (selectedMenuItem == 4)
                 {
                     tekst = "Right: Enter new key";
-                    rect1 = new Rectangle(0, 340, screenWidth, 60);
-                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                    pos = new Point(432, 400);
+                    p = new GraphicsPath();
+                    p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                    dc.DrawPath(new Pen(b3, 6), p);
+                    dc.FillPath(b2, p);
                 }
                 else
                 {
                     tekst = "Right: " + Config.RightKey;
-                    rect1 = new Rectangle(0, 340, screenWidth, 60);
-                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                    pos = new Point(432, 400);
+                    p = new GraphicsPath();
+                    p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                    dc.DrawPath(new Pen(b3, 6), p);
+                    dc.FillPath(b2, p);
                 }
             }
             else
             {
                 tekst = "Right: " + Config.RightKey;
-                rect1 = new Rectangle(0, 340, screenWidth, 60);
-                dc.DrawString(tekst, f, b, rect1, stringFormat);
+                pos = new Point(432, 400);
+                p = new GraphicsPath();
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b, p);
             }
-
-            tekst = "Ship Controls";
-            rect1 = new Rectangle(0, 400, screenWidth, 60);
-            dc.DrawString(tekst, headLine2, b, rect1, stringFormat);
-
+            
             if (highlightedMenuItem == 5)
             {
-                if (selectedMenuItem == 4)
-                {
-                    tekst = "Shoot: Enter new key";
-                    rect1 = new Rectangle(0, 460, screenWidth, 60);
-                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
-                }
-                else
-                {
-                    tekst = "Shoot: " + Config.ShootKey;
-                    rect1 = new Rectangle(0, 460, screenWidth, 60);
-                    dc.DrawString(tekst, f, b2, rect1, stringFormat);
-                }
-            }
-            else
-            {
-                tekst = "Shoot: " + Config.ShootKey;
-                rect1 = new Rectangle(0, 460, screenWidth, 60);
-                dc.DrawString(tekst, f, b, rect1, stringFormat);
-            }
-            if (highlightedMenuItem == 6)
-            {
                 tekst = "Back";
-                rect1 = new Rectangle(0, 520, screenWidth, 60);
-                dc.DrawString(tekst, f, b2, rect1, stringFormat);
+                pos = new Point(432, 450);
+                p = new GraphicsPath();
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b2, p);
             }
             else
             {
                 tekst = "Back";
-                rect1 = new Rectangle(0, 520, screenWidth, 60);
-                dc.DrawString(tekst, f, b, rect1, stringFormat);
+                pos = new Point(432, 450);
+                p = new GraphicsPath();
+                p.AddString(tekst, pf.Families[0], 0, 43, pos, stringFormat);
+                dc.DrawPath(new Pen(b3, 6), p);
+                dc.FillPath(b, p);
             }
         }
 
@@ -377,13 +452,13 @@ namespace Dash
             switch (selectedMenu)
             {
                 case 1:
-                    max = 3;
+                    max = 2;
                     break;
                 case 2:
                     max = 4;
                     break;
                 default:
-                    max = 5;
+                    max = 4;
                     break;
             }
 
@@ -435,8 +510,6 @@ namespace Dash
                                     lastClick = DateTime.Now;
                                     break;
                                 case 3:
-                                    break;
-                                case 4:
                                     Application.Exit();
                                     break;
                             }
@@ -477,9 +550,6 @@ namespace Dash
                                     selectedMenuItem = 4;
                                     break;
                                 case 5:
-                                    selectedMenuItem = 5;
-                                    break;
-                                case 6:
                                     selectedMenu = 2;
                                     highlightedMenuItem = 1;
                                     selectedMenuItem = 0;
