@@ -26,16 +26,25 @@ namespace Dash
             set { falling = value; }
         }
 
+        /// <summary>
+        /// Gets DashRight
+        /// </summary>
         public bool DashRight
         {
             get { return dashRight; }
         }
 
+        /// <summary>
+        /// Gets DashLeft
+        /// </summary>
         public bool DashLeft
         {
             get { return dashLeft; }
         }
 
+        /// <summary>
+        /// Gets DashUp
+        /// </summary>
         public bool DashUp
         {
             get { return dashRight; }
