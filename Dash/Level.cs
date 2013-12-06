@@ -1040,7 +1040,7 @@ namespace Dash
                         case "KD":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(24, 0), 48, 24));
-                            lvlMap[y, x] = new Enemy(new PointF(x * 48, y * 48), "Graphics\\F9.gif", collisionBoxes);
+                            lvlMap[y, x] = new Enemy(new PointF(x * 48, y * 48), "Graphics\\KD.gif", collisionBoxes);
                             break;
 
                         #endregion
@@ -1053,7 +1053,7 @@ namespace Dash
                             break;
                         case "G2":
                             collisionBoxes = new List<Rect>();
-                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\G2gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\G2.gif", collisionBoxes);
                             break;
                         case "G3":
                             collisionBoxes = new List<Rect>();
