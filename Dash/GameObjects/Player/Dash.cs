@@ -16,6 +16,7 @@ namespace Dash
         private bool direction; //indicates direction for sprite flipping
         private int speed; //players speed
         private DateTime fallDelay; //delay used when u hit the ceiling
+        private int fallSpeed;
 
         /// <summary>
         /// Sets falling
@@ -37,6 +38,7 @@ namespace Dash
         {
             falling = true;
             this.speed = speed;
+            fallSpeed = speed / 4;
         }
 
         /// <summary>
@@ -213,13 +215,14 @@ namespace Dash
 
                 else if (falling) //falling
                 {
-                    rect.Offset(0, ((speed / 100) * 100) * (1 / fps)); //offsets rectangle
+                    rect.Offset(0, ((fallSpeed / 100) * 100) * (1 / fps)); //offsets rectangle
 
                     foreach (Rect r2 in g.CollisionBoxes) //loops thru all the collisionboxes for the g object
                     {
                         if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with hitbox stop falling and move to object
                         {
                             falling = false;
+                            fallSpeed = speed;
                             position.Y = g.Position.Y + r2.Position.Y - collisionBoxes[0].HitBox(Position.X, Position.Y).Height;
                         }
                     }
@@ -330,7 +333,7 @@ namespace Dash
             }
             else if (falling && DateTime.Now > fallDelay.AddMilliseconds(20)) //if falling and datetime is larger than delay move speed multiplied by 1/fps down
             {
-                position.Y +=  speed * (1 / fps);
+                position.Y +=  fallSpeed * (1 / fps);
             }
         }
     }
