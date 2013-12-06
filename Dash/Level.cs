@@ -49,83 +49,83 @@ namespace Dash
             switch (level)
             {
                 case 1:
-                    time = 10;
+                    time = 15;
 
                     #region Level1
 
-                    lm = "R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5" + "_" +
-                         "R5;R5;N7;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2" + "_" +
-                         "R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "R5;R5;E6;NN;NN;NN;W7;W8;W8;W8;W8;W8;W8;W9;NN;NN;NN;SR" + "_" +
-                         "R5;R5;E6;NN;NN;NN;E4;R5;R5;R5;R5;R5;R5;E6;NN;NN;NN;SR" + "_" +
-                         "R5;R5;E6;NN;NN;NN;E4;R5;N7;E2;E2;E2;E2;E3;NN;NN;NN;SR" + "_" +
-                         "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "E2;E2;E3;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "PL;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;W7;W8;W8;W8;W8" + "_" +
-                         "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
-                         "WB;WB;WB;WB;WB;WB;E4;R5;E6;BHB;BHB;BHB;BHB;E4;R5;R5;R5;R5";
+                    lm = "H7;H9;R5;R5;SV;R5;R5;R1;R2;R2;R3;R5;SH;R5;R5;R5;R5;R5" + "_" +
+                         "H1;H3;N7;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;N9" + "_" +
+                         "SV;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "X7;X9;E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "X1;X3;E6;NN;NN;NN;W7;W8;W8;W8;W8;W8;W8;W9;NN;NN;NN;E4" + "_" +
+                         "R5;R5;E6;NN;NN;NN;E4;R5;R5;R5;R5;X7;X9;E6;NN;NN;NN;E4" + "_" +
+                         "R5;SP;E6;NN;NN;NN;E4;X7;X9;R5;SH;X1;X3;E6;NN;NN;NN;E4" + "_" +
+                         "E2;E2;E3;NN;NN;NN;E4;X1;X3;N7;E2;E2;E2;E3;NN;NN;NN;E4" + "_" +
+                         "NN;NN;NN;NN;NN;NN;E4;R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "PL;NN;NN;NN;NN;NN;E4;H7;H9;E6;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "NN;NN;NN;NN;NN;NN;E4;H1;H3;E6;NN;NN;NN;W7;W8;W8;W8;N3" + "_" +
+                         "W8;W8;W8;W8;W8;W8;N3;R5;R5;E6;NN;NN;NN;E4;H7;H9;R5;R5" + "_" +
+                         "R5;SV;R5;R5;SH;R5;R5;SG;SG;E6;BHB;BHB;BHB;E4;H1;H3;R5;R5";
 
                     bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
                          "G1;G1;G1;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G1;G1;G1;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G1;G1;G1;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G1;G1;G1;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4" + "_" +
-                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4" + "_" +
-                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4" + "_" +
-                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G3;G4;G4;G4;G4" + "_" +
-                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G3;G4;G4;G4;G4" + "_" +
-                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G3;G4;G4;G4;G4" + "_" +
-                         "G1;G1;G1;G3;G4;G4;G1;G1;G1;G1;G1;G1;G1;G3;G4;G4;G4;G4" + "_" +
-                         "G1;G1;G1;G1;G3;G4;G1;G1;G1;G1;G1;G1;G1;G3;G4;G4;G4;G4" + "_" +
-                         "G1;G1;G1;G1;G1;G3;G1;G1;G1;G1;G1;G1;G1;G3;G4;G4;G4;G4";
+                         "G1;G1;G1;G4;G4;G4;G3;G3;G3;G3;G3;G3;G3;G3;G3;G3;G3;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G3;G3;G3;G3;G3;G3;G3;G3;G3;G3;G3;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G3;G3;G3;G3;G3;G3;G3;G3;G3;G3;G3;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G1;G3;G3;G3;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G1;G3;G3;G3;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G1;G3;G3;G3;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G3;G3;G3;G3;G4" + "_" +
+                         "G4;G4;G4;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G3;G3;G3;G3;G4" + "_" +
+                         "G4;G4;G4;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G3;G3;G3;G3;G4" + "_" +
+                         "G4;G4;G4;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G1;G1;G3;G4;G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G1;G1;G1;G3;G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4";
 
                     #endregion
 
                     break;
                 case 2:
-                    time = 16;
+                    time = 25;
 
                     #region Level2
 
-                    lm = "ST;ST;ST;ST;ST;ST;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
-                         "BVL;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
-                         "BVL;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;E1;E2;E2;E2;E2" + "_" +
-                         "W7;W8;W9;NN;NN;NN;E4;R5;E6;NN;PL;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "E2;E2;E3;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;E4;R5;E6;W8;W8;W8;W8;W9;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;E4;R5;R5;R5;R5;R5;R5;E6;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;E1;E2;E2;E2;E2;E2;E2;E3;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;HB12;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E7;E8;E8;E8" + "_" +
-                         "F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9;E4;R5;R5;R5";
+                    lm = "E2;E2;E2;E2;E2;E2;N9;SV;E6;NN;NN;NN;NN;E4;X7;X9;R5;R5" + "_" +
+                         "BVL;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;E4;X1;X3;R5;SV" + "_" +
+                         "BVL;NN;NN;NN;NN;NN;E4;SH;E6;NN;NN;NN;NN;E1;E2;E2;E2;N9" + "_" +
+                         "BVL;NN;NN;NN;NN;NN;E4;R5;E6;NN;PL;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "W8;W8;W9;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "R5;SV;E6;NN;NN;NN;E4;SP;E6;NN;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "N7;E2;E3;NN;NN;NN;E4;R5;N1;W8;W8;W8;W8;W9;NN;NN;NN;E4" + "_" +
+                         "E6;NN;NN;NN;NN;NN;E4;R5;SH;R5;SG;SG;SP;E6;NN;NN;NN;E4" + "_" +
+                         "E6;NN;NN;NN;NN;NN;E1;E2;E2;E2;E2;E2;E2;E3;NN;NN;NN;E4" + "_" +
+                         "E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "E6;HB12;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;W7;W8;W8;N3" + "_" +
+                         "E6;F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9;E4;R5;SH;R5";
 
-                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4;G1;G1;G1;G1;G1" + "_" +
+                         "G3;G3;G3;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4;G1;G1;G1;G1;G1" + "_" +
+                         "G3;G3;G3;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4;G1;G1;G1;G1;G1" + "_" +
+                         "G3;G3;G3;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4;G3;G3;G3;G3;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4;G3;G3;G3;G3;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4;G3;G3;G3;G3;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G3;G3;G3;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G3;G3;G3;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G3;G3;G3;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G3;G3;G3;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G3;G3;G3;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G3;G3;G3;G1" + "_" +
+                         "G1;L1;L2;L2;L2;L2;L2;L2;L2;L2;L2;L2;L2;L3;G1;G1;G1;G1" + "_" +
                          "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
 
                     #endregion
 
                     break;
                 case 3:
-                    time = 20;
+                    time = 22;
 
                     #region Level3
 
@@ -163,7 +163,7 @@ namespace Dash
 
                     break;
                 case 4:
-                    time = 13;
+                    time = 15;
 
                     #region Level4
 
