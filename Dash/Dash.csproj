@@ -46,6 +46,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CaptainDash.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="irrKlang.NET4">
       <HintPath>.\irrKlang.NET4.dll</HintPath>
@@ -97,6 +100,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Graphics\Font.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -123,6 +127,7 @@
     <Content Include="Audio\soundtrack_Intronitiion_ilikescifi_0.MP3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="CaptainDash.ico" />
     <Content Include="Graphics\B1.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

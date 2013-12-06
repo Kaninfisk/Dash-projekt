@@ -550,7 +550,6 @@ namespace Dash
                     lm = "S7;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S9" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;R7;R8;R8;R9;NN;NN;NN;NN;NN;NN;E7;E9;NN;NN;SR" + "_" +
                          "SL;NN;NN;R4;SV;SV;R6;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
                          "SL;NN;NN;R1;R2;R2;R3;VB7;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
@@ -558,9 +557,10 @@ namespace Dash
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
                          "SL;NN;NN;F7;F8;F8;F9;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
                          "SL;NN;NN;R7;R8;R8;R9;NN;NN;NN;NN;NN;NN;E4;E6;PL;NN;SR" + "_" +
-                         "F7;F8;F9;R1;R2;R2;R3;SB;SB;SB;BH;BH;BH;E1;E3;NN;NN;SR";
+                         "F7;F8;F9;R1;R2;R2;R3;SB;SB;SB;BHB;BHB;BHB;E1;E3;NN;NN;SR";
 
                     bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
                          "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
@@ -1280,7 +1280,7 @@ namespace Dash
                         case "HB16":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 144, 48));
-                            lvlMap[y, x] = new MovableBlock(100, 4, 14, new PointF(x * 48, y * 48), "Graphics\\HB.gif", collisionBoxes);
+                            lvlMap[y, x] = new MovableBlock(100, 4, 13, new PointF(x * 48, y * 48), "Graphics\\HB.gif", collisionBoxes);
                             break;
                         case "VM5":
                             collisionBoxes = new List<Rect>();

@@ -42,6 +42,7 @@ namespace Dash
         {
             if (Crumbling)
             {
+                sprite = animationFrames[1];
                 time -= 1/fps;
                 if (time <= 0)
                 {

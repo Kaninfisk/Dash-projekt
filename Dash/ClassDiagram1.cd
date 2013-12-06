@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Dash.Menu">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAIAABBQEAABAAAAIQAQAAFgAAAQAQAAQAAAIAA=</HashCode>
+      <FileName>UI\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dash.Config">
+    <Position X="10" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACIAADEAAIAxAACAAAAAgACAAIAEgAAAJAAAACAAAAA=</HashCode>
+      <FileName>Config.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dash.GameWorld">
+    <Position X="11.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAJAAAAAAgEAgUCQAAgAEAAAghAAFgRQQBAEAAA=</HashCode>
+      <FileName>GameWorld.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dash.Rect">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQgRAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Rect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dash.Level">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQABAIQAAAAEAAAAAAAAAAAAAAABAAAAAQAAAAAAEQA=</HashCode>
+      <FileName>Level.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Keyboard">
+    <Position X="13.5" Y="5.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="System.Keyboard.KeyStates" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Keyboard.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Keyboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dash.GameObject" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAAAAAAAgAgAAAQKAAAABAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>GameObjects\GameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dash.TriggerBlock">
+    <Position X="4.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAIAAAACAAAAABAAAAAQAAAAAEAAA=</HashCode>
+      <FileName>GameObjects\Blocks\TriggerBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dash.CrumblingBlock">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASBAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Blocks\CrumblingBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dash.GateBlock">
+    <Position X="2.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIgAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Blocks\GateBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dash.GridBlock">
+    <Position X="3.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Blocks\GridBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dash.MovableBlock">
+    <Position X="7" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAAAAEAAIBAAAAAAAAAAAAAAAQCAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Blocks\MovableBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dash.Enemy">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Enemies\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dash.Dash">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAABAAIAAAAgAABAARAIAAAQCIBACAAAAAggA=</HashCode>
+      <FileName>GameObjects\Player\Dash.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dash.Audio">
+    <Position X="8" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAAAAAAAAAAAQAAAAECAEAAAAAEAAAKAAAACgAAAA=</HashCode>
+      <FileName>Audio\Audio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
