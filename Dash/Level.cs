@@ -49,7 +49,7 @@ namespace Dash
             switch (level)
             {
                 case 1:
-                    time = 999;
+                    time = 10;
 
                     #region Level1
 
@@ -87,7 +87,7 @@ namespace Dash
 
                     break;
                 case 2:
-                    time = 999;
+                    time = 16;
 
                     #region Level2
 
@@ -104,7 +104,7 @@ namespace Dash
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;HB12;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E7;E8;E8;E8" + "_" +
-                         "SL;F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9;E4;R5;R5;R5";
+                         "F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9;E4;R5;R5;R5";
 
                     bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
                          "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
@@ -125,7 +125,7 @@ namespace Dash
 
                     break;
                 case 3:
-                    time = 999;
+                    time = 20;
 
                     #region Level3
 
@@ -163,7 +163,7 @@ namespace Dash
 
                     break;
                 case 4:
-                    time = 999;
+                    time = 13;
 
                     #region Level4
 
@@ -201,7 +201,7 @@ namespace Dash
 
                     break;
                 case 5:
-                    time = 999;
+                    time = 13;
 
                     #region Level5
 
@@ -239,7 +239,7 @@ namespace Dash
 
                     break;
                 case 6:
-                    time = 999;
+                    time = 12;
 
                     #region Level6
 
@@ -277,7 +277,7 @@ namespace Dash
 
                     break;
                 case 7:
-                    time = 999;
+                    time = 15;
 
                     #region Level7
 
@@ -315,7 +315,7 @@ namespace Dash
 
                     break;
                 case 8:
-                    time = 999;
+                    time = 23;
 
                     #region Level8
 
@@ -353,7 +353,7 @@ namespace Dash
 
                     break;
                 case 9:
-                    time = 999;
+                    time = 13;
 
                     #region Level9
 
@@ -391,7 +391,7 @@ namespace Dash
 
                     break;
                 case 10:
-                    time = 999;
+                    time = 16;
 
                     #region Level10
 
@@ -429,7 +429,7 @@ namespace Dash
 
                     break;
                 case 11:
-                    time = 999;
+                    time = 13;
 
                     #region Level11
 
@@ -467,7 +467,7 @@ namespace Dash
 
                     break;
                 case 12:
-                    time = 999;
+                    time = 16;
 
                     #region Level12
 
@@ -505,7 +505,7 @@ namespace Dash
 
                     break;
                 case 13:
-                    time = 999;
+                    time = 13;
 
                     #region Level13
 
@@ -543,7 +543,7 @@ namespace Dash
 
                     break;
                 case 14:
-                    time = 999;
+                    time = 13;
 
                     #region Level14
 
@@ -581,7 +581,7 @@ namespace Dash
 
                     break;
                 case 15:
-                    time = 999;
+                    time = 21;
 
                     #region Level15
 
@@ -619,7 +619,7 @@ namespace Dash
 
                     break;
                 case 16:
-                    time = 999;
+                    time = 21;
 
                     #region Level16
 
@@ -657,7 +657,7 @@ namespace Dash
 
                     break;
                 case 17:
-                    time = 999;
+                    time = 21;
 
                     #region Level17
 
@@ -695,7 +695,7 @@ namespace Dash
 
                     break;
                 case 18:
-                    time = 999;
+                    time = 14;
 
                     #region Level18
 
@@ -703,12 +703,12 @@ namespace Dash
                          "SL;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;BL2;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;NN;SR;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
-                         "PL;NN;SR;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
-                         "NN;NN;SR;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
+                         "NN;NN;NN;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
+                         "PL;NN;NN;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
+                         "NN;NN;NN;R5;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
                          "DH;NN;NN;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;R3;NN;NN;SR" + "_" +
-                         "SL;NN;SR;NN;NN;VM5;NN;VM5;NN;VM5;NN;VM5;NN;NN;SG;NN;NN;SR" + "_" +
-                         "SL;NN;SR;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
+                         "SL;NN;NN;R5;NN;VM5;NN;VM5;NN;VM5;NN;VM5;NN;NN;SG;NN;NN;SR" + "_" +
+                         "SL;NN;NN;R5;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
                          "BVL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "BVL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "BVL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -733,7 +733,7 @@ namespace Dash
 
                     break;
                 case 19:
-                    time = 999;
+                    time = 15;
 
                     #region Level19
 
@@ -747,8 +747,8 @@ namespace Dash
                          "M3;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
                          "U4;IH;IH;IH;U6;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
                          "BVL;NN;NN;NN;NN;NN;NN;NN;NN;CP;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
+                         "BVL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;PL;NN" + "_" +
                          "BVL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;NN" + "_" +
-                         "BVL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;PL;NN;NN" + "_" +
                          "SL;NN;NN;NN;NN;CP;NN;NN;NN;NN;NN;NN;NN;E1;E3;NN;NN;NN" + "_" +
                          "F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9;W7;W8;W8;W8;W8;W9";
 
@@ -771,14 +771,14 @@ namespace Dash
 
                     break;
                 case 20:
-                    time = 999;
+                    time = 19;
 
                     #region Level20
 
                     lm = "S7;ST;ST;BT4;ST;R5;ST;ST;R5;ST;ST;R5;ST;ST;BT3;ST;ST;S9" + "_" +
                          "SL;NN;NN;NN;NN;R5;NN;NN;DV;NN;NN;R5;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;R5;NN;NN;NN;NN;NN;R5;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;HM3;NN;NN;NN;R5;NN;NN;NN;NN;NN;NN;NN;NN;R5;NN;NN;SR" + "_" +
+                         "SL;NN;NN;NN;NN;R5;NN;NN;NN;NN;NN;NN;NN;NN;R5;NN;NN;SR" + "_" +
                          "SL;NN;NN;F7;F9;R5;NN;NN;R5;NN;NN;NN;NN;NN;R5;NN;NN;SR" + "_" +
                          "SL;NN;NN;R5;R5;CP;NN;NN;R5;R5;R5;R5;R5;R5;R5;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;R5;R5;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
