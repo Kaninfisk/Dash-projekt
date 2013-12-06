@@ -216,7 +216,7 @@ namespace Dash
 
             if ((cLevel == 1 || cLevel == 2) && !cutScenePlayed)
             {
-                cutScene = 5;
+                cutScene = 6;
                 cutScenePlayed = true;
             }
 
@@ -233,12 +233,34 @@ namespace Dash
         {
             if (cLevel == 1)
             {
-                dc.DrawImage(Image.FromFile("Graphics/B1.gif"), 0, 0, 864, 672);
+                if (cutScene > 4)
+                {
+                    dc.DrawImage(Image.FromFile("Graphics/B1.gif"), 0, 0, 864, 672);   
+                }
+                else if (cutScene > 2)
+                {
+                    dc.DrawImage(Image.FromFile("Graphics/B2.gif"), 0, 0, 864, 672);
+                }
+                else
+                {
+                    dc.DrawImage(Image.FromFile("Graphics/B3.gif"), 0, 0, 864, 672);
+                }
 
             }
             else if (cLevel == 2)
             {
-                dc.DrawImage(Image.FromFile("Graphics/B2.gif"), 0, 0, 864, 672);
+                if (cutScene > 4)
+                {
+                    dc.DrawImage(Image.FromFile("Graphics/B1.gif"), 0, 0, 864, 672);
+                }
+                else if (cutScene > 2)
+                {
+                    dc.DrawImage(Image.FromFile("Graphics/B2.gif"), 0, 0, 864, 672);
+                }
+                else
+                {
+                    dc.DrawImage(Image.FromFile("Graphics/B3.gif"), 0, 0, 864, 672);
+                }
             }
             else
             {
