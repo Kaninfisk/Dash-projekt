@@ -269,6 +269,7 @@ namespace Dash
                 if (position.Y + speed * (1 / fps) >= 672 - CollisionBoxes[0].HitBox(position.X, position.Y).Height) //if players position is about to move outside screen area stop falling and move to edge
                 {
                     falling = false;
+                    fallSpeed = speed;
                     position.Y = 672 - CollisionBoxes[0].HitBox(position.X, position.Y).Height;
                 }
             }
