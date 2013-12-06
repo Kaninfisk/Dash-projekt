@@ -80,8 +80,6 @@ namespace Dash
             stringFormat.LineAlignment = StringAlignment.Center;
 
             GraphicsPath p;
-
-            //dc.DrawString(tekst, headLine, b, rect1, stringFormat);
             Point pos = new Point(432, 224);
 
             if (highlightedMenuItem == 1)

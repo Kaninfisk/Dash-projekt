@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.IO;
 using System.Windows.Forms;
 
@@ -150,9 +152,22 @@ namespace Dash
         /// </summary>
         private void DrawUI()
         {
-            Font f = new Font("Arial", 16);
-            Brush b = new SolidBrush(Color.Black);
-            dc.DrawString(Math.Round(t, 2).ToString().Replace(',', '.'), f, b, 432, 0);
+
+            string tekst = "Press space to continue";
+            StringFormat stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
+            Brush b2 = new SolidBrush(Color.FromArgb(255, 218, 212, 94)); //Brush for selected menu items
+            Brush b3 = new SolidBrush(Color.FromArgb(255, 20, 12, 28));
+            GraphicsPath p = new GraphicsPath();
+            Point pos = new Point(432, 610);
+            PrivateFontCollection pf = new PrivateFontCollection();
+            pf.AddFontFile("Graphics\\Font.ttf");
+            p.AddString(Math.Round(t, 0).ToString(), pf.Families[0], 0, 38, pos, stringFormat);
+            dc.DrawPath(new Pen(b3, 6), p);
+            dc.FillPath(b2, p);
+
+
 #if DEBUG
             dc.DrawString(currentFPS.ToString(), f, b, 800, 0);
 #endif
@@ -191,7 +206,7 @@ namespace Dash
         /// </summary>
         private void SetupGameWorld()
         {
-
+            cutScenePlayed = false;
             gameRunning = false;
             menu = true;
             cLevel = 1;
@@ -205,21 +220,21 @@ namespace Dash
         /// </summary>
         private void RestartLevel()
         {
-            if (playerState == 1 && cLevel != 20) //if player finished current level and currentlevel is not 20 save time in log and go to next level
+            if (playerState == 1) //if player finished current level and currentlevel is not 20 save time in log and go to next level
             {
                 WriteLog("lvltimes.txt", "Level: " + cLevel + " Tid: " + Math.Round(currentLevel.Time - t, 2) + Environment.NewLine);
                 cLevel++;
                 cutScenePlayed = false;
             }
 
-            if ((cLevel == 1 || cLevel == 6 || cLevel == 11 || cLevel == 16) && !cutScenePlayed) //if thre is cutscene for the currentlevel enable cutscenes and set cutscene played to true so it only plays once per level
+            if ((cLevel == 1 || cLevel == 6 || cLevel == 11 || cLevel == 16 || cLevel == 21) && !cutScenePlayed) //if thre is cutscene for the currentlevel enable cutscenes and set cutscene played to true so it only plays once per level
             {
-                cutScene = 0;
+                cutScene = 6;
                 cutScenePlayed = true;
             }
 
             playerState = 0;
-            currentLevel = new Level(14);
+            currentLevel = new Level(cLevel);
             t = currentLevel.Time;
             alpha = 0;
         }
@@ -245,7 +260,36 @@ namespace Dash
             {
                 dc.DrawImage(Image.FromFile("Graphics/scene4.gif"), 0, 0, 864, 672);
             }
-            cutScene -= 1 / currentFPS;
+            else if (cLevel == 21)
+            {
+                dc.DrawImage(Image.FromFile("Graphics/scene5.gif"), 0, 0, 864, 672);
+            }
+
+            string tekst = "Press space to continue";
+            StringFormat stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
+            Brush b2 = new SolidBrush(Color.FromArgb(255, 218, 212, 94)); //Brush for selected menu items
+            Brush b3 = new SolidBrush(Color.FromArgb(255,20,12,28));
+            GraphicsPath p = new GraphicsPath();
+            Point pos = new Point(432, 610);
+            PrivateFontCollection pf = new PrivateFontCollection();
+            pf.AddFontFile("Graphics\\Font.ttf");
+            p.AddString(tekst, pf.Families[0], 0, 38, pos, stringFormat);
+            dc.DrawPath(new Pen(b3, 6), p);
+            dc.FillPath(b2, p);
+
+
+            if (Keyboard.IsKeyDown(Keys.Space))
+            {
+                cutScene = 0;
+            }
+
+            
+            if (cutScene <= 0 && cLevel == 21)
+            {
+                SetupGameWorld();
+            }
         }
 
         /// <summary>
