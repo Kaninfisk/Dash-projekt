@@ -228,12 +228,12 @@ namespace Dash
 
             if ((cLevel == 1 || cLevel == 6 || cLevel == 11 || cLevel == 16) && !cutScenePlayed) //if thre is cutscene for the currentlevel enable cutscenes and set cutscene played to true so it only plays once per level
             {
-                cutScene = 0;
+                cutScene = 1;
                 cutScenePlayed = true;
             }
 
             playerState = 0;
-            currentLevel = new Level(20);
+            currentLevel = new Level(cLevel);
             t = currentLevel.Time;
             alpha = 0;
         }
