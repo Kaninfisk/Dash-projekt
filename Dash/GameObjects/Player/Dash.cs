@@ -278,18 +278,6 @@ namespace Dash
                 }
                 else if (falling) //falling
                 {
-                    rect.Offset(0, fallSpeed * (1 / fps)); //offsets rectangle
-
-                    foreach (Rect r2 in g.CollisionBoxes) //loops thru all the collisionboxes for the g object
-                    {
-                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with hitbox stop falling and move to object
-                        {
-                            falling = false;
-                            fallSpeed = speed;
-                            position.Y = g.Position.Y + r2.Position.Y - collisionBoxes[0].HitBox(Position.X, Position.Y).Height;
-                        }
-                    }
-
                     RectangleF rect2 = r.HitBox(position.X, position.Y);
                     rect2.Offset(new PointF(0, 1));
 
@@ -298,6 +286,22 @@ namespace Dash
                         if (rect2.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with hitbox stop dashing right start falling and move to the object
                         {
                             falling = false;
+                            fallSpeed = speed;
+                        }
+                    }
+
+                    if (falling)
+                    {
+                        rect.Offset(0, fallSpeed * (1 / fps)); //offsets rectangle
+
+                        foreach (Rect r2 in g.CollisionBoxes) //loops thru all the collisionboxes for the g object
+                        {
+                            if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with hitbox stop falling and move to object
+                            {
+                                falling = false;
+                                fallSpeed = speed;
+                                position.Y = g.Position.Y + r2.Position.Y - collisionBoxes[0].HitBox(Position.X, Position.Y).Height;
+                            }
                         }
                     }
                 }

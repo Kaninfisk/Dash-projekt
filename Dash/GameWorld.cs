@@ -97,16 +97,22 @@ namespace Dash
                 }
                 else  //Shows time ran out screen
                 {
-                    Font f = new Font("Arial", 36);
-                    Brush b = new SolidBrush(Color.Black);
-                    string tekst = "Time ran out press enter to retry or escape to exit";
-                    int screenwidth = 864;
-                    Rectangle rect1 = new Rectangle(0, 0, screenwidth, 150);
+
+                    Brush b = new SolidBrush(Color.FromArgb(255, 133, 149, 161));
+                    Brush b3 = new SolidBrush(Color.FromArgb(255, 20, 12, 28));
+                    PrivateFontCollection pf = new PrivateFontCollection();
+
+                    Point pos = new Point(432, 200);
+                    GraphicsPath p = new GraphicsPath();
+                    string tekst = "Time ran out press " + Environment.NewLine + " Space to retry " + Environment.NewLine + " or Escape to exit";
                     StringFormat stringFormat = new StringFormat();
                     stringFormat.Alignment = StringAlignment.Center;
                     stringFormat.LineAlignment = StringAlignment.Center;
-                    dc.DrawString(tekst, f, b, rect1, stringFormat);
-                    if (Keyboard.IsKeyDown(Keys.Enter))  //if you hit enter level restarts
+                    pf.AddFontFile("Graphics\\Font.ttf");
+                    p.AddString(tekst, pf.Families[0], 0, 70, pos, stringFormat);
+                    dc.DrawPath(new Pen(b3, 6), p);
+                    dc.FillPath(b, p);
+                    if (Keyboard.IsKeyDown(Keys.Space))  //if you hit space level restarts
                     {
                         RestartLevel();
                     }
@@ -153,7 +159,7 @@ namespace Dash
         private void DrawUI()
         {
             Brush b = new SolidBrush(Color.FromArgb(255, 133, 149, 161));
-            Brush b3 = new SolidBrush(Color.FromArgb(255,20,12,28));
+            Brush b3 = new SolidBrush(Color.FromArgb(255, 20, 12, 28));
             PrivateFontCollection pf = new PrivateFontCollection();
 
             Point pos = new Point(800, 30);
@@ -285,7 +291,7 @@ namespace Dash
             {
                 SetupGameWorld();
             }
-            
+
         }
 
         /// <summary>
