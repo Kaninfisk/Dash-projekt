@@ -330,7 +330,7 @@ namespace Dash
             }
             else if (falling && DateTime.Now > fallDelay.AddMilliseconds(20)) //if falling and datetime is larger than delay move speed multiplied by 1/fps down
             {
-                position.Y += speed * (1 / fps);
+                position.Y +=  speed * (1 / fps);
             }
         }
     }

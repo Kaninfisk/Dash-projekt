@@ -6,7 +6,7 @@ namespace Dash
     /// <summary>
     /// Class for levels
     /// </summary>
-    class Level
+    internal class Level
     {
         private int type; //type of level
         public GameObject[,] LevelMap; //Foreground map of level with collidable objects
@@ -50,7 +50,9 @@ namespace Dash
             {
                 case 1:
                     time = 999;
+
                     #region Level1
+
                     lm = "R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5" + "_" +
                          "R5;R5;N7;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2" + "_" +
                          "R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -58,36 +60,40 @@ namespace Dash
                          "R5;R5;E6;NN;NN;NN;BB;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;W7;W8;W8;W8;W8;W8;W8;W9;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;R5;R5;R5;R5;R5;E6;NN;NN;NN;SR" + "_" +
-                         "R5;R5;E6;NN;NN;NN;E4;R5;N7;E2;E2;E2;E2;E3;NN;NN;NN;SR" + "_" +
+                         "R5;R5;E6;NN;NN;NN;E4;R5;N7;E2;E2;E2;E2;E3;DH;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "E2;E2;E3;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;PL;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;W7;W8;W8;W8;W8" + "_" +
+                         "NN;NN;NN;NN;PL;NN;E4;R5;E6;NN;NN;NN;NN;W7;W8;W8;W8;W8" + "_" +
                          "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
-                         "WB;WB;WB;WB;WB;WB;E4;R5;E6;BE;BE;BE;BE;E4;R5;R5;R5;R5";
+                         "WB;WB;WB;WB;WB;WB;E4;R5;E6;BH;BH;BH;BH;E4;R5;R5;R5;R5";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G3;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G3;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1;G1;G3;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G1;G3;G4;G4;G1;G1;G1;G1;G1;G1;G1;G3;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G1;G1;G3;G4;G1;G1;G1;G1;G1;G1;G1;G3;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G1;G1;G1;G3;G1;G1;G1;G1;G1;G1;G1;G3;G4;G4;G4;G4";
+
                     #endregion
+
                     break;
                 case 2:
                     time = 999;
+
                     #region Level2
+
                     lm = "ST;ST;ST;ST;ST;ST;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
-                         "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;PL;NN;NN;E4;R5;R5;R5;R5" + "_" +
-                         "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;E1;E2;E2;E2;E2" + "_" +
+                         "BV;NN;NN;NN;NN;NN;E4;R5;E6;NN;PL;NN;NN;E4;R5;R5;R5;R5" + "_" +
+                         "BV;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;E1;E2;E2;E2;E2" + "_" +
                          "W7;W8;W9;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "E2;E2;E3;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -100,28 +106,32 @@ namespace Dash
                          "SL;HB12;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E7;E8;E8;E8" + "_" +
                          "SL;F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9;E4;R5;R5;R5";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
                 case 3:
                     time = 999;
+
                     #region Level3
+
                     lm = "S7;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;PL;NN" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;W7;W8;W8;W8;W8;W9" + "_" +
                          "SL;NN;NN;NN;F7;F8;F8;F8;F9;NN;NN;NN;E4;R5;R5;R5;R5;E6" + "_" +
                          "SL;NN;NN;NN;E4;R5;R5;R5;E6;NN;NN;NN;E1;E2;E2;E2;E2;E3" + "_" +
@@ -131,30 +141,34 @@ namespace Dash
                          "SL;NN;NN;NN;E1;E2;E2;E2;E3;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;H9;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
-                         "F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9";
+                         "SL;NN;NN;NN;NN;NN;NN;NN;HB9;NN;NN;NN;NN;NN;NN;NN;NN;SL" + "_" +
+                         "F7;F8;F8;F8;F8;F8;F8;F8;F8;BH;BH;BH;F8;F8;F8;F8;F8;F9";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
                 case 4:
                     time = 999;
+
                     #region Level4
+
                     lm = "S7;ST;ST;F1;F2;F3;E4;E6;M9;NN;NN;ST;ST;ST;ST;ST;ST;S9" + "_" +
-                         "SL;NN;NN;NN;NN;NN;E4;E6;M6;NN;PL;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "SL;NN;NN;NN;NN;NN;E4;E6;M6;PL;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;E4;E6;M3;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;E1;E3;WB;WB;WB;WB;WB;WB;WB;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;SR" + "_" +
@@ -162,68 +176,76 @@ namespace Dash
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;W7;W8;W9;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;F1;F2;F3;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;WT;WT;SF" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;E7;E9;NN;NN;NN;NN;NN;NN" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;NN;NN;NN;NN" + "_" +
-                         "W7;W8;W8;W8;W8;W9;NN;NN;NN;NN;E4;E6;NN;NN;NN;NN;NN;NN" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;U4;U6;R5" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;E7;E9;NN;NN;NN;NN;NN;BV" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;NN;NN;NN;BV" + "_" +
+                         "W7;W8;W8;W8;W8;W9;NN;NN;NN;NN;E4;E6;NN;NN;NN;NN;NN;BV" + "_" +
                          "E1;E2;E2;E2;E2;E3;F7;F8;F8;F9;E1;E3;W7;W8;W8;W8;W8;W9";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
                 case 5:
                     time = 999;
+
                     #region Level5
+
                     lm = "S7;ST;ST;F1;F3;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;M7" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;V11;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;VB11;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
+                         "SL;NN;NN;NN;NN;PL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
                          "SL;NN;NN;F7;F9;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M1" + "_" +
                          "SL;NN;NN;R7;R9;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;R4;R6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;R4;R6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;R4;R6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;R4;R6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;NN;NN;R4;R6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;NN;NN;R4;R6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;PL;NN;R1;R3;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "NN;NN;NN;R4;R6;NN;NN;NN;NN;NN;NN;BV;NN;NN;NN;NN;NN;SR" + "_" +
+                         "NN;NN;NN;R4;R6;NN;NN;NN;NN;NN;NN;BV;NN;NN;NN;NN;NN;SR" + "_" +
+                         "NN;NN;NN;R1;R3;NN;NN;NN;NN;NN;NN;BV;NN;NN;NN;NN;NN;SR" + "_" +
                          "W7;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W9";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
-                case 6: 
+                case 6:
                     time = 999;
+
                     #region Level6
+
                     lm = "ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S9" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;V5;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;PL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "PL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;VM5;NN;NN;NN;NN;NN;SR" + "_" +
+                         "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "W7;W8;W8;W8;W8;W8;W8;W9;NN;NN;NN;NN;NN;NN;NN;F7;F8;F9" + "_" +
                          "E4;SV;SV;R5;R5;SH;R5;E6;NN;NN;NN;NN;NN;NN;NN;E1;E2;E3" + "_" +
                          "E1;E2;E2;E2;E2;E2;E2;E3;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -232,38 +254,41 @@ namespace Dash
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;M1;U2;M3;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;W7;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W9;NN;NN;SR" + "_" +
                          "SL;NN;NN;E1;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E3;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BV" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BV" + "_" +
                          "W7;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
 
                     #endregion
+
                     break;
-                case 7: 
+                case 7:
                     time = 999;
+
                     #region Level7
+
                     lm = "ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S9" + "_" +
+                         "PL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;PL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "W7;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;W8;NN;NN;SR" + "_" +
                          "E1;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E3;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                         "SL;NN;NN;NN;F7;F8;F8;F8;F9;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BV" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BV" + "_" +
+                         "SL;NN;NN;NN;F7;F8;F8;F8;F9;NN;NN;NN;NN;NN;NN;NN;NN;BV" + "_" +
                          "SL;NN;NN;NN;U4;IH;IH;IH;U6;W7;W8;W8;W7;W8;W9;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;DV;NN;NN;NN;NN;NN;NN;BR;E4;SP;E6;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E1;E2;E3;NN;NN;SR" + "_" +
@@ -271,66 +296,74 @@ namespace Dash
                          "SL;H7;NN;NN;NN;NN;NN;NN;U8;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "F7;F8;F8;F8;F8;F8;F8;F9;U2;SB;SB;SB;SB;SB;SB;SB;SB;S3";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
-                case 8: 
+                case 8:
                     time = 999;
+
                     #region Level8
+
                     lm = "M9;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;OO;ST;ST;ST;S9" + "_" +
-                         "M6;NN;NN;NN;V11;NN;NN;NN;NN;NN;NN;NN;NN;DV;NN;NN;NN;SR" + "_" +
+                         "M6;NN;NN;NN;VB11;NN;NN;NN;NN;NN;NN;NN;NN;DV;NN;NN;NN;SR" + "_" +
                          "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BR;OO" + "_" +
                          "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "M3;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;U4;IH;IH;IH;U6" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;PLNN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BR;OO" + "_" +
+                         "PL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BR;OO" + "_" +
                          "WB;WB;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "M3;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;U4;IH;IH;IH;U6" + "_" +
                          "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;DV;NN;NN;NN;SR" + "_" +
                          "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "M9;H12;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9;OO;NN;NN;NN;SR";
+                         "F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9;OO;BH;BH;BH;SR";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
                 case 9:
                     time = 999;
+
                     #region Level9
+
                     lm = "S7;ST;ST;ST;ST;ST;ST;ST;ST;ST;NN;NN;NN;U8;ST;ST;ST;ST" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;PL;NN;IV;NN;NN;NN;NN" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;IV;NN;NN;NN;NN" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;PL;NN;IV;NN;NN;NN;BV" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;IV;NN;NN;NN;BV" + "_" +
                          "SL;NN;NN;NN;F7;F8;F8;F8;F8;F8;F9;W7;W9;U2;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;E1;E2;E2;N9;R5;R5;SV;SV;SV;E6;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;E4;H7;H9;R5;R5;R5;E6;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;E4;H1;H3;R5;R5;SP;E6;V7;NN;NN;SR" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;E4;H1;H3;R5;R5;SP;E6;VB7;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;E4;R5;R5;R5;R5;SP;E6;NN;NN;NN;SR" + "_" +
                          "F7;F8;F9;NN;NN;NN;NN;E4;R5;R5;SH;R5;R5;E6;NN;NN;NN;SR" + "_" +
                          "E1;E2;E5;NN;NN;NN;NN;E1;E2;E2;E2;E2;E2;E3;NN;NN;NN;SR" + "_" +
@@ -339,94 +372,106 @@ namespace Dash
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "W7;W9;F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9;W7;W9";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
-                case 10: 
+                case 10:
                     time = 999;
+
                     #region Level10
+
                     lm = "E2;E2;E2;E2;E2;E3;ST;ST;ST;ST;ST;E1;E2;E2;E2;E2;E2;E2" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "PL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;PL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "WB;WB;WB;WB;WB;WB;WB;NN;NN;NN;NN;WB;WB;WB;WB;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;H7;NN;NN;NN;NN;NN;NN;E7;M9;V5;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "SL;HM7;NN;NN;NN;NN;NN;NN;E7;M9;VM5;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;E4;M3;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;E4;M3;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;E4;M3;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;V7;NN;NN;NN;NN;NN;NN;E1;M6;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "BV;NN;NN;NN;NN;NN;NN;NN;E4;M3;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "BV;NN;NN;NN;NN;NN;NN;NN;E4;M3;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "BV;VM7;NN;NN;NN;NN;NN;NN;E1;M6;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "F7;F8;F8;F8;F8;F8;F8;F9;HV;SB;SB;SB;SB;SB;SB;SB;SB;S3";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
-                case 11: 
+                case 11:
                     time = 999;
+
                     #region Level11
+
                     lm = "ST;ST;ST;ST;ST;ST;R7;R9;ST;ST;ST;ST;ST;ST;ST;ST;ST;S9" + "_" +
-                         "NN;NN;NN;NN;NN;NN;R4;R6;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "PL;NN;NN;NN;NN;NN;R4;R6;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "NN;NN;NN;NN;NN;NN;R4;R6;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "WB;WB;WB;NN;NN;NN;R1;R3;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "E1;E2;E3;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;F7;F8;F9;NN;NN;NN;NN" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;F1;F2;F3;NN;NN;NN;NN" + "_" +
-                         "SL;H16;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BV" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;F7;F8;F9;NN;NN;NN;BV" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;F1;F2;F3;NN;NN;NN;BV" + "_" +
+                         "SL;HB16;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
                 case 12:
                     time = 999;
+
                     #region Level12
-                    lm = "S7;OO;ST;ST;ST;ST;ST;ST;ST;ST;NN;NN;NN;ST;ST;ST;ST;M7" + "_" +
+
+                    lm = "S7;OO;ST;ST;ST;ST;ST;ST;ST;ST;BH;BH;BH;ST;ST;ST;ST;M7" + "_" +
                          "SL;BT;NN;NN;NN;NN;NN;NN;NN;NN;DH;NN;NN;NN;NN;NN;V11;M4" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;DH;NN;NN;NN;NN;NN;NN;M4" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
@@ -434,37 +479,41 @@ namespace Dash
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
+                         "PL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
                          "WB;WB;WB;WB;WB;WB;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
                          "R7;R8;R8;R8;R8;R9;BL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
-                         "R4;R5;R5;H7;H9;R6;H11;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M1" + "_" +
+                         "R4;R5;R5;H7;H9;R6;HB11;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M1" + "_" +
                          "R1;R2;R2;H1;H3;R3;F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
                 case 13:
                     time = 999;
+
                     #region Level13
-                    lm = "S7;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;NN;NN;NN;S9" + "_" +
+
+                    lm = "S7;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;BH;BH;BH;S9" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;H16;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "SL;HB16;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9;SR" + "_" +
                          "SL;NN;NN;NN;R7;R8;R8;R8;R8;R8;R9;E7;E8;E8;E8;E8;E8;E9" + "_" +
                          "SL;NN;NN;NN;R4;R3;R2;SG;SG;SG;R3;E1;E2;E2;N9;SH;R5;R5" + "_" +
@@ -472,64 +521,72 @@ namespace Dash
                          "SL;NN;NN;NN;R4;R6;NN;NN;NN;NN;NN;NN;NN;NN;E4;R5;R5;R5" + "_" +
                          "SL;NN;NN;NN;R1;R3;NN;NN;NN;NN;NN;NN;NN;NN;E4;R5;R5;R5" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;W7;W9;NN;NN;NN;E4;R5;H7;H9" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;NN;E4;R5;H1;H3" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;PL;NN;E4;R5;H1;H3" + "_" +
                          "S1;SB;SB;SB;SB;SB;SB;SB;SB;E4;E6;NN;NN;NN;E4;R5;R5;R5";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
                 case 14:
                     time = 999;
+
                     #region Level14
+
                     lm = "S7;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S9" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;R7;R8;R8;R9;NN;NN;NN;NN;NN;NN;E7;E9;NN;NN;SR" + "_" +
                          "SL;NN;NN;R4;SV;SV;R6;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
-                         "SL;NN;NN;R1;R2;R2;R3;V7;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
+                         "SL;NN;NN;R1;R2;R2;R3;VB7;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
                          "SL;NN;NN;F1;F2;F2;F3;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
                          "SL;NN;NN;F7;F8;F8;F9;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
-                         "SL;NN;NN;R7;R8;R8;R9;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
-                         "F7;F8;F9;R1;R2;R2;R3;SB;SB;SB;NN;NN;NN;E1;E3;NN;NN;SR";
+                         "SL;NN;NN;R7;R8;R8;R9;NN;NN;NN;NN;NN;NN;E4;E6;PL;NN;SR" + "_" +
+                         "F7;F8;F9;R1;R2;R2;R3;SB;SB;SB;BH;BH;BH;E1;E3;NN;NN;SR";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
                 case 15:
                     time = 999;
+
                     #region Level15
+
                     lm = "F1;F2;F3;ST;ST;ST;F1;F2;F2;F3;NN;NN;NN;ST;ST;ST;ST;S9" + "_" +
-                         "M9;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "M9;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;PL;NN;NN;NN;NN;NN;SR" + "_" +
                          "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;E7;E8;E8;E9;NN;NN;NN;SR" + "_" +
                          "M3;NN;NN;NN;NN;NN;NN;NN;NN;NN;E1;E2;E2;E3;NN;NN;NN;SR" + "_" +
@@ -541,27 +598,31 @@ namespace Dash
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M7" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
                          "SL;NN;2L;PM;2R;NN;R7;R9;NN;NN;NN;NN;NN;NN;NN;NN;NN;M1" + "_" +
-                         "F7;F8;F8;F8;F8;F9;R1;R3;NN;NN;NN;F7;F8;F8;F8;F8;F8;F9";
+                         "F7;F8;F8;F8;F8;F9;R1;R3;BH;BH;BH;F7;F8;F8;F8;F8;F8;F9";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
                 case 16:
                     time = 999;
+
                     #region Level16
+
                     lm = "S7;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S9" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;V9;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
@@ -569,40 +630,44 @@ namespace Dash
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;R4;SH;R6" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;R1;R2;R3" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;HR" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;HR" + "_" +
+                         "PL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;HR" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;HR" + "_" +
                          "W8;W8;W8;W8;W9;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;HR" + "_" +
-                         "E4;X7;X9;R5;E6;H12;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "E4;X7;X9;R5;E6;HB12;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "E4;X1;X3;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "E1;E2;E2;E2;E3;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SV;SV;SP;SP;E6;F7;F8;F8;F8;F8;F8;F8;F9;NN;NN;NN;NN;S3";
+                         "SV;SV;SP;SP;E6;F7;F8;F8;F8;F8;F8;F8;F9;BH;BH;BH;BH;S3";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
                 case 17:
                     time = 999;
+
                     #region Level17
-                    lm = "S7;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S9" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;SR" + "_" +
+
+                    lm = "S7;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;NN;NN;S9" + "_" +
+                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;PL;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;SR" + "_" +
                          "SL;NN;NN;S7;ST;ST;F1;F3;ST;ST;ST;S9;NN;NN;SR;NN;NN;SR" + "_" +
                          "SL;NN;NN;SL;NN;NN;NN;NN;NN;NN;NN;SL;NN;NN;SR;NN;NN;DV" + "_" +
-                         "SL;NN;NN;SL;NN;NN;NN;NN;NN;NN;BR;SL;NN;NN;SR;NN;NN;NN" + "_" +
-                         "SL;NN;NN;SL;NN;NN;NN;NN;NN;NN;NN;SL;NN;NN;SR;NN;NN;NN" + "_" +
+                         "SL;NN;NN;SL;NN;NN;NN;NN;NN;NN;BR;SL;NN;NN;SR;NN;NN;BV" + "_" +
+                         "SL;NN;NN;SL;NN;NN;NN;NN;NN;NN;NN;SL;NN;NN;SR;NN;NN;BV" + "_" +
                          "SL;NN;NN;SL;NN;NN;F7;F9;SB;SB;SB;S3;NN;NN;SR;NN;NN;SR" + "_" +
                          "SL;NN;NN;SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;SR" + "_" +
                          "SL;NN;NN;SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;SR" + "_" +
@@ -611,123 +676,137 @@ namespace Dash
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "S1;SB;SB;SB;SB;SB;SB;SB;SB;SB;SB;SB;SB;SB;SB;SB;SB;S3";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
                 case 18:
                     time = 999;
+
                     #region Level18
+
                     lm = "S7;ST;ST;ST;ST;R5;ST;ST;ST;ST;ST;R5;ST;ST;ST;ST;ST;S9" + "_" +
                          "SL;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;BL;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SR" + "_" +
                          "NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
-                         "NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
+                         "PL;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
                          "NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
                          "DH;NN;NN;W2;W2;W2;W2;W2;W2;W2;W2;W2;W2;W2;R5;NN;NN;SR" + "_" +
-                         "SL;NN;SG;NN;NN;V5;NN;V5;NN;V5;NN;V5;NN;NN;SG;NN;NN;SR" + "_" +
+                         "SL;NN;SG;NN;NN;VM5;NN;VM5;NN;VM5;NN;VM5;NN;NN;SG;NN;NN;SR" + "_" +
                          "SL;NN;SG;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "BV;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "BV;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "BV;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
                 case 19:
                     time = 999;
+
                     #region Level19
+
                     lm = "M9;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;S9" + "_" +
-                         "M6;V7;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "M6;VM7;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;V7;W7;W9;NN;NN;SR" + "_" +
+                         "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;VM7;W7;W9;NN;NN;SR" + "_" +
                          "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;X7;X9;NN;NN;SR" + "_" +
                          "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;X1;X3;NN;NN;SR" + "_" +
                          "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E7;E9;NN;NN;SR" + "_" +
                          "M3;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
                          "U4;IH;IH;IH;U6;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;SR" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;NN;PC;PC;PC;NN;E1;E3;NN;NN;SR" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;NN" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;NN" + "_" +
+                         "BV;NN;NN;NN;NN;NN;NN;NN;NN;PC;PC;PC;NN;E1;E3;NN;NN;SR" + "_" +
+                         "BV;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;NN" + "_" +
+                         "BV;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;PL;NN" + "_" +
                          "SL;NN;NN;PC;PC;PC;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;NN" + "_" +
                          "F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9;W7;W8;W9;SB;SB;SB";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
                 case 20:
                     time = 999;
+
                     #region Level20
+
                     lm = "S7;ST;ST;ST;ST;ST;S9;ST;ST;SG;ST;ST;ST;ST;ST;ST;ST;S9" + "_" +
                          "SL;NN;NN;NN;NN;BT;SR;NN;NN;DV;NN;NN;SR;NN;NN;NN;NN;SR" + "_" +
-                         "SL;H5;NN;NN;NN;NN;SR;NN;NN;NN;NN;NN;SR;NN;NN;NN;NN;SR" + "_" +
-                         "SL;H5;NN;NN;NN;NN;SR;NN;NN;NN;NN;NN;NN;NN;NN;SL;NN;SR" + "_" +
+                         "SL;HM5;NN;NN;NN;NN;SR;NN;NN;NN;NN;NN;SR;NN;NN;NN;NN;SR" + "_" +
+                         "SL;HM5;NN;NN;NN;NN;SR;NN;NN;NN;NN;NN;NN;NN;NN;SL;NN;SR" + "_" +
                          "SL;NN;NN;F7;F8;F9;S3;NN;NN;SG;NN;NN;NN;NN;NN;SL;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;PC;PC;OO;ST;ST;ST;ST;ST;C3;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "DH;NN;NN;ST;ST;ST;ST;ST;ST;E9;NN;NN;S7;ST;ST;ST;ST;ST" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;V4;M7;E6;NN;NN;SL;NN;NN;NN;NN;NN" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;M4;E6;NN;NN;SL;NN;NN;NN;NN;NN" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;M4;E6;NN;NN;NN;NN;NN;E7;E8;E8" + "_" +
+                         "BV;NN;NN;NN;NN;NN;NN;PS4;M7;E6;NN;NN;SL;NN;NN;NN;PL;NN" + "_" +
+                         "BV;NN;NN;NN;NN;NN;NN;NN;M4;E6;NN;NN;SL;NN;NN;NN;NN;NN" + "_" +
+                         "BV;NN;NN;NN;NN;NN;NN;NN;M4;E6;NN;NN;NN;NN;NN;E7;E8;E8" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;M1;E6;NN;NN;NN;NN;NN;R4;H7;H9" + "_" +
                          "S1;SB;SB;SB;SB;SB;SB;SB;SB;E3;SB;SB;SB;SB;SB;E4;H1;H3";
 
-                    bm = "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
-                         "G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+
                     #endregion
+
                     break;
             }
 
@@ -756,10 +835,10 @@ namespace Dash
             GameObject[,] lvlMap = new GameObject[temp.Length, temp[0].Split(';').Length];
 
             int y = 0;
-            foreach (string s1 in temp) // loop thru map strings
+            foreach (string s1 in temp)
             {
                 int x = 0;
-                foreach (string s2 in s1.Split(';')) //loop thru map strings split on ;
+                foreach (string s2 in s1.Split(';'))
                 {
                     List<Rect> collisionBoxes;
                     switch (s2)
@@ -767,9 +846,11 @@ namespace Dash
                         case "OO":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "img2.jpg", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "imG4.jpg", collisionBoxes);
                             break;
+
                         #region Buttons
+
                         //case "B1":
                         //    collisionBoxes = new List<Rect>();
                         //    collisionBoxes.Add(new Rect(new PointF(0,0),48,48));
@@ -810,13 +891,21 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
                             lvlMap[y, x] = new TriggerBlock(1, new PointF(x * 48, y * 48), "Graphics\\BT.gif;Graphics\\B4.gif", collisionBoxes);
                             break;
-                        case "BE":
+                        case "BH":
                             collisionBoxes = new List<Rect>();
-                            collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
+                            collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
                             lvlMap[y, x] = new TriggerBlock(2, new PointF(x * 48, y * 48), "", collisionBoxes);
                             break;
+                        case "BV":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(48, 0), 24, 48));
+                            lvlMap[y, x] = new TriggerBlock(2, new PointF(x * 48, y * 48), "", collisionBoxes);
+                            break;
+
                         #endregion
+
                         #region Corners (half-tile)
+
                         case "C1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(24, 0), 24, 24));
@@ -837,8 +926,11 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 24), 24, 24));
                             lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\C9.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         #region Doors
+
                         case "DH":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 144, 48));
@@ -849,8 +941,11 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 144));
                             lvlMap[y, x] = new GateBlock(new PointF(x * 48, y * 48), "Graphics\\DV.gif;Graphics\\D1.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         #region Edges
+
                         case "E1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
@@ -891,8 +986,11 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
                             lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\E9.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         #region Floor/Ceiling spikes (hor. surf.)
+
                         case "F1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 24));
@@ -933,15 +1031,18 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(24, 0), 48, 24));
                             lvlMap[y, x] = new Enemy(new PointF(x * 48, y * 48), "Graphics\\F9.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         #region Background tiles
+
                         case "G1":
                             collisionBoxes = new List<Rect>();
                             lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\G1.gif", collisionBoxes);
                             break;
                         case "G2":
                             collisionBoxes = new List<Rect>();
-                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\G2.gif", collisionBoxes);
+                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\G2gif", collisionBoxes);
                             break;
                         case "G3":
                             collisionBoxes = new List<Rect>();
@@ -995,8 +1096,11 @@ namespace Dash
                             collisionBoxes = new List<Rect>();
                             lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\Q5.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         #region Hole blocks
+
                         case "H1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
@@ -1017,8 +1121,11 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
                             lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\H9.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         #region Indented blocks
+
                         case "I1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
@@ -1049,8 +1156,11 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
                             lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\IH.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         #region Mounted spikes (vert. surf.)
+
                         case "M1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(24, 0), 24, 48));
@@ -1091,8 +1201,11 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 24), 24, 48));
                             lvlMap[y, x] = new Enemy(new PointF(x * 48, y * 48), "Graphics\\KR.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         #region Nub-corners
+
                         case "N1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
@@ -1113,42 +1226,71 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
                             lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\N9.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         #region Platforms
-                        case "VB":
+
+                        case "VB7":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 144, 48));
-                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\VB.gif", collisionBoxes);
+                            lvlMap[y, x] = new MovableBlock(100, 2, 5, new PointF(x * 48, y * 48), "Graphics\\VB.gif", collisionBoxes);
                             break;
-                        case "HB":
+                        case "VB11":
                             collisionBoxes = new List<Rect>();
-                            collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 144));
-                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\HB.gif", collisionBoxes);
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 144, 48));
+                            lvlMap[y, x] = new MovableBlock(100, 2, 9, new PointF(x * 48, y * 48), "Graphics\\VB.gif", collisionBoxes);
+                            break;
+                        case "HB9":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 144, 48));
+                            lvlMap[y, x] = new MovableBlock(100, 4, 7, new PointF(x * 48, y * 48), "Graphics\\HB.gif", collisionBoxes);
+                            break;
+                        case "HB11":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 144, 48));
+                            lvlMap[y, x] = new MovableBlock(100, 4, 9, new PointF(x * 48, y * 48), "Graphics\\HB.gif", collisionBoxes);
                             break;
                         case "HB12":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 144, 48));
-                            lvlMap[y, x] = new MovableBlock(100,4,9,new PointF(x * 48, y * 48), "Graphics\\HB.gif", collisionBoxes);
-                            int distance = 12;
-                            int direction = 4;
+                            lvlMap[y, x] = new MovableBlock(100, 4, 10, new PointF(x * 48, y * 48), "Graphics\\HB.gif", collisionBoxes);
                             break;
-                        case "VM":
+                        case "HB16":
                             collisionBoxes = new List<Rect>();
-                            collisionBoxes.Add(new Rect(new PointF(0, 0), 96, 48));
-                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\VM.gif", collisionBoxes);
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 144, 48));
+                            lvlMap[y, x] = new MovableBlock(100, 4, 14, new PointF(x * 48, y * 48), "Graphics\\HB.gif", collisionBoxes);
                             break;
-                        case "HM":
+                        case "VM5":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 96));
-                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\HM.gif", collisionBoxes);
+                            lvlMap[y, x] = new MovableBlock(100, 2, 4, new PointF(x * 48, y * 48), "Graphics\\VM.gif", collisionBoxes);
                             break;
-                        case "PS":
+                        case "VM7":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 96));
+                            lvlMap[y, x] = new MovableBlock(100, 2, 6, new PointF(x * 48, y * 48), "Graphics\\VM.gif", collisionBoxes);
+                            break;
+                        case "HM5":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 96, 48));
+                            lvlMap[y, x] = new MovableBlock(100, 4, 4, new PointF(x * 48, y * 48), "Graphics\\HM.gif", collisionBoxes);
+                            break;
+                        case "HM7":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 96, 48));
+                            lvlMap[y, x] = new MovableBlock(100, 4, 6, new PointF(x * 48, y * 48), "Graphics\\HM.gif", collisionBoxes);
+                            break;
+                        case "PS4":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
-                            lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\PS.gif", collisionBoxes);
+                            lvlMap[y, x] = new MovableBlock(100, 2, 4, new PointF(x * 48, y * 48), "Graphics\\PS.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         #region Player
+
                         case "PL":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 96, 96));
@@ -1156,6 +1298,7 @@ namespace Dash
                             break;
                         #endregion
                         #region Rivet-blocks
+
                         case "R1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
@@ -1201,8 +1344,11 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
                             lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\R9.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         #region Solid half-tiles and dec. full-tiles
+
                         case "S1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 24, 48));
@@ -1267,8 +1413,11 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
                             lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\SV.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         #region U-shaped blocks
+
                         case "U2":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
@@ -1289,8 +1438,11 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
                             lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\U8.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         #region Walkways
+
                         case "W7":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
@@ -1311,8 +1463,11 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 24), 48, 24));
                             lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\WB.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         #region X-marked blocks
+
                         case "X1":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
@@ -1333,7 +1488,9 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
                             lvlMap[y, x] = new GridBlock(new PointF(x * 48, y * 48), "Graphics\\X9.gif", collisionBoxes);
                             break;
+
                         #endregion
+
                         default:
                             lvlMap[y, x] = null;
                             break;
