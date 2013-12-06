@@ -99,7 +99,8 @@ namespace Dash
         /// <summary>
         /// Checks for collisions with crumbling blocks
         /// </summary>
-        /// <param name="g"></param>
+        /// <param name="g">Gameobject to check</param>
+        /// <param name="fps">Current fps the program is running at</param>
         private void CheckCrumblingCollisions(GameObject g, float fps)
         {
             foreach (Rect r in collisionBoxes) //loops through all the Collisionboxes for player object
@@ -187,7 +188,6 @@ namespace Dash
         /// Checks for collisions with solid objects
         /// </summary>
         /// <param name="g">GameObject to check</param>
-        /// <param name="playerState">Reference to the state of the player.</param>
         /// <param name="fps">Current fps the program is running at</param>
         private void CheckBlockCollisions(GameObject g, float fps)
         {

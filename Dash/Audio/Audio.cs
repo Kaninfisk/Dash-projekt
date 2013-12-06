@@ -111,7 +111,7 @@ namespace Dash
         /// <summary>
         /// Method that plays sound-fx thru the sound-fx engine
         /// </summary>
-        /// <param name="FilePath">Path to audio file</param>
+        /// <param name="filePath">Path to audio file</param>
         public static void PlaySoundFX(string filePath)
         {
             soundFXEngine.Play2D(filePath, false);
