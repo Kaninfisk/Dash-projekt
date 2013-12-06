@@ -166,10 +166,6 @@ namespace Dash
             p.AddString(tekst, pf.Families[0], 0, 32, pos, stringFormat);
             dc.DrawPath(new Pen(b3, 6), p);
             dc.FillPath(b, p);
-
-#if DEBUG
-            dc.DrawString(currentFPS.ToString(), f, b, 800, 0);
-#endif
         }
 
         /// <summary>
@@ -219,21 +215,21 @@ namespace Dash
         /// </summary>
         private void RestartLevel()
         {
-            if (playerState == 1 && cLevel != 20) //if player finished current level and currentlevel is not 20 save time in log and go to next level
+            if (playerState == 1) //if player finished current level and currentlevel is not 20 save time in log and go to next level
             {
                 WriteLog("lvltimes.txt", "Level: " + cLevel + " Tid: " + Math.Round(currentLevel.Time - t, 2) + Environment.NewLine);
                 cLevel++;
                 cutScenePlayed = false;
             }
 
-            if ((cLevel == 1 || cLevel == 6 || cLevel == 11 || cLevel == 16) && !cutScenePlayed) //if thre is cutscene for the currentlevel enable cutscenes and set cutscene played to true so it only plays once per level
+            if ((cLevel == 1 || cLevel == 6 || cLevel == 11 || cLevel == 16 || cLevel == 21) && !cutScenePlayed) //if thre is cutscene for the currentlevel enable cutscenes and set cutscene played to true so it only plays once per level
             {
-                cutScene = 0;
+                cutScene = 1;
                 cutScenePlayed = true;
             }
 
             playerState = 0;
-            currentLevel = new Level(20);
+            currentLevel = new Level(cLevel);
             t = currentLevel.Time;
             alpha = 0;
         }
@@ -259,7 +255,31 @@ namespace Dash
             {
                 dc.DrawImage(Image.FromFile("Graphics/scene4.gif"), 0, 0, 864, 672);
             }
-            cutScene -= 1 / currentFPS;
+            else if (cLevel == 21)
+            {
+                dc.DrawImage(Image.FromFile("Graphics/scene5.gif"), 0, 0, 864, 672);
+            }
+
+            Brush b = new SolidBrush(Color.FromArgb(255, 133, 149, 161));
+            Brush b3 = new SolidBrush(Color.FromArgb(255, 20, 12, 28));
+            PrivateFontCollection pf = new PrivateFontCollection();
+            Point pos = new Point(432, 590);
+            GraphicsPath p = new GraphicsPath();
+            string tekst = "Press space to continue";
+            StringFormat stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
+            pf.AddFontFile("Graphics\\Font.ttf");
+            p.AddString(tekst, pf.Families[0], 0, 32, pos, stringFormat);
+            dc.DrawPath(new Pen(b3, 6), p);
+            dc.FillPath(b, p);
+
+
+            if (Keyboard.IsKeyDown(Keys.Space))
+            {
+                cutScene = 0;
+            }
+            
         }
 
         /// <summary>
