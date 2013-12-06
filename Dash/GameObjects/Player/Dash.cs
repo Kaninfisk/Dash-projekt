@@ -79,7 +79,7 @@ namespace Dash
                 {
                     if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
                     {
-                        CrumblingBlock c = (CrumblingBlock) g;
+                        CrumblingBlock c = (CrumblingBlock)g;
                         c.Crumbling = true;
                         falling = false;
                         position.Y = g.Position.Y + r2.Position.Y - collisionBoxes[0].HitBox(Position.X, Position.Y).Height;
@@ -173,7 +173,6 @@ namespace Dash
                             dashRight = false;
                             falling = true;
                             position.X = g.Position.X + r2.Position.X - collisionBoxes[0].HitBox(position.X, position.Y).Width;
-                            fallDelay = DateTime.Now;
                         }
                     }
                 }
@@ -192,7 +191,6 @@ namespace Dash
                         {
                             dashLeft = false;
                             falling = true;
-                            fallDelay = DateTime.Now;
                             position.X = g.Position.X - r2.Position.X + r2.HitBox(g.Position.X, g.Position.Y).Width;
                         }
                     }
@@ -222,7 +220,7 @@ namespace Dash
                 foreach (Rect r in collisionBoxes)
                 {
                     RectangleF rect = r.HitBox(position.X, position.Y);
-                    rect.Offset(0, (speed / 3 * 2) * (1 / fps));
+                    rect.Offset(0, ((speed / 100) * 100) * (1 / fps));
 
                     foreach (Rect r2 in g.CollisionBoxes)
                     {
@@ -238,7 +236,7 @@ namespace Dash
             {
                 foreach (Rect r in collisionBoxes)
                 {
-                    RectangleF rect = r.HitBox(position.X, position.Y+10);
+                    RectangleF rect = r.HitBox(position.X, position.Y + 10);
 
                     foreach (Rect r2 in g.CollisionBoxes)
                     {
@@ -347,9 +345,9 @@ namespace Dash
                 }
                 position.X += speed * (1 / fps);
             }
-            else if (falling && DateTime.Now > fallDelay.AddMilliseconds(50))
+            else if (falling && DateTime.Now > fallDelay.AddMilliseconds(20))
             {
-                position.Y += ((speed /3) * 2) * (1 / fps);
+                position.Y += ((speed / 100) * 100) * (1 / fps);
             }
         }
     }
