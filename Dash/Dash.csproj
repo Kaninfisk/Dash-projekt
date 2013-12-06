@@ -159,6 +159,12 @@
     <Content Include="Graphics\C9.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Graphics\CC.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Graphics\CP.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Graphics\D1.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
