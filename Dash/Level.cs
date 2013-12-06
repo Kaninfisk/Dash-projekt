@@ -290,7 +290,7 @@ namespace Dash
                          "SL;NN;NN;NN;NN;NN;R2;DH;NN;NN;R4;R6;NN;NN;NN;NN;NN;BVR" + "_" +
                          "SL;NN;NN;CP;NN;NN;NN;NN;NN;NN;R4;R6;NN;NN;NN;NN;NN;BVR" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;R4;R5;R8;R8;R8;R8;R8;R9" + "_" +
-                         "SL;NN;BB;NN;NN;NN;NN;NN;NN;NN;R4;R5;R5;R5;R5;R5;R5;R6" + "_" +
+                         "SL;NN;BB1;NN;NN;NN;NN;NN;NN;NN;R4;R5;R5;R5;R5;R5;R5;R6" + "_" +
                          "R7;R8;R9;NN;NN;NN;NN;NN;NN;NN;R4;R5;R5;R5;R5;R5;R5;R6" + "_" +
                          "R4;R5;R6;NN;NN;NN;NN;R7;R8;R8;R5;R5;R5;R5;R5;R5;R5;R6" + "_" +
                          "R4;R5;R6;F7;F8;F8;F9;R4;R5;R5;R5;R5;R5;R5;R5;R5;R5;R6" + "_" +
@@ -320,12 +320,12 @@ namespace Dash
                     #region Level8
 
                     lm = "M9;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;DV;ST;ST;ST;S9" + "_" +
-                         "M6;NN;NN;NN;VB11;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BR" + "_" +
+                         "M6;NN;NN;NN;VB11;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BR2" + "_" +
                          "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;U4;IH;IH;IH;U6" + "_" +
                          "M3;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "PL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BR" + "_" +
+                         "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;BR1" + "_" +
                          "WB;WB;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "M6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "M3;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;U4;IH;IH;IH;U6" + "_" +
@@ -471,7 +471,7 @@ namespace Dash
 
                     #region Level12
 
-                    lm = "S7;BT;ST;ST;ST;ST;ST;ST;ST;S9;BHT;BHT;BHT;S7;ST;ST;ST;M7" + "_" +
+                    lm = "S7;BT1;ST;ST;ST;ST;ST;ST;ST;S9;BHT;BHT;BHT;S7;ST;ST;ST;M7" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;SR;DH;NN;NN;SL;NN;NN;VB11;M4" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;SR;DH;NN;NN;SL;NN;NN;NN;M4" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
@@ -482,7 +482,7 @@ namespace Dash
                          "NN;PL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
                          "NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
                          "WB;WB;WB;WB;WB;WB;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
-                         "R7;R8;R8;R8;R8;R9;BL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
+                         "R7;R8;R8;R8;R8;R9;BL1;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M4" + "_" +
                          "R4;R5;R5;H7;H9;R6;HB11;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;M1" + "_" +
                          "R1;R2;R2;H1;H3;R3;F7;F8;F8;F8;F8;F8;F8;F8;F8;F8;F8;F9";
 
@@ -665,7 +665,7 @@ namespace Dash
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;PL;NN;E4" + "_" +
                          "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
                          "SL;NN;NN;E7;E8;E8;E8;E8;E8;E8;E8;E8;E8;E8;E8;E8;E8;R3" + "_" +
-                         "SL;NN;NN;E4;NN;BT;NN;R5;NN;NN;NN;NN;NN;R5;NN;NN;NN;DV" + "_" +
+                         "SL;NN;NN;E4;NN;BT2;NN;R5;NN;NN;NN;NN;NN;R5;NN;NN;NN;DV" + "_" +
                          "SL;NN;NN;E4;NN;NN;NN;F1;NN;NN;NN;NN;NN;R5;NN;NN;NN;BVR" + "_" +
                          "SL;NN;NN;E4;NN;NN;NN;NN;NN;NN;NN;NN;NN;R5;NN;NN;NN;BVR" + "_" +
                          "SL;NN;NN;E4;NN;NN;NN;NN;NN;NN;NN;NN;NN;R5;NN;NN;NN;E7" + "_" +
@@ -701,7 +701,7 @@ namespace Dash
 
                     lm = "S7;ST;ST;ST;ST;R5;ST;ST;ST;ST;ST;R5;ST;ST;ST;ST;ST;S9" + "_" +
                          "SL;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;BL;NN;NN;NN;NN;SR" + "_" +
+                         "SL;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;BL2;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SR" + "_" +
                          "NN;NN;SR;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
                          "PL;NN;SR;NN;NN;NN;NN;NN;SG;NN;NN;NN;NN;NN;SG;NN;NN;SR" + "_" +
@@ -775,7 +775,7 @@ namespace Dash
 
                     #region Level20
 
-                    lm = "S7;ST;ST;BT;ST;R5;ST;ST;R5;ST;ST;R5;ST;ST;BT;ST;ST;S9" + "_" +
+                    lm = "S7;ST;ST;BT4;ST;R5;ST;ST;R5;ST;ST;R5;ST;ST;BT3;ST;ST;S9" + "_" +
                          "SL;NN;NN;NN;NN;R5;NN;NN;DV;NN;NN;R5;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;NN;NN;NN;NN;R5;NN;NN;NN;NN;NN;R5;NN;NN;NN;NN;NN;SR" + "_" +
                          "SL;HM3;NN;NN;NN;R5;NN;NN;NN;NN;NN;NN;NN;NN;R5;NN;NN;SR" + "_" +
@@ -855,20 +855,65 @@ namespace Dash
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
                             lvlMap[y, x] = new TriggerBlock(1, new Point(14, 7), new PointF(x * 48, y * 48), "Graphics\\BB.gif;Graphics\\B3.gif", collisionBoxes);
                             break;
+                        case "BB1":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
+                            lvlMap[y, x] = new TriggerBlock(1, new Point(7, 6), new PointF(x * 48, y * 48), "Graphics\\BB.gif;Graphics\\B3.gif", collisionBoxes);
+                            break;
                         case "BL":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
                             lvlMap[y, x] = new TriggerBlock(1, new PointF(x * 48, y * 48), "Graphics\\BL.gif;Graphics\\B2.gif", collisionBoxes);
+                            break;
+                        case "BL1":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0,0), 48, 48));
+                            lvlMap[y, x] = new TriggerBlock(1,new Point(10,2),  new PointF(x * 48, y * 48), "Graphics\\BL.gif;Graphics\\B2.gif", collisionBoxes);
+                            break;
+                        case "BL2":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
+                            lvlMap[y, x] = new TriggerBlock(1, new Point(0, 7), new PointF(x * 48, y * 48), "Graphics\\BL.gif;Graphics\\B2.gif", collisionBoxes);
                             break;
                         case "BR":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
                             lvlMap[y, x] = new TriggerBlock(1, new PointF(x * 48, y * 48), "Graphics\\BR.gif;Graphics\\B1.gif", collisionBoxes);
                             break;
+                        case "BR1":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
+                            lvlMap[y, x] = new TriggerBlock(1,new Point(13,0),  new PointF(x * 48, y * 48), "Graphics\\BR.gif;Graphics\\B1.gif", collisionBoxes);
+                            break;
+                        case "BR2":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
+                            lvlMap[y, x] = new TriggerBlock(1,new Point(13,10),  new PointF(x * 48, y * 48), "Graphics\\BR.gif;Graphics\\B1.gif", collisionBoxes);
+                            break;
                         case "BT":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
                             lvlMap[y, x] = new TriggerBlock(1, new PointF(x * 48, y * 48), "Graphics\\BT.gif;Graphics\\B4.gif", collisionBoxes);
+                            break;
+                        case "BT1":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0,0), 48, 48));
+                            lvlMap[y, x] = new TriggerBlock(1,new Point(10,1),  new PointF(x * 48, y * 48), "Graphics\\BT.gif;Graphics\\B4.gif", collisionBoxes);
+                            break;
+                        case "BT2":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
+                            lvlMap[y, x] = new TriggerBlock(1, new Point(17, 4), new PointF(x * 48, y * 48), "Graphics\\BT.gif;Graphics\\B4.gif", collisionBoxes);
+                            break;
+                        case "BT3":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
+                            lvlMap[y, x] = new TriggerBlock(1, new Point(8, 1), new PointF(x * 48, y * 48), "Graphics\\BT.gif;Graphics\\B4.gif", collisionBoxes);
+                            break;
+                        case "BT4":
+                            collisionBoxes = new List<Rect>();
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
+                            lvlMap[y, x] = new TriggerBlock(1, new Point(0, 8), new PointF(x * 48, y * 48), "Graphics\\BT.gif;Graphics\\B4.gif", collisionBoxes);
                             break;
                         case "BHT":
                             collisionBoxes = new List<Rect>();

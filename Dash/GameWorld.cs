@@ -204,6 +204,7 @@ namespace Dash
 
             gameRunning = false;
             menu = true;
+            cutScenePlayed = false;
             cLevel = 1;
             RestartLevel();
             Audio.StopAllSounds();
@@ -278,6 +279,11 @@ namespace Dash
             if (Keyboard.IsKeyDown(Keys.Space))
             {
                 cutScene = 0;
+            }
+
+            if (cutScene == 0 && cLevel == 21)
+            {
+                SetupGameWorld();
             }
             
         }
