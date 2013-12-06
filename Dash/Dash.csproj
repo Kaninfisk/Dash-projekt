@@ -503,9 +503,6 @@
     <Content Include="Graphics\X9.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="img2.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="ikpMP3.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
