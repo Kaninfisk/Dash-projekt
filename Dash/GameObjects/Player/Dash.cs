@@ -15,8 +15,11 @@ namespace Dash
         private bool falling; //indicates if falling
         private bool direction; //indicates direction for sprite flipping
         private int speed; //players speed
-        private DateTime fallDelay;
+        private DateTime fallDelay; //delay used when u hit the ceiling
 
+        /// <summary>
+        /// Sets falling
+        /// </summary>
         public bool Falling
         {
             set { falling = value; }
@@ -44,23 +47,23 @@ namespace Dash
         /// <param name="playerState">Reference to the state of the player.</param>
         private void CheckCollisions(ref GameObject[,] levelMap, float fps, ref int playerState)
         {
-            foreach (GameObject g in levelMap)
+            foreach (GameObject g in levelMap) //runs thru all the gameobjects in foreground map
             {
-                if (g != null && g.GetType().ToString() == "Dash.TriggerBlock")
+                if (g != null && g.GetType().ToString() == "Dash.TriggerBlock") //if its an object of the type triggerblock 
                 {
                     CheckTriggerCollisions(g, ref playerState, ref levelMap);
                 }
-                else if (g != null && g.GetType().ToString() == "Dash.Enemy")
+                else if (g != null && g.GetType().ToString() == "Dash.Enemy") //if its an object of type enemy
                 {
                     CheckEnemyCollisions(g, ref playerState);
                 }
-                else if (g != null && g.GetType().ToString() == "Dash.CrumblingBlock" && falling)
+                else if (g != null && g.GetType().ToString() == "Dash.CrumblingBlock" && falling) //if its an object of type CrumblingBlock
                 {
-                    CheckCrumblingCollisions(g);
+                    CheckCrumblingCollisions(g, fps);
                 }
-                else if (g != null && g.GetType().ToString() != "Dash.Dash")
+                else if (g != null && g.GetType().ToString() != "Dash.Dash") //else if its any other type of object other than the player object
                 {
-                    CheckBlockCollisions(g, ref playerState, fps);
+                    CheckBlockCollisions(g, fps);
                 }
             }
         }
@@ -69,15 +72,15 @@ namespace Dash
         /// Checks for collisions with crumbling blocks
         /// </summary>
         /// <param name="g"></param>
-        private void CheckCrumblingCollisions(GameObject g)
+        private void CheckCrumblingCollisions(GameObject g, float fps)
         {
-            foreach (Rect r in collisionBoxes)
+            foreach (Rect r in collisionBoxes) //loops through all the Collisionboxes for player object
             {
-                RectangleF rect = r.HitBox(position.X, position.Y + 10);
+                RectangleF rect = r.HitBox(position.X, position.Y + speed * (1 / fps));  //creates rectangle from current hitbox moved 10 pixels down
 
-                foreach (Rect r2 in g.CollisionBoxes)
+                foreach (Rect r2 in g.CollisionBoxes) //loops thru all the collisionboxes for the g object
                 {
-                    if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                    if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with the hitbox stop falling and make it start crumble
                     {
                         CrumblingBlock c = (CrumblingBlock)g;
                         c.Crumbling = true;
@@ -95,13 +98,13 @@ namespace Dash
         /// <param name="playerState">Reference to the state of the player.</param>
         private void CheckEnemyCollisions(GameObject g, ref int playerState)
         {
-            foreach (Rect r in collisionBoxes)
+            foreach (Rect r in collisionBoxes) //loops through all the Collisionboxes for player object
             {
-                RectangleF rect = r.HitBox(position.X, position.Y);
+                RectangleF rect = r.HitBox(position.X, position.Y); //creates rectangle from current hitbox
 
-                foreach (Rect r2 in g.CollisionBoxes)
+                foreach (Rect r2 in g.CollisionBoxes) //loops thru all the collisionboxes for the g object
                 {
-                    if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                    if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with the hitbox stop moving, set playerstate to dead switch to death sprite image and play gameover sound
                     {
                         Audio.PlaySoundFX("Audio\\Game Over_1.mp3");
                         dashRight = false;
@@ -123,26 +126,26 @@ namespace Dash
         /// <param name="levelMap">Reference to the levelmap for current loaded level</param>
         private void CheckTriggerCollisions(GameObject g, ref int playerState, ref GameObject[,] levelMap)
         {
-            foreach (Rect r in collisionBoxes)
+            foreach (Rect r in collisionBoxes) //loops through all the Collisionboxes for player object
             {
-                RectangleF rect = r.HitBox(position.X, position.Y);
+                RectangleF rect = r.HitBox(position.X, position.Y); //creates rectangle from current hitbox
 
-                foreach (Rect r2 in g.CollisionBoxes)
+                foreach (Rect r2 in g.CollisionBoxes) //loops thru all the collisionboxes for the g object
                 {
-                    if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                    if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with the hitbox trigger the button
                     {
                         TriggerBlock t = (TriggerBlock)g;
-                        if (t.Type == 1)
+                        if (t.Type == 1) //if type is 1 then open door linked to the trigger
                         {
                             t.Pressed = true;
-                            if (levelMap[t.Target.Y, t.Target.X] != null && levelMap[t.Target.Y, t.Target.X].GetType().ToString() == "Dash.GateBlock")
+                            if (levelMap[t.Target.Y, t.Target.X] != null && levelMap[t.Target.Y, t.Target.X].GetType().ToString() == "Dash.GateBlock") //if the object linked to the trigger is of type gateblock open it and remove the hitboxes
                             {
                                 GateBlock gate = (GateBlock)levelMap[t.Target.Y, t.Target.X];
                                 gate.Open = true;
                                 gate.CollisionBoxes = new List<Rect>();
                             }
                         }
-                        else if (t.Type == 2)
+                        else if (t.Type == 2) //if type is 2 then playerstate will be set to current level finished
                         {
                             playerState = 1;
                         }
@@ -157,18 +160,19 @@ namespace Dash
         /// <param name="g">GameObject to check</param>
         /// <param name="playerState">Reference to the state of the player.</param>
         /// <param name="fps">Current fps the program is running at</param>
-        private void CheckBlockCollisions(GameObject g, ref int playerState, float fps)
+        private void CheckBlockCollisions(GameObject g, float fps)
         {
-            if (dashRight)
-            {
-                foreach (Rect r in collisionBoxes)
-                {
-                    RectangleF rect = r.HitBox(position.X, position.Y);
-                    rect.Offset(new PointF(speed * (1 / fps), 0));
 
-                    foreach (Rect r2 in g.CollisionBoxes)
+            foreach (Rect r in collisionBoxes) //loops through all the Collisionboxes for player object
+            {
+                RectangleF rect = r.HitBox(position.X, position.Y); //creates rectangle from current hitbox
+                if (dashRight)  //dashing right
+                {
+                    rect.Offset(new PointF(speed * (1 / fps), 0)); //offsets rectangle
+
+                    foreach (Rect r2 in g.CollisionBoxes)  //loops thru all the collisionboxes for the g object
                     {
-                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with hitbox stop dashing right start falling and move to the object
                         {
                             dashRight = false;
                             falling = true;
@@ -176,18 +180,13 @@ namespace Dash
                         }
                     }
                 }
-            }
-            else if (dashLeft)
-            {
-
-                foreach (Rect r in collisionBoxes)
+                else if (dashLeft) //dashing left
                 {
-                    RectangleF rect = r.HitBox(position.X, position.Y);
-                    rect.Offset(-speed * (1 / fps), 0);
+                    rect.Offset(-speed * (1 / fps), 0); //offsets rectangle
 
-                    foreach (Rect r2 in g.CollisionBoxes)
+                    foreach (Rect r2 in g.CollisionBoxes) //loops thru all the collisionboxes for the g object
                     {
-                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with hitbox stop dashing left start falling and move to the object
                         {
                             dashLeft = false;
                             falling = true;
@@ -195,17 +194,13 @@ namespace Dash
                         }
                     }
                 }
-            }
-            else if (dashUp)
-            {
-                foreach (Rect r in collisionBoxes)
+                else if (dashUp) //dashing up
                 {
-                    RectangleF rect = r.HitBox(position.X, position.Y);
-                    rect.Offset(0, -speed * (1 / fps));
+                    rect.Offset(0, -speed * (1 / fps)); //offsets rectagle
 
-                    foreach (Rect r2 in g.CollisionBoxes)
+                    foreach (Rect r2 in g.CollisionBoxes) //loops thru all the collisionboxes for the g object
                     {
-                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with hitbox stop dashing up start falling after a delay and move to the object
                         {
                             dashUp = false;
                             falling = true;
@@ -213,41 +208,29 @@ namespace Dash
                             fallDelay = DateTime.Now;
                         }
                     }
-                }
-            }
-            else if (falling)
-            {
-                foreach (Rect r in collisionBoxes)
-                {
-                    RectangleF rect = r.HitBox(position.X, position.Y);
-                    rect.Offset(0, ((speed / 100) * 100) * (1 / fps));
 
-                    foreach (Rect r2 in g.CollisionBoxes)
+                }
+
+                else if (falling) //falling
+                {
+                    rect.Offset(0, ((speed / 100) * 100) * (1 / fps)); //offsets rectangle
+
+                    foreach (Rect r2 in g.CollisionBoxes) //loops thru all the collisionboxes for the g object
                     {
-                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
+                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with hitbox stop falling and move to object
                         {
                             falling = false;
                             position.Y = g.Position.Y + r2.Position.Y - collisionBoxes[0].HitBox(Position.X, Position.Y).Height;
                         }
                     }
-                }
-            }
-            else
-            {
-                foreach (Rect r in collisionBoxes)
-                {
-                    RectangleF rect = r.HitBox(position.X, position.Y + 10);
 
-                    foreach (Rect r2 in g.CollisionBoxes)
-                    {
-                        if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y)))
-                        {
-                            falling = false;
-                        }
-                    }
                 }
             }
         }
+
+
+
+
 
         /// <summary>
         /// Checks if player is at edge of screen and makes sure that the player object cant go outside the screen area
@@ -255,32 +238,32 @@ namespace Dash
         /// <param name="fps">Current fps the program is running at</param>
         private void CheckEdge(float fps)
         {
-            if (dashUp)
+            if (dashUp) //dashing up
             {
-                if (position.Y - speed * (1 / fps) <= 0)
+                if (position.Y - speed * (1 / fps) <= 0) //if players position is about to move outside screen area stop dashing up and start falling
                 {
                     dashUp = false;
                     falling = true;
                 }
             }
-            else if (dashLeft)
+            else if (dashLeft) //dashing left
             {
-                if (position.X - speed * (1 / fps) <= 0)
+                if (position.X - speed * (1 / fps) <= 0) //if players position is about to move outside screen area stop dashing left and move to edge
                 {
                     dashLeft = false;
                     position.X = 0;
                 }
             }
-            else if (dashRight)
+            else if (dashRight) //dashing right
             {
-                if (position.X + speed * (1 / fps) >= 864 - CollisionBoxes[0].HitBox(position.X, position.Y).Width)
+                if (position.X + speed * (1 / fps) >= 864 - CollisionBoxes[0].HitBox(position.X, position.Y).Width) //if players position is about to move outside screen area stop dashing right and move to edge
                 {
                     dashRight = false;
                 }
             }
-            else if (falling)
+            else if (falling) //falling
             {
-                if (position.Y + speed * (1 / fps) >= 672 - CollisionBoxes[0].HitBox(position.X, position.Y).Height)
+                if (position.Y + speed * (1 / fps) >= 672 - CollisionBoxes[0].HitBox(position.X, position.Y).Height) //if players position is about to move outside screen area stop falling and move to edge
                 {
                     falling = false;
                     position.Y = 672 - CollisionBoxes[0].HitBox(position.X, position.Y).Height;
@@ -297,23 +280,23 @@ namespace Dash
         public override void Update(float fps, ref GameObject[,] levelMap, ref int playerState)
         {
             base.Update(fps, ref levelMap, ref playerState);
-            if (Keyboard.IsKeyDown(Config.RightKey))
+            if (Keyboard.IsKeyDown(Config.RightKey)) //if rightkey is down
             {
-                if (!dashUp && !dashLeft)
+                if (!dashUp && !dashLeft) //if not dashing left or up, dash right
                 {
                     dashRight = true;
                 }
             }
-            else if (Keyboard.IsKeyDown(Config.LeftKey))
+            else if (Keyboard.IsKeyDown(Config.LeftKey)) //if leftkey is down
             {
-                if (!dashUp && !dashRight)
+                if (!dashUp && !dashRight) //if not dashing right or up, dash left
                 {
                     dashLeft = true;
                 }
             }
-            else if (Keyboard.IsKeyDown(Config.UpKey))
+            else if (Keyboard.IsKeyDown(Config.UpKey)) //if upkey is down
             {
-                if (!dashLeft && !dashRight && !falling)
+                if (!dashLeft && !dashRight && !falling) //if not dashing right or left or falling, dash up
                 {
                     dashUp = true;
                 }
@@ -322,13 +305,13 @@ namespace Dash
             CheckEdge(fps);
             CheckCollisions(ref levelMap, fps, ref playerState);
 
-            if (dashUp)
+            if (dashUp) //if dashup move speed multiplied by 1/fps up
             {
                 position.Y -= speed * (1 / fps);
             }
-            else if (dashLeft)
+            else if (dashLeft) //if dashup move speed multiplied by 1/fps left
             {
-                if (!direction)
+                if (!direction) //if changing direction flip playersprite
                 {
                     sprite.RotateFlip(RotateFlipType.RotateNoneFlipX);
                     direction = true;
@@ -336,18 +319,18 @@ namespace Dash
                 position.X -= speed * (1 / fps);
 
             }
-            else if (dashRight)
+            else if (dashRight) //if dashup move speed multiplied by 1/fps right
             {
-                if (direction)
+                if (direction) //if changing direction flip playersprite
                 {
                     sprite.RotateFlip(RotateFlipType.RotateNoneFlipX);
                     direction = false;
                 }
                 position.X += speed * (1 / fps);
             }
-            else if (falling && DateTime.Now > fallDelay.AddMilliseconds(20))
+            else if (falling && DateTime.Now > fallDelay.AddMilliseconds(20)) //if falling and datetime is larger than delay move speed multiplied by 1/fps down
             {
-                position.Y += ((speed / 100) * 100) * (1 / fps);
+                position.Y += speed * (1 / fps);
             }
         }
     }

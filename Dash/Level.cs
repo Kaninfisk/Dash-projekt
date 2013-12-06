@@ -54,7 +54,7 @@ namespace Dash
                     lm = "R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5;R5" + "_" +
                          "R5;R5;N7;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2" + "_" +
                          "R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "R5;R5;E6;PL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
+                         "R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;BB;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;W7;W8;W8;W8;W8;W8;W8;W9;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;R5;R5;R5;R5;R5;E6;NN;NN;NN;SR" + "_" +
@@ -62,7 +62,7 @@ namespace Dash
                          "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "R5;R5;E6;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
                          "E2;E2;E3;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;W7;W8;W8;W8;W8" + "_" +
+                         "NN;PL;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;W7;W8;W8;W8;W8" + "_" +
                          "NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;E4;R5;R5;R5;R5" + "_" +
                          "WB;WB;WB;WB;WB;WB;E4;R5;E6;BE;BE;BE;BE;E4;R5;R5;R5;R5";
 
@@ -756,10 +756,10 @@ namespace Dash
             GameObject[,] lvlMap = new GameObject[temp.Length, temp[0].Split(';').Length];
 
             int y = 0;
-            foreach (string s1 in temp)
+            foreach (string s1 in temp) // loop thru map strings
             {
                 int x = 0;
-                foreach (string s2 in s1.Split(';'))
+                foreach (string s2 in s1.Split(';')) //loop thru map strings split on ;
                 {
                     List<Rect> collisionBoxes;
                     switch (s2)

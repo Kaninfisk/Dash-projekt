@@ -23,8 +23,8 @@ namespace Dash
         private int playerState; //indicates if player is alive or dead
         private int alpha; //alpha value for "death animation"
         private Keys input;  // used for key input
-        private float cutScene;
-        private bool cutScenePlayed;
+        private float cutScene; //used to see if cutscenes should play and for how long
+        private bool cutScenePlayed; //used to see if the cutscenes have played for current level
         
         /// <summary>
         /// Sets input
@@ -58,32 +58,32 @@ namespace Dash
             lastFrameStarted = DateTime.Now;
 
 
-            if (playerState < 2)
+            if (playerState < 2) //if player is not dead clear screen
             {
                 dc.Clear(Color.Gray);
             }
 
-            if (!menu && gameRunning)
+            if (!menu && gameRunning) //if menu is false and gameRunning is true run game
             {
-                if (playerState == 1)
+                if (playerState == 1)   //if player got thru level
                 {
                     RestartLevel();
                 }
-                else if (playerState == 2)
+                else if (playerState == 2) //if player died or time ran out  
                 {
                     DrawFade();
                 }
-                else if (cutScene > 0)
+                else if (cutScene > 0)  //if cutscene should be played
                 {
                     PlayCutScene();
                 }
-                else if (t > 0)
+                else if (t > 0) //if timer is larger than 0 run the game
                 {
                     t -= deltaTime2.TotalSeconds;
                     Update();
                     Draw();
                     DrawUI();
-                    if (Keyboard.IsKeyDown(Keys.Escape))
+                    if (Keyboard.IsKeyDown(Keys.Escape))  //if you hit escape during game menu will be shown
                     {
                         TimeSpan deltaTime = DateTime.Now - m.LastClick;
                         if (deltaTime.TotalMilliseconds > 200)
@@ -93,7 +93,7 @@ namespace Dash
                         }
                     }
                 }
-                else
+                else  //Shows time ran out screen
                 {
                     Font f = new Font("Arial", 36);
                     Brush b = new SolidBrush(Color.Black);
@@ -104,19 +104,17 @@ namespace Dash
                     stringFormat.Alignment = StringAlignment.Center;
                     stringFormat.LineAlignment = StringAlignment.Center;
                     dc.DrawString(tekst, f, b, rect1, stringFormat);
-                    if (Keyboard.IsKeyDown(Keys.Enter))
+                    if (Keyboard.IsKeyDown(Keys.Enter))  //if you hit enter level restarts
                     {
                         RestartLevel();
                     }
-                    else if (Keyboard.IsKeyDown(Keys.Escape))
+                    else if (Keyboard.IsKeyDown(Keys.Escape))  //if you escape game ends and you go back to main menu
                     {
-                        RestartLevel();
-                        menu = true;
-                        gameRunning = false;
+                        SetupGameWorld();
                     }
                 }
             }
-            else if (menu)
+            else //show menu if game isnt running or menu = true
             {
 
                 m.Update(ref input, ref gameRunning, ref menu);
@@ -130,14 +128,14 @@ namespace Dash
         /// </summary>
         private void Draw()
         {
-            foreach (GameObject g in currentLevel.BackgroundMap)
+            foreach (GameObject g in currentLevel.BackgroundMap)  //loops thru backgroundmap and draws it
             {
                 if (g != null)
                 {
                     g.Draw(dc);
                 }
             }
-            foreach (GameObject g in currentLevel.LevelMap)
+            foreach (GameObject g in currentLevel.LevelMap)  //loops thru foregroundmap and draws it
             {
                 if (g != null)
                 {
@@ -168,7 +166,7 @@ namespace Dash
             Brush brush = new SolidBrush(Color.FromArgb(alpha, 0, 0, 0));
             dc.FillRectangle(brush, 0, 0, 864, 672);
             alpha += (int)(25*1/currentFPS);
-            if (alpha > 100)
+            if (alpha > 100) //if alpha is higher than 100 restart current level
             {
                 RestartLevel();
             }
@@ -179,7 +177,7 @@ namespace Dash
         /// </summary>
         private void Update()
         {
-            foreach (GameObject g in currentLevel.LevelMap)
+            foreach (GameObject g in currentLevel.LevelMap) //runs update for all objects in foregroundmap
             {
                 if (g != null)
                 {
@@ -207,14 +205,14 @@ namespace Dash
         /// </summary>
         private void RestartLevel()
         {
-            if (playerState == 1 && cLevel != 20)
+            if (playerState == 1 && cLevel != 20) //if player finished current level and currentlevel is not 20 save time in log and go to next level
             {
                 WriteLog("lvltimes.txt", "Level: " + cLevel + " Tid: " + Math.Round(currentLevel.Time - t,2) + Environment.NewLine);
                 cLevel++;
                 cutScenePlayed = false;
             }
 
-            if ((cLevel == 1 || cLevel == 2) && !cutScenePlayed)
+            if ((cLevel == 1 || cLevel == 2) && !cutScenePlayed) //if thre is cutscene for the currentlevel enable cutscenes and set cutscene played to true so it only plays once per level
             {
                 cutScene = 6;
                 cutScenePlayed = true;
@@ -231,38 +229,38 @@ namespace Dash
         /// </summary>
         private void PlayCutScene()
         {
-            if (cLevel == 1)
+            if (cLevel == 1) //if current level == 1 play this cutscene
             {
-                if (cutScene > 4)
+                if (cutScene > 4)  //if cutscene timer is over 4 show first image
                 {
                     dc.DrawImage(Image.FromFile("Graphics/B1.gif"), 0, 0, 864, 672);   
                 }
-                else if (cutScene > 2)
+                else if (cutScene > 2) //if cutscene timer is over 2 show second image
                 {
                     dc.DrawImage(Image.FromFile("Graphics/B2.gif"), 0, 0, 864, 672);
                 }
-                else
+                else //otherwise show third image
                 {
                     dc.DrawImage(Image.FromFile("Graphics/B3.gif"), 0, 0, 864, 672);
                 }
 
             }
-            else if (cLevel == 2)
+            else if (cLevel == 2) //if current level == 2 play this cutscene
             {
-                if (cutScene > 4)
+                if (cutScene > 4) //if cutscene timer is over 4 show first image
                 {
                     dc.DrawImage(Image.FromFile("Graphics/B1.gif"), 0, 0, 864, 672);
                 }
-                else if (cutScene > 2)
+                else if (cutScene > 2) //if cutscene timer is over 2 show second image
                 {
                     dc.DrawImage(Image.FromFile("Graphics/B2.gif"), 0, 0, 864, 672);
                 }
-                else
+                else //otherwise show third image
                 {
                     dc.DrawImage(Image.FromFile("Graphics/B3.gif"), 0, 0, 864, 672);
                 }
             }
-            else
+            else //if no cutscene for the currentlevel disable cutscene
             {
                 cutScene = 0;
             }
@@ -279,7 +277,7 @@ namespace Dash
         {
             try
             {
-                if (File.Exists(path))
+                if (File.Exists(path)) //check if file exists if it does read contents then write it to tekstfile and add a new line
                 {
                     StreamReader sr = new StreamReader(path);
                     string tekst = sr.ReadToEnd();
@@ -289,7 +287,7 @@ namespace Dash
                     sw.WriteLine(tekstline);
                     sw.Close();
                 }
-                else
+                else //if file doesnt exist create it and write tekstline to it
                 {
                     StreamWriter sw = File.CreateText(path);
                     sw.Close();
