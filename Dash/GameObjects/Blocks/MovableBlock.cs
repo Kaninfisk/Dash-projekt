@@ -183,7 +183,7 @@ namespace Dash
                 {
                     if (g.GetType().ToString() == "Dash.Dash")
                     {
-                        MovePlayer(g, fps);
+                        MovePlayer(ref levelMap, g, fps);
                     }
                 }
             }
@@ -192,12 +192,11 @@ namespace Dash
         /// <summary>
         /// If hitbox of block collides with player it moves the player accordingly
         /// </summary>
+        /// <param name="levelMap"></param>
         /// <param name="g"></param>
         /// <param name="fps"></param>
-        private void MovePlayer(GameObject g, float fps)
+        private void MovePlayer(ref GameObject[,] levelMap,GameObject g, float fps)
         {
-
-
             foreach (Rect r in collisionBoxes)
             {
                 RectangleF rect = r.HitBox(position.X, position.Y - 2);
@@ -226,7 +225,46 @@ namespace Dash
                                 g.Position = new PointF(g.Position.X + speed * 1 / fps, g.Position.Y);
                             }
                         }
+                    }
+                }
+            }
 
+            Dash player = (Dash)g;
+
+            foreach (GameObject g2 in levelMap) //runs thru all the gameobjects in foreground map
+            {
+                if (g2 != null && g2.GetType().ToString() != "Dash.Dash" && g2.GetType().ToString() != "Dash.TriggerBlock")
+                {
+                    if (!player.DashLeft && !player.DashRight && !player.DashUp)
+                    {
+                        foreach (Rect r in player.CollisionBoxes)
+                        {
+                            RectangleF rect = r.HitBox(player.Position.X, player.Position.Y);
+
+                            foreach (Rect r2 in g2.CollisionBoxes)
+                            {
+                                if (rect.IntersectsWith(r2.HitBox(g2.Position.X, g2.Position.Y)))
+                                {
+                                    if (direction == 1)
+                                    {
+                                        
+                                    }
+                                    else if (direction == 2)
+                                    {
+                                        
+                                    }
+                                    else if (direction == 3)
+                                    {
+                                        player.Position = new PointF(g2.Position.X - r2.Position.X + r2.HitBox(g2.Position.X, g2.Position.Y).Width, player.Position.Y);
+                                    }
+                                    else if (direction == 4)
+                                    {
+                                        player.Position = new PointF(g2.Position.X + r2.Position.X - player.CollisionBoxes[0].HitBox(player.Position.X, player.Position.Y).Width, player.Position.Y);
+                                    }
+                                    
+                                }
+                            }
+                        }
                     }
                 }
             }

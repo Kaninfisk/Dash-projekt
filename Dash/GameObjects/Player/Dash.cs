@@ -26,7 +26,7 @@ namespace Dash
             set { falling = value; }
         }
 
-        public bool DashRight   
+        public bool DashRight
         {
             get { return dashRight; }
         }
@@ -198,6 +198,18 @@ namespace Dash
                             position.X = g.Position.X + r2.Position.X - collisionBoxes[0].HitBox(position.X, position.Y).Width;
                         }
                     }
+
+                    RectangleF rect2 = r.HitBox(position.X, position.Y);
+                    rect2.Offset(new PointF(1, 0));
+
+                    foreach (Rect r2 in g.CollisionBoxes)  //loops thru all the collisionboxes for the g object
+                    {
+                        if (rect2.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with hitbox stop dashing right start falling and move to the object
+                        {
+                            dashRight = false;
+                            falling = true;
+                        }
+                    }
                 }
                 else if (dashLeft) //dashing left
                 {
@@ -212,6 +224,19 @@ namespace Dash
                             position.X = g.Position.X - r2.Position.X + r2.HitBox(g.Position.X, g.Position.Y).Width;
                         }
                     }
+
+                    RectangleF rect2 = r.HitBox(position.X, position.Y);
+                    rect2.Offset(new PointF(-1, 0));
+
+                    foreach (Rect r2 in g.CollisionBoxes)  //loops thru all the collisionboxes for the g object
+                    {
+                        if (rect2.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with hitbox stop dashing right start falling and move to the object
+                        {
+                            dashLeft = false;
+                            falling = true;
+                        }
+                    }
+                    
                 }
                 else if (dashUp) //dashing up
                 {
@@ -228,11 +253,22 @@ namespace Dash
                         }
                     }
 
-                }
+                    RectangleF rect2 = r.HitBox(position.X, position.Y);
+                    rect2.Offset(new PointF(0, -1));
 
+                    foreach (Rect r2 in g.CollisionBoxes)  //loops thru all the collisionboxes for the g object
+                    {
+                        if (rect2.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with hitbox stop dashing right start falling and move to the object
+                        {
+                            dashUp = false;
+                            falling = true;
+                        }
+                    }
+
+                }
                 else if (falling) //falling
                 {
-                    rect.Offset(0, ((fallSpeed / 100) * 100) * (1 / fps)); //offsets rectangle
+                    rect.Offset(0, fallSpeed * (1 / fps)); //offsets rectangle
 
                     foreach (Rect r2 in g.CollisionBoxes) //loops thru all the collisionboxes for the g object
                     {
@@ -244,6 +280,16 @@ namespace Dash
                         }
                     }
 
+                    RectangleF rect2 = r.HitBox(position.X, position.Y);
+                    rect2.Offset(new PointF(0, 1));
+
+                    foreach (Rect r2 in g.CollisionBoxes)  //loops thru all the collisionboxes for the g object
+                    {
+                        if (rect2.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with hitbox stop dashing right start falling and move to the object
+                        {
+                            falling = false;
+                        }
+                    }
                 }
             }
         }

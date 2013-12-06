@@ -205,7 +205,7 @@ namespace Dash
             gameRunning = false;
             menu = true;
             cutScenePlayed = false;
-            cLevel = 20;
+            cLevel = 1;
             RestartLevel();
             Audio.StopAllSounds();
             Audio.PlayMusic("audio/Intro.mp3");
