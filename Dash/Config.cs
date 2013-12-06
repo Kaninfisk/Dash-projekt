@@ -95,10 +95,10 @@ namespace Dash
             sound = 100;
             master = 100;
             music = 100;
-            leftKey = Keys.A;
-            rightKey = Keys.D;
-            upKey = Keys.W;
-            downKey = Keys.S;
+            leftKey = Keys.Left;
+            rightKey = Keys.Right;
+            upKey = Keys.Up;
+            downKey = Keys.Down;
             shootKey = Keys.Space;
 
             if (!File.Exists("config.xml"))
