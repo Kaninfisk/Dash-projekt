@@ -15,6 +15,7 @@ namespace Dash
         private bool falling; //indicates if falling
         private bool direction; //indicates direction for sprite flipping
         private int speed; //players speed
+        private DateTime fallDelay;
 
         public bool Falling
         {
@@ -172,6 +173,7 @@ namespace Dash
                             dashRight = false;
                             falling = true;
                             position.X = g.Position.X + r2.Position.X - collisionBoxes[0].HitBox(position.X, position.Y).Width;
+                            fallDelay = DateTime.Now;
                         }
                     }
                 }
@@ -190,6 +192,7 @@ namespace Dash
                         {
                             dashLeft = false;
                             falling = true;
+                            fallDelay = DateTime.Now;
                             position.X = g.Position.X - r2.Position.X + r2.HitBox(g.Position.X, g.Position.Y).Width;
                         }
                     }
@@ -209,6 +212,7 @@ namespace Dash
                             dashUp = false;
                             falling = true;
                             position.Y = g.Position.Y + r2.Position.Y + r2.HitBox(g.Position.X, g.Position.Y).Height;
+                            fallDelay = DateTime.Now;
                         }
                     }
                 }
@@ -343,9 +347,9 @@ namespace Dash
                 }
                 position.X += speed * (1 / fps);
             }
-            else if (falling)
+            else if (falling && DateTime.Now > fallDelay.AddMilliseconds(50))
             {
-                position.Y += ((speed /4) * 3) * (1 / fps);
+                position.Y += ((speed /3) * 2) * (1 / fps);
             }
         }
     }
