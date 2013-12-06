@@ -850,27 +850,6 @@ namespace Dash
                             break;
 
                         #region Buttons
-
-                        //case "B1":
-                        //    collisionBoxes = new List<Rect>();
-                        //    collisionBoxes.Add(new Rect(new PointF(0,0),48,48));
-                        //    lvlMap[y, x] = new TriggerBlock(1,new PointF(x * 48, y * 48), "Graphics\\B1.gif", collisionBoxes);
-                        //    break;
-                        //case "B2":
-                        //    collisionBoxes = new List<Rect>();
-                        //    collisionBoxes.Add(new Rect(new PointF(0,0),48,48));
-                        //    lvlMap[y, x] = new TriggerBlock(1, new PointF(x * 48, y * 48), "Graphics\\B2.gif", collisionBoxes);
-                        //    break;
-                        //case "B3":
-                        //    collisionBoxes = new List<Rect>();
-                        //    collisionBoxes.Add(new Rect(new PointF(0,0),48,48));
-                        //    lvlMap[y, x] = new TriggerBlock(1, new PointF(x * 48, y * 48), "Graphics\\B3.gif", collisionBoxes);
-                        //    break;
-                        //case "B4":
-                        //    collisionBoxes = new List<Rect>();
-                        //    collisionBoxes.Add(new Rect(new PointF(0,0),48,48));
-                        //    lvlMap[y, x] = new TriggerBlock(1, new PointF(x * 48, y * 48), "Graphics\\B4.gif", collisionBoxes);
-                        //    break;
                         case "BB":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 48, 48));
@@ -1340,7 +1319,7 @@ namespace Dash
                         case "PL":
                             collisionBoxes = new List<Rect>();
                             collisionBoxes.Add(new Rect(new PointF(0, 0), 96, 96));
-                            lvlMap[y, x] = new Dash(400, new PointF(x * 48, y * 48), "Graphics\\PL.gif;Graphics\\PD.gif", collisionBoxes);
+                            lvlMap[y, x] = new Dash(400, new PointF(x * 48, y * 48), "Graphics\\PL.gif;Graphics\\PL.gif;Graphics\\PD.gif;Graphics\\PB.gif;Graphics\\PB.gif", collisionBoxes);
                             break;
                         #endregion
 

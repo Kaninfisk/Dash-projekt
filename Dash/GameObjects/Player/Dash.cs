@@ -39,6 +39,8 @@ namespace Dash
             falling = true;
             this.speed = speed;
             fallSpeed = speed / 4;
+            animationFrames[4].RotateFlip(RotateFlipType.RotateNoneFlipX);
+            animationFrames[1].RotateFlip(RotateFlipType.RotateNoneFlipX);
         }
 
         /// <summary>
@@ -113,7 +115,7 @@ namespace Dash
                         falling = false;
                         dashLeft = false;
                         dashUp = false;
-                        sprite = animationFrames[1];
+                        sprite = animationFrames[2];
                         playerState = 2;
                     }
                 }
@@ -231,10 +233,6 @@ namespace Dash
             }
         }
 
-
-
-
-
         /// <summary>
         /// Checks if player is at edge of screen and makes sure that the player object cant go outside the screen area
         /// </summary>
@@ -315,26 +313,39 @@ namespace Dash
             }
             else if (dashLeft) //if dashup move speed multiplied by 1/fps left
             {
-                if (!direction) //if changing direction flip playersprite
-                {
-                    sprite.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                    direction = true;
-                }
+                sprite = animationFrames[4];
+                direction = true;
                 position.X -= speed * (1 / fps);
 
             }
             else if (dashRight) //if dashup move speed multiplied by 1/fps right
             {
-                if (direction) //if changing direction flip playersprite
-                {
-                    sprite.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                    direction = false;
-                }
+                sprite = animationFrames[3];
+                direction = false;
                 position.X += speed * (1 / fps);
             }
             else if (falling && DateTime.Now > fallDelay.AddMilliseconds(20)) //if falling and datetime is larger than delay move speed multiplied by 1/fps down
             {
-                position.Y +=  fallSpeed * (1 / fps);
+                position.Y += fallSpeed * (1 / fps);
+                if (direction)
+                {
+                    sprite = animationFrames[1];
+                }
+                else
+                {
+                    sprite = animationFrames[0];
+                }
+            }
+            else
+            {
+                if (direction)
+                {
+                    sprite = animationFrames[1];
+                }
+                else
+                {
+                    sprite = animationFrames[0];
+                }
             }
         }
     }

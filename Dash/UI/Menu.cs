@@ -18,9 +18,6 @@ namespace Dash
         private DateTime lastClick; //Datetime that contains time of last click
         private bool gameRunning; // indicates if game has been started or not
         private int screenWidth = 864; //width of the screen space
-        private Font f;  //Font for menu items
-        private Font headLine; //Font for main headlines
-        private Font headLine2; //For for secondary headlines
         private Brush b = new SolidBrush(Color.FromArgb(255, 133, 149, 161)); //Brush for headlines and non selected menu items
         private Brush b2 = new SolidBrush(Color.FromArgb(255, 218, 212, 94)); //Brush for selected menu items
         private Brush b3 = new SolidBrush(Color.FromArgb(255,20,12,28));
@@ -45,9 +42,6 @@ namespace Dash
             selectedMenu = 1;
             highlightedMenuItem = 1;
             pf.AddFontFile("Graphics\\Font.ttf");
-            f = new Font(pf.Families[0], 32);
-            headLine = new Font(pf.Families[0], 48);
-            headLine2 = new Font(pf.Families[0], 48);
         }
 
         /// <summary>
@@ -110,7 +104,7 @@ namespace Dash
                     tekst = "Resume Game";
                     p.AddString(tekst, pf.Families[0], 0, 70, pos, stringFormat);
                     dc.DrawPath(new Pen(b3, 6), p);
-                    dc.FillPath(b2, p);
+                    dc.FillPath(b, p);
                 }
                 else
                 {
