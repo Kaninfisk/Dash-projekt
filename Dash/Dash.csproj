@@ -192,6 +192,9 @@
     <Content Include="Graphics\E9.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Graphics\EP.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Graphics\F1.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -309,6 +312,9 @@
     <Content Include="Graphics\M9.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Graphics\mainmenu.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Graphics\N1.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -321,7 +327,13 @@
     <Content Include="Graphics\N9.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Graphics\PB.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Graphics\PD.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Graphics\PH.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Graphics\PL.gif">
@@ -375,6 +387,9 @@
     <Content Include="Graphics\R9.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Graphics\RC.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Graphics\S1.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -388,6 +403,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Graphics\SB.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Graphics\scene1.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Graphics\scene2.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Graphics\scene3.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Graphics\scene4.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Graphics\scene5.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Graphics\SG.gif">
