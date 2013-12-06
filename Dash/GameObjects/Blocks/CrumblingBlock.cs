@@ -29,7 +29,7 @@ namespace Dash
         public CrumblingBlock(PointF position, string imagePath, List<Rect> collisionBoxes)
             : base(position,imagePath,collisionBoxes)
         {
-            time = 5;
+            time = 3;
         }
 
         /// <summary>

@@ -26,6 +26,21 @@ namespace Dash
             set { falling = value; }
         }
 
+        public bool DashRight   
+        {
+            get { return dashRight; }
+        }
+
+        public bool DashLeft
+        {
+            get { return dashLeft; }
+        }
+
+        public bool DashUp
+        {
+            get { return dashRight; }
+        }
+
         /// <summary>
         /// Constructor that sets dash speed and falling
         /// </summary>
