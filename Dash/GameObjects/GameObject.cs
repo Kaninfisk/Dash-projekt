@@ -10,7 +10,6 @@ namespace Dash
     {
         protected PointF position;
         protected List<Image> animationFrames;
-        protected float currentAnimationIndex;
         protected Image sprite;
         protected List<Rect> collisionBoxes;
 

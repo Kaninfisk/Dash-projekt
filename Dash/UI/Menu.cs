@@ -17,7 +17,6 @@ namespace Dash
         private Graphics dc;  //graphics object to draw on
         private DateTime lastClick; //Datetime that contains time of last click
         private bool gameRunning; // indicates if game has been started or not
-        private int screenWidth = 864; //width of the screen space
         private Brush b = new SolidBrush(Color.FromArgb(255, 133, 149, 161)); //Brush for headlines and non selected menu items
         private Brush b2 = new SolidBrush(Color.FromArgb(255, 218, 212, 94)); //Brush for selected menu items
         private Brush b3 = new SolidBrush(Color.FromArgb(255,20,12,28));
