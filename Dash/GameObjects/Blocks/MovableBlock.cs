@@ -233,7 +233,7 @@ namespace Dash
 
             foreach (GameObject g2 in levelMap) //runs thru all the gameobjects in foreground map
             {
-                if (g2 != null && g2.GetType().ToString() != "Dash.Dash" && g2.GetType().ToString() != "Dash.TriggerBlock")
+                if (g2 != null && g2.GetType().ToString() != "Dash.Dash" && g2.GetType().ToString() != "Dash.TriggerBlock" && g2.GetType().ToString() != "Dash.Enemy")
                 {
                     if (!player.DashLeft && !player.DashRight && !player.DashUp)
                     {

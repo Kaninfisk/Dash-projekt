@@ -89,7 +89,7 @@ namespace Dash
                 {
                     CheckCrumblingCollisions(g, fps);
                 }
-                else if (g != null && g.GetType().ToString() != "Dash.Dash") //else if its any other type of object other than the player object
+                else if (g != null && g.GetType().ToString() != "Dash.Dash" && g.GetType().ToString() != "Dash.Enemy") //else if its any other type of object other than the player object
                 {
                     CheckBlockCollisions(g, fps);
                 }
@@ -135,12 +135,13 @@ namespace Dash
                     if (rect.IntersectsWith(r2.HitBox(g.Position.X, g.Position.Y))) //if player collides with the hitbox stop moving, set playerstate to dead switch to death sprite image and play gameover sound
                     {
                         Audio.PlaySoundFX("Audio\\Game Over_1.mp3");
+                        playerState = 2;
                         dashRight = false;
                         falling = false;
                         dashLeft = false;
                         dashUp = false;
                         sprite = animationFrames[2];
-                        playerState = 2;
+
                     }
                 }
             }
@@ -245,7 +246,7 @@ namespace Dash
                             falling = true;
                         }
                     }
-                    
+
                 }
                 else if (dashUp) //dashing up
                 {
@@ -397,26 +398,37 @@ namespace Dash
             else if (falling && DateTime.Now > fallDelay.AddMilliseconds(20)) //if falling and datetime is larger than delay move speed multiplied by 1/fps down
             {
                 position.Y += fallSpeed * (1 / fps);
-                if (direction)
+                if (playerState != 2)
                 {
-                    sprite = animationFrames[1];
+                    if (direction)
+                    {
+                        sprite = animationFrames[1];
+                    }
+                    else
+                    {
+                        sprite = animationFrames[0];
+                    }
                 }
-                else
-                {
-                    sprite = animationFrames[0];
-                }
+
             }
             else
             {
-                if (direction)
+                if (playerState != 2)
                 {
-                    sprite = animationFrames[1];
+                    if (direction)
+                    {
+                        sprite = animationFrames[1];
+                    }
+                    else
+                    {
+                        sprite = animationFrames[0];
+                    }
                 }
-                else
-                {
-                    sprite = animationFrames[0];
-                }
+
             }
         }
     }
 }
+
+
+
