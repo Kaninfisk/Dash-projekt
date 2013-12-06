@@ -219,7 +219,7 @@ namespace Dash
             }
 
             playerState = 0;
-            currentLevel = new Level(15);
+            currentLevel = new Level(20);
             t = currentLevel.Time;
             alpha = 0;
         }
