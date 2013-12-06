@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.IO;
 using System.Windows.Forms;
 
@@ -150,9 +152,21 @@ namespace Dash
         /// </summary>
         private void DrawUI()
         {
-            Font f = new Font("Arial", 16);
-            Brush b = new SolidBrush(Color.Black);
-            dc.DrawString(Math.Round(t, 2).ToString().Replace(',', '.'), f, b, 432, 0);
+            Brush b = new SolidBrush(Color.FromArgb(255, 133, 149, 161));
+            Brush b3 = new SolidBrush(Color.FromArgb(255,20,12,28));
+            PrivateFontCollection pf = new PrivateFontCollection();
+
+            Point pos = new Point(800, 30);
+            GraphicsPath p = new GraphicsPath();
+            string tekst = (Math.Round(t, 0).ToString());
+            StringFormat stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
+            pf.AddFontFile("Graphics\\Font.ttf");
+            p.AddString(tekst, pf.Families[0], 0, 32, pos, stringFormat);
+            dc.DrawPath(new Pen(b3, 6), p);
+            dc.FillPath(b, p);
+
 #if DEBUG
             dc.DrawString(currentFPS.ToString(), f, b, 800, 0);
 #endif
