@@ -129,35 +129,35 @@ namespace Dash
 
                     #region Level3
 
-                    lm = "S7;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST;ST" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;PL;NN" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;W7;W8;W8;W8;W8;W9" + "_" +
-                         "SL;NN;NN;NN;F7;F8;F8;F8;F9;NN;NN;NN;E4;R5;R5;R5;R5;E6" + "_" +
-                         "SL;NN;NN;NN;E4;R5;R5;R5;E6;NN;NN;NN;E1;E2;E2;E2;E2;E3" + "_" +
-                         "SL;NN;NN;NN;E4;R5;R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;E4;R5;R5;R5;E6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;E1;E2;E2;E2;E3;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;HB9;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "F7;F8;F8;F8;F8;F8;F8;F8;F8;BHB;BHB;BHB;F8;F8;F8;F8;F8;F9";
+                    lm = "N7;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2;E2" + "_" +
+                         "E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;PL;NN" + "_" +
+                         "E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                         "E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;W7;W8;W8;W8;W8;W8" + "_" +
+                         "E6;NN;NN;NN;F7;F8;F8;F8;F9;NN;NN;NN;E4;SV;SP;R5;SH;R5" + "_" +
+                         "E6;NN;NN;KL;E7;E8;E8;E8;E9;KR;NN;NN;E1;E2;E2;E2;N9;R5" + "_" +
+                         "E6;NN;NN;NN;E4;X7;X9;R5;E6;NN;NN;NN;NN;NN;NN;NN;E4;R5" + "_" +
+                         "E6;NN;NN;NN;E4;X1;X3;SH;E6;NN;NN;NN;NN;NN;NN;NN;E4;R5" + "_" +
+                         "E6;NN;NN;NN;E1;E2;E2;E2;E3;NN;NN;NN;NN;NN;NN;NN;E4;SG" + "_" +
+                         "E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;SG" + "_" +
+                         "E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;R5" + "_" +
+                         "E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E1;E2" + "_" +
+                         "E6;F7;F8;F8;F9;F7;F8;F9;HB9;NN;NN;NN;NN;NN;NN;NN;NN;NN" + "_" +
+                         "N1;E8;E8;E8;E8;E8;E8;E9;BHB;BHB;BHB;F7;F8;F8;F8;F9;F7;F8";
 
                     bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
+                         "G1;G1;G1;G1;G3;G3;G3;G3;G3;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
+                         "G1;G2;G1;G2;G3;G3;G3;G3;G3;G4;G4;G4;G4;G4;G4;G4;G4;G4" + "_" +
+                         "G1;G1;G2;G1;G3;G3;G3;G3;G3;G4;G4;G4;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G2;G1;G2;G3;G3;G3;G3;G3;G4;G4;G4;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G1;G2;G1;G1;G1;G1;G1;G1;G4;G4;G4;G1;G1;G1;G1;G1;G1" + "_" +
+                         "G1;G2;G1;G2;G1;G1;G1;G1;G1;G4;G4;G4;G4;G5;G4;G4;G1;G1" + "_" +
+                         "G1;G1;G2;G1;G1;G1;G1;G1;G1;G4;G4;G4;G5;G4;G5;G4;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4;G4;G4;G4;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G3;G3;G3;G3;G4;G4;G4;G4;G4;G5;G4;G4;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G3;G3;G3;G3;G4;G4;G4;G4;G5;G4;G5;G4;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G3;G3;G3;G3;G4;G4;G4;G4;G4;G4;G4;G4;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G3;G3;G3;G3;Q1;Q2;Q2;Q2;Q2;Q2;Q2;Q2;Q3;G4" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4;G4;G4;G4;G4;G4;G4";
 
                     #endregion
 
@@ -167,34 +167,34 @@ namespace Dash
 
                     #region Level4
 
-                    lm = "S7;ST;ST;F1;F2;F3;E4;E6;M9;PL;NN;ST;ST;ST;ST;ST;ST;S9" + "_" +
-                         "SL;NN;NN;NN;NN;NN;E4;E6;M6;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;E4;E6;M3;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;E1;E3;WB;WB;WB;WB;WB;WB;WB;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;W7;W8;W9;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;F1;F2;F3;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;U4;U6;R5" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;E7;E9;NN;NN;NN;NN;NN;BVR" + "_" +
-                         "SL;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;E6;NN;NN;NN;NN;NN;BVR" + "_" +
-                         "W7;W8;W8;W8;W8;W9;NN;NN;NN;NN;E4;E6;NN;NN;NN;NN;NN;BVR" + "_" +
-                         "E1;E2;E2;E2;E2;E3;F7;F8;F8;F9;E1;E3;W7;W8;W8;W8;W8;W9";
+                    lm = "R1;R2;R3;R5;SH;X1;X3;E6;M9;PL;NN;ST;ST;ST;ST;ST;ST;E4" + "_" +
+                         "N7;E2;E2;E2;E2;E2;N9;E6;M6;NN;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "E6;NN;NN;F1;F2;F3;E4;E6;M3;NN;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "E6;NN;NN;NN;NN;NN;E4;N1;W8;W8;W8;W8;W8;W8;W9;NN;NN;E4" + "_" +
+                         "E6;NN;NN;NN;NN;NN;E1;E2;E2;E2;E2;E2;E2;E2;E3;NN;NN;E4" + "_" +
+                         "E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;SG;NN;NN;E4" + "_" +
+                         "E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "E6;NN;NN;U4;IH;U6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4" + "_" +
+                         "E6;NN;NN;F1;F2;F3;NN;NN;NN;NN;NN;NN;NN;NN;NN;W7;W8;N3" + "_" +
+                         "E6;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;NN;E4;SH;SV" + "_" +
+                         "E6;NN;NN;NN;NN;NN;NN;NN;NN;E7;E8;E9;NN;NN;NN;E1;E2;E2" + "_" +
+                         "E6;NN;NN;NN;NN;NN;NN;NN;NN;E4;R5;E6;NN;NN;NN;NN;NN;BVR" + "_" +
+                         "N1;W8;W8;W8;W8;W9;F7;F8;F9;E4;SP;E6;NN;NN;NN;NN;NN;BVR" + "_" +
+                         "R8;R8;R9;R5;SH;N1;E8;E8;E8;N3;SG;N1;W8;W8;W8;W8;W8;W8";
 
-                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
-                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1" + "_" +
+                    bm = "G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4;G4;G4;G4;G4;G4;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4;G4;G4;G4;G4;G4;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G4;G4;G4;G4;G4;G4;G4;G4;G4;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G4;G5;G1" + "_" +
+                         "G1;G2;G1;G2;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G5;G4;G1" + "_" +
+                         "G1;G1;G2;G1;G2;G1;G3;G3;G3;G3;G3;G3;G3;G3;G1;G4;G5;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G3;G3;G3;G3;G3;G3;G3;G3;G3;G5;G4;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G3;G3;G3;G3;G3;G3;G3;G3;G3;G4;G4;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G3;G3;G3;G3;G3;G3;G3;G3;G3;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G3;G3;G3;G3;G3;G3;G3;G3;G3;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G3;G3;G3;G1;G1;G1;G3;G3;G3;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G3;G3;G3;G1;G1;G1;G3;G3;G3;G1;G1;G1" + "_" +
+                         "G1;G1;G1;G1;G1;G1;G3;G3;G3;G1;G1;G1;G3;G3;G3;G1;G1;G1" + "_" +
                          "G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1;G1";
 
                     #endregion
@@ -1233,7 +1233,7 @@ namespace Dash
                             break;
                         case "KR":
                             collisionBoxes = new List<Rect>();
-                            collisionBoxes.Add(new Rect(new PointF(0, 24), 24, 48));
+                            collisionBoxes.Add(new Rect(new PointF(0, 0), 24, 48));
                             lvlMap[y, x] = new Enemy(new PointF(x * 48, y * 48), "Graphics\\KR.gif", collisionBoxes);
                             break;
 
