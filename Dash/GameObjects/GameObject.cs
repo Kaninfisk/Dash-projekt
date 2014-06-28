@@ -61,7 +61,7 @@ namespace Dash
         {
             if (sprite != null)
             {
-                dc.DrawImage(sprite, position.X, position.Y, sprite.Width, sprite.Height);
+                dc.DrawImage(sprite, (int)position.X, (int)position.Y, sprite.Width, sprite.Height);
             }
 #if DEBUG
             foreach (Rect collisionBox in collisionBoxes)
